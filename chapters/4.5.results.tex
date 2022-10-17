@@ -1,0 +1,230 @@
+\section{Results}\label{sec:orch_results}
+
+\subsection{RQ1: Effectiveness}
+\label{subsec:rq1}
+
+The answer to \textbf{RQ1} contains two parts: first, we compare the effectiveness of \ek and \fs against each other (\textbf{RQ1.1}), and then, we assess
+whether orchestration TCS and TCP ultimately improves effectiveness (\textbf{RQ1.2}). 
+For the sake of space we show the results for both subquestions within unified plots and tables.
+
+%\begin{figure}[t]
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/pTTFF-avg}
+%  \caption{Normalized \ttff of different approaches}
+%  \label{fig:ttff_avg}
+%  \vspace{-3mm}
+%\end{figure}
+
+The \pttff results 
+are displayed as violin plots in Figure~\ref{fig:ttff_avg}, in which each version of each subject is one data point (totaling 541).
+The violin plots display, in addition to the median and interquartile ranges, the full distribution of the data, 
+which allows us to identify the different peaks in a distribution. 
+For the \pttff metric, the lower the result, the better.
+
+The visual assessment of the data shows us that the median \pttff achieved by \ek and \fs are both close to 45\% (the two leftmost plots in Figure~\ref{fig:ttff_avg}), although there is a large difference in the distribution of the results.
+This can be explained in part by the experiment design -- since \ek's \pttff is an average of 30 permutations of $S$, the value tends to be close to the center.
+Indeed, we can see that the median for \rnd is very close to 50\%, while \ek is lower than that because $S$ is frequently smaller than $T$.
+
+When adding \fz to the comparison, we can see that its median \pttff is much lower, at around 25\%, which is slightly over half the medians of \ek and \fs.
+Both \fs and \fz can, in some instances, produce a \pttff close to 100\%, meaning that the failing test is found at the very end of the test suite.
+In the case of \fs, this is explained by the fact that similarity-based \tcp can occasionally produce poor results if there are multiple similar test cases out of which only one reveals the failure.
+
+With \fz, this happens less frequently; when it does, it is caused by performance of both \ek (selecting nearly 100\% of the test suite) and \fs (ranking the failing test low) in specific subject versions.
+
+After the visual inspection we proceeded with the statistical analysis of the data. 
+As we could not assume our data to be normally distributed, we adopted a non-parametric statistical hypothesis test, 
+the Kruskal-Wallis rank sum test\footnote{We used \texttt{kruskal.test()} from the \texttt{Stats} package in \texttt{R}.}.
+We assessed at a significance level of 5\% the null hypothesis that the differences in the \ttff values are not statistically significant.
+The observed differences in \ttff were statistically significant at least at the 95\% confidence level 
+(\textit{p-value} $<$ 2.2e-16).
+
+Provided that significant differences were detected by the
+Kruskal-Wallis test we performed pairwise comparisons to
+determine which approaches are different\footnote{A significant Kruskal-Wallis test indicates that 
+there is a significant difference between approaches, 
+but does not identify which pairs of approaches are different.}. 
+The results are displayed in Table~\ref{tab:ttff_apfd} (column \textit{Group} for TTFF).
+If two approaches have different letters they are significantly different
+(with $\alpha = 0.05$). If, on the other hand, they share the same letter, the
+difference between their ranks is not statistically significant. 
+The approach (or group of approaches) that yields the best performance is
+assigned to the group (a).
+Looking at the results in Table~\ref{tab:ttff_apfd}, we can tell that
+\fz is different from (better than) \ekr (b).
+\ekr, on its turn, is different from (better than) \fs (c), 
+and all the approaches are different from (better than) \rnd (d).
+
+%\input{tables/effectiveness}
+%
+%\input{tables/effectsize}
+
+To understand the effect of choosing one technique over another on the effectiveness of the test suite, we measured the effect size using the Vargha and Delaney $\hat{A}_{12}$ measure~\citep{vargha2000critique}, which tells us the probability of an observation from one group being larger than an observation from the other group.
+The results are displayed in \autoref{tab:effectsize}. For interpreting the results, the $\hat{A}_{12}$ measure ranges from 0 to 1, and when the measure is exactly 0.5 the two techniques (in the column name) have equal performance. When $\hat{A}_{12}>0.5$, the first technique outperforms the second, and when $\hat{A}_{12}<0.5$, the second technique outperforms the first.
+Vargha and Delaney suggest that the effect size is \textit{small} if the measure is over 0.56, \textit{medium} if over 0.64, and \textit{large} if the measure is over 0.71. As an example, when comparing \fz against \rnd for the subject Chart, \fz outperforms \rnd with a \textit{large} effect ($\hat{A}_{12}=0.82$) on the testing effectiveness.  
+%
+We can see that \ek generally outperforms \fs, most of the time with a negligible or small effect, but there are cases where \fs outperforms \ek.
+\fz, on its turn, outperforms \ek and \fs with a non-negligible effect in the vast majority of the cases (18 out 24). The effect of choosing \fz over \ek or \fs on the test effectiveness is large or medium in 11 cases.
+
+
+While \ttff captures how many test cases are required to reveal the first failures, 
+the \apfd metric measures the speed at which failures are revealed.
+
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/APFD-avg}
+%  \caption{\apfd of different approaches.}
+%  \label{fig:apfd_avg}
+%  \vspace{-3mm}
+%\end{figure}
+The observed \apfd results are displayed as violin plots in Figure~\ref{fig:apfd_avg}.
+For the \apfd metric, the higher
+the better.
+Visual assessment of the results lead to the same conclusion as for \pttff:
+\ek and \fs have similar medians, although \fs sometimes performs very poorly, while \fz has a higher median than both and mitigates most instances of poor performance from \fs.
+It is also visible that the peak of the distribution of \fz leans towards the highest possible values, while \ek peaks at around 0.6.
+
+Statistical analysis results are reported in Table~\ref{tab:ttff_apfd} (right side). 
+We performed again the Kruskal-Wallis rank sum test, followed by the pairwise multiple
+comparisons.
+All  results in Table~\ref{tab:ttff_apfd} are statistically
+significant at the 5\% significance level.
+Both the groups assigned to each approach 
+and the results of the effect size analysis were the same as the ones observed for the \ttff metric.
+
+
+\begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
+\textbf{Summary of RQ1}: While statistically significant differences were observed for the comparison between \ek and \fs, a further investigation of the effect size revealed that the effect of choosing \ek over \fs is either small or negligible in almost all the cases.
+\fz, on the other hand, outperformed \ek and \fs with a non-negligible effect in the vast majority of the cases, suggesting that adopting \fz can help improving the testing effectiveness.
+\end{tcolorbox}
+
+
+\subsection{RQ2: Effectiveness under a limited budget}
+\label{subsec:rq2}
+
+To answer RQ2, we proceeded with a detailed analysis of the impact of limiting the number of test cases with respect to those that would be run by \ek. 
+We investigated the impact on the failure detection capability of all the approaches 
+when the testing budget is gradually reduced from 100\% (no budget restrictions) 
+%to 10\% of the test suite selected by \ek, at steps of 10\%.
+to 25\% of the test suite selected by \ek, at steps of 25\%.
+%
+We discuss our findings first at a higher level, then with a more in-depth analysis of the results for each of the subjects considered in our study.
+
+%\begin{figure*}[h]
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/HitCount-PerBudget-box-plot-4.pdf}
+%  \begin{flushleft}
+%	\footnotesize
+%	Each panel represents a different budget constraint (100\% is defined as the percentage of the test size selected by \ek).
+%	The vertical axis shows how many times, out of the 30 repetitions, each approach is able to reveal the failure.
+%  \end{flushleft}
+%  \caption{Impact on failure detection capability in a budget-constrained scenario.}
+%  \label{fig:perbudget}
+%\end{figure*}
+
+Figure~\ref{fig:perbudget} depicts the impact on failure detection capability on the different approaches.
+The results are grouped per budget 
+(25\% to 100\%) 
+and each approach is represented by a violin plot.
+For each version of each subject 
+we counted how many times, out of the 30 repetitions (see~\autoref{subsec:metrics})
+each approach would be able to reveal the failure under the different budget restrictions 
+(the number of observation in each violin plot is thus the same as the total number of versions, i.e., 541).
+The vertical axis varies from 0 to 30, respectively the minimum and maximum number of times an approach could reveal the failure across the 30 repetitions.
+Notice that for this RQ it is not a concern whether the failure is revealed by the first or the last test case, 
+as this was already answered by RQ1; the  concern here is whether the failure is revealed.
+
+We can draw several observations from Figure~\ref{fig:perbudget}:
+\textit{i}) the median number of times the random approach can reveal the failure decreases almost uniformly as the budget becomes  stricter;
+\textit{ii}) because \ekr is the result of \ek selection with random ordering, the observed medians and distributions 
+are always slightly better than random, but following a similar trend as the one observed for random;
+\textit{iii}) \fz outperforms the other approaches up to a budget restriction of 50\%;
+\textit{iv}) for the more restrictive budget of 25\% the median of \ekr and even random are better than those of the \fz approach.
+Looking at the shape of the violin plots, however, we can see that even with a lower median  \fz  appears to have more observations leaning towards the maximum possible value.
+
+%\begin{figure*}[h]
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/PercentageFaultsPerBudgetPerSubject-ekstazi-10.pdf}
+%  \begin{flushleft}
+%	\footnotesize
+%	The vertical axes represent the number of failures revealed in absolute (left) and in relative terms (right),
+%	whereas the horizontal axes show the budgets w.r.t the number of tests selected by \ek (bottom) and w.r.t the total number of tests in the subject's test suite (top).
+%  \end{flushleft}
+%  \caption{Impact on failure detection capability grouped by subject and by budget.}
+%  \label{fig:persubject}
+%\end{figure*}
+
+To better understand such a behavior we analyze the data again from a different perspective in Figure~\ref{fig:persubject}, in which 
+we observe the impact on failure detection capability on a per subject basis.
+This time, however, instead of counting how many times the failure would be revealed across the 30 repetitions,
+we are interested in the cases where the approach would consistently reveal the failure across all the repetitions for a given version.
+In this way we do not reward the cases where an approach would be able to reveal a failure by pure chance. 
+Each subject is represented by a grouped bar plot and the height of each bar
+represents the number of times the approach was able to consistently reveal the failure, 
+both in absolute (left vertical axis) and in relative terms (right vertical axis).
+For example, the maximum value in the left vertical axis for \texttt{Closure} is 168, 
+which is the number of versions we considered for that subject and, at the same time, the maximum number of failures that can be revealed (one per version).
+
+The primary horizontal axis (bottom) represents the budgets, from 10\% to 100\%,
+whereas the secondary horizontal axis (top) shows what a given budget restriction would mean with regards to the whole test suite.
+This is important because the size of the test suite varies greatly across the subjects.
+For example, while a budget restriction of 50\% for \texttt{Collections} means that 45\% of the whole test suite is selected, 
+only 23\% of the whole test suite would be selected for \texttt{Chart} under the same budget restrictions
+(we recall that the budget restriction is calculated over the size of the test subset selected by \ek).
+
+
+By analyzing Figure~\ref{fig:persubject} we can draw the following observations:
+\textit{i}) with no budget restrictions (budget = 100\%), \ekr and \fz were able to consistently reveal all the failures across the 30 repetitions;
+\textit{ii}) for any other budget value below 100\% \fz outperformed \ek alone and \fs alone --- in a very few cases \fs appears tied to \fz;
+\textit{iii}) \ekr can consistently reveal some failures for almost all the budgets for \texttt{Chart}. 
+For all the other subjects, it cannot reveal any failure for budgets restricted below 50\%.
+For the particular cases of \texttt{Collections} and \texttt{Lang}, \ekr cannot reveal any failure consistently in the constrained budget scenario;
+\textit{iv}) with the exception of \texttt{Codec}, \texttt{Collections}, and \texttt{JxPath}, 
+\fz was able to consistently reveal some failures across the 30 repetitions for all the budgets, including the more restrictive budget of 10\%.
+
+\begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
+\textbf{Summary of RQ2}: 
+Without controlling for the differences across subjects, 
+\fz exposes the best failure detection capability even under restricted budgets, 
+except for under 25\% reductions in which \ekr and even random appear to show better median values.
+However, when we look from a per subject perspective and reward the approaches that consistently reveal failures,
+\fz outperform \ek alone (with random ordering) and \fs alone (without \tcs) for all the budgets considered.
+\end{tcolorbox}
+
+
+
+\subsection{RQ3: Efficiency comparison}
+\label{subsec:rq3}
+To compare the time efficiency of \ek, \fs, and \fz, 
+we isolated the individual steps of each approach and measured the average time each step took, across the different versions of each subject program. 
+In our measures, displayed in \autoref{tab:execution_time}, 
+the average build time (column~2) for each project was substantially longer than any cost added by \ek, \fs, or \fz.
+This is an important observation because \fs can run its preparation phase (column~3), i.e, computing hashes of added/modified test cases, in parallel with the building process as it requires only test code.
+\fz takes advantage of this aspect to minimize the time overhead. %by running \fs preparation in parallel with the building process.
+\ek, on the other hand, requires the code to be compiled before it can perform selection, so it cannot be run in parallel with the build.
+
+%\input{tables/efficiency}
+%
+%\input{tables/efficiency-stats}
+
+Looking at the average execution times for \fs, \ek, and \fz 
+(the three rightmost columns in~\autoref{tab:execution_time}) 
+the two main things we can observe are: 
+\textit{i}) overall, \fs is the technique that incurs the least time overhead;
+and \textit{ii}) the overhead of \fz with respect to \ek running time is generally very small.
+
+To confirm our observations we performed the non-parametric Kruskal-Wallis rank sum test, 
+and the result (\textit{p-value} $=$ 4.5e-05) confirmed that at least one of the approaches was different from the others with respect to the time efficiency.
+Provided that significant differences were detected, we proceeded with pairwise comparisons to determine which approaches were different
+and the results are displayed in \autoref{tab:efficiency_stats}.
+Statistically significant differences were observed when comparing \fs with \ek and \fz, but not when comparing \fz with \ek.
+Finally, to understand if the observed differences in time efficiency are not only statistically significant but also meaningful to support practitioners in the decision of whether \fz should be adopted, we measured the effect size.
+The results can be interpreted in an analogous way of that explained in Section~\ref{subsec:rq1}.
+The effect size for the comparison of \fs with \ek and \fz was $\hat{A}_{12}=0.04$ and $\hat{A}_{12}=0.03$, respectively, indicating that \emph{the effect on the time overhead when running \ek or \fz is large}.
+On the other hand, the effect size for the comparison between \fz and \ek was $\hat{A}_{12}=0.55$, indicating that \emph{the additional time overhead incurred by \fz when compared with \ek is negligible}.
+
+It is important to notice that such results concern the overhead time required by the studied techniques, which are anyhow one or two orders of magnitude shorter than the time required for actually running the whole test suites.
+
+\begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
+\textbf{Summary of RQ3}: When considering the three approaches in isolation, \fs is the most efficient one and the difference with respect to the time overhead incurred by the other approaches is \textit{large}.
+The additional time overhead incurred by \fz for prioritizing the test cases selected by \ek is not statistically significant and the effect size is negligible.
+\end{tcolorbox}

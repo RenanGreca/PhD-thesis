@@ -41,11 +41,18 @@
 %	TYPESETTING
 %----------------------------------------------------------------------------------------
 \usepackage{pifont}
-\usepackage{xcolor,colortbl}
+\usepackage{colortbl}
 \usepackage{flushend}
 \usepackage[normalem]{ulem} % for \sout
 \usepackage{multicol}
-\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage[nameinlink]{cleveref}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage[noend]{algpseudocode}
+\usepackage[labeled,resetlabels]{multibib}
+
+
 \newcommand{\ugh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
 \newcommand{\ins}[1]{\textcolor{blue}{\uline{#1}}} % please insert
 \newcommand{\del}[1]{\textcolor{red}{\sout{#1}}} % please delete
@@ -57,6 +64,54 @@
 \newcommand{\todo}[1]{\textcolor{blue}{\ding{46}{\sf}~#1}}
 
 \newcommand{\sugg}[1]{\textcolor{orange}{#1}}
+
+%% Abbreviation commands
+\newcommand{\tcp}{TCP\xspace}
+\newcommand{\tcs}{TCS\xspace}
+\newcommand{\tsr}{TSR\xspace}
+\newcommand{\tsa}{TSA\xspace}
+\newcommand{\rt}{RT\xspace}
+\newcommand{\rea}{IR\&A\xspace}
+
+
+\newcommand{\numpapers}{79\xspace}
+
+\newcommand{\ek}{Ekstazi\xspace}
+\newcommand{\ekr}{Ekstazi\xspace}
+\newcommand{\rnd}{Random\xspace}
+\newcommand{\fs}{FAST\xspace}
+\newcommand{\fz}{{Fastazi}\xspace}
+\newcommand{\fzs}{\fz-S\xspace}
+\newcommand{\fzp}{\fz-P\xspace}
+\newcommand{\dfj}{Defects4J\xspace}
+
+\newcommand{\apfd}{APFD\xspace}
+\newcommand{\ttff}{TTFF\xspace}
+\newcommand{\pttff}{TTFF\xspace}
+
+% Circles
+\usepackage{tikz}
+\newcommand*\emptycirc[1][1ex]{%
+	\begin{tikzpicture}
+		\draw (0,0) circle (#1);
+	\end{tikzpicture}} 
+\newcommand*\halfcirc[1][1ex]{%
+  \begin{tikzpicture}
+  \draw[fill] (0,0)-- (90:#1) arc (90:270:#1) -- cycle ;
+  \draw (0,0) circle (#1);
+  \end{tikzpicture}}
+\newcommand*\fullcirc[1][1ex]{%
+  \begin{tikzpicture}
+	\draw[fill] (0,0) circle (#1);  	
+  \end{tikzpicture}} 
+  
+  
+% Defining bibliographies
+\newcites{P}{Papers related to this thesis}
+\newcites{C}{Conferences related to this thesis}
+\newcites{S}{Papers identified in the Systematic Literature Review}
+%\newcites{Bibliography}{Bibliography}
+  
 %----------------------------------------------------------------------------------------
 %	End of TYPESETTING
 %----------------------------------------------------------------------------------------
@@ -361,10 +416,32 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 
 \label{Bibliography}
 
+%\newcites{P}{Papers related to this thesis}
+%\newcites{C}{Conferences related to this thesis}
+
+%\fullcite{greca_comparing_2022}
+
+%\bibliographystylec{IEEEtran}
+%
+%\nocitec{greca_comparing_2022}
+
+%\bibliography{bibliographies/production.bib}
+
+%\printbibliography
+
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
 
-\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliographystyleP{unsrtnat}
+\bibliographyP{production.bib}
 
-\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\nociteP{greca_comparing_2022}
+
+\bibliographystyleS{unsrtnat}
+\bibliographyS{slr.bib}
+
+\input{bibliographies/nociteS.tex}
+
+\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliography{bibliographies/bibliography.bib} % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
 \end{document}

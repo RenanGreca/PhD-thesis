@@ -2,4 +2,175 @@
 %	The Industry-Academia Knowledge Gap
 %----------------------------------------------------------------------------------------
 \chapter{The Industry-Academia Knowledge Gap}\label{chap:gap}
-\lhead{\emph{The Industry-Academia Knowledge Gap}} % Set the left side page header to "Introduction"
+\lhead{\emph{The Industry-Academia Knowledge Gap}} % Set the left side page header
+
+While this review indicates that \rea is a growing concern among \rt researchers, it's still only being addressed with any depth on a minority of secondary studies.
+It is clear that several authors believe \rea is a challenge worth addressing in research, but there is not a lot of available \rt literature focusing on the steps that need to be taken in order to improve academia-industry communication and shorten the technology transfer gap.
+
+We conclude this work by highlighting some key challenges that we have identified, combining data found in the literature itself, in the authors' responses and in the practitioner survey.
+These are challenges that may have been addressed in certain circumstances but remain unsolved in a broad sense, as they are still present in several recent works.
+Along with each challenge, we make some suggestions that could be applied by Software Engineering researchers and/or Software Testing practitioners — these could be actionable steps for upcoming primary studies, or further avenues of investigation for secondary or meta studies.
+\autoref{table:challenges} provides the summary of the challenges we identified, indicating the primary source of our observation (i.e. the literature, the authors and/or the practitioners).
+
+\begin{table}[]
+\scriptsize
+\rowcolors{1}{}{gray!10}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lllll|lllll}
+\toprule
+\textbf{ID} & \textbf{Title} & \textbf{L}  & \textbf{A} & \textbf{P} &
+\textbf{ID} & \textbf{Title} & \textbf{L}  & \textbf{A} & \textbf{P}\\
+\midrule
+CH1 & Alignment of motivations             &   				&  			     & \fullcirc      &
+CH5 & Converting research into usable tool &                & \fullcirc 	 & \fullcirc 	  \\
+
+CH2 & Realistic experimentation            & \fullcirc 		&                &                &
+CH6 & Absence of TSR/TSA                   & \fullcirc 		&                & \fullcirc 	  \\
+
+CH3 & Scalability                          & \fullcirc 		&                &                &
+CH7 & Clarity of target                    & \fullcirc 		&                &        	      \\
+
+CH4 & Relevance of metrics                 & \fullcirc 		& \fullcirc 	 &                &
+CH8 & Communication                        &                & \fullcirc 	 & \fullcirc 	  \\
+\bottomrule
+\end{tabular}\\
+\scriptsize Source(s): \textbf{L}: Literature; \textbf{A}: Author questionnaire; \textbf{P}: Practitioner survey.
+\caption{Summary of main challenges identified by this study.}
+\label{table:challenges}
+\end{table}
+
+% ===================
+
+\paragraph{CH1: Alignment of motivations}
+When asked what would convince them to implement and use an~\rt tool, eight practitioners gave responses that can be synthesized into ``\textit{it would make my work easier}''.
+So there exists a mismatch between academic motivations and industrial needs: research is concerned with discovering novel techniques that might provide marginal effectiveness gains over the state-of-the-art, while practitioners are mostly concerned with any solution that simplifies their workflow.
+In other words, even if a \tcs technique has the potential to greatly reduce the testing time of a suite, practitioners will weigh those benefits against the effort required to implement the technique and adapt/maintain it for their needs.
+This is not to say that the current research motivations are ill-informed: it is the role of academia to push the boundaries of what is possible in theory first, and sometimes this theory takes many years to find relevance in practice.
+
+If the researchers have the objective of implementing their approach, they must be certain that it is addressing the current needs of practitioners.
+An obvious way to achieve this, which is also confirmed by our study, is through partnerships between academic researchers and industrial practitioners (or even open-source communities).
+These collaborative works, by their own nature, tend to produce results suitable for practical applications and could serve as a guideline for other, purely academic, approaches.
+
+Naturally, not all research can be done with industrial partnerships, and in these cases there is difficulty in finding what exactly is relevant to current practitioners.
+One possible source of this information is grey literature: information produced by experts in a field, but without necessarily following academic guidelines, in the form of blog posts, videos, magazine articles, talks etc.
+Practitioners who produce grey literature can help inform researchers about the current state of practice, the main existing challenges in software development, and successful implementations of techniques (e.g. the aforementioned Netflix blog~\cite{netflixlerner}).
+
+% ===================
+
+\paragraph{CH2: Realistic experimentation}
+It is clearly not possible for every research paper to feature practitioner co-authors or to rely on an industrial partnership for experimentations.
+Selecting the right subject for experiments is a decisive point when writing a paper about a technique.
+Older studies on \rt would often rely on the ``Siemens programs''~\cite{hutchins1994experiments}, which is believed to have caused an overfitting of results to a particular kind of software~\cite{do_recent_2016}.
+More recently, the Software Infrastructure Repository (SIR)~\cite{do2005supporting} (e.g. \citepalias{schwartz_cost-effective_2016}) and Defects4J~\cite{just2014defects4j} (e.g. [\citetalias{noor_similarity-based_2016}, \citetalias{azizi_retest_2018}]) have been used to similar ends.
+Having common subjects can provide replicability benefits when directly comparing techniques, although is not always clear if they approximate the difficulty of testing real software.
+Authors who are able to collaborate directly with members of industry gain an enormous advantage if they are allowed to run experiments on production code, but it is also clear that not every paper will have that opportunity.
+
+The most obvious alternative is to use large-scale open-source software (e.g. from the Mozilla \citepalias{zhou_beating_2020} and Apache 
+[\citetalias{oqvist_extraction-based_2016}, 
+\citetalias{bertolino_learning--rank_2020}, 
+\citetalias{pan_dynamic_2020}, 
+\citetalias{bagherzadeh_reinforcement_2022}, 
+\citetalias{chen_context-aware_2021}]
+ foundations) as subjects, since the communities developing these programs follow procedures much like the developers working for corporations .
+This is also far from trivial.
+The larger the software, the more time a researcher will need to dedicate in order to understand it and to adapt the technique to it, sacrificing the possibility of experimenting on a larger variety of subjects and thus again bringing the risk of overfitting.
+Additionally, there is no established consensus regarding which properties an open-source program must satisfy in order to be a satisfactory subject.
+
+Alleviating this issue would require effort from both researchers and practitioners.
+For example, Google has an open dataset of testing results~\cite{googledataset}, and \citetalias{spieker_reinforcement_2017} combined it with one from ABB Robotics.
+As a result, this combined dataset has already been used by other papers covering machine learning 
+[\citetalias{wu_time_2019}, 
+\citetalias{lima_multi-armed_2022}, 
+\citetalias{pan_dynamic_2020}, 
+\citetalias{sharif_deeporder_2021}, 
+\citetalias{omri_learning_2022}].
+Two practitioners mention that ``\textit{open source code/data is not provided}'' due to confidentiality reasons.
+In those cases, our suggestion would be to provide some opaque information regarding the system, e.g. its programming language, the number of lines of code and/or tests, how many developers work on it, how frequently is the code updated, etc.
+At the very least, this would help researchers choose subjects with similar characteristics.
+
+% ===================
+
+\paragraph{CH3: Scalability}
+\rt techniques provide the most savings when applied to large-scale software projects, which can have multiple thousands of test cases.
+Therefore, it is important that techniques are designed to scale up to any size of test suite, but few papers tackle this issue directly.
+The trouble is that scalability is very hard to measure unless multiple subjects of different sizes are used.
+One way to demonstrate scalability, beyond relying on industrial partners or large-scale open-source projects, is to artificially generate large datasets (e.g.~[\citetalias{miranda_fast_2018}, \citetalias{cruciani_scalable_2019}]), which are useful from the algorithmic perspective, but might not address other issues that arise in large-scale software development.
+It is also worth mentioning that many \rt techniques can become \textit{disadvantageous} when applied to small test suites, as the cost of running the technique does not outweigh the savings in testing time.
+So selecting the size of the experiment subject is important both to highlight the scalability of the tool in large software and also to consider whether the necessary overhead is a deal-breaker on small or medium projects.
+
+
+% ===================
+\paragraph{CH4: Relevance of metrics}
+Section \ref{sec:rq1} shows that a wide variety of metrics has been used to evaluate the effectiveness of \rt techniques.
+Some are used almost universally for a certain kind of challenge (e.g. APFD for \tcp), while others have nearly no presence beyond the paper that introduced them.
+
+The abundant use of APFD and its variants indicate that, at least among researchers, there is a consensus of its utility and importance when evaluating \tcp approaches, although the usage of specific variants might hamper that benefit.
+At the same time, it is not clear that a technique optimized for only APFD is sufficient to satisfy the needs of software developers in practice.
+Still, APFD has been in use for over 20 years and it cannot simply be dismissed: at the very least it provides an agreed-upon method of directly comparing different techniques.
+
+For the cases of \tcs and \tsr, there is less controversy on what are the most important metrics; reduction rate and fault detection loss appear to be the consensus among researchers, and there are fewer novel and single-use metrics.
+As an example,~\citetalias{mehta_data-driven_2021} interviewed practitioners at Microsoft before deciding on their \tcs metrics, obtaining three main targets: reduction of cost, reduction of time and the failure detection rate.
+We can observe in~\autoref{sec:rq1} that these concerns are reasonably addressed by \tcs techniques, although researchers still appear to prioritize reducing the selected set rather than ensuring all failures are detected.
+
+The metrics of applicability and diagnosability \citepalias{correia_motsd_2019, zhou_beating_2020} are interesting propositions that consider other degrees of usefulness of a tool to developers.
+Their existence indicates that some researchers still believe there is room for improved metrics that, perhaps, better map the requirements of real-world software, although these are rarely found in the literature.
+Furthermore, ease-of-use is an important point to consider and, as far as we could detect, there is no established method of measuring it.
+
+One practitioner stated: ``\textit{I don't think that academic tools are the best in a professional environment, I prefer commercial tools,}'' implying they believe academics are not measuring the results that matter most to them.
+Indeed, managers allocating development funds will usually focus on the dollar savings a technique can bring, regardless of its theoretical effectiveness in fault-finding (as mentioned by respondent author \#43).
+
+% ===================
+\paragraph{CH5: Converting research into usable tools}
+When techniques are designed in an academic context, they are normally developed as proof-of-concept works.
+That is, the purpose is to show that the technique works and provides significant results according to some metrics.
+However, this leads to two issues: either primary studies do not make their solution available for implementation, as we discussed in~\autoref{sec:rq2}, or their experiments do not thoroughly consider practical concerns such as efficiency or the data requirements of a proposed approach.
+Finally, what seems to matter the most is time and budget for developing a tool.
+Papers are usually written targeting a hard deadline and their prototypes often do not see further work past publication.
+It is inevitable that researchers will move on to new challenges, but their contribution would be amplified if the tool is, at the very least, open-source and well-documented so that other interested parties can continue the work in the future if desired.
+
+If an \rt technique is implemented as a prototype that is shown to work on a certain kind of software, it is much easier to get the attention from a practitioner and convert the solution into something used in practice.
+If feasible, an available prototype with solid documentation and usage instructions can be valuable both for study replicability and as a way to get developers interested in using it. 
+That said, the responsibility of developing fully functional tools should not fall solely upon researchers.
+One practitioner stated that ``\textit{[\rt tools] need full security screening}'', and other said ``\textit{it requires an adaptation}''; these steps are not actionable by researchers in isolation.
+As industry stands to benefit from scientific advances, it should be in its best interest to promote and fund the collaborations needed to continue development of promising prototypes.
+
+% ===================
+\paragraph{CH6: Absence of \tsr/\tsa}
+Out of \numpapers papers, only 8 are about \tsr and, surprisingly, only one covers \tsa 
+ \citepalias{yoshida_fsx_2016}.
+60\% of the surveyed practitioners claim that ``creating or updating tests'' is a major challenge in real-world \rt, so the desire for \tsa exists and there appears to be ample room for experimenting with new approaches and metrics.
+47\% also mention the difficulty of refactoring and removing obsolete test cases as a pain point, which is something \tsr could remedy.
+This can be an opportunity for researchers to develop novel methods and to progress in directions that are in need of exploration.
+
+% ===================
+\paragraph{CH7: Clarity of target}
+Several of the papers we reviewed don't clearly state key characteristics of their SUT, such as its programming language or its scale (either in lines of code or test cases).
+For practitioners and other researchers to consider a paper worthy of investigation, it is important to know for which kind of system a piece of research was designed.
+
+As mentioned in~\autoref{sec:rq2}, few \rt techniques are language-agnostic and many do not inform the target language at all.
+Similarly, the type of software (web, mobile, embedded, distributed, etc.) or its development paradigm are important factors to mention, seen in studies such as~\citetalias{zhong_testsage:_2019} for web services and~\citetalias{lima_multi-armed_2022} for software developed and delivered through continuous integration.
+Not every tool can be used in any type of software, and it is likely that specific types of software might require specific solutions, so it is important to state the particularities of certain subject programs.
+This is akin to the point of ``context factors'' brought up by~\citet{bin_ali_search_2019}, which helps to alleviate the issue by introducing a base taxonomy that can be used to categorize techniques.
+
+Critically, there is often ambiguity on the very definition of test case.
+Software testing can include unit tests, integration tests, multi-component tests, system tests, end-to-end tests and so forth.
+Most papers do not make it explicit which layer of testing it is addressing. While it can sometimes be inferred with some domain knowledge, it is difficult to be certain for most readers.
+This information would be valuable for interested practitioners and also for researchers who are looking to identify gaps in the literature.
+On top of that, some papers use the term ``test case'' to refer to test methods, while others use it when referring to test classes/files (which contain several test methods), so the granularity of the technique is not always clear, and this can impact both effectiveness and efficiency analysis.
+This challenge can be solved by having a paragraph dedicated to explicitly describing the properties and context factors of the experiment subjects.
+
+\paragraph{CH8: Communication}
+The main challenge, which connects most of the previous ones, is communication.
+Researchers and practitioners both lead busy lives, focusing on their day-to-day affairs, and ultimately communication between the two realms suffers.
+
+There are some steps that can be taken to improve this.
+Companies can start by having round-table discussions on recent research publications (e.g. the Google Journal Club \cite{googlejournal}) and, if possible, they should invite the author(s) to participate.
+On the other side, universities can host lectures by practitioners in addition to other researchers.
+This can start small — find people in the same city, perhaps alumni of the university, who are working on something interesting and have a conversation.
+
+56\% of responding practitioners claimed they keep contact with a friend or colleague who is a researcher in Software Engineering.
+After all, most academics have interacted with people who are currently practitioners during their education process, and vice-versa.
+This means that both sides have an opportunity to network and communicate beyond their current professions, giving each other ideas of what is currently relevant in industrial software development and what is the latest state-of-the-art in academic research.
+
+It can be a daunting idea to catch up to latest research trends, so larger companies could consider having employees dedicated to understanding the internal processes and challenges while searching for collaborations with academics.
+Many researchers would be thrilled to receive a message inviting them for a joint effort with palpable outcomes.

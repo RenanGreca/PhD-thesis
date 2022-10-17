@@ -1,0 +1,118 @@
+\newcommand{\TSenc}{$T$}
+%\newcommand{\P}{$P$}
+\newcommand{\I}{$I$}
+\newcommand{\CardP}{$|P|$}
+\newcommand{\CardI}{$|I|$}
+\newcommand{\MT}{$M$}
+\newcommand{\MV}{$M$($v$)}
+\newcommand{\MC}{$M$($c$)}
+\newcommand{\V}{$v$}
+\newcommand{\B}{$B$}
+\newcommand{\Csim}{$C_{s}$}
+\newcommand{\Cdis}{$C_{d}$}
+%\newcommand{\C}{$C$}
+%\newcommand{\SS}{$s$}
+\newcommand{\f}{$f$}
+%\newcommand{\cc}{$c$}
+%\newcommand{\d}{$d$}
+\newcommand{\e}{$e$}
+
+\begin{algorithm}
+\caption{\ek, \fs and \fz overview}
+\label{algo:fastazi}
+\begin{algorithmic}[1]
+
+%\Function{UpdateHashes}{test suite $T$}
+%	\State $M \gets $ \Call{ExistingHashes}{T}
+%%	\State $N \gets$
+%	\For{$t \in $ \Call{GetNewOrUpdatedTests}{T}} 
+%		\State $M[t] \gets$ \Call{ComputeHash}{$t$}
+%%		\If{$t$ is new or updated}
+%%			\Call{ComputeHash}{$t$}
+%%		\EndIf
+%	\EndFor
+%%	\State $D \gets$
+%%	\For{$t \in $ \Call{GetDeletedTests}{T}} 
+%%		\State $M[t] \gets $ \texttt{nil}
+%%	\EndFor
+%	\State \Return $M$ \Comment{Updated minhash signatures of all tests.}	
+%\EndFunction
+
+\Function{GetHashesAndModified}{files $F$}
+%\Function{UpdateHashesAndGetModified}{files $F$}
+        \State $M, C \gets $ \Call{ExistingHashes}{F}
+        \State $M' \gets \emptyset$ \Comment{Minhashes for \fs and CRC for \ek}
+		\State $F' \gets \emptyset$
+	\For{$f \in F$}
+		\State $M'[f] \gets$ \Call{ComputeHashes}{$f$}
+%		\If{$t$ is new or updated}
+%			\Call{ComputeHash}{$t$}
+%		\EndIf
+            \If{$M[f] \neq M'[f]$}
+                \State \Call{Append}{$F'$, $f$}
+            \EndIf
+        \EndFor
+%	\State $D \gets$
+	%% \For{$t \in $ \Call{GetDeletedTests}{T}} 
+	%% 	\State $M[t] \gets $ \texttt{nil}
+	%% \EndFor
+	\State \Return $M', F'$ \Comment{Updated hashes and modified files.}	
+\EndFunction
+
+\Function{\ek}{test suite $T$, files $F$}
+        \State $S \gets \emptyset$
+        \For{$f \in F$}
+            \For{$t \in $ $T$}
+                \If{\Call{TestDependsOn}{$t$, $f$}}
+                    \State \Call{Append}{$S$, $t$}
+                \EndIf
+            \EndFor
+        \EndFor
+        \State \Return $S$ \Comment{A selected test suite.}
+\EndFunction
+
+\Function{\fs}{test suite $T$, hashes $M$}
+	\State $P \gets \emptyset$
+%	\State $B \gets $ \Call{LSHBuckets}{$M$}
+%	\State \MV $\gets$ \Call{MHSignature}{$\emptyset$} \Comment{\MV : Cumulative signature of so-far-ordered test cases}
+	\While{$|P| \neq |T|$}
+%		\State \Csim $\gets$ furthest test cases from what is already prioritized %\Call{LSHCandidates}{\B, \MV}
+%		\If{\Csim $= \emptyset$}
+%			\State \MV $\gets$ \Call{MHSignature}{$\emptyset$}
+%			\State \Csim $\gets$ \Call{LSHCandidates}{\B, \MV}
+%		\EndIf
+%		\State \Cdis $\gets$ ($I - P -$ \Csim) \Comment{Complement of \Csim}
+%		\State $S$ $\gets$ \Call{Select}{\MV, \MT, \Cdis, \f}
+		\State $t$ $\gets$ \Call{PickNextTest}{$T$, $P$, $M$} \Comment{Pick the test that is furthest away from the so-far-ordered tests $P$ based on $M$.}
+%		\State \MV $\gets$ \Call{UpdateMHSignature}{\MV, \MT, $S$}
+%		\State \MT $\gets$ \Call{Remove}{\MT, $S$}
+		\State $P$ $\gets$ \Call{Append}{$P$, $t$}
+	\EndWhile
+	\State \Return $P$ \Comment{A prioritized test suite.}
+\EndFunction
+
+
+\Function{\fz}{test suite $T$, files in the project $F$}
+	\State \Call{Compile}{$T$} $\bullet$ $M, F \gets $ \Call{GetHashesAndModified}{$F$} \Comment{Compiles the test suite using the build system and, in parallel, computes hashes and detects modified files.}
+	\State $S \gets $\Call{\ek}{$T$, $F$}
+	\State $P \gets $\Call{\fs}{$S$, $M$}
+	\State \Return $P$ \Comment{A selected and prioritized test suite.}
+\EndFunction
+
+
+%\State clone $v_1$...$v_n$ from \dfj
+%\State compile $v_1$
+%\State $P_1\gets P(T)$
+%\State $i\gets 1$
+%\While {$i\geq n$}
+%	\State copy \ek and \fs metadata from $v_{i-1}$ to $v_i$
+%	\State compile $v_i$
+%	\State $S_i\gets S(T_i)$
+%	\State $P_i\gets P(T_i)$
+%	\State $C_{Pi}\gets P_i \cap S_i$
+%	\State $C_{Si}\gets P(S_i)$
+%	\State test $v_i$
+%\EndWhile
+
+\end{algorithmic}
+\end{algorithm}

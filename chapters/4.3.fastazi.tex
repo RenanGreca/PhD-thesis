@@ -1,0 +1,126 @@
+\section{Background}\label{sec:orch_background}
+
+\subsection{\ek}\label{sec:orch_ekstazi}
+\ek~\cite{gligoricEk} is a \textit{change-based} and \textit{coarse-grained} approach to \tcs.
+It works by collecting test case dependencies (i.e., set of used classes by each test case) during an initial run of the entire test suite, then by selecting the test cases based on the changes applied to those dependencies from one version of the software to another.
+In doing this \ek applies a \textit{file-level granularity}: any code changed within a file that is related to a test case will result in that test being selected.  To compare two versions of a file, \ek uses cyclic redundancy check (CRC).
+For example, consider a test $t$ that invokes a function $a$.
+If a change is made to another function $b$ located in the same file as $a$,
+$t$ will be selected (as the CRC of the file changed).
+
+The result of this approach is an over-approximation of the subset of selected tests.
+Although \ek selects, on average, more tests than fine-grained \tcs solutions (e.g., those that track dependencies on methods), the authors demonstrated that the actual selection time is much faster than the alternatives. 
+Consequently, the total end-to-end time (i.e., time to select tests + time to execute selected tests) tends to be lower, even if more tests are selected. 
+
+We chose \ek for our study for its efficiency and ease of use: \ek is publicly available as a plug-in for various Java build systems.
+Furthermore, aiming eventually at an orchestration of \tcs plus \tcp with the objective of reducing feedback time, we considered that 
+a prioritized test suite could mitigate the drawbacks of over-selecting test cases.
+
+\subsection{\fs}\label{sec:orch_fast}
+
+\fs~\cite{miranda_fast} utilizes test source code as input for a \emph{similarity-based algorithm} to prioritize the tests.
+Inspired by big data techniques, string representations of test cases are transformed using minhashing signatures, which are then ordered according to their similarity.
+The benefits of \fs are low overhead and scalability, which make it usable for large software projects.
+We chose it because of its low running times and relatively simple implementation.
+
+\fs authors~\cite{miranda_fast} examined several possible variations of it
+that trade off efficiency for accuracy when choosing the next test(s).
+These are all stochastic by nature;
+as the authors point out, if two test cases are ranked equally, the tie is solved randomly.
+In our experiments with \fs we observed that \fs-pw (which is one of the variations) produced consistently similar permutations when executed more than once with the same test suite. 
+This was an expected result given that \fs-pw is designed to always select the test case that is the furthest away from the set of already-prioritized tests.
+It does so by computing the similarity between each candidate test and the set of already-prioritized tests in a pairwise fashion.
+Furthermore, \fs-pw was able to rank failing tests  higher than other variations. 
+Therefore, in this paper  we consider the \fs-pw variant, and in the following we refer to it simply as \fs.
+
+
+\section{\fz}\label{sec:orch_fastazi}
+
+Many researchers have shown that \tcs and \tcp  provide substantial benefits 
+to regression testing~\cite{bin_ali_search_2019, kazmi_effective_2017, khatibsyarbini_test_2018, RothermelHarrold94FrameworkForEvaluationRTS}:
+a good selection decreases the overall testing time, while a good prioritization allows for detecting failures faster.
+However the two concepts are not mutually exclusive, and an orchestration of both may provide even further improvements, e.g.,~\cite{spieker2017reinforcement,elbaum2014techniques}.
+
+If a test suite is selected \textit{and} prioritized, both testing time and feedback time can be decreased.
+Recall that \tcs can be defined as a function $S(T)$ that produces a subset of tests and \tcp as a function $P(T)$ that outputs a permutation of $T$.
+Then, the goal of an approach that orchestrates \tcs and \tcp is to generate another function, $O(T)$, 
+whose output is smaller than $T$ and ordered to speed up failures detection.
+When discussing possible ways of orchestrating \tcs and \tcp, two approaches stand out.
+
+\paragraph{Parallel execution.} 
+One approach is to independently perform the prioritization and selection of the entire test suite, and then arranging the selected tests according to the ordering given by prioritization.
+This approach has the advantage of allowing parallel execution of $S(T)$ and $P(T)$ and merging their outputs, instead of having one depend upon the other.
+To combine the outputs, it is sufficient to go through the prioritized list of tests and remove the ones that are not included in the selection.
+
+%\begin{figure}[t]
+%  \centering
+%    \includegraphics[width=0.8\linewidth]{figures/Fastazi}
+%    \begin{center}
+%  	\footnotesize
+%  	T: complete test suite; S: selection by \ek;\\ P: prioritization by \fs; O: orchestration by \fz. 
+%	\end{center}
+%
+%    \caption{Sample outputs of \ek, \fs and \fz}
+%    \label{fig:fastazi}
+%\end{figure}
+
+
+%While it could be possible to execute $S(P(T))$ sequentially, there is no practical benefit to that; the selection does not depend on the test ordering, and performing the intersection of the two isolated techniques is much faster than waiting for the prioritization to happen and then performing the selection.
+%This happens because the output of $P(T)$ is the same size as $T$, and thus the running time for $S$ would be the same.
+
+%is the same regardless of the input. 
+
+%The first would be to select and prioritize test cases in isolation.
+%In this case, $C$ is defined as a set containing the same tests as $S$, but ordered as they appear in $P$.
+%This approach has the advantage of allowing us to run selection and prioritization in parallel and, although there is an additional combination step to perform, the cost of generating $C$ from $S$ and $P$ is negligible.
+%We name this approach \fzp (P from ``parallel'' and also from ``prioritize, then select'').
+
+\paragraph{Sequential execution.}
+Another possible approach to the idea is performing selection first and then prioritizing the output.
+The advantage of this approach is reducing the running time of the prioritization, which would focus on the tests impacted by the changes and thus more likely to fail.
+However, this also means that the selection and prioritization steps cannot be performed simultaneously (although it is still possible to parallelize the preparation steps).
+Intuitively, it is not clear which option should be more effective or efficient than the other.
+Indeed, our experiments show that the effectiveness and efficiency of the parallel and sequential approaches are statistically equivalent (according to the same analysis detailed in \autoref{sec:results}).
+For lack of space, henceforth \fz results always refer to the sequential execution, while the results of the parallel combination are available in the replication package.
+
+As an example, \autoref{fig:fastazi} contains sample outputs from \ek, \fs and \fz\footnote{This example is based on results of the experiments on \texttt{Chart v26}. Actual test names are omitted for clarity.}.
+Colored red, $t_{170}$ is the failing test within a test suite $T$ of 363 test cases.
+In $S$, the output of \ek, this test is found in the 78th position, because several tests were excluded during the selection, while in the output $P$ of \fs, it is moved up to the 17th position.
+Finally, the output of \fz, $O$, which is selected and prioritized, promoted the test to the 9th position.
+
+Algorithm \autoref{algo:fastazi} provides an abstract view of \ek and \fs\footnote{For a complete understanding of \ek and \fs, refer to~\cite{gligoricEk,miranda_fast}.}, and outlines how \fz works in practice.
+\ek requires tests to be compiled before performing selection, while \fs needs the hash signature of each test before prioritizing the suite.
+These two steps are independent and can be performed in parallel (they are both abstracted by the function GetHashesAndModified).
+After that, \ek can perform its selection normally, and \fs prioritizes the resulting list of tests.
+
+\input{algorithms/4.3.alg_fastazi.tex}
+
+%In the examples from the figures, the outputs of \fzp and \fzs are the same, which can happen with a real test suite, but there is no such guarantee.
+%From now, we use the generic name \fz when referring to the combination without distinguishing between the two flows, whereas we will specify \fzp or \fzs when the combination flow is relevant. 
+%\anto{general comment to be applied throughout in last revisions: should all tool names be using same format? }
+
+%The other alternative is to first select test cases, and then prioritize only the selected subset of tests.
+%That is, $C$ still contains the same tests as $S$, but the prioritization is defined in terms of $S$ rather than $T$.
+%The advantage in this case would be to avoid spending resources prioritizing test cases that are deemed irrelevant by \tcs, with the disadvantage that the \tcs and \tcp steps cannot be performed simultaneously.
+%This approach is named \fzs (S from ``sequential'' or from ``select, then prioritize'').
+
+% \anto{added previous notice; also should all names \fz \fs \ek use same type of fonts as \fzp?} 
+%Intuitively, it is not clear whether \fzp should be more effective than \fzs or vice-versa.
+%While the selection step is identical between the two, the prioritization can change substantially.
+%On the one hand, \fzp allows the \tcp algorithm to leverage data from the entire test suite.
+%In our experiment, since \fs uses a similarity-based prioritization algorithm, it means that the output of \fzp tends to be highly diverse.
+%On the other hand, utilizing information from tests that would ultimately be excluded from execution by \tcp could be detrimental.
+%For example, if two test cases, $t_1$ and $t_2$, are similar according to the measures used by \fs, but only $t_1$ is selected and detects the failures, there is a chance that $t_2$ will be prioritized highly and $t_1$ will be given a lower priority than other, less relevant, tests.
+%In this situation, \fzs ensures that the prioritization considers only tests that will actually be executed and avoids odd situations such as the one described.
+%The results of our experiments regarding effectiveness can be found in \autoref{subsec:rq1}.
+
+%Similarly, there is no obvious reason why \fzp should be more efficient than \fzs or the other way around.
+%Both of them add costs beyond simply using \ek or \fs, but in both cases these costs can be mitigated.
+%\fzp does so by allowing the parallel execution of both approaches, and adds only a small combination step beyond whichever approach takes the longest.
+%Meanwhile, \fzs has the advantage of reducing the prioritization time by using only the selected tests as input.
+%Furthermore, regarding \fs, the tool requires a preparation step that comes before the prioritization itself, and this step can be executed simultaneously with \tcs.
+%So the additional cost of \fzs is only the time to prioritize the selected tests.
+%The results of our efficiency analysis of the tools is found in \autoref{subsec:rq3}.
+
+It is important to observe that, while we utilize \ek and \fs as representative implementations of \tcs and \tcp, the idea behind \fz could be attempted using different approaches.
+There are many proposed techniques that address \tcs and \tcp; combining different ones would inevitably result in changes to effectiveness and efficiency.

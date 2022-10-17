@@ -1,0 +1,28 @@
+\section{Research Questions}\label{sec:orch_rqs}
+
+We evaluate \ek against \fs, and their combination (\fz) against either of them, considering first  their \textit{effectiveness} in  failure detection  (RQ1). Then, based on the real example shown in~\autoref{fig:fastazi}, we hypothesize that the potential gain in effectiveness of a combined approach could be better observed under a \textit{limited test budget} (RQ2). Finally we also compare their \textit{efficiency} (RQ3). Precisely,  we formulate the following research questions:
+
+\paragraph{RQ1: How do \ek, \fs, and \fz compare in terms of effectiveness?}
+For the scope of this study, the comparison between the respective effectiveness of the three approaches can be based on how quick they are in detecting the failures.  As \fs uses the whole test suite, we know it will detect all regression failures as a retest-all technique.
+Also, \ek is developed as a safe \tcs technique, thus it should, as well, detect all failures found by retest-all.
+Consequently, \fz too detects all failures.
+Thus, we refine the above question into the following two sub-questions:
+
+\paragraph{RQ1.1: Between \ek and \fs, which tool detects failures running fewer tests?}
+While both \ek and \fs have been shown to be effective in failure  detection,  we do not  know whether when a new project version is released, potential regression failures would be revealed earlier by selecting those test cases that are affected by the changes (and randomly ordered) or instead by prioritizing test cases based on their similarity. 
+
+\paragraph{RQ1.2: How does \fz compare against \ek and \fs with respect to feedback time?} 
+It is unclear if, and by how much, a combination of both techniques would provide lower feedback time from a test suite.
+With this question, we aim to discover if the orchestration of \tcs and \tcp has a positive and substantive impact to the regression testing workflow.
+
+\paragraph{RQ2: How does a limited testing budget affect the effectiveness of the three approaches?}
+While in RQs 1.1 and 1.2 we compared \ek, \fs, or \fz without considering possible time constraints, with this RQ we aim at assessing whether, and how, testing under limited resources impacts each of the three approaches. 
+This problem is similar to cost-bounded selection \cite{cibulski2011regression} (i.e., selecting
+test cases according to a predetermined budget), which can be a concern in large-scale industrial projects~\cite{elbaum2014techniques}. 
+\tcs and \tcp each provide benefits when it is not possible to test 100\% of the test suite in each execution, but they cannot assumed to be safe in these circumstances.
+Perhaps an orchestrated test suite would viable at even stricter testing budgets.
+
+\paragraph{RQ3: How do \ek, \fs and \fz compare in terms of time efficiency?}
+With this question, we aim to discover what is the additional cost in terms of time required by either technique alone, and then by their orchestration.
+% instead of just one, and what are possible ways to mitigate any increase. 
+Inevitably, the orchestration increases total testing time, and we aim at assessing such drawback.

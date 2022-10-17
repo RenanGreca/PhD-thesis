@@ -1,0 +1,66 @@
+\section{Related works}\label{sec:lit_related}
+
+The first recommended step before undertaking any new systematic review is to verify that such a study is actually needed~\cite{kitchenham2004procedures}.
+Indeed, in view of the large set of papers published every year on \rt techniques and related topics, it is natural that a good number of secondary studies reviewing the regression testing literature has also been produced.  
+
+The already cited study by~\citet{bin_ali_search_2019} has previously verified whether existing reviews of literature regarding \rt techniques took into consideration \rea.
+After a systematic search, they found eleven secondary studies spanning over 2008-2017, including~\cite{rosero_15_2016,felderer2015systematic,engstrom2010systematic,zarrad2015systematic,kazmi_effective_2017,harrold2008retesting,catal2012application,yoo2012regression,qiu2014regression,singh2012systematic,catal2013test}. After a thorough analysis of those reviews they concluded that at the time none of them addressed satisfactorily such aspects.
+The authors hence used such studies\footnote{Actually 10 of them, as the authors explain that the 2017 survey~\cite{kazmi_effective_2017} only appeared after they had concluded the analysis.} as the start-set for a snowball sampling search, launched in August 2016.  
+In order to verify if another review is needed, it is hence necessary to conduct a thorough examination of existing secondary studies on \rt published since 2016.
+
+We performed a search for secondary studies on \rt over the same libraries queried for the primary studies (see Section~\ref{subsec:execution}) and complemented the search results with a snowballing cycle.
+We eventually identified 
+22 works published since 2016 that are listed in the first column of Table~\ref{table:related}, whereas the
+second column includes the year the review was published.
+
+
+%\input{tables/tab_related_basic}
+
+In the third column of Table~\ref{table:related} we report which \rt techniques are covered in the study.
+Most reviews only focus on \tcp approaches~\cite{hao_test-case_2016, mukherjee_survey_2018, lou_survey_2018, khatibsyarbini_test_2018, bajaj_systematic_2019, prado_lima_test_2020, hasnain_comprehensive_2020,abdul2021systematic,hasnain2021ontology,mohd2021model,samad2021regression,ahmed_value_2022}.
+One study is dedicated solely to \tcs~\cite{kazmi_effective_2017}, one other study to \tsr~\cite{rehman_khan_systematic_2018}, and again only one to \tsa~\cite{danglot2019snowballing}.
+Finally, seven secondary studies investigate primary studies on multiple \rt techniques~\cite{rosero_15_2016, do_recent_2016, bajaj_survey_2018, bin_ali_search_2019,sadri2022survey,rosero2021software,pan2022test}.
+
+In the 4th and 5th columns, we report the number of primary studies reviewed and the interval of years to which they belong, whereas the 6th column is checked if the review is conducted in systematic way. 
+Finally, in the last column, we also report on the context of the review, if it focuses on techniques using a specific approach or covers a specific application domain.
+A version of this data is also included in our online repository (\autoref{sec:repository}), with some additional notes; the intent is to update the table as more secondary studies are written and published.
+
+For the sake of comparison, in the following paragraphs we briefly report the motivations behind the 22 reviews, 
+grouped by the targeted technique (i.e., \tcp, \tcs, \tsr, \tsa, or multiple techniques).
+
+\paragraph{\tcp only}The work by~\citet{hao_test-case_2016} aims at reviewing the advancements in \tcp and  identifying open challenges. 
+Similar goals are pursued by~\citet{lou_survey_2018}, who analyze the primary studies along six aspects: algorithms, criteria, measurements, constraints, empirical studies, and scenarios.
+The objective of~\citet{khatibsyarbini_test_2018} was to review the experimental evidence relative to the most recent TCP approaches along with the metrics used for evaluating them. 
+~\citet{mukherjee_survey_2018} generically aim to identify the most popular and useful \tcp approaches.
+The review by~\citet{samad2021regression} classifies existing work according to the algorithms or models adopted, the subjects of evaluation and the prioritization measures.
+A number of reviews focus on \tcp for specific test approaches, namely: ~\citet{bajaj_systematic_2019} 
+%continue the study in~\cite{bajaj_survey_2018} by focusing specifically on 
+cover genetic algorithms; ~\citet{abdul2021systematic} address combinatorial testing; ~\citet{hasnain2021ontology} consider ontology-based test methods;~\citet{mohd2021model} cover model-based testing approaches, and~\citet{ahmed_value_2022} review \tcp techniques that  integrate value consideration, either in terms of fault severity or test case cost.
+Finally~\citet{hasnain_comprehensive_2020} investigate \tcp approaches for web services, 
+whereas~\citet{prado_lima_test_2020} study how \tcp has been adapted for Continuous Integration environments.
+ 
+
+\paragraph{\tcs only} The only secondary study focusing on \tcs work is ~\citet{kazmi_effective_2017}, which aims at presenting the state-of-the-art in effective regression test case selection techniques.
+
+\paragraph{\tsr only} The systematic review by~\citet{rehman_khan_systematic_2018} is motivated by the quality  assessment  of empirical studies employed to evaluate the test reduction approaches.
+
+\paragraph{\tsa only} \citet{danglot2019snowballing}  present the first review on test \textit{amplification}, a novel term they introduce as an umbrella for various activities that aims at improving an existing test suite, including test augmentation, optimization, enrichment, or refactoring. The review is not specifically devoted to \rt, but a subset of the primary studies they overview deals with creating new tests for assessing the effects of changes.
+
+\paragraph{Multiple techniques} Among the  secondary studies that focus on multiple \rt techniques, 
+both~\citet{do_recent_2016} and~\citet{rosero_15_2016} aimed at generically providing an overview of recent
+research advances.
+Some authors instead were motivated to study more specific type of techniques:~\citet{bajaj_survey_2018} aimed at reviewing \rt approaches leveraging nature-inspired algorithms, while~\citet{pan2022test} analyzed  \tcp and \tcs studies that use Machine-Learning based techniques. The review by~\citet{sadri2022survey} characterizes the approaches and the open challenges for the generation, selection and prioritization of test cases for cyber-physical systems.
+\citet{rosero2021software}  provide a preliminary brief mapping of primary studies that report about industrial usage of \rt techniques.
+Finally, the already mentioned study by~\citet{bin_ali_search_2019} surveys \rt research that has industrial relevance and applicability, and also creates a taxonomy useful for the communication between academia and industry. 
+
+\vspace{0,2cm}
+Nearly all of the secondary studies express some concerns over \rea of \rt techniques, although in most cases these concerns are only mentioned in passing, and are not central to their motivations.
+~\citet{rosero_15_2016} report that only 16\% of the surveyed primary studies experimented in industrial context.
+On the positive side,~\citet{do_recent_2016} observes that recently, more research is focusing on industrial software or open-source programs of different types.
+The review by~\citet{lou_survey_2018} contains a subsection titled ``Practical Values'' in which they suggest researchers to consider \tcp in practical scenarios and to develop usable \tcp tools.
+The only two reviews that specifically target \rea as this study are: \textit{i)} the aforementioned work by~\citet{bin_ali_search_2019}. However it selects only papers that performed evaluations with industrial subjects, and was motivated mainly by the goal of establishing a taxonomy for communicating \rt research in a way that is accessible and relevant for practitioners; 
+and \textit{ii)} the preliminary work by~\citet{rosero2021software}, but this is is a brief report that just classifies 40 selected primary studies found by searching the \tcp literature for the term ``industrial'' without investigating in depth their characteristics and actual impact.
+
+
+Considering the list of related secondary studies in Table~\ref{table:related}, we conclude that a new secondary study specifically addressing progresses in latest years about \rea is needed and can provide value to the research and development communities.
+

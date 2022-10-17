@@ -1,0 +1,66 @@
+\section{Experiments}\label{sec:orch_experiments}
+
+\subsection{Evaluation metrics}
+\label{subsec:metrics}
+
+The primary objective of \tcs is to reduce the total number of tests executed per run, while \tcp, on the other hand, 
+has the goal of detecting failures quickly and reduce the feedback time of the test suite.
+Thus, the metric for an orchestration should somehow measure both of these objectives.
+
+For \textbf{RQ1}, we utilize a metric called \textit{Time To First Failure} (\ttff) \cite{yoo2011faster}.
+Given a test suite $T$, its \ttff indicates the position of the first test to detect a failure.
+A low \ttff indicates that the test suite provides quick feedback.
+\ttff is a useful metric to evaluate both \tcs and \tcp, because it simultaneously encourages a tight selection of truly relevant tests and a prioritization that puts a failing test at the top of the list.
+However, since the output $S$ of \tcs is a subset of $T$, its size might be smaller than the output $P$ of \tcp.
+Therefore, for fairness, all \ttff results in this paper are normalized according to size of $T$.
+For example, if $|T| = |P| = 1000$, $|S| = 100$ and a failing test is in the 100th position of $P$ but the the 50th position of $S$, then $TTFF(P) = 0.10$ and $TTFF(S) = 0.05$.
+
+We also utilize \textit{Average Percentage of Faults Detected} (\apfd), the most popular metric for evaluating \tcp solutions \cite{khatibsyarbini_test_2018}.
+It is not designed to evaluate \tcs and thus may not provide a fair comparison for \ek; however, as previously explained, we assess here effectiveness in terms of how fast failures are detected by the compared techniques, and for this \apfd provides an intuitive, well known assessment.  
+
+Regarding \textbf{RQ2}, when considering a limited testing budget, we use the output from \textbf{RQ1} and create versions of the suites that are cut off at certain points, according to the budget restriction.
+This data is analyzed in two ways: first, we observe, for each version of each subject, the proportion of the 30 variations that were able to detect the failure or not.
+Then, we also reduce this number into a binary form: 1 if the test suite detects the failure in all of its 30 variations, and 0 otherwise.
+This has the effect of punishing suites that are somehow inconsistent, rewarding those that catch the failure every time, 
+since it can be
+important that an approach is consistent and reliable.
+
+Finally, for \textbf{RQ3}, we measure the time taken to execute the discrete steps of the approach.
+For this, we use the GNU \texttt{time} utility (user+sys CPU time) to measure each step of the experiment individually, allowing us to understand where are the bottlenecks of the approaches.
+
+\subsection{Experiment design and execution}
+\label{subsec:experiment}
+
+%\input{tables/projects}
+
+The goal of the experiment is to compare four possible arrangements of the test suite: 
+the tests selected by \ek; the test suite prioritized by \fs; the orchestration of both with \fz; and a random ordering of the test suite to provide a base case.
+Considering that both \ek and \fs have been previously compared to several competing \tcs and \tcp approaches~\cite{legunsen2016, Zhang18HybridRTS,miranda_fast}, we deemed it not necessary to add further alternatives in a direct comparison between the two tools.
+
+We utilize as subjects 12 projects available as part of the \dfj repository~\cite{just2014defects4j} that contains multiple versions of Java-based open-source software projects of different sizes.
+Each version is comprised of one commit containing a bug, the commit that fixed the bug, and metadata such as the files related to the bug, and which tests would detect it.
+Table~\ref{tab:projects} shows basic statistics about each project
+used in our evaluation.
+For each project, we show the number of versions used and minimum and maximum number of test cases (across versions).
+A few versions were skipped, either because their bugs are listed as deprecated by \dfj, or because we ran into compilation issues for them (e.g., due to Java version incompatibility).
+
+We used \ek version 5.3, available on the project's website\footnote{\url{http://ekstazi.org}}, as a plug-in for the Maven and Ant build systems.
+A script is used to automatically incorporate the \ek task into a project's build script, allowing us to easily perform test selection over multiple versions of different subjects.
+
+In the case of \fs, we used the source code from the replication package of the original paper\footnote{\url{https://github.com/icse18-FAST/FAST}}.
+This code was modified by us with two purposes.
+The first was to make \fs version-aware by storing the hash signatures of test cases between versions so they do not need to be re-computed unless there is a modification.
+This is important because computing the hashes is the most time-consuming part of \fs, so storing these representations for unchanged tests greatly reduces overhead after an initial execution.
+In addition, it was updated to guarantee that the input and output of both \ek and \fs are in the same format.
+
+\fz was not incorporated into the build system, but its results can be easily generated by using the output of \ek as input for \fz, as shown in Algorithm \autoref{algo:fastazi}.
+Observe that change-based \tcs provides no benefit in the initial version of a project, since there are no changes to be detected; thus the first output of \fz, for each experiment subject, is identical to using \fs in isolation.
+
+To collect the metrics, we did not actually execute the test suites given by each approach. First we collect the outputs of the approaches as text files containing lists of tests and then we calculate the metrics according to the position of the failing test(s) (ground truth given by \dfj).
+
+When measuring TTFF, the default order of test executions could have a large impact on (unprioritized) test suites; hence, for fairness we shuffled the output of \ek 30 times and reported the average of these repetitions.
+Similarly, to account for the nondeterministic behavior of \fs, \fz and random, their outputs are also generated 30 times to reduce any potential noise in the data\footnote{We experimented with values between 10 and 50 and found that 30 provided a good amount of data without severely impacting the running time.}.
+
+The experiments were executed in a Docker container running Ubuntu 20.04 LTS, using Java OpenJDK 1.8.0, Apache Maven 3.6.3, and Apache Ant 1.10.7.
+On all the projects, JUnit version was set to 4.12.
+The host computer was running macOS 11.0.1 on a 6-core Intel Core i7 processor, with 32GB RAM and SSD storage.

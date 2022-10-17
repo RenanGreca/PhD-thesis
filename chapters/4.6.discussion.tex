@@ -1,0 +1,23 @@
+\section{Discussion}\label{sec:orch_discussion}
+
+Software regression testing has undergone extensive research in the last several decades.
+The largest part of solutions, though, addressed separately one dimension of the problem at a time.
+While many \tcs and \tcp techniques have been proposed, they have not been directly compared, only
+few authors look into integrated approaches for combined selection and prioritization, and no work empirically assessed the advantages of using \tcs and \tcp in combination over their individual application.
+In contrast, we believe that, by merging differing criteria for selection and prioritization, we can achieve the most from the restricted subset of test cases that can be executed at each new release.
+
+Towards this direction, we presented a study directly comparing 
+two recent practical and effective approaches to \tcs and \tcp, namely 
+file-based selection (by \ek) and similarity-based prioritization (by \fs).
+Our results show that \ek generally outperforms \fs, although the effect size is negligible or small;
+however, their orchestration by \fz outperforms both with a non-negligible effect. 
+Moreover, considering a limited test budget, \fz exposed a higher effectiveness in consistent way. 
+After assessing the overhead imposed by each of the studied approaches, we can conclude that \fz is quite practical: if we parallelize the preparation steps, the additional cost of similarity-based prioritization of the test cases selected by \ek is negligible.  
+
+We aim at further improving the effectiveness and efficiency of \fz by refining several technical aspects. 
+In particular, to make the approach more easily usable, it should be integrated into build systems as a plug-in as \ek is now.
+In addition to that, we would also like to try orchestrating other \tcs and \tcp techniques from the literature to understand the resulting challenges and outcomes.
+
+More generally, with this work we have paved the way to exploring a full range of potential strategies of combining differing criteria for selection and prioritization. 
+It can be worthwhile to also expand the study to the orchestration of techniques along other dimensions of regression testing, e.g., also test reduction or test amplification.
+Overall, we consider that  for maximized efficacy under restricted budgets the problem of regression testing should be addressed in a holistic strategy that we called regression test orchestration. 
