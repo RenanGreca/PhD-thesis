@@ -1,27 +1,60 @@
 \section{Overview of Testing at Ericsson}\label{sec:ind_overview}
 
-Regression testing is a topic that has been extensively studied for decades.
+%Regression testing is a topic that has been extensively studied for decades.
+%
+%It includes topics such as \textit{test case selection}, \textit{test case prioritization} and \textit{test suite reduction}.
 
-It includes topics such as \textit{test case selection}, \textit{test case prioritization} and \textit{test suite reduction}.
+%\subsection{Regression Testing in the Literature}
+%
+%Most academic studies are focused on unit tests or lower-level integration tests.
+%
+%\subsection{Regression Testing at Ericsson}
+
+Since the mid-2000s, Ericsson has adopted agile development principles.
+This had a notable effect on testing practices, as previously there were distinct roles for developers and testers and now developers are mostly in charge of testing their own code.
+
+Currently, Ericsson's test design is centered around a ``test strategy pyramid'' that provides the hierarchy of tests for a given system.
+At the bottom of the pyramid, there are unit tests, which should be the most atomic and numerous tests.
+Other layers are formed by component tests, multi-component tests, module tests, node tests, RAN(radio area network) tests and, finally, network tests.
+At each layer, the complexity of tests increases, as each one becomes responsible for covering a larger amount of source code.
+
+Generally speaking, although the unit tests are more numerous, the higher-level tests are responsible for a great part of the testing costs, as they involve multiple software components along with device/network simulators and, in some instances, actual physical hardware.
+Additionally, when a failure is detected at higher levels, it is more challenging and time-consuming to identify the cause of the issue.
+In comparison, unit tests are often executed completely by a developer at their local computer and checked again while merging the code in continuous integration; as each test covers well-defined pieces of code, a failure in this level leads to a quicker understanding of what could be going wrong.
+
+For this reason, certain teams at Ericsson have been implementing a ``shift left'' policy for testing.
+The objective is to bring as much fault-finding capability as possible to the lower-level tests.
+One notable way of doing this is by writing new unit or component tests whenever a failure happens in a complex test.
+However, this policy is also to be incorporated in test strategies still under development.
 
 
 
-\subsection{Regression Testing in the Literature}
+%In the mid-2000s there was a shift to agile development which affected the testing workflow.
+%
+%Ericsson employs a ``test strategy pyramid'' that starts with unit tests at the lower end and goes up to network tests at the high end.
 
-Most academic studies are focused on unit tests or lower-level integration tests.
-
-\subsection{Regression Testing at Ericsson}
-
-In the mid-2000s there was a shift to agile development which affected the testing workflow.
-
-Ericsson employs a ``test strategy pyramid'' that starts with unit tests at the lower end and goes up to network tests at the high end.
-
-A substantial part of the testing cost comes from the high-level network tests, which are complex and expensive, as they involve multiple layers of software as well as physical and simulated hardware.
+%A substantial part of the testing cost comes from the high-level network tests, which are complex and expensive, as they involve multiple layers of software as well as physical and simulated hardware.
 
 There is a ``shift left'' objective that aims to bring fault-finding into lower levels of the pyramid.
 
 There are frequently executed ``checks'' (that may employ some sort of test case selection) and overnight ``tests''.
 
-When an overnight test fails, it is often due to test flakiness or environment misconfiguration. Often it is not an error in the SUT proper.
 
-In the integration/multi-component level, it is often the case that higher-level/more complex tests cover lower-level/simpler functionality by definition. However, there is no system in place to refactor and remove older tests that are no longer necessary.
+\subsection{Overview of the system}
+
+For this study, a period of seven weeks was spent at the office of Ericsson in Linköping, Sweden, in order to understand fundamental aspects of the testing procedures at the company.
+It cannot be said that this is a comprehensive account, because the data is extracted from only one small part of the entire corporation, and the overall scope of the projects being conducted is too large for full comprehension in such a short time frame.
+
+The investigated system is called Traffic Control, which is part of the software stack that Ericsson deploys to telecommunication infrastructure (e.g. cell towers).
+Currently, there are 4G and 5G versions of the software in active development/maintenance mode and in use by end users.
+
+Furthermore, the team we interacted with is mainly concerned with multi-component testing (MCT), mostly written in Erlang, which involves the integration of multiple software components in addition to hardware and infrastructure simulators.
+Reports indicate that the 4G version of Traffic Control has $\sim14,000$ multi-component tests and the 5G version has over 5,000.
+
+
+
+%When an overnight test fails, it is often due to test flakiness or environment misconfiguration. Often it is not an error in the SUT proper.
+%
+%In the integration/multi-component level, it is often the case that higher-level/more complex tests cover lower-level/simpler functionality by definition. However, there is no system in place to refactor and remove older tests that are no longer necessary.
+%
+%
