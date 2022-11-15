@@ -34,13 +34,36 @@ R8 & Senior Test Specialist \\
 Acronyms:
 \begin{itemize}
 	\item MCT: multi-component testing
-	\item SBT: source delivery check
+	\item SDC: source delivery check
 	\item SBT: source baseline check
 	\item XFT: cross-functional team
 	\item CI/CD: continuous integration/delivery
 	\item TR: trouble report
 	\item FOSS: free and open-source software
+	\item FAD: functional area domain
 \end{itemize}
+
+\subsection{Roles and experience}
+
+R1, R2 and R3 are members of the Functional Area Domain team.
+They describe themselves as \quoter{the owners of the test suite}{R2} and are responsible for \quoter{monitoring the test results}{R2}.
+In particular, they \quoter{are monitoring the nightly runs}{R1}, i.e. the SBT or non-blocking tests.
+
+R4, R5 and R6 are test managers, albeit R4 has a different responsibility.
+The module test managers, R5 and R6, are responsible for the testing of particular modules at Ericsson, meaning \quoter{not working on specific features}{R5}.
+\quoter{I also guide the teams on how to write test cases [...], how we organize test suites and so on}{R6}.
+Meanwhile, the CI Test Manager R4 is \quoter{responsible for the machines and environment and some of the test framework parts. To simplify, we are doing the framework, the developers are writing the tests, the managers are designing the strategy}{R4}.
+
+Finally, R7 and R8 are designated as test specialists, meaning they handle longer-term strategy.
+\quoter{I work a lot with test strategies. How we should test features and products [...] from now until 2025}{R7}.
+Despite the similar titles, there is a key difference between the two specialists: R7 is responsible for a long-term strategy of a specific core of Ericsson products, while R8 has an overview of the entire company, so their job also includes sharing technologies and strategies among distant teams.
+
+Aside from R8, who has a PhD on the topic of software testing, most of the interviewees did not have testing as a focus of their education while at university.
+When asked about their education, R4, R5 and R6 are computer scientists and/or engineers, and most of the testing knowledge they had prior to working at Ericsson was \quoter{standard university [curriculum], which contains tests}{R5}.
+Meanwhile, R7 \quotes{graduated in media and communication}, so testing was \quotes{not covered in university}.
+R4, R5 and R7 mention having a certification by the ISQTB\footnote{International Software Testing Qualifications Board}.
+Additionally, R4 also mentions taking testing courses led by R8 internally at Ericsson, while R5 reports having attended workshops from \quoter{people in Kista\footnote{Kista is a district in the Stockholm metropolitan area and the location of Ericsson's headquarters.} presenting how testing should be done, but it was so high level that I couldn't understand how to apply it to my level}{R5}.
+It is unclear if the testing courses/workshops mentioned by R4 and R5 are the same.
 
 \subsection{Current practices}
 
@@ -75,29 +98,6 @@ Interviewees generally agree that it is more cost-efficient to increase computin
 For amplification, there appears to be no interest in automating the process.
 There is a protocol, however, to manually augment the test suite in the situations where a fault slips through a layer of testing: \quoter{if a fault was found later in test or in the field, we try to investigate why did it slip through, and we should have a test for that}{R1}; then, \quoter{after the fact, if there is time, we can go back and understand why a needed test was not in the plan}{R2}.
 
-
-\subsection{Roles and experience}
-
-R1, R2 and R3 are members of the Functional Area Domain team.
-They describe themselves as \quoter{the owners of the test suite}{R2} and are responsible for \quoter{monitoring the test results}{R2}.
-In particular, they \quoter{are monitoring the nightly runs}{R1}, i.e. the SBT or non-blocking tests.
-
-R4, R5 and R6 are test managers, albeit R4 has a different responsibility.
-The module test managers are responsible for the testing of particular modules at Ericsson, meaning \quoter{not working on specific features}{R5}.
-\quoter{I also guide the teams on how to write test cases [...], how we organize test suites and so on}{R6}.
-Meanwhile, the CI Test Manager is \quoter{responsible for the machines and environment and some of the test framework parts. To simplify, we are doing the framework, the developers are writing the tests, the managers are designing the strategy}{R4}.
-
-Finally, R7 and R8 are designated as test specialists, meaning they handle longer-term strategy.
-\quoter{I work a lot with test strategies. How we should test features and products [...] from now until 2025}{R7}.
-Despite the similar titles, there is a key difference between the two specialists: R7 is responsible for a long-term strategy of a specific core of Ericsson products, while R8 has an overview of the entire company, so their job also includes sharing technologies and strategies among distant teams.
-
-Aside from R8, who has a PhD on the topic of software testing, most of the interviewees did not have testing as a focus of their education while at university.
-When asked about their education, R4, R5 and R6 are computer scientists and/or engineers, and most of the testing knowledge they had prior to working at Ericsson was \quoter{standard university [curriculum], which contains tests}{R5}.
-Meanwhile, R7 \quotes{graduated in media and communication}, so testing was \quotes{not covered in university}.
-R4, R5 and R7 mention having a certification by the ISQTB\footnote{International Software Testing Qualifications Board}.
-Additionally, R4 also mentions taking testing courses led by R8 internally at Ericsson, while R5 reports having attended workshops from \quoter{people in Kista\footnote{Kista is a district in the Stockholm metropolitan area and the location of Ericsson's headquarters.} presenting how testing should be done, but it was so high level that I couldn't understand how to apply it to my level}{R5}.
-It is unclear if the testing courses/workshops mentioned by R4 and R5 are the same.
-
 \subsection{Pain points}
 
 Part of the questions asked interviewees to detail the common issues or pain points they feel with the current state of the test suite and the testing practices at their team.
@@ -115,7 +115,7 @@ There is a back-and-forth discussion between two sides of the team: one wants th
 Once a fault slips and it is detected at a later testing phase or in the field, there is \quoter{a systematic way of processing trouble reports (TRs) and we can identify where it is needed to add tests}{R5}.
 Regarding that, R8 brings an analogy: \quotes{if you only take care of the shootings, you do not solve crime}, implying that the above is not an effective strategy for delivering a fault-free product.
 
-\paragraph{Flaky tests.} Although the discussion of flaky tests falls beyond the scope of this thesis, it was a topic brought up frequently during the discussions at Ericsson — \quoter{That's the worst, we have a lot of those}{R5} — it is strongly related to the above point regarding fault detection.
+\paragraph{Flaky tests.} Although techniques for addressing flaky tests falls beyond the scope of this thesis, it was a topic brought up frequently during the discussions at Ericsson — \quoter{that's the worst, we have a lot of those}{R5} — it is strongly related to the above point regarding fault detection.
 \quoter{The tests are run distributed in several computers connected to a network, so when the load gets really high, running thousands of tests at night, we can get different behavior compared to running the tests manually}{R2}.
 To account for this, \quoter{we started shuffling the order of the tests}{R3}, although sometimes the developer who wrote the test case admits \quoter{'I don't know why it fails if it comes later in the suite'}{R3}.
 There is an agreement that \quoter{creating stable [non-flaky] tests is cumbersome}{R1} and, \quoter{if it's due to the code, it's usually timing issues}{R2}.
@@ -139,15 +139,29 @@ Failing tests are sent back to the developer, and other passing commits are queu
 
 \paragraph{Increasing test scope.} Although simply increasing the number and even coverage of tests is not a challenge on its own, doing so maintaining quality and consistency might be.
 Currently, \quoter{it's the feature developers who write tests}{R6} or, in other words, developers mostly write tests to cover their own code.
-\quoter{The problem is that XFTs are racing for product delivery}{R6} but, since many developers are not necessarily proficient in good test design, \quoter{it's easier to copy paste code}{R6}.
+\quoter{The problem is that XFTs are racing for product delivery}{R6} but, since many developers are not necessarily proficient in good test design, \quoter{it's easier to copy paste code. Tests are not always great. I would say it's something we need to work on.}{R6}.
 As the product itself grows in scope, \quoter{it makes sense that the tests increase at the same rate, but to me we are not increasing the test scope at fast as the product}{R7}, so there is still a feeling that the tests are seen as secondary compared to the product itself.
+
 
 \paragraph{Reducing test scope.} Many interviewees agree that this is a difficult challenge that is not currently well addressed.
 \quoter{Cleaning and updating old tests is most difficult}{R1}, but \quoter{who can decide if a test case should be removed?}{R5}.
 Even if refactoring or reducing the test suite is discussed, \quoter{it's cheaper to leave [the test] there and run it than spend money to have people looking at it}{R5}, especially in the nightly testing.
 On the more restrictive \quoter{SDC, if new tests are coming in, we have to shift out legacy tests}{R6}, so in this situation the tightening of test scope is essential.
 Although this perspective has changed over time: \quoter{in the beginning of 5G, we said `everything should be gating', but now we have too many test cases}{R6}.
+Often, a test \quoter{might make sense when it's first written, but many developers go into the same same suite, so over time it might degenerate a bit}{R7}, which would call for refactoring if not outright removal.
 The specialists bring a complementary insight: \quoter{even if tests are obsolete in terms of fault detection, they might still be useful for root causing}{R8}, meaning that a test that doesn't find faults might help narrow down the causes why other tests are failing.
+
+\paragraph{Testing costs.}
+Testing costs is often discussed in the literature when it comes to the applicability of solutions, but it is not a major concern to most of the interviewees.
+The team uses cloud-based testing, and \quoter{the cloud infrastructure is completely Ericsson}{R4}, not outsourced to other companies.
+The functional testers \quoter{don't know [the cost]}{R1}, but it is \quoter{probably a lot}{R2}.
+R6 also says \quotes{I don't know how much kilowatts it's drawing}, but, according to R5, \quotes{I don't think it's more expensive than watching a youtube video}.
+It's understood by several team members that resources can be increased if required, and one manager goes on to ask \quoter{why not run everything more and faster, instead of selecting things? It might not be cheaper, but it seems like the company is more willing to pay for equipment than employees}{R5}.
+When asked specifically who would know this, the answer is \quoter{the area product owner}{R4}, who \quoter{handles the budget with inputs from us, according to how much we use and how much we'll need}{R4}.
+The specialists highlight that \quoter{earlier test loops are much cheaper}{R7}, so it is important to detect faults as early as possible.
+Furthermore, even if \quoter{electricity is so cheap}{R2}, \quoter{we have some hardware that is super expensive, it costs as much as house in Sweden}{R7}.
+For this reason, \quoter{we want to make sure the test cases that execute on that hardware are only the most important ones}{R7} and this type of load balancing is still being worked on within Ericsson's cloud infrastructure team.
+
 
 \subsection{Collaboration with Academia}
 
@@ -195,3 +209,32 @@ R7 mentions Gaia, which is a group \quoter{who can work with anyone within Erics
 Together, they performed a study to improve test case selection in their next-generation products, but it is \quoter{challenge to convince someone to do it}{R7}.
 \quoter{The Gaia project was a theoretical experiment, but we did not try it in practice. There's a limited budget to how many improvements we can do in parallel and other things were prioritized}{R7}.
 
+\subsection{Metrics}
+
+In conversations with R4, the topic of metrics for measuring test suite effectiveness was discussed.
+Metrics familiar to researchers, such as APFD, is not part of the common language at the company, but there is a current initiative to add some measurements to the testing flow and extract useful metrics from them.
+Specifically, three metrics, all under consideration but not in active use, were explained:
+
+\paragraph{Product Fault Finding Capability (PFFC).}
+The objective of this metric is to determine whether faults are being detected in the ``correct'' layer of testing, or if they are slipping to more complex and costly testing.
+It is measured by two variables: (1) the number of \textit{new product faults found} ($npff$), which counts the number of new faults after a test execution and analysis of failures, and (2) the number of \textit{slips} ($slips$), which is the number of faults detected in a certain layer of testing that, upon inspection, should have been found earlier in the testing stack.
+
+$$ PFFC = \frac{npff}{npff + slips} $$
+
+\paragraph{Cost to Fault Ratio (C).}
+It is particularly difficult to measure the cost of an individual test, but it should be possible to at least estimate the cost of an entire test suite, or the cost of each detected fault.
+This metric does that by multiplying the \textit{machine costs} ($MC_n$) with the number or sizes of \textit{system test plans} ($STP_n$) meant for execution in that machine.
+The resulting value is then divided by the number of detected faults in order to get the cost per fault.
+Ideally, this should ensure only critical tests are executed in the most costly testing servers.
+
+$$ C = \frac{MC_1 \times STP_1 + MC_2 \times STP_2 + ... + MC_n \times STP_n}{faults\ detected} $$
+
+The obvious flaw with this metric is that it might disfavor products with a low number of faults — as fewer faults are detected, the cost per fault ratio will greatly increase.
+
+\paragraph{Reliability (R).}
+This metric targets specifically flaky tests, providing a value to their reliability.
+It is simply a division of the number of \textit{faults detected} ($fd$) by the test suite by the number of \textit{failed runs} ($fr$) of that same suite.
+
+$$ R = \frac{fd}{fr} $$
+
+Suites with low reliability are ones that fail often, but rarely lead to a true detection of errors in the SUT.

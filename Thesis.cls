@@ -356,17 +356,28 @@
     \cleardoublepage
 }\end{spacing}
 }
-%\newcommand\listsymbolname{Abbreviations}
-%\usepackage{longtable}
-%\newcommand\listofsymbols[2]{
-%\btypeout{\listsymbolname}
-%\addtotoc{\listsymbolname}
-%    \chapter*{\listsymbolname
-%      \@mkboth{
-%          \MakeUppercase\listsymbolname}{\MakeUppercase\listsymbolname}}
-%\begin{longtable}[c]{#1}#2\end{longtable}\par
-%    \cleardoublepage
-%}
+\newcommand\listsymbolname{Abbreviations}
+\usepackage{longtable}
+\newcommand\listofsymbols[2]{
+\btypeout{\listsymbolname}
+\addtotoc{\listsymbolname}
+    \chapter*{\listsymbolname
+      \@mkboth{
+          \MakeUppercase\listsymbolname}{\MakeUppercase\listsymbolname}}
+\begin{longtable}[c]{#1}#2\end{longtable}\par
+    \cleardoublepage
+}
+\newcommand\listglossaryname{Glossary}
+\usepackage{longtable}
+\newcommand\listofglossary[2]{
+\btypeout{\listglossaryname}
+\addtotoc{\listglossaryname}
+    \chapter*{\listglossaryname
+      \@mkboth{
+          \MakeUppercase\listglossaryname}{\MakeUppercase\listglossaryname}}
+\begin{longtable}[c]{#1}#2\end{longtable}\par
+    \cleardoublepage
+}
 \newcommand\listconstants{Physical Constants}
 \usepackage{longtable}
 \newcommand\listofconstants[2]{

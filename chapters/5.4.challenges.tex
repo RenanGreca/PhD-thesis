@@ -1,9 +1,69 @@
-\section{Challenges Identified}\label{sec:ind_challenges}
+\section{Observations}\label{sec:ind_challenges}
 
-\subsection{RQ1}
+\subsection{RQ1: Common Pain Points}
+\label{sec:ind_rq1}
 
-\subsection{RQ2}
+From the literature examined in \autoref{chap:literature_review}, it is possible to observe that test case prioritization is the regression testing technique most widely addressed in academic research.
+The conversations with the team at Ericsson, however, show that it is not a topic of active concern for the practitioners.
+Indeed, when questioned about methods of determining the execution order of tests, respondents claim that, until recently, it was \quoter{just the order in which they were written}{R5}.
+Due to concerns with flaky tests and developers who were explicitly asking to run their tests before all others, shuffling (random prioritization) was introduced.
+This helps the identification of tests that are flaky due to interdependency — e.g. one test that presumes another has been executed previously — or due to improper cleanup — tests that affect the global state of the program and do not revert that change before concluding.
+However, it is a far simpler approach than what is studied in the literature and has an ultimately different goal: detecting flaws in the test suite itself rather than speeding up feedback time for faults detected in the SUT itself.
 
-What sort of data would be useful for researchers but, in reality, is difficult to obtain?
+Indeed, the detection of poor test case design appears to be a common problem to the test managers and specialists at Ericsson.
+Although they did not provide raw data to analyze this claim, their intuition indicates that 30\% to 50\% of test failures are caused by poorly implemented tests and do not lead to a true error in the product.
+It's well-accepted that most developers are not adequately educated or trained in software testing principles and learn by imitating previously-existing tests written by people who might be in different roles by that point.
 
-\subsection{RQ3}
+The practice of running shorter test suites during the day and the full range of tests at night is common at the company and, for that reason, test case selection can be a valuable asset.
+In the unit test level, ``configuration-based selection'' is used, which is similar to the file-based selection frequently discussed in the literature.
+However, for multi-component tests, it is manually decided what tests should be executed in SDC, following a few guidelines and procedures.
+Each test in this level is certainly more complex than a unit test, and perhaps techniques for addressing each type of test need to be distinct.
+There is an internal tool at Ericsson used for selection, named RENSA, but the team interviewed for this study claim that attempts to integrate it into their workflow were unsuccessful.
+
+Since most software products are in constant evolution and growth (meaning new requirements and features), it is expected that the test suite will also grow accordingly.
+In the long term, this means thousands of test cases for a product, sometimes spread across multiple modules.
+It is often the case that, in the early stages of development, tests will be designed to cover the most basic functionality of the software, which serve as the foundation to more complex features later on.
+Then, as these complex features are introduced, more specialized tests must also be added, covering intricate details of the functionality.
+Many of these specialized tests must also cover basic functionality by definition, even if indirectly through the higher-order features that depend on core elements\footnote{This is not always true for unit tests, which attempt to isolate functionality as much as possible for testing, but is common in component and multi-component testing.}.
+Thus, in reality, a lot of older tests are made obsolete, at least in purely fault-finding terms.
+Detecting which tests are redundant is a challenge that was mentioned by several of the interviewees, as currently this would need to be performed manually and the time/budget restrictions do not allow this.
+An automated solution could be helpful, although it is not desirable to completely delete test cases — when a fault is detected, tests that cover similar parts of code can be analyzed together to help identify the cause of the issue.
+Thus, there are tests that do not need to be executed daily but could be added to a weekend-only testing schedule, for example.
+That said, despite acknowledging the challenge of reducing the size of a test suite, it is much easier to simply add resources to the testing server than to spend human time and effort into analyzing tests or even implementing an automated solution.
+
+There did not appear to be a strong desire for automated amplification or augmentation of the test suite.
+As it is, the suite already grows substantially over time, so adding machine-generated tests to it could create more problems than it solves.
+Regarding new tests, test managers are more concerned with their quality than quantity, so perhaps methods for aiding developers in manually writing good tests would be better accepted than simply offloading that task to an automated tool.
+
+\begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
+\textbf{Summary of RQ5.1}: The pain point most commonly brought up by respondents has to do with test flakiness, which are very common in Ericsson's test suite; testers and managers have found ways of dealing with them, but it still makes it more difficult to detect true errors in the test suite.
+More generally, the main challenge is detecting and improving poorly written tests, which is the leading cause of test flakiness.
+There is a manual process for deciding which tests should be executed at each new commit, while removing redundant tests is something that is talked about, but not usually done because it's cheaper to simply add more compute power to testing servers.
+\end{tcolorbox}
+
+\subsection{RQ2: Challenges of Incorporation}
+\label{sec:ind_rq2}
+
+The interviews make it possible to identify a few notable obstacles that prevent the usage of state-of-the-art research techniques in the corporate environment.
+
+From a technical perspective, the first challenge is that academic tools can barely ever be used as-is.
+As discussed in \autoref{sec:lit_rq3}, a lot of additional effort must be exerted in order to go from an algorithm to a replication package, to a functional prototype and, finally, to a commercially viable tool that can be used by developers.
+Even if the tool does exist and is available as FOSS, it might be geared specifically to a certain programming language or require certain environment characteristics; if these don't match, the interested party would need to re-implement the algorithm for a new target.
+Those conditions being met, the testing tool must still go through extensive security screening, which adds to the time and cost needed to implement a technique.
+
+Assuming that the above requirements are met, there are additional barriers that might not even be a matter of time and cost.
+One issue that was pointed out by the test specialists is that academic tools generally assume that the SUT is perfectly designed and has plenty of data available to work with, but that might not always be the case.
+Even the best designed software will have the occasional oddity, peculiar characteristics that humans might be used to handling, but could produce unexpected results in automation.
+Regarding the data, there was a discussion during the execution of this study about collecting historical test execution data in order to run experiments; as it turns out, it is not a simple task.
+Many of the test executions happen in developers' local computers and this data is not included in the CI/CD history.
+Since these local executions are likely to have frequent failures, their execution history can provide important data about which tests are most important in the initial stages of testing, for example.
+Furthermore, even considering only the data available from the CI/CD tools, logs are not meant for long-term storage and not organized in a way that can easily be fed into, for example, a selection or prioritization algorithm.
+
+Considering these challenges above, it is not exactly tackling them that is the greatest obstacle.
+Instead, many interviewees say they would be excited to try new techniques and perform experiments with their software to try and find more efficient ways to handle their testing workflow.
+However, all this would require a time investment from the team members, which means setting aside other tasks, such as feature delivery.
+Since new features are the most desirable output in the perspective of customers, it is difficult to convince people in managerial and decision-making positions to slow down deliveries in order to perform experiments that, realistically, might not be successful.
+An argument to managers would need to include time and cost estimates, including forecasts showing that, in the mid- to long-term, performing these experiments now will lead to notable cost savings in the future.
+To avoid slowdown, an alternative would be to hire people dedicated specifically to experiment with new techniques and identifying avenues of improvement; however, hiring employees is an expensive process by itself and, given the choice, managers would prefer buying new computers to run more tests before hiring an employee to optimize the existing ones.
+
+\subsection{RQ3: Paths to Improve Collaboration}
