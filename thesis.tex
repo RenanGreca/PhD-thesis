@@ -270,7 +270,26 @@ In order to help bring academia and industry closer together, we also propose th
 %
 \acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 %
-The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
+%The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
+
+I am incredibly grateful for the guidance and orientation provided by my advisors, professors Antonia Bertolino, Breno Miranda and Ludovico Iovino.
+I would also like to thank GSSI professors Luca Aceto and Michele Flammini, who have been supportive in times of need since my early days at the institute.
+
+I thank Sigrid Eldh, Carene Österberg and Tommie Haag, from Ericsson, who gave me the opportunity of interacting with them and their team in Sweden.
+Without them, there would be no \autoref{chap:industry} in this thesis.
+
+Thanks to my parents, Lizmari and Edison Greca, and my grandparents, Glacial and Aquiles Merlin, who gave me the foundational values and education that have guided me through life until this point.
+Additionally, I would like to remember my grandparents Berenice and Eros Greca, who I wish could be here to share their part in this achievement, and my uncles Felipe and Chico, who encouraged me to explore the world.
+
+Thanks to my colleagues Debashmita Poddar, Konstantin Prokopchik and Alex Coto for the companionship throughout the PhD and the many board game nights that kept us sane during the lockdowns.
+
+I would also like to thank professors Luiz Albini and Eduardo Todt from UFPR, for the education I received before coming to Italy and for the warm welcome I received when visiting my \textit{alma mater}.
+
+Thanks to Marco Rotilio, whose music lessons were an outlet of creativity during challenging times.
+
+Finally, I would like to acknowledge and thank my friends: André Ramos, Arthur Alves, Arthur Pieri, Cainã Trevisan, Dácio Augusto, Darren Kerwin, Douglas Novelli, Eric Bunese, Felipe de Lara, Felipe Gugelmin, Gustavo Henrique, Janderson Oliveira, Lucas Knopki, Luiz Roveran, and Pedro Vicente.
+Even thousands of kilometers away, you are all special to me.
+
 }
 \clearpage % Start a new page
 
@@ -283,11 +302,11 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 \lhead{\emph{Contents}} % Set the left side page header to "Contents"
 \tableofcontents % Write out the Table of Contents
 
-\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
-\listoffigures % Write out the List of Figures
-
-\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
-\listoftables % Write out the List of Tables
+%%\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+%%\listoffigures % Write out the List of Figures
+%
+%%\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+%%\listoftables % Write out the List of Tables
 
 %%----------------------------------------------------------------------------------------
 %%	ABBREVIATIONS
@@ -297,7 +316,28 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
-\textbf{AMI} & \textbf{A}dvanced \textbf{M}etering \textbf{I}nfrastructure \\
+\textbf{APFD}: \textbf{A}verage \textbf{P}ercentage of \textbf{F}aults \textbf{D}etected\\
+\textbf{CI/CD}: \textbf{C}ontinuous \textbf{I}ntegration/\textbf{D}elivery \\
+\textbf{FAD}: \textbf{F}unctional \textbf{A}rea \textbf{D}omain \\
+\textbf{FOSS}: \textbf{F}ree and \textbf{O}pen-\textbf{S}ource \textbf{S}oftware \\
+\textbf{IR\&A}: \textbf{I}ndustrial \textbf{R}elevance and \textbf{A}pplicability \\
+\textbf{MCT}: \textbf{M}ulti-\textbf{C}omponent \textbf{T}est(ing) \\
+\textbf{RAN}: \textbf{R}adio \textbf{A}rea \textbf{N}etwork \\
+\textbf{RT}: \textbf{R}egression \textbf{T}esting \\
+\textbf{SBT}: \textbf{S}ource \textbf{B}aseline \textbf{T}est \\
+\textbf{SDC}: \textbf{S}ource \textbf{D}elivery \textbf{C}heck \\
+\textbf{SLR}: \textbf{S}ystematic \textbf{L}iterature \textbf{R}eview \\
+\textbf{SUT}: \textbf{S}ystem \textbf{U}nder \textbf{T}est \\
+\textbf{TCP}: \textbf{T}est \textbf{C}ase \textbf{P}rioritization \\
+\textbf{TCS}: \textbf{T}est \textbf{C}ase \textbf{S}election \\
+\textbf{TSA}: \textbf{T}est \textbf{S}uite \textbf{A}mplification or \textbf{A}ugmentation \\
+\textbf{TSR}: \textbf{T}est \textbf{S}uite \textbf{R}eduction \\
+\textbf{TR}: \textbf{T}rouble \textbf{R}eport \\
+\textbf{XFT}: \textbf{X} (Cross) \textbf{F}unctional \textbf{T}eam \\
+
+
+
+%\textbf{AMI} & \textbf{A}dvanced \textbf{M}etering \textbf{I}nfrastructure \\
 %\textbf{CPS} & \textbf{C}yber-\textbf{P}hysical \textbf{S}ystems \\
 %\textbf{DoS} & \textbf{D}enial-\textbf{o}f-\textbf{S}ervice \\
 %\textbf{MAC} & \textbf{M}edium \textbf{A}ccess {C}ontrol \\
@@ -319,13 +359,13 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
 }
 
-\clearpage % Start a new page
-\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
-\lhead{\emph{Glossary}} % Set the left side page header to "Abbreviations"
-\listofglossary{ll} % Include a list of Abbreviations (a table of two columns)
-{
-\textbf{Tool} & Something Something \\
-}
+%\clearpage % Start a new page
+%\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
+%\lhead{\emph{Glossary}} % Set the left side page header to "Abbreviations"
+%\listofglossary{ll} % Include a list of Abbreviations (a table of two columns)
+%{
+%\textbf{Tool} & Something Something \\
+%}
 
 %----------------------------------------------------------------------------------------
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
@@ -366,12 +406,12 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 %----------------------------------------------------------------------------------------
 
 \setstretch{1.3} % Return the line spacing back to 1.3
-%
-%\pagestyle{empty} % Page style needs to be empty for this page
-%
-%\dedicatory{For/Dedicated to/To my\ldots} % Dedication text
-%
-%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\pagestyle{empty} % Page style needs to be empty for this page
+
+\dedicatory{In memory of Prof. Dr. Luiz Felipe Paula Soares\\ and Prof. Dr. Francisco de Paula Soares Filho} % Dedication text
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -415,11 +455,10 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 \input{./appendices/a.tables}
 \lhead{\emph{Appendix B}} % Set the left side page header to "Appendix A"
 \input{./appendices/b.surveys}
-%\input{./Appendices/AppendixC}
 
-%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-%
-%\backmatter
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\backmatter
 
 \clearpage
 

@@ -1,4 +1,5 @@
-\section{Observations}\label{sec:ind_challenges}
+\section{Observations}
+\label{sec:ind_observations}
 
 \subsection{RQ1: Common Pain Points}
 \label{sec:ind_rq1}
@@ -41,7 +42,7 @@ More generally, the main challenge is detecting and improving poorly written tes
 There is a manual process for deciding which tests should be executed at each new commit, while removing redundant tests is something that is talked about, but not usually done because it's cheaper to simply add more compute power to testing servers.
 \end{tcolorbox}
 
-\subsection{RQ2: Challenges of Incorporation}
+\subsection{RQ5.2: Challenges of Incorporation}
 \label{sec:ind_rq2}
 
 The interviews make it possible to identify a few notable obstacles that prevent the usage of state-of-the-art research techniques in the corporate environment.
@@ -66,4 +67,39 @@ Since new features are the most desirable output in the perspective of customers
 An argument to managers would need to include time and cost estimates, including forecasts showing that, in the mid- to long-term, performing these experiments now will lead to notable cost savings in the future.
 To avoid slowdown, an alternative would be to hire people dedicated specifically to experiment with new techniques and identifying avenues of improvement; however, hiring employees is an expensive process by itself and, given the choice, managers would prefer buying new computers to run more tests before hiring an employee to optimize the existing ones.
 
+\begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
+\textbf{Summary of RQ5.2}: 
+Practitioners describe several technical challenges involved with the implementation of new techniques into their workflow.
+Notably, adapting algorithms to their environment, screening for security risks and collecting appropriate data for input are frequently cited.
+Regardless, bureaucratic hurdles are more difficult to address than technicalities and, in order to convince managers to invest time and money into the effort, there needs to be robust evidence that a technique will provide meaningful benefits.
+\end{tcolorbox}
+
+
 \subsection{RQ3: Paths to Improve Collaboration}
+
+The interviews make it clear that, at least within the interacted team, there have not been many attempts of collaboration with academia, in the sense of bringing techniques from theory into practice and/or attempting experimentation in realistic software.
+This is not a general assessment of Ericsson, as even in the literature review (\autoref{chap:literature_review}) there is an example of a paper that was written in collaboration with the company \cite{najafi_improving_2019}.
+Nevertheless, the conversations highlights the current desire for such collaboration and some avenues for improvement.
+
+The team is not completely isolated from academia, as Ericsson frequently funds Master's programs jointly with Link\"oping University, although the motivation for this is not necessarily scientific advancement nor development of novel techniques.
+Students in this program get the opportunity to interact more closely with the inner workings at Ericsson and acquire specialized knowledge before graduating, particularly in the field of telecommunications.
+
+Less common are collaborations with PhD candidates, post-doctoral fellows or professors.
+Occasionally a research will invite an Ericsson employee to participate in a study, such as the aforementioned study with Saab, or even this present study.
+In such cases, there is usually some data provided by Ericsson or by an employee that are used by the researchers in some work meant for academic publication.
+The next step of this type of collaboration would be to bring the results of that study back into Ericsson and attempt to internal experimentation and potentially implementation of the technique.
+As far as the interviewees are aware, this either has not happened, or happens very rarely.
+
+With few exceptions, practitioners admit that they do not have the time to keep up with Software Engineering research and no longer maintain contact with former colleagues who might now be professors.
+There is no simple solution to this problem, as following research trends is not only time-consuming; it can be mentally draining for someone preoccupied with other tasks and it is rarely obvious how the results of a paper can be beneficial for an individuals' workflow.
+
+Internally at Ericsson, there is a team whose responsibility is to interact with different parts of the company and update workflows with new techniques.
+This dynamic is similar to the ``ideal'' scenario of industry-academia relations, cutting down some major obstacles (the company maintains control over the developed tool, there is a budget allocated for this, etc.).
+However, even a tool proposed and experimented with this team did not see adoption by the team at Linköping, due to the limited benefits observed in the multi-component testing layer.
+
+\begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
+\textbf{Summary of RQ5.3}: 
+There is interest and desire of collaboration among interviewed practitioners, but it is something they find difficult to take initiative upon.
+Most of their time is consumed performing day-to-day tasks and ensuring the delivered product is constantly improved, and there is little time or energy left to keep up with the quickly growing academic literature.
+Ericsson often funds Master's programs and there are examples of academic papers using data from the company, but it is difficult to find situations where research results directly impacted the current state of practice.
+\end{tcolorbox}
