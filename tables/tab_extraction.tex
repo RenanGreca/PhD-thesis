@@ -1,0 +1,51 @@
+\newcommand{\rowextraction}[2]{
+#1 & % Citation alias
+#2 % Full title
+\\ }
+\newcommand{\rowextractionheader}[2]{
+\textbf{#1} & % Citation alias
+#2 % Full title
+\\ }
+
+\begin{table}[]
+\centering
+\scriptsize
+\rowcolors{1}{}{gray!10}
+\begin{tabular}{lp{0.8\textwidth}}
+\toprule
+%\textbf{Data} & \textbf{Description}  \\ \midrule
+\rowextractionheader{Bibliographical data}{Basic information about the publication.}
+\midrule
+\rowextraction{Date}{The date the paper was made available online.}
+\rowextraction{Authors}{The list of authors.}
+\rowextraction{Title}{The title of the paper.}
+\rowextraction{Abstract}{The abstract of the paper.}
+\rowextraction{Venue and Publisher}{The conference or journal where it was published and its organization.}
+\rowextraction{DOI}{The Digital Object Identifier of the paper.}
+\midrule
+\rowextractionheader{Categorization}{Details regarding the problem addressed by the paper.}
+\midrule
+\rowextraction{\rt challenges}{Whether the paper covers \tcp, \tcs, \tsr, \tsa or a combination.}
+\rowextraction{Context}{The type of software targeted by the approach.}
+\midrule
+\rowextractionheader{Applicability concerns}{Properties of the paper related to its \rea.}
+\midrule
+\rowextraction{Industry motivation}{Whether the paper is clearly motivated by an industrially relevant problem.}
+\rowextraction{Industry evaluation}{Whether the technique is evaluated in industrial software or sufficiently large-scale open-source projects.}
+\rowextraction{Experiment subject(s)}{Which software or kind of software was used for the experimental evaluation of the technique, including the testing scale, the availability and the language in which tests are written.}
+\rowextraction{Industry partner}{Which, if any, industrial partner collaborated with the development and/or evaluation of the technique.}
+\rowextraction{Industrial author}{Whether one or more of the authors of the paper come from industry.}
+\rowextraction{Practitioner feedback}{Whether practitioners were consulted to provide feedback to the results of the paper.}
+\rowextraction{Available tool}{Whether the technique introduced in the paper is available to be used, either as a prototype or as a complete tool. If true, we also stored the relevant URLs.}
+\rowextraction{Put into practice}{Whether the proposed tool has been adopted into the development process of a certain software.}
+\midrule
+\rowextractionheader{Findings}{Details of the proposed technique and remaining challenges.}
+\midrule
+\rowextraction{Approach}{What sort of algorithm and information the technique is using.}
+\rowextraction{Metrics}{What criteria are being used for evaluating the techniques.}
+\rowextraction{Open challenges}{What the authors list as next steps and unsolved issues related to the problem they addressed.}
+\bottomrule
+\end{tabular}
+\caption{Data extraction form.}
+\label{table:extraction}
+\end{table}

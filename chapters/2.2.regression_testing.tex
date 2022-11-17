@@ -1,0 +1,25 @@
+\section{Regression Testing}
+\label{sec:regression}
+
+Regression testing is the part of software testing concerned with testing previously existing components of a system to guarantee that recent changes in the codebase did not affect the originally specified functionality of components.
+This process is often one of the costliest aspects of software development \cite{rothermel_improving_2018}, as it should ideally be performed every time a code change is committed, and involves much repetition of previously performed tests.
+It is defined in \cite{minhas_regression_2017} as ``an activity which makes sure that everything is working correctly after changes to the system.''
+That is, its primary objective is to assure that, after each change to the software, previously existing code continues to comply to specification (or simply to expectations, in case no formal specification exists).
+
+The term ``regression testing'' has its origins in pre-agile days but, as release schedules were centered around a hard deadline, it was an activity that was only performed near the end of the cycle, after the important features of the release had already been developed.
+At that point, testers would check if any of the new changes interfered with previous functionality of the software; in some places this was a manual process, in others semi-automated.
+Doing so earlier was not advantageous — a bug might be detected in the middle of development but, if the new features are not yet complete, it is possible that another bug will be detected on another round of testing.
+Since the software could only be shipped once all features were done, intermediary regression testing provided little benefits.
+
+Continuously evolving software shifted this dynamic.
+With smaller and more frequent release cycles, regression testing too became a more frequent activity.
+At the same time, the incredible feature speed demanded by customers and consumers means that it is not viable to postpone testing until right before release — if a bug is detected at that point, it might be too late to fix it before delivery.
+Thus, with the development of continuous integration/delivery (CI/CD) practices and tools, automated regression testing became commonplace, sometimes executed as frequently as new code changes were pushed into a repository.
+
+Test automation mostly solves the problem in small projects, where it takes only a few seconds or maybe minutes to run a full test suite.
+Large-scale software demand additional attention because of two factors: the test suite might be large and take a long time to execute, or code commits arrive at such a high frequency that there isn't enough time to run the test suite between each commit.
+Often, a combination of both factors become a major challenge in large-scale software development \cite{memon_taming_2017}.
+
+In order to maintain the health of the testing process and the availability of testing equipment, the execution time of a suite should be less than the average time between commits pushed by developers.
+In reality, this is difficult to achieve and maintain, as test suites tend to increase in scale (according to the necessities of an ever-evolving software) and commit frequency remains stable or can even decrease if new developers are added to the team.
+The straightforward solution is to increase the computational power of testing servers, so testing time reduces by brute force, although obviously this incurs additional costs.

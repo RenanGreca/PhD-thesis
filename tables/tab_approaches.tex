@@ -1,0 +1,106 @@
+\newcommand{\rowapproach}[6]{
+#1 & % Name
+\textcolor{olive}{#2} & % TCP
+\textcolor{teal}{#3} & % TCS
+\textcolor{brown}{#4} & % TSR
+\textcolor{purple}{#5} & % TSA
+#6 % Description
+\\}
+
+
+\begin{figure}
+  \center
+  \includegraphics[width=\linewidth]{info_approach.png}
+  \caption{Distribution of information approaches.}
+  \label{fig:info_approaches}
+\end{figure}
+
+\begin{figure}
+  \center
+  \includegraphics[width=\linewidth]{alg_approach.png}
+  \caption{Distribution of algorithm approaches.}
+  \label{fig:alg_approaches}
+\end{figure}
+
+
+
+
+
+\begin{table}[]
+\scriptsize
+\centering
+\setlength{\tabcolsep}{1,2mm}
+\begin{tabular}{p{23mm}p{18mm}p{18mm}p{8mm}p{3mm}p{55mm}}
+\toprule
+\textbf{Information} & 
+\textcolor{olive}{\textbf{\tcp}} & 
+\textcolor{teal}{\textbf{\tcs}} & 
+\textcolor{brown}{\textbf{\tsr}} & 
+\textcolor{purple}{\textbf{\tsa}} & 
+\textbf{Description} \\ 
+\midrule
+%\rowcolors{1}{}{gray!10}
+\showrowcolors
+\input{tables/csv_approaches_information}
+%\end{tabular}
+%\caption{Information Approaches}	
+%\label{table:info_approaches}
+%\end{table}
+%
+%
+%\begin{table}[]
+%\scriptsize
+%\centering
+%\begin{tabular}{p{25mm}p{15mm}p{15mm}p{8mm}p{8mm}p{60mm}}
+%\midrule
+\textbf{Algorithm} & 
+\textcolor{olive}{\textbf{\tcp}} & 
+\textcolor{teal}{\textbf{\tcs}} & 
+\textcolor{brown}{\textbf{\tsr}} & 
+\textcolor{purple}{\textbf{\tsa}} & 
+\textbf{Description} \\ 
+\midrule
+%\rowcolors{1}{}{gray!10}
+\showrowcolors
+\input{tables/csv_approaches_algorithm}
+\end{tabular}
+\caption{Information- and Algorithm-based Approaches}	
+\label{table:algo_approaches}
+\end{table}
+
+%\begin{table}[]
+%\scriptsize
+%\centering
+%\rowcolors{1}{}{gray!10}
+%\setlength{\tabcolsep}{5pt}
+%\begin{tabular}{c|p{15mm}|p{18mm}|p{18mm}|p{5.2mm}|p{5.3mm}|p{5.3mm}|p{50mm}}
+%\toprule
+% & \hspace{1mm} \textbf{Metric} & \textbf{\tcp} & \textbf{\tcs} & \textbf{\tsr} & \textbf{\tsa} & \textbf{Description} \\ 
+%\midrule
+%\rotatebox[origin=c]{90}{\textbf{Information}} &
+%\multicolumn{6}{c}{
+%%	\rowcolors{1}{}{gray!10}
+%	\begin{tabular}{p{15mm}|p{18mm}|p{18mm}|p{5mm}|p{5mm}|p{50mm}}
+%		\showrowcolors
+%		\input{tables/csv_approaches_information}
+%		
+%
+%	\end{tabular}
+%}\\
+%\midrule
+%\rotatebox[origin=c]{90}{\textbf{Algorithm}} &
+%\multicolumn{6}{c}{
+%%	\rowcolors{1}{}{gray!10}
+%	\begin{tabular}{p{15mm}p{18mm}p{18mm}p{5mm}p{5mm}p{50mm}}
+%		\showrowcolors
+%		\input{tables/csv_approaches_algorithm}
+%		
+%	\end{tabular}
+%}\\
+%
+%\bottomrule
+%
+%\end{tabular}
+%\caption{Approaches}	
+%\label{table:approaches}
+%\end{table}

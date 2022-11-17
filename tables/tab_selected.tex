@@ -1,0 +1,84 @@
+\newcommand{\rowselected}[6]{
+\scriptsize \citetalias{#1} & % Citation alias
+%\scriptsize \citep{#1} & % Standard citation
+\scriptsize \citeyear{#1} & % Citation year
+\scriptsize \citet{#1} & % Authors
+\scriptsize #2 & % Full title
+\scriptsize {\color{olive} #3} & % TCP
+\scriptsize {\color{teal} #4} & % TCS
+\scriptsize {\color{brown} #5} & % TSR
+\scriptsize {\color{purple} #6} % TSA
+\tabularnewline }
+
+\newcommand{\rotatedheader}[2] {
+	\rotatebox[origin=c]{90}{\textbf{{\color{#1} #2}}}
+}
+
+%\begin{table}[]
+
+%\begin{center}
+\rowcolors{3}{}{gray!10}
+\setlength{\tabcolsep}{1.2pt}
+\begin{longtable}{p{3mm}lp{22mm}p{90mm}llll}
+\toprule
+\scriptsize \textbf{ID} & 
+\scriptsize \textbf{Year} & 
+\scriptsize \textbf{Authors} & 
+\scriptsize \textbf{Title} & 
+\scriptsize \rotatedheader{olive}{\tcp} & 
+\scriptsize \rotatedheader{teal}{\tcs} &
+\scriptsize \rotatedheader{brown}{\tsr} &
+\scriptsize \rotatedheader{purple}{\tsa}
+\tabularnewline \midrule
+\input{tables/csv_selected.tex}
+%\\
+%\hiderowcolors
+%\bottomrule
+%\caption{Selected papers.}
+\label{table:selected}
+\end{longtable}
+%\end{center}
+
+%\begin{table}[]
+%\centering
+%\scriptsize
+%\rowcolors{1}{}{gray!10}
+%\begin{tabular}{llp{40mm}p{60mm}ll}
+%\toprule
+%\textbf{ID} & \textbf{Year} & \textbf{Authors} & \textbf{Title} & \textbf{Publisher} & \textbf{Ref.}  \\ \midrule
+%%\input{tables/csv_selected_1.tex}
+%%\rowselected{srikanth_requirements_2016}{Requirements Based Test Prioritization Using Risk Factors}{Elsevier}
+%
+%\bottomrule
+%\end{tabular}
+%%\caption{Selected papers.}
+%\label{table:selected_1}
+%\end{table}
+%
+%\begin{table}[]
+%\centering
+%\scriptsize
+%\rowcolors{1}{}{gray!10}
+%\begin{tabular}{llp{40mm}p{60mm}ll}
+%\toprule
+%\textbf{ID} & \textbf{Year} & \textbf{Authors} & \textbf{Title} & \textbf{Publisher} & \textbf{Ref.}  \\ \midrule
+%\input{csv_selected_2.tex}
+%\bottomrule
+%\end{tabular}
+%%\caption{Selected papers.}
+%\label{table:selected_2}
+%\end{table}
+%
+%\begin{table}[]
+%\centering
+%\scriptsize
+%\rowcolors{1}{}{gray!10}
+%\begin{tabular}{llp{40mm}p{60mm}ll}
+%\toprule
+%\textbf{ID} & \textbf{Year} & \textbf{Authors} & \textbf{Title} & \textbf{Publisher} & \textbf{Ref.}  \\ \midrule
+%\input{csv_selected_3.tex}
+%\bottomrule
+%\end{tabular}
+%\caption{Selected papers.}
+%\label{table:selected_3}
+%\end{table}

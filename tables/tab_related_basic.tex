@@ -1,0 +1,79 @@
+\newcommand{\rowbasic}[7]{
+%\citetalias{#1} & % The bibtex citation
+\citet{#1} & 
+#2 & % Year
+#3 & % Challenges
+#4 & % Nº papers
+#5 & % Years covered
+#6 & % Systematic? 
+#7 % Approach
+\\}
+
+%#3 & % TCP
+%#4 & % TCS
+%#5 & % TSR
+
+\begin{table}[]
+\begin{center}
+\scriptsize
+\rowcolors{1}{}{gray!10}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{33mm}llcccp{30mm}}
+\toprule
+Paper & Year & Techniques & N\textordmasculine & Period & Systematic? & Context\\ 
+\midrule
+\rowbasic{do_recent_2016}{2016}{\tcp, TCS, TSR}{12}{2010-2016}{}{}
+
+\rowbasic{hao_test-case_2016}{2016}{TCP}{27}{2010-2016}{}{}
+
+\rowbasic{rosero_15_2016}{2016}{TCP, TCS, TSR}{25}{2000-2014}{}{}
+
+\rowbasic{kazmi_effective_2017}{2017}{TCS}{47}{2007-2015}{\checkmark}{}
+
+\rowbasic{bajaj_survey_2018}{2018}{TCP, TCS, TSR}{15}{1999-2016}{}{Nature-inspired}
+
+\rowbasic{khatibsyarbini_test_2018}{2018}{TCP}{80}{1999-2016}{\checkmark}{}
+
+\rowbasic{mukherjee_survey_2018}{2018}{TCP}{90}{2001-2018}{\checkmark}{}
+
+\rowbasic{rehman_khan_systematic_2018}{2018}{TSR}{113}{1993-2016}{\checkmark}{}
+
+\rowbasic{bajaj_systematic_2019}{2019}{TCP}{20}{2006-2018}{\checkmark}{Genetic}
+
+\rowbasic{bin_ali_search_2019}{2019}{TCP, TCS, TSR}{38}{2002-2017}{Mix}{}
+
+\rowbasic{danglot2019snowballing}{2019}{TSA}{49$^1$}{1993-2017}{\checkmark}{}
+
+\rowbasic{lou_survey_2018}{2019}{TCP}{191}{1997-2016}{\checkmark}{}
+
+\rowbasic{hasnain_comprehensive_2020}{2020}{TCP}{65}{2001-2017}{\checkmark}{Web services}
+
+\rowbasic{prado_lima_test_2020}{2020}{TCP}{35}{2009-2019}{\checkmark}{Continuous integration}
+
+\rowbasic{abdul2021systematic}{2021}{TCP}{20}{2011-2020}{\checkmark}{Combinatorial}
+
+\rowbasic{hasnain2021ontology}{2021}{TCP}{24}{2007-2019}{\checkmark}{Ontology-based}
+
+\rowbasic{mohd2021model}{2021}{TCP}{22$^2$}{2005-2018}{\checkmark}{Model-based}
+
+\rowbasic{rosero2021software}{2021}{TCP, TCS, TSR}{40}{2002-2020}{\checkmark}{}
+
+\rowbasic{samad2021regression}{2021}{TCP}{52}{2007-2019}{\checkmark}{}
+
+\rowbasic{ahmed_value_2022}{2022}{TCP}{21}{2001-2019}{\checkmark}{Value-based}
+
+\rowbasic{pan2022test}{2022}{TCP, TCS}{29}{2006-2020}{\checkmark}{Machine learning}
+
+\rowbasic{sadri2022survey}{2022}{TCP, TCS, TSR}{13$^2$}{2015-2019}{\checkmark}{Cyber-physical}
+
+
+\bottomrule
+\end{tabular}
+\end{center}
+\scriptsize{1: Ref.~\cite{danglot2019snowballing} covers test amplification, which is a wider scope than test augmentation, 
+and the reported number of 49 primary studies includes the whole field.
+2.: For Refs.~\cite{mohd2021model} and ~\cite{sadri2022survey} the reported number of primary studies also includes papers addressing test generation.}
+\caption{Overview of existing secondary studies on \rt.}
+\label{table:related}
+\end{table}
+

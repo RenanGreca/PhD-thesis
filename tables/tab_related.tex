@@ -1,0 +1,47 @@
+\newcommand{\rowrelated}[3]{
+%\citet{#1} & % Citation alias
+\citeyear{#1} & % Citation year
+\citeauthor*{#1} & % Authors
+#2 & % Full title
+#3 &
+\citep{#1} % Standard citation
+\\ }
+
+\begin{table}[]
+\centering
+\scriptsize
+\rowcolors{1}{}{gray!10}
+\begin{tabular}{lp{40mm}p{60mm}ll}
+\toprule
+\textbf{Year} & \textbf{Authors} & \textbf{Title} & \textbf{Publisher} & \textbf{Ref.}  \\ \midrule
+\rowrelated{do_recent_2016}{Recent advances in regression testing techniques}{Elsevier}
+% Do, H. & \cite{do_recent_2016} \\ \hline
+\rowrelated{hao_test-case_2016}{Test-case Prioritization: Achievements and Challenges}{Springer}
+% Hao, D.; Zhang, L.; Mei H. & \cite{hao_test-case_2016} \\ \hline
+\rowrelated{rosero_15_2016}{15 Years of Software Regression Testing Techniques - A Survey}{World Scientific}
+% Rosero, R.H.; Gómez, O.S.; Rodríguez, G. & \cite{rosero_15_2016} \\ \hline
+\rowrelated{kazmi_effective_2017}{Effective Regression Test Case Selection: A Systematic Literature Review}{ACM}
+% Kazmi, R.; Jawawi, D.N.A.; Mohamad, R.; Ghani, I. & \cite{kazmi_effective_2017} \\ \hline
+\rowrelated{bajaj_survey_2018}{A survey on regression testing using nature-inspired approaches}{IEEE}
+% Bajaj, A.; Sangwan, O.P. & \cite{bajaj_survey_2018} \\ \hline
+\rowrelated{lou_survey_2018}{A Survey on Regression Test-Case Prioritization}{Elsevier}
+% Lou, Y.; Chen, J.; Zhang, L.; Hao, D. & \cite{lou_survey_2018} \\ \hline
+\rowrelated{khatibsyarbini_test_2018}{Test case prioritization approaches in regression testing: A systematic literature review}{Elsevier}
+% Khatibsyarbini, M.; Isa, M.A.; Jawawi, D.N.A.; Tumeng, R. & \cite{khatibsyarbini_test_2018} \\ \hline
+\rowrelated{mukherjee_survey_2018}{A survey on different approaches for software test case prioritization}{Elsevier}
+% Mukherjee, R., Patnaik, K.S. & \cite{mukherjee_survey_2018} \\ \hline
+\rowrelated{rehman_khan_systematic_2018}{A systematic review on test suite reduction: Approaches, experiment’s quality evaluation, and guidelines}{IEEE}
+% Khan, S.U.R.; Lee, S.P.; Javaid, N.; Abdul, W. & \cite{rehman_khan_systematic_2018} \\ \hline
+\rowrelated{bajaj_systematic_2019}{A systematic literature review of test case prioritization using genetic algorithms}{IEEE}
+% Bajaj, A.; Sangwan, O.P. & \cite{bajaj_survey_2018} \\ \hline
+\rowrelated{bin_ali_search_2019}{On the search for industry-relevant regression testing research}{Springer}
+% bin Ali, N.; Engström, E.; Taromirad, M.; Mousavi, M.R.; Minhas, N.M.; Helgesson, D.; Kunze, S.; Varshosaz, M. & \cite{bin_ali_search_2019} \\ \hline
+\rowrelated{hasnain_comprehensive_2020}{A Comprehensive Review on Regression Test Case Prioritization Techniques for Web Services}{KSII}
+% Hasnain, M.; Ghani, I.; Pasha, M.F.; Lim, C.H.; Jeong, S.R. & \cite{hasnain_comprehensive_2020} \\ \hline
+\rowrelated{prado_lima_test_2020}{Test Case Prioritization in Continuous Integration environments: A systematic mapping study}{Elsevier}
+% Prado Lima, J.A.; Vergilio, S.R. & \cite{prado_lima_test_2020} \\ \hline
+\bottomrule
+\end{tabular}
+\caption{Related papers.}
+\label{table:related}
+\end{table}

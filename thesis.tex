@@ -50,7 +50,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage[noend]{algpseudocode}
-\usepackage[labeled,resetlabels]{multibib}
+%\usepackage[labeled,resetlabels]{multibib}
 
 
 \newcommand{\ugh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
@@ -73,8 +73,6 @@
 \newcommand{\rt}{RT\xspace}
 \newcommand{\rea}{IR\&A\xspace}
 
-
-\newcommand{\numpapers}{79\xspace}
 
 \newcommand{\ek}{Ekstazi\xspace}
 \newcommand{\ekr}{Ekstazi\xspace}
@@ -110,11 +108,14 @@
   
   
 % Defining bibliographies
-\newcites{P}{Papers related to this thesis}
-\newcites{C}{Conferences related to this thesis}
-\newcites{S}{Papers identified in the Systematic Literature Review}
+%\newcites{P}{Papers related to this thesis}
+%\newcites{C}{Conferences related to this thesis}
+%\newcites{S}{Papers identified in the Systematic Literature Review}
 %\newcites{Bibliography}{Bibliography}
-  
+
+\input{tables/numpapers}
+\input{tables/csv_aliases}  
+
 %----------------------------------------------------------------------------------------
 %	End of TYPESETTING
 %----------------------------------------------------------------------------------------
@@ -285,7 +286,7 @@ Thanks to my colleagues Debashmita Poddar, Konstantin Prokopchik and Alex Coto f
 
 I would also like to thank professors Luiz Albini and Eduardo Todt from UFPR, for the education I received before coming to Italy and for the warm welcome I received when visiting my \textit{alma mater}.
 
-Thanks to Marco Rotilio, whose music lessons were an outlet of creativity during challenging times.
+Thanks to Marco Rotilio, whose music lessons were an outlet of creativity.
 
 Finally, I would like to acknowledge and thank my friends: André Ramos, Arthur Alves, Arthur Pieri, Cainã Trevisan, Dácio Augusto, Darren Kerwin, Douglas Novelli, Eric Bunese, Felipe de Lara, Felipe Gugelmin, Gustavo Henrique, Janderson Oliveira, Lucas Knopki, Luiz Roveran, and Pedro Vicente.
 Even thousands of kilometers away, you are all special to me.
@@ -483,17 +484,18 @@ Even thousands of kilometers away, you are all special to me.
 
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
 
-\bibliographystyleP{unsrtnat}
-\bibliographyP{production.bib}
+%\bibliographystyleP{unsrtnat}
+%\bibliography{production.bib}
 
-\nociteP{greca_comparing_2022}
+%\nociteP{greca_comparing_2022}
 
-\bibliographystyleS{unsrtnat}
-\bibliographyS{slr.bib}
+%\bibliographystyleS{unsrtnat}
+%\bibliography{slr.bib}
 
-\input{bibliographies/nociteS.tex}
+%\input{bibliographies/nociteS.tex}
 
 \bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-\bibliography{bibliographies/bibliography.bib} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\bibliography{bibliography.bib} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+%\bibliography{bibliographies/secondaries.bib}
 
 \end{document}

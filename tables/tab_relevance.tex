@@ -1,0 +1,91 @@
+\newcommand{\rowrelevance}[7]{
+\citetalias{#1} & % Citation alias
+{\color{olive} #2} & % Ind mot
+{\color{teal} #3} & % Ind eval
+{\color{brown} #4} & % Ind auth
+{\color{purple} #5} & % Prac feed
+{\color{orange} #6} & % Avail tool
+{\color{cyan} #7}   % In practice 
+}
+
+%\newcommand{\rotatedheaderfourtyfive}[2] {
+%	\rotatebox[origin=c]{45}{\textbf{{\color{#1} #2}}}
+%}
+
+\newcommand{\relevanceheader} {
+	\textbf{ID} & 
+	\rotatedheader{olive}{Ind. Mot.} &
+	\rotatedheader{teal}{Ind. Eval.} &
+	\rotatedheader{brown}{Ind. Auth.} &
+	\rotatedheader{purple}{Prac. Feed.} &
+	\rotatedheader{orange}{Avail. Tool} &
+	\rotatedheader{cyan}{In Practice}
+}
+
+%\begin{center}
+%\scriptsize
+%\rowcolors{3}{}{gray!10}
+%\begin{longtable}{lllllll}
+%\toprule
+%\textbf{ID} & \textbf{Industrial} & \textbf{Industrial} & \textbf{Industrial} & \textbf{Practitioner} & \textbf{Available} & \textbf{Put into}  \\
+%\textbf{} & \textbf{motivation} & \textbf{evaluation} & \textbf{author(s)} & \textbf{feedback} & \textbf{tool} & \textbf{practice} 
+%\tabularnewline \midrule
+%\input{tables/csv_relevance.tex}
+%%\tabularnewline 
+%%\hiderowcolors
+%%\bottomrule
+%%\caption{Relevance properties found in the papers.}
+%\label{table:relevance}
+%\end{longtable}
+%\begin{center}
+%\scriptsize
+%\checkmark is used when the paper satisfies that property.\\ ? is used when it was not completely clear from the text if the property was satisfied or not.
+%\end{center}
+%\end{center}
+
+%\begin{table}[]
+%\scriptsize
+%\centering
+%\begin{tabular}{p{3mm}p{58mm}|p{3mm}p{58mm}}
+%\toprule
+%\textbf{ID} & \textbf{Properties} & \textbf{ID} & \textbf{Properties}\\ 
+%\midrule
+%\showrowcolors
+%\input{tables/csv_relevance.tex}
+%\end{tabular}
+%\caption{Relevance properties found in the papers.}
+%\scriptsize 
+%{\color{olive} Ind. Mot.}: Industrial Motivation.
+%{\color{teal} Ind. Eval.}: Industrial Evaluation.
+%{\color{brown} Ind. Auth.}: Industrial Author(s).\\
+%{\color{purple} Prac. Feed.}: Practitioner Feedback.
+%{\color{orange} Avail. Tool}: Available Tool.
+%{\color{cyan} In Practice}: Put into Practice.
+%\label{table:relevance}
+%\end{table}
+
+\begin{table}[]
+\scriptsize
+\begin{center}
+\rowcolors{2}{}{gray!10}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{l llllll | l llllll | l llllll | l llllll | l llllll}
+\toprule
+\relevanceheader & \relevanceheader & \relevanceheader & \relevanceheader & \relevanceheader \\ 
+\midrule
+\input{tables/csv_relevance.tex}
+\end{tabular}
+\end{center}
+\scriptsize 
+\vspace{-9pt}
+{\color{olive} Ind. Mot.}: Industrial Motivation.
+{\color{teal} Ind. Eval.}: Industrial Evaluation.
+{\color{brown} Ind. Auth.}: Industrial Author(s).
+{\color{purple} Prac. Feed.}: Practitioner Feedback.
+{\color{orange} Avail. Tool}: Available Tool.
+{\color{cyan} In Practice}: Put into Practice.
+%
+A half-filled circle indicates a partially satisfied property. For example, a paper that provides its dataset but not its source code, or one that has some indication of having been implemented without explicitly stating so.
+\caption{Relevance properties found in the papers.}
+\label{table:relevance}
+\end{table}
