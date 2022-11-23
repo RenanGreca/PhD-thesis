@@ -33,9 +33,9 @@ In \autoref{sec:lit_rq1}, common approaches and metrics for each group are descr
 \label{sec:tcp}
 
 One challenge of regression testing is to detect failing tests fast.
-The objective of \tcp is to re-order test cases according to some definition of priority, in order to get faster feedback from the test execution.
+The objective of \textit{test case prioritization} (\tcp) is to re-order test cases according to some definition of priority, in order to get faster feedback from the test execution.
 Given an SUT $M$ and its test suite $T$,
-\tcp can be described as a function $P(T)$ that provides a permutation of $T$, $T'$ such that, given a metric function $f$, $f(T') > f(T)$.
+\tcp can be described as a function $P(M, T)$ that provides a permutation of $T$, $T'$ such that, given a metric function $f$, $f(T') > f(T)$.
 The optimal prioritization is one where $f(T')$ is greater than or equal to any other possible permutation of $T$. 
 
 Some criteria often used for \tcp include: \textit{(1)} similarity-based, which attempts to diversify the execution of tests; \textit{(2)} coverage-based, with the objective of maximizing block\footnote{A \textit{block} of the SUT can be one line of code, a branch, a function, etc. according to system design and other necessities.} coverage with as few tests as possible; or \textit{(3)} history-based, which prioritizes tests that have a history of failing or revealing faults~\cite{khatibsyarbini_test_2018}.
@@ -54,7 +54,7 @@ so there is no loss of failures detection ability (assuming that test results ar
 
 In regression testing, not all tests are relevant to a particular code change:
 if only a small part of one file was updated, it is unlikely that the entire project would be affected and the full regression test suite would have to be run.
-\tcs addresses the challenge of selecting a subset of tests that is representative of the entire suite in a given situation~\cite{YooHarman10RegressionTestingSurvey, RothermelHarrold94FrameworkForEvaluationRTS}.
+\textit{Test case selection} (\tcs) addresses the challenge of selecting a subset of tests that is representative of the entire suite in a given situation~\cite{YooHarman10RegressionTestingSurvey, RothermelHarrold94FrameworkForEvaluationRTS}.
 In other words, given subsequent versions of an SUT, $M$ and $M'$ and its test suite $T$, 
 \tcs can be described as a function $S(M, M', T)$ that selects a subset $T' \subseteq T$ to be used for testing $M'$, considering the differences between $M$ and $M'$.
 
@@ -67,6 +67,18 @@ Some metrics for \tcs are: \textit{(1)} selection count or percentage, which mea
 
 A potential drawback of \tcs is that, depending on the size of the test suite and the execution time of individual tests, it may happen that the time needed to produce the subset $T'$ is greater than the savings provided by executing $T'$ instead of $T$. 
 
-\subsection{Test Case Reduction and Minimization}\label{sec:tsr}
+\subsection{Test Case Reduction and Minimization}
+\label{sec:tsr}
+
+Without considering subsequent versions of the SUT, \textit{test suite reduction} (\tsr) aims to find a minimal subset of test cases such that the testing requirements are still met.
+Thus, given an SUT $M$ its test suite $T$ that satisfies a set of requirements $\{r_1, ..., r_n\}$, we describe \tsr as a function $R(M, T, r)$ which outputs a test suite $T' \subseteq T$ such that each $r_i$ is satisfied.
+
+There exists conceptual overlap between \tcs and \tsr, with the key differences being change-awareness and the objective of the result.
+While \tcs uses a comparison between versions of the SUT and produces a set of tests meant to validate those changes, \tsr can be performed on an isolated iteration of a program and is meant to detect tests that are no longer needed for full satisfaction of the requirements.
+\tsr approaches are often coverage-based or requirements-based and, as discussed in \autoref{sec:lit_rq1}, evaluation metrics for \tcp and \tsr are often shared, since both are concerned with running fewer tests and reducing the overall testing time; however \tsr must ensure that there is no loss in fault detection capability in the long-term evolution of the suite.
+
+Regarding the terms reduction and minimization, both options are used nearly interchangeably in the literature.
+According to \citeauthor{yoo2012regression}, the difference in terminology is subtle: while both remove tests from the suite, ``minimization'' implies this change is temporary, while ``reduction'' stands for permanent removal of tests.
+Generally speaking, the same techniques can be applied for both ends so, from the perspective of researchers, the two terms are not distinct.
 
 \subsection{Test Case Amplification and Augmentation}\label{sec:tsa}
