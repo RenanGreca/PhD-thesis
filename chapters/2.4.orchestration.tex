@@ -71,14 +71,38 @@ A potential drawback of \tcs is that, depending on the size of the test suite an
 \label{sec:tsr}
 
 Without considering subsequent versions of the SUT, \textit{test suite reduction} (\tsr) aims to find a minimal subset of test cases such that the testing requirements are still met.
-Thus, given an SUT $M$ its test suite $T$ that satisfies a set of requirements $\{r_1, ..., r_n\}$, we describe \tsr as a function $R(M, T, r)$ which outputs a test suite $T' \subseteq T$ such that each $r_i$ is satisfied.
+Thus, given an SUT $M$ its test suite $T$ that satisfies a set of requirements $\{r_1, ..., r_n\}$, we describe \tsr as a function $R(M, T, r)$ which outputs a test suite $T' \subseteq T$ such that each $r_i$ is still satisfied.
 
 There exists conceptual overlap between \tcs and \tsr, with the key differences being change-awareness and the objective of the result.
 While \tcs uses a comparison between versions of the SUT and produces a set of tests meant to validate those changes, \tsr can be performed on an isolated iteration of a program and is meant to detect tests that are no longer needed for full satisfaction of the requirements.
 \tsr approaches are often coverage-based or requirements-based and, as discussed in \autoref{sec:lit_rq1}, evaluation metrics for \tcp and \tsr are often shared, since both are concerned with running fewer tests and reducing the overall testing time; however \tsr must ensure that there is no loss in fault detection capability in the long-term evolution of the suite.
 
 Regarding the terms reduction and minimization, both options are used nearly interchangeably in the literature.
-According to \citeauthor{yoo2012regression}, the difference in terminology is subtle: while both remove tests from the suite, ``minimization'' implies this change is temporary, while ``reduction'' stands for permanent removal of tests.
+According to \citeauthor{yoo2012regression}, the difference in terminology is subtle: while both remove tests from the suite, \textit{minimization} implies this change is temporary, while \textit{reduction} stands for permanent removal of tests.
 Generally speaking, the same techniques can be applied for both ends so, from the perspective of researchers, the two terms are not distinct.
 
-\subsection{Test Case Amplification and Augmentation}\label{sec:tsa}
+\subsection{Test Case Amplification and Augmentation}
+\label{sec:tsa}
+
+As a program evolves and grows in scope, so must its test suite keep up with the additional features requirements.
+Today, this is mostly done manually by the development teams.
+In some cases developers are responsible for testing their own code; in others, developers test each other, or there can be designated testers whose job is to ensure other people's changes satisfy requirements and are error-free.
+
+Unfortunately, tests do not add to the perceived value of a software product, since they do not provide direct functionality to end users.
+Thus, in a lot of cases, developers are encouraged to spend little time writing new tests or improving existing ones.
+As such, an automated solution can prove to be valuable to both reduce the manual work done by programmers and to improve the overall quality of new test cases.
+\textit{Test case amplification} (\tsa) is the technique to achieve that goal.
+
+Given an SUT $M$ and its test suite $T$ that \textit{partially} satisfies a set of requirements $\{r_1, ..., r_n\}$, \tsa is described as a function $A(M, T, r)$ outputting a test suite $T' \supseteq T$ that satisfies more $r_i$s than $T$.
+Much like \tsr, coverage-based and requirements-based approaches are common, although the objective is naturally to increase coverage rather than maintain it.
+Metrics for measuring the output include the relative increase in coverage/requirements.
+
+This problem is related to \textit{test suite generation} (TSG) although, for the discussion of regression testing, \tsa is a more useful concept.
+The difference is that \tsa increases a pre-existing test suite, while TSG generates one from scratch using only the \sut as input.
+Since the latter does not presume an ongoing and evolving regression test suite, it was determined that it falls out of the scope of discussion of this thesis.
+That said, from a purely technical standpoint, both challenges are strongly related.
+
+There is a nuanced distinction between the usage of amplification and augmentation, and the two are sometimes conflated in the literature.
+Generally, \textit{amplification} refers to any improvement of the test suite, which may happen by adding new tests or enhancing existing ones.
+On the other hand, \textit{augmentation} implies the creation of new tests without modifying previous ones.
+By this definition, \textit{test suite augmentation} is a problem embedded within test suite amplification, so for the purposes of this thesis, we refer as amplification the combined challenge.
