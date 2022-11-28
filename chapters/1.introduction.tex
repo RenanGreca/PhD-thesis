@@ -11,30 +11,86 @@ However, it is already in the common sense that software is not always perfect, 
 A recent and devastating example is the Boeing 737 Max, an aircraft that was involved in two fatal crashes in 2018 and 2019, and had to be grounded for months, due to what was likely a software fault \cite{levin_latest_2019}.
 Needless to say, this software fault caused the tragic loss of many lives, as well as billions of dollars of expenses to Boeing, airlines, airports and passengers.
 
+Despite this example, encountering bugs is an almost universal experience to people who interact with software.
+Most bugs are not harmful or fatal, appearing frequently as inconveniences that may bother users, or perhaps incurring additional costs to a company that relies on the software.
+From an industry perspective, these bugs are costly — fixing software defects is always more expensive after release and, in critical infrastructure systems, costly steps such as hardware redundancy must be employed to ensure uninterrupted service if the software is not deemed to be 100\% reliable.
+
 As such, it is important for companies and communities developing software to utilize methods to mitigate the possibility that faulty software will reach production.
-Today, software is often accompanied by a \textit{test suite}, a series of automated tests that are used to provide a level of certainty that parts of a software, both in isolation and in conjunction, correctly perform the tasks to which they are assigned.
-One widely-adopted software testing technique is called \textit{regression testing}; its primary role is to execute the test suite with a certain frequency, in order to guarantee that recently introduced changes to the software have not affected previously-correct behavior.
+Today, most commercial and open-source software products are accompanied by a \textit{test suite}, a series of automated tests that are used to provide a level of certainty that parts of a software, both in isolation and in conjunction, correctly perform the tasks to which they are assigned.
+One widely-adopted software testing technique is called \textit{regression testing}; its primary role is to execute the test suite with a certain frequency, in order to guarantee that recently introduced changes to the software do not affect previously-correct behavior.
 
 However, in large-scale software development (that is, with multiple developers and a large codebase), it is usually unfeasible to execute every test after every change, either because changes are too frequent, or because there are too many tests, or both.
-This is aggravated by the fact that most software is now developed in a \textit{continuous} manner, in which it is desirable that recent changes are put in production as fast as possible.
+This is aggravated by the fact that most software is now developed in a \textit{continuous} manner, meaning software that is developed in an iterative and cyclical process, resulting in a short turnaround time between the design of a requirement, the development of a feature, and the delivery of an update to customers.
+%in which it is desirable that recent changes are put in production as quickly as possible.
 
-To alleviate this issue, software developers and testers can design \textit{test orchestration} strategies, which will automatically aid the process of regression testing.
+To alleviate the issue of ever-growing regression testing suites, software developers and testers can design \textit{test orchestration} strategies, which will automatically aid the process of regression testing.
 These strategies can be used for various purposes, such as selecting and prioritizing the most relevant test cases, or generating new test cases based on recent changes to the codebase.
 
-A major challenge in software testing research is that, until recently, there was little concern regarding the practical applicability of methods and techniques proposed by academia.
-Due to this, academia and industry diverged into different paths that wish to reach similar goals, although with different priorities.
-Many academic works on the topic aim for highly-precise techniques that, when applied in practice, are too slow to be useful or unrealistically require resources that are not commonly available.
-On the other hand, many practitioners already apply coarse-grained techniques that provide some reduction in costs, but that could do much better with further thought and research. 
-Therefore, it is now a major concern for researchers and practitioners that new software testing techniques are designed and evaluated considering their applicability for real-world software.
+A major challenge in software testing research is the difficulty of bringing theoretically-sound approaches into real-world use by developers.
+There are many reasons why this happens; for example, many academic works on the topic aim for highly-precise techniques that, when applied in practice, are too slow to be useful or unrealistically require resources that are not easily available.
+On the other hand, many practitioners already apply coarse-grained techniques that provide some reduction in costs, but that could do much better with further research and experiments, although companies are reluctant to spend time and money on improving a testing workflow instead of delivering new features.
+In other words, there is a potential mismatch in motivations of researchers and practitioners who work with software testing, causing the so-called \textit{industry-academia knowledge/technology transfer gap}.
 
-In this research proposal, we discuss several challenges that are currently keeping academic and industrial techniques from converging.
-Our aim is to develop new test orchestration strategies for continuously-evolving software that combines the best techniques proposed in academia into a complete solution applicable in industry.
-In order to rank and categorize techniques, we will introduce certain \textit{applicability metrics} that determine how well-suited a technique is for industrial application.
+%A major challenge in software testing research is that, until recently, there was little concern regarding the practical applicability of methods and techniques proposed by academia.
+%Due to this, academia and industry diverged into different paths that wish to reach similar goals, although with different priorities.
+%Therefore, it is now a major concern for researchers and practitioners that new software testing techniques are designed and evaluated considering their applicability for real-world software.
 
-We hope that this research will aid both future researchers and practitioners in developing and applying software testing techniques, thus resulting in a general improvement of quality in software.
-Within possibility, we would like to work in conjunction with professionals from the software industry in order to tune the development and evaluation of our strategies according to the real-world needs.
+This thesis brings forth a discussion on this apparent gap, extracting information from a comprehensive literature review in combination with in person interviews at a major technology company.
+With this, we aim to expose ongoing challenges that prevent most software testing research from seeing real-world use and provide directions for future researchers to act upon.
+In addition, as a proof-of-concept approach, we introduce \textit{orchestration strategies} for regression testing, highlighting the use of techniques already existing in the literature which exhibit characteristics that make them promising for practical usage.
 
-The remainder of this document is structured as follows.
-First, \autoref{chap:background} introduces the concepts of regression testing and test orchestration.
-Then, \autoref{chap:sota} reviews recent literature on the industrial applicability of software testing techniques, and summarizes some proposed techniques that show promising results for regression testing.
-Finally, \autoref{chap:proposal} elaborates on the challenges we wish to tackle with this research, and provides an overview of how work will be conducted in the upcoming years.
+The following paragraphs provide a summary of the remainder of this document.
+
+As a background, \autoref{chap:background} provides a detailed description of the challenges involved with regression testing and continuously evolving software systems.
+It also introduces the concept of test suite orchestration and the techniques that can be components of an overarching test strategy.
+Finally, it describes the four groups of techniques that are delineated as the scope for this thesis: test case prioritization (\tcp), test case selection (\tcs), test suite reduction (\tsr) and test suite amplification (\tsa).
+
+Then, \autoref{chap:literature_review} is a comprehensive systematic literature review covering advances in regression testing research between the years 2016 and 2022.
+The focus is to identify papers that propose techniques that are either validated in practical experiments, or are promising candidates for real-world use.
+In this process, we have identified 79 papers covering the four aforementioned groups of regression testing techniques.
+To obtain an updated understanding of the research beyond what is included directly in the papers, we contacted the authors directly, asking them about the long-term impact of their research after publication.
+Furthermore, we also contacted a number of industry practitioners to better understand their relationship with the ongoing research in the field.
+
+A proof-of-concept test suite orchestration strategy is introduced in \autoref{chap:orchestration}, combining two previously existing techniques from literature and drawing conclusions regarding the effectiveness and efficiency of the combined approach versus the individual techniques.
+This work is left open to extension with probable paths highlighted in the chapter.
+
+During a seven-week period, an investigation was conducted in partnership with Ericsson in Sweden; the results of which can be found in \autoref{chap:industry}.
+Th primary objective of this period was to understand how testing is done at the company and identify the testing issues that most commonly affect the practitioners.
+A series of interviews were conducted with team members involved with the testing process, from which it is possible to determine the positives of their current process, the points that could be improved with new techniques, and potential avenues for closer collaboration with academic work.
+Certain parts of the extracted information are under a non-disclosure agreement, thus here we present as much as possible without infringing this contract.
+
+Combining data and findings from the preceding chapters, \autoref{chap:gap} provides a list of ongoing challenges for the real-world relevance of software testing research.
+Some of these were brought up by authors; others emerged during the interviews at Ericsson; others still are based on our own observations of the information we collected and analyzed during the development of this work.
+This chapter is designed to be a set of suggestions for researchers to keep in mind while developing their next work, as well as as potential research directions in their own right.
+
+To provide a long-term usefulness to this work, we introduce an online live repository of research in \autoref{chap:live}.
+This is based primarily on the findings of \autoref{chap:literature_review}, developed into an interactive website that will be updated for years to come.
+The goal is to provide a destination to researchers in the field of regression testing to easily gather a bibliography of research that has proven applicability or potential for it.
+Practitioners interested in adopting new techniques on their projects can also look for studies that are related to the challenges they face, opening up an avenue for contact and collaboration.
+Authors of the cited papers and engaged readers are encouraged to contribute to the repository, either by adding additional details about the included papers or by suggesting additional papers that fit the topic and criteria.
+
+Finally, \autoref{chap:conclusion} concludes the work by first acknowledging the threats to validity of the preceding chapters and provides a summary and final thoughts on the results of this research.
+
+In summary, the contributions of this research are as follows:
+\begin{itemize}
+	\item A comprehensive literature review highlighting research with a high degree of applicability between the years 2016-2022.
+	\item Follow-up information from the authors of the cited papers, detailing their long-term impact and the challenges that prevent implementation of a technique.
+	\item A proof-of-concept for test suite orchestration, combining existing robust research and drawing paths for future expansion.
+	\item A series of interviews with practitioners at a major technology company, presenting an overview of how testing is performed there and what are the issues faced by the team that could be alleviated by software testing research.
+	\item A list of challenges gathered from the preceding work, which can help future researchers address barriers to applicability and should help research turn into practice.
+	\item A live repository of papers extracted from the literature review, which will serve as a starting point for researchers and practitioners seeking to develop new and practical regression testing techniques. 
+\end{itemize}
+
+
+%In this research proposal, we discuss several challenges that are currently keeping academic and industrial techniques from converging.
+%Our aim is to develop new test orchestration strategies for continuously-evolving software that combines the best techniques proposed in academia into a complete solution applicable in industry.
+%In order to rank and categorize techniques, we will introduce certain \textit{applicability metrics} that determine how well-suited a technique is for industrial application.
+%
+%Within possibility, we would like to work in conjunction with professionals from the software industry in order to tune the development and evaluation of our strategies according to the real-world needs.
+
+%We hope that this research will aid both future researchers and practitioners in developing and applying software testing techniques, thus resulting in a general improvement of quality in software.
+
+%The remainder of this document is structured as follows.
+%First, \autoref{chap:background} introduces the concepts of regression testing and test orchestration.
+%Then, \autoref{chap:sota} reviews recent literature on the industrial applicability of software testing techniques, and summarizes some proposed techniques that show promising results for regression testing.
+%Finally, \autoref{chap:proposal} elaborates on the challenges we wish to tackle with this research, and provides an overview of how work will be conducted in the upcoming years.

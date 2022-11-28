@@ -60,11 +60,6 @@
 
 \renewcommand{\ttdefault}{cmr}
 
-\newcommand{\assignedto}[1]{\textcolor{red}{\ding{46}~{\sf Assigned to:}~#1}\\}
-\newcommand{\todo}[1]{\textcolor{blue}{\ding{46}{\sf}~#1}}
-
-\newcommand{\sugg}[1]{\textcolor{orange}{#1}}
-
 %% Abbreviation commands
 \newcommand{\tcp}{TCP\xspace}
 \newcommand{\tcs}{TCS\xspace}
@@ -90,6 +85,15 @@
 
 \newcommand{\quoter}[2]{``\textit{#1}'' (#2)}
 \newcommand{\quotes}[1]{``\textit{#1}''}
+
+
+\newcommand{\assignedto}[1]{\textcolor{red}{\ding{46}~{\sf Assigned to:}~#1}\\}
+\newcommand{\todo}[1]{\textcolor{blue}{\ding{46}{\sf}~#1}}
+\newcommand{\sugg}[1]{\textcolor{orange}{#1}}
+
+\newcommand{\anto}[1]{[[\textbf{Anto:}~{\color{olive}#1}]]}
+\newcommand{\breno}[1]{[[\textbf{Breno:}~{\color{teal}#1}]]}
+\newcommand{\renan}[1]{[[\textbf{Renan:}~{\color{brown}#1}]]}
 
 % Circles
 \usepackage{tikz}
@@ -257,11 +261,14 @@ Software is an important part of modern life, and in most cases, it provides tre
 Unfortunately, software is highly susceptible to faults.
 Faults are often harmless, but even small errors can cause massive damage depending on the context.
 Thus, it is crucial for software developers to adopt testing techniques that can help locate faults and guarantee the functionality of both individual components and the system as a whole.
-Today, more and more software is being developed in a continuously-evolving fashion, in which it is desired that changes such as new features and corrections are introduced to the end users as fast as possible.
-However, this desire for velocity places an additional challenge for software testing techniques, as running complete test suites can be a costly process in large-scale software.
-Furthermore, there is currently a state of disconnection between academia and industry on the subject of software testing techniques; few academically-proposed techniques are actually put into practice by software developers.
-In this research proposal, we discuss the reasons and challenges behind this disconnection, and propose the development of new test orchestration strategies that aim to combine relevant software testing techniques into a complete solution that can be applied by practitioners.
-In order to help bring academia and industry closer together, we also propose the usage of applicability metrics that will be used to measure results of software testing techniques and compare how well each of them can perform in an industrial setting. 
+Today, more and more software is being developed in a continuously-evolving fashion, in which it is desired that changes such as new features and corrections are delivered to end users as quickly as possible.
+However, this desire for velocity places an additional burden on software testing techniques, as running complete test suites can be a costly process in large-scale software.
+Furthermore, there is currently a disconnect between academia and industry on the subject of software testing techniques; while there is a broad field of research in this topic, few state-of-the-art techniques are actually put into practice by software developers.
+This thesis brings forth a discussion on the so-called \textit{industry-academia knowledge gap} when it comes to software regression testing, bringing a comprehensive literature review along with \textit{in loco} interviews with practitioners, with the objective of identifying the ongoing challenges that can be addressed in order to bridge that gap.
+As an initial step towards a solution, we propose \textit{orchestration strategies} for regression testing of continuously-evolving software; to do so, we perform experiments using combinations of certain regression testing techniques that have displayed potential for real-world use and draw conclusions on the advantages and drawbacks of adopting such strategies.
+
+%In this research proposal, we discuss the reasons and challenges behind this disconnection, and propose the development of new test orchestration strategies that aim to combine relevant software testing techniques into a complete solution that can be applied by practitioners.
+%In order to help bring academia and industry closer together, we also propose the usage of applicability metrics that will be used to measure results of software testing techniques and compare how well each of them can perform in an industrial setting. 
 \clearpage % Start a new page
 
 %----------------------------------------------------------------------------------------
@@ -432,6 +439,7 @@ Even thousands of kilometers away, you are all special to me.
 \input{chapters/4.orchestration}
 \input{chapters/5.industry}
 \input{chapters/6.gap}
+\input{chapters/8.live}
 \input{chapters/7.conclusion}
 
 %\input{chapters/intro}

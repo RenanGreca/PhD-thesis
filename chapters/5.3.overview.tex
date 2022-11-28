@@ -11,18 +11,21 @@
 %\subsection{Regression Testing at Ericsson}
 
 Since the mid-2000s, Ericsson has adopted agile development principles.
-This had a notable effect on testing practices, as previously there were distinct roles for developers and testers and now developers are mostly in charge of testing their own code.
+This had a notable effect on testing practices, as previously there were distinct roles for developers and testers and now many developers are responsible for testing their own code, although the company also continues to employ a substantial number of dedicated systems testers.
 
-Currently, Ericsson's test design is centered around a ``test strategy pyramid'' that provides the hierarchy of tests for a given system.
-At the bottom of the pyramid, there are unit tests, which should be the most atomic and numerous tests.
-Other layers are formed by component tests, multi-component tests, module tests, node tests, RAN(radio area network) tests and, finally, network tests.
-At each layer, the complexity of tests increases, as each one becomes responsible for covering a larger amount of source code.
+Currently, Ericsson's test design is based on a multi-layer ``test strategy model'' that provides the hierarchy of tests for a given system, starting with unit tests, which should be the most atomic and numerous tests.
+At each layer, the complexity of tests increases, as each test becomes responsible for covering a larger amount of source code, leading up to extensive end-to-end tests.
+% and leading to more complex tests with cover wider parts of the system.
+%At one end, there are unit tests, which should be the most atomic and numerous tests.
+%Other layers are formed by component tests, multi-component tests, module tests, node tests, RAN(radio area network) tests and, finally, network tests.
 
-At least at the lower layers (unit, component, multi-component), testing can generally happen in three spots.
-Naturally, developers run the test suite on their development machine as a mechanism to aid the writing of new code.
+%At least at the lower layers (unit, component, multi-component), testing can generally happen in three spots.
+%Naturally
+The discussions in this chapter refer mostly to multi-component testing (MCT), which is among the lower layers of the testing strategy model.
+Initially, developers run the MCT suite on their development machine as a mechanism to aid the writing of new code.
 At this point, new tests can also be written, or old ones can be updated, to account for changes in requirements.
 During the day, multiple developers commit changes that should be merged into a component's main branch and, at that point, a source delivery check (SBC) is queued for execution on a testing server, running a selection of tests to ensure critical features are functional.
-Finally, at the end of a work day, a source baseline test (SBT) is started, which runs all test cases and ensures none of the day's updates caused a system-breaking error.
+Finally, at certain longer intervals, a source baseline test (SBT) is started, which runs all test cases and ensures none of the day's updates caused a system-breaking error.
 
 Generally speaking, although the unit tests are more numerous, the higher-level tests are responsible for a great part of the testing costs, as they involve multiple software components along with device/network simulators and, in some instances, actual physical hardware.
 Additionally, when a failure is detected at higher levels, it is more challenging and time-consuming to identify the cause of the issue.
@@ -51,11 +54,11 @@ However, this policy is also to be incorporated in test strategies still under d
 For this study, a period of seven weeks was spent at the office of Ericsson in Linköping, Sweden, in order to understand fundamental aspects of the testing procedures at the company.
 It cannot be said that this is a comprehensive account, because the data is extracted from only one small part of the entire corporation, and the overall scope of the projects being conducted is too large for full comprehension in such a short time frame.
 
-The investigated system is called Traffic Control, which is part of the software stack that Ericsson deploys to telecommunication infrastructure (e.g. cell towers).
+The investigated system is part of the software deployed to telecommunication infrastructure.
 Currently, there are 4G and 5G versions of the software in active development/maintenance mode and in use by end users.
 
 Furthermore, the team we interacted with is mainly concerned with multi-component testing (MCT), mostly written in Erlang, which involves the integration of multiple software components in addition to hardware and infrastructure simulators.
-Reports indicate that the 4G version of Traffic Control has $\sim14,000$ multi-component tests and the 5G version has over 5,000.
+Reports indicate that the 4G and 5G versions have thousands of tests each.
 
 
 

@@ -40,7 +40,7 @@ The optimal prioritization is one where $f(T')$ is greater than or equal to any 
 
 Some criteria often used for \tcp include: \textit{(1)} similarity-based, which attempts to diversify the execution of tests; \textit{(2)} coverage-based, with the objective of maximizing block\footnote{A \textit{block} of the SUT can be one line of code, a branch, a function, etc. according to system design and other necessities.} coverage with as few tests as possible; or \textit{(3)} history-based, which prioritizes tests that have a history of failing or revealing faults~\cite{khatibsyarbini_test_2018}.
 
-Common metrics include: \textit{(1)} average percentage of faults detected (APFD), which estimates how effective a prioritization is in detecting faults in fewer tests; \textit{(1)} tests till first fault (TTFF), a count of how many tests were executed until one failed; or \textit{(3)} developer feedback time, a measure of how long it takes for a developer to get a report if there is a failing test in the suite.
+Common metrics include: \textit{(1)} average percentage of faults detected (APFD), which estimates how effective a prioritization is in detecting faults in fewer tests; \textit{(2)} tests till first fault (TTFF), a count of how many tests were executed until one failed; or \textit{(3)} developer feedback time, a measure of how long it takes for a developer to get a report if there is a failing test in the suite.
 
 \tcp is particularly useful in situations where the test suite is exceptionally large and detecting failures sooner allows for potential faults to be addressed quicker.
 It's also relevant in cases where the testing budget is limited but not consistent, so testing might stop at any time and only tests that failed until then can be added to a report.
@@ -54,7 +54,7 @@ so there is no loss of failures detection ability (assuming that test results ar
 
 In regression testing, not all tests are relevant to a particular code change:
 if only a small part of one file was updated, it is unlikely that the entire project would be affected and the full regression test suite would have to be run.
-\textit{Test case selection} (\tcs) addresses the challenge of selecting a subset of tests that is representative of the entire suite in a given situation~\cite{YooHarman10RegressionTestingSurvey, RothermelHarrold94FrameworkForEvaluationRTS}.
+\textit{Test case selection} (\tcs)\footnote{Also referred to as Regression Test Selection (RTS) in the literature.} addresses the challenge of selecting a subset of tests that is representative of the entire suite in a given situation~\cite{YooHarman10RegressionTestingSurvey, RothermelHarrold94FrameworkForEvaluationRTS}.
 In other words, given subsequent versions of an SUT, $M$ and $M'$ and its test suite $T$, 
 \tcs can be described as a function $S(M, M', T)$ that selects a subset $T' \subseteq T$ to be used for testing $M'$, considering the differences between $M$ and $M'$.
 

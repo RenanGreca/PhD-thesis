@@ -77,7 +77,7 @@ SDC, or Source Delivery Check, is a short execution of the test suite that happe
 Due to time and resource constraints, \quoter{for SDC there is selection, in nightly we run everything}{R1}.
 This is also called the ``gating loop'', since a failing test prevents the change from being merged.
 At the time of the interviews, \quoter{it's manually decided what goes in SDC}{R6} and \quoter{the running time [...] for MCT is 15-20 mins}{R5}.
-SBT, or Source Baseline Test, is the nightly run of the test suite, also known as ``assessment loop''.
+SBT, or Source Baseline Test, is also known as ``assessment loop''.
 Here, all tests in the suite are executed, which can take up to 10 hours.
 As a general rule, the tests in SDC are a subset of the SBT.
 
@@ -86,13 +86,13 @@ Despite this practice, most of the interviewees are aware that there could be a 
 When this finding was reported to R8, who oversees testing all over Ericsson and does not work with R1-7 on a daily basis, they mentioned that the company does have an internal tool for test selection named RENSA and was surprised to find out this team did not use it.
 R4 explains: \quotes{we had attempts to integrate RENSA but it did not work out so well. I think we never built a business case for 5G and it ended up way in the backlog. In 2017 or 2018 we said `this is something we should add to our plan', but we did not do anything for 5G.} 
 However, \quoter{it might be deployed in other parts of Ericsson}{R7}.
-That said, R8 also expressed some skepticism towards \tcs: \quoter{similarity-based selection misses boundary values. Why do you need to select? The agile principle says we should test everything}{R8}.
+That said, R8 questioned the necessity of \tcs in a well-designed agile production: \quoter{why do you need to select? The agile principle says we should test everything}{R8}.
 
 \paragraph{Prioritization.} This does not appear to be an active concern for the team and there are no techniques in place for advanced prioritization: \quoter{for prioritization, nothing specific}{R1}.
 \quoter{We have suites, which are groups, e.g. for sub-modules, gating or not. Then I think it's just the order they're written.}{R5}.
 However, \quoter{now we have introduced shuffling for the assessment}{R5}, i.e. random ordering of the test cases.
 The motivation for this is not decreasing the feedback time, but rather \quoter{to help find problems with unstable tests}{R1}, which might be flaky according to the execution order.
-R8 again expressed a concern regarding \tcp: \quoter{using the same TCP approach every time, wouldn't the same test be top priority every time?}{R8}.
+R8 again expressed a concern: \quoter{using the same TCP approach every time, wouldn't the same test be top priority every time?}{R8}.
 
 \paragraph{Reduction and Amplification.} These techniques are absent in the workflow. \quoter{We don't have any tools that helps us in any way in shrinking or expanding the tests}{R5}. \quoter{No, we don't have anything like that}{R6}.
 Regarding reduction, \quoter{if it happens that there are too many tests for overnight, there would be an initiative to reduce}{R1}, but \quoter{we can put more machines and we can run more}{R6}.
@@ -127,7 +127,7 @@ The test managers share this perspective: one says \quoter{less than 50\% of our
 Despite being aware of this, the team has learned to deal with the issue.
 For example, \quoter{we have one test that is mostly working, but it's failing once a week}{R1}.
 At first glance, it might appear that this test is not adding value to the suite, but actually, \quoter{we can double and triple check that it's not actually a bug in the product}{R2} and, \quoter{if it starts failing every day, we would look into it, so there is some value}{R1}.
-Due to situations like this, \quoter{every day there's at least one failure}{R6} in the nightly execution of the test suite, but the team recognizes the troublesome tests.
+Due to situations like this, \quoter{every day there's at least one failure}{R6} in SBT runs, but the team recognizes the troublesome tests.
 That's not to say these tests are ignored: \quoter{usually, we are currently working on a solution but it's not done yet}{R2}.
 Since these tests are particularly difficult to fix and they still provide some value to the test results, they are left as-is unless a fault related to it slips to another layer of testing.
 
@@ -207,9 +207,9 @@ Despite the above concerns, the team members expressed a drive to make changes t
 Rather, \quoter{the big problem is that there are unclear responsibilities}{R1}, so \quoter{It's not clear who we would need to convince to make changes to the process}{R1}.
 This opinion is corroborated by other team members: \quoter{I always see bureaucracy as a part of the difficulty of getting things done}{R5}; \quoter{I think the main challenge would be convincing people to spend time and money on it}{R6}; \quoter{the problem [...] is to find out who is going to pay for it}{R4}.
 Considering the scale the company, however, \quoter{I think it's good we have this organization, the company is really big so we need structure, but it can make it harder to make these smaller changes}{R4}, but it is clear that \quoter{programs are measured by how many features they are developing, especially in the customer end. You're measured more on feature throughput than product care}{R4}, so software quality activities such as testing and refactoring, which are ``invisible'' to the customer, are hard to prioritize.
-R7 mentions Gaia, which is a group \quoter{who can work with anyone within Ericsson}{R7}.
+R7 mentions a dedicated internal group \quoter{who can work with anyone within Ericsson}{R7}.
 Together, they performed a study to improve test case selection in their next-generation products, but it is \quoter{challenge to convince someone to do it}{R7}.
-\quoter{The Gaia project was a theoretical experiment, but we did not try it in practice. There's a limited budget to how many improvements we can do in parallel and other things were prioritized}{R7}.
+\quoter{The project [with the internal group] was a theoretical experiment, but we did not try it in practice. There's a limited budget to how many improvements we can do in parallel and other things were prioritized}{R7}.
 
 \subsection{Metrics}
 
