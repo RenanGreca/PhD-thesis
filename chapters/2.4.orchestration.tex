@@ -27,7 +27,7 @@ However, an ideal test orchestration solution should consider all or most of the
 Due to the breadth of the orchestration challenge, for this thesis the decision was made to restrict the scope and focus primarily on four aspects: test case prioritization, test case selection, test suite reduction/minimization and test suite amplification/augmentation.
 Other topics remain tangential to the research and may occasionally be part of the discussion, but are not the focus of this work.
 The following subsection offers definitions for the four groups of techniques that this study focuses on.
-In \autoref{sec:lit_rq1}, common approaches and metrics for each group are described in more detail, according to data extracted from the existing literature.
+In \Cref{sec:lit_rq1}, common approaches and metrics for each group are described in more detail, according to data extracted from the existing literature.
 
 \subsection{Test Case Prioritization}
 \label{sec:tcp}
@@ -75,7 +75,7 @@ Thus, given an SUT $M$ its test suite $T$ that satisfies a set of requirements $
 
 There exists conceptual overlap between \tcs and \tsr, with the key differences being change-awareness and the objective of the result.
 While \tcs uses a comparison between versions of the SUT and produces a set of tests meant to validate those changes, \tsr can be performed on an isolated iteration of a program and is meant to detect tests that are no longer needed for full satisfaction of the requirements.
-\tsr approaches are often coverage-based or requirements-based and, as discussed in \autoref{sec:lit_rq1}, evaluation metrics for \tcp and \tsr are often shared, since both are concerned with running fewer tests and reducing the overall testing time; however \tsr must ensure that there is no loss in fault detection capability in the long-term evolution of the suite.
+\tsr approaches are often coverage-based or requirements-based and, as discussed in \Cref{sec:lit_rq1}, evaluation metrics for \tcp and \tsr are often shared, since both are concerned with running fewer tests and reducing the overall testing time; however \tsr must ensure that there is no loss in fault detection capability in the long-term evolution of the suite.
 
 Regarding the terms reduction and minimization, both options are used nearly interchangeably in the literature.
 According to \citeauthor{yoo2012regression}, the difference in terminology is subtle: while both remove tests from the suite, \textit{minimization} implies this change is temporary, while \textit{reduction} stands for permanent removal of tests.

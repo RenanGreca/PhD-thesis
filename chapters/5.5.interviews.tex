@@ -2,11 +2,11 @@
 \label{sec:ind_interviews}
 
 
-Information about how testing is performed at Ericsson and regarding the challenges still faced at the company was gathered via a series of interviews.
+Information about how testing is performed at \sugg{the industrial partner} and regarding the challenges still faced at the company was gathered via a series of interviews.
 This was initially in the form of unstructured conversation, while the interviewer understood the central details.
 After the basics were covered, we performed a series of 30- to 60-minute sessions with 1 to 3 people at a time asking more focused questions.
 
-\autoref{table:interviewees} lists the roles of the interviewees, who are anonymized for this study.
+\Cref{table:interviewees} lists the roles of the interviewees, who are anonymized for this study.
 
 \begin{table}[]
 \centering
@@ -27,7 +27,7 @@ R7 & Senior Test Specialist \\
 R8 & Senior Test Specialist \\
 \bottomrule
 \end{tabular}\\
-\caption{Interviewees at Ericsson.}
+\caption{Team members interviewed for this study.}
 \label{table:interviewees}
 \end{table}
 
@@ -52,40 +52,39 @@ They describe themselves as \quoter{the owners of the test suite}{R2} and are re
 In particular, they \quoter{are monitoring the nightly runs}{R1}, i.e. the SBT or non-blocking tests.
 
 R4, R5 and R6 are test managers, albeit R4 has a different responsibility.
-The module test managers, R5 and R6, are responsible for the testing of particular modules at Ericsson, meaning \quoter{not working on specific features}{R5}.
+The module test managers, R5 and R6, are responsible for the testing of particular modules, meaning \quoter{not working on specific features}{R5}.
 \quoter{I also guide the teams on how to write test cases [...], how we organize test suites and so on}{R6}.
 Meanwhile, the CI Test Manager R4 is \quoter{responsible for the machines and environment and some of the test framework parts. To simplify, we are doing the framework, the developers are writing the tests, the managers are designing the strategy}{R4}.
 
 Finally, R7 and R8 are designated as test specialists, meaning they handle longer-term strategy.
 \quoter{I work a lot with test strategies. How we should test features and products [...] from now until 2025}{R7}.
-Despite the similar titles, there is a key difference between the two specialists: R7 is responsible for a long-term strategy of a specific core of Ericsson products, while R8 has an overview of the entire company, so their job also includes sharing technologies and strategies among distant teams.
+Despite the similar titles, there is a key difference between the two specialists: R7 is responsible for a long-term strategy of a specific core of products, while R8 has an overview of the entire company, so their job also includes sharing technologies and strategies among distant teams.
 
 Aside from R8, who has a PhD on the topic of software testing, most of the interviewees did not have testing as a focus of their education while at university.
-When asked about their education, R4, R5 and R6 are computer scientists and/or engineers, and most of the testing knowledge they had prior to working at Ericsson was \quoter{standard university [curriculum], which contains tests}{R5}.
+When asked about their education, R4, R5 and R6 are computer scientists and/or engineers, and most of the testing knowledge they had prior to working at the company was \quoter{standard university [curriculum], which contains tests}{R5}.
 Meanwhile, R7 \quotes{graduated in media and communication}, so testing was \quotes{not covered in university}.
 R4, R5 and R7 mention having a certification by the ISQTB\footnote{International Software Testing Qualifications Board}.
-Additionally, R4 also mentions taking testing courses led by R8 internally at Ericsson, while R5 reports having attended workshops from \quoter{people in Kista\footnote{Kista is a district in the Stockholm metropolitan area and the location of Ericsson's headquarters.} presenting how testing should be done, but it was so high level that I couldn't understand how to apply it to my level}{R5}.
+Additionally, R4 also mentions taking testing courses led by R8 internally, while R5 reports having attended workshops from \quoter{people [from the main office] presenting how testing should be done, but it was so high level that I couldn't understand how to apply it to my level}{R5}.
 It is unclear if the testing courses/workshops mentioned by R4 and R5 are the same.
 
 \subsection{Current practices}
 
-Regarding the current testing practices at Ericsson, we want to understand what are the day-to-day activities performed by the team.
+Regarding the current testing practices, we want to understand what are the day-to-day activities performed by the team.
 We would also like to know if there are any implementations of the regression testing techniques classically studied in research (selection, prioritization, reduction, amplification).
 
-The interviewed team members are mostly working on multi-component testing (MCT) and have all mentioned two key acronyms for this layer: \quoter{SDC for delivery, SBT for nightly runs}{R1}.
-SDC, or Source Delivery Check, is a short execution of the test suite that happens whenever a developer pushes changes to be merged into the main branch of a module.
-Due to time and resource constraints, \quoter{for SDC there is selection, in nightly we run everything}{R1}.
+The interviewed team members are mostly working on MCT and have all mentioned two key processes for this layer: \quoter{[one] for delivery, [another] for nightly runs}{R1}. \todo{There is a mention of nightly run in the quote, should we rephrase this?}
+\sugg{As previously discussed, we use the acronym SIRT to refer to a short execution of the test suite that happens whenever a developer pushes changes to be merged into the main branch of a module.}
+Due to time and resource constraints, \quoter{for [SIRT] there is selection, in nightly we run everything}{R1}.
 This is also called the ``gating loop'', since a failing test prevents the change from being merged.
-At the time of the interviews, \quoter{it's manually decided what goes in SDC}{R6} and \quoter{the running time [...] for MCT is 15-20 mins}{R5}.
-SBT, or Source Baseline Test, is also known as ``assessment loop''.
-Here, all tests in the suite are executed, which can take up to 10 hours.
-As a general rule, the tests in SDC are a subset of the SBT.
+At the time of the interviews, \quoter{it's manually decided what goes in [SIRT]}{R6} and \quoter{the running time [...] for MCT is 15-20 mins}{R5}.
+\sugg{The LIRT is also known as ``assessment loop'', which includes all tests in the suite, and can take up to 10 hours.}
+As a general rule, the tests in SIRT are a subset of the LIRT suite.
 
-\paragraph{Selection.} In MCT, it is manually determined whether a test should be included in the SDC: \quoter{It's manually decided what goes in SDC}{R6}; \quoter{yesterday, we got the question, `should we include this in gating?' I don't know, I just go by feeling. We have to see if the feature seems fundamental or important to Ericsson somehow}{R5}.
+\paragraph{Selection.} In MCT, it is manually determined whether a test should be included in the SIRT. As an example, \quoter{yesterday, we got the question, `should we include this in gating?' I don't know, I just go by feeling. We have to see if the feature seems fundamental or important somehow}{R5}.
 Despite this practice, most of the interviewees are aware that there could be a better way of doing things: \quoter{I think there should be more strategy than just me thinking}{R5}.
-When this finding was reported to R8, who oversees testing all over Ericsson and does not work with R1-7 on a daily basis, they mentioned that the company does have an internal tool for test selection named RENSA and was surprised to find out this team did not use it.
-R4 explains: \quotes{we had attempts to integrate RENSA but it did not work out so well. I think we never built a business case for 5G and it ended up way in the backlog. In 2017 or 2018 we said `this is something we should add to our plan', but we did not do anything for 5G.} 
-However, \quoter{it might be deployed in other parts of Ericsson}{R7}.
+When this finding was reported to R8, who oversees testing all over the company and does not work with R1-7 on a daily basis, they mentioned that the company does have an internal tool for test selection and was surprised to find out this team did not use it.
+R4 explains: \quotes{we had attempts to integrate \sugg{[the test tool mentioned by R8]} but it did not work out so well. I think we never built a business case for [the new version of the system] and it ended up way in the backlog. In 2017 or 2018 we said `this is something we should add to our plan', but we did not do anything.} 
+However, \quoter{it might be deployed in other parts of the company}{R7}.
 That said, R8 questioned the necessity of \tcs in a well-designed agile production: \quoter{why do you need to select? The agile principle says we should test everything}{R8}.
 
 \paragraph{Prioritization.} This does not appear to be an active concern for the team and there are no techniques in place for advanced prioritization: \quoter{for prioritization, nothing specific}{R1}.
@@ -100,16 +99,16 @@ Interviewees generally agree that it is more cost-efficient to increase computin
 For amplification, there appears to be no interest in automating the process.
 There is a protocol, however, to manually augment the test suite in the situations where a fault slips through a layer of testing: \quoter{if a fault was found later in test or in the field, we try to investigate why did it slip through, and we should have a test for that}{R1}; then, \quoter{after the fact, if there is time, we can go back and understand why a needed test was not in the plan}{R2}.
 
-\subsection{Pain points}
+\subsection{Common issues with regression testing}
 
-Part of the questions asked interviewees to detail the common issues or pain points they feel with the current state of the test suite and the testing practices at their team.
+Part of the questions asked interviewees to detail the common issues they notice with the current state of the test suite and the testing practices at their team.
 They were asked to elaborate on five key points: fault detection, flaky tests, running time, increasing test scope and reducing test scope.
 
 \paragraph{Fault detection.} Most respondents have reasonable confidence on the fault detection capability of the test suite, although several admit that they might not have the data needed to be sure and it mostly relies on the fact that few faults are detected in the delivered product.
 Since most of the monitoring of the test suite happens within the CI/CD pipeline, there is an understanding that most of the fault detection actually happens before that, on the developers' local environments.
 \quoter{Perhaps a suite is going green always, but it's being used by a developer while they are writing}{R5}; \quoter{the very good test cases [...] find faults when running locally at the developer's computer}{R1}.
-\quoter{[Developers] are quite happy doing MCT testing locally. I think they find a lot of bugs there. They rely on SDC to feel confident they won't break everything when delivering}{R2}.
-Thus, most of the faults detected during the SDC would be a result of conflicts between changes merged by two developers asynchronously, rather than the result of poor code submitted by a single developer.
+\quoter{[Developers] are quite happy doing MCT testing locally. I think they find a lot of bugs there. They rely on SIRT to feel confident they won't break everything when delivering}{R2}.
+Thus, most of the faults detected during the SIRT would be a result of conflicts between changes merged by two developers asynchronously, rather than the result of poor code submitted by a single developer.
 That said, the team recognizes that the current version of the test suite is not 100\% effective in avoiding faults or ``slips'' (when a failure is detected in a higher layer of testing than it should have been), especially during the gating loop.
 \quoter{We can't have all the test scope in the gating loop. There is a discussion of having specific test cases for gating in order to have more coverage, instead of just a subset}{R6}.
 There is a back-and-forth discussion between two sides of the team: one wants the gating loops to pass more often and let the changes through, the other wants them to be stricter.
@@ -117,17 +116,17 @@ There is a back-and-forth discussion between two sides of the team: one wants th
 Once a fault slips and it is detected at a later testing phase or in the field, there is \quoter{a systematic way of processing trouble reports (TRs) and we can identify where it is needed to add tests}{R5}.
 Regarding that, R8 brings an analogy: \quotes{if you only take care of the shootings, you do not solve crime}, implying that the above is not an effective strategy for delivering a fault-free product.
 
-\paragraph{Flaky tests.} Although techniques for addressing flaky tests falls beyond the scope of this thesis, it was a topic brought up frequently during the discussions at Ericsson — \quoter{that's the worst, we have a lot of those}{R5} — it is strongly related to the above point regarding fault detection.
+\paragraph{Flaky tests.} Although techniques for addressing flaky tests falls beyond the scope of this thesis, it was a topic brought up frequently during the discussions — \quoter{that's the worst, we have a lot of those}{R5} — it is strongly related to the above point regarding fault detection.
 \quoter{The tests are run distributed in several computers connected to a network, so when the load gets really high, running thousands of tests at night, we can get different behavior compared to running the tests manually}{R2}.
 To account for this, \quoter{we started shuffling the order of the tests}{R3}, although sometimes the developer who wrote the test case admits \quoter{'I don't know why it fails if it comes later in the suite'}{R3}.
 There is an agreement that \quoter{creating stable [non-flaky] tests is cumbersome}{R1} and, \quoter{if it's due to the code, it's usually timing issues}{R2}.
 Some team members believe this could be relieved with better test design: \quoter{most of the times, flaky tests are caused by poor testing}{R8}; \quoter{a lot of people develop tests but are not very familiar [with test design principles]}{R1}.
 In fact, upon investigation, testers in the functional team \quoter{find more problems with the tests than with the products}{R1}.
-The test managers share this perspective: one says \quoter{less than 50\% of our failures are actually a product fault}{R6}, while another \quoter{thinks it's 30/30/30 [actual error/test design/environment issues]}{R5}.
+The test managers share this perspective: one says \quoter{less than 50\% of our failures are actually a product fault}{R6}, while another thinks \quoter{it's 30/30/30 [actual error/test design/environment issues]}{R5}.
 Despite being aware of this, the team has learned to deal with the issue.
 For example, \quoter{we have one test that is mostly working, but it's failing once a week}{R1}.
 At first glance, it might appear that this test is not adding value to the suite, but actually, \quoter{we can double and triple check that it's not actually a bug in the product}{R2} and, \quoter{if it starts failing every day, we would look into it, so there is some value}{R1}.
-Due to situations like this, \quoter{every day there's at least one failure}{R6} in SBT runs, but the team recognizes the troublesome tests.
+Due to situations like this, \quoter{every day there's at least one failure}{R6} in LIRT runs, but the team recognizes the troublesome tests.
 That's not to say these tests are ignored: \quoter{usually, we are currently working on a solution but it's not done yet}{R2}.
 Since these tests are particularly difficult to fix and they still provide some value to the test results, they are left as-is unless a fault related to it slips to another layer of testing.
 
@@ -141,28 +140,28 @@ Failing tests are sent back to the developer, and other passing commits are queu
 
 \paragraph{Increasing test scope.} Although simply increasing the number and even coverage of tests is not a challenge on its own, doing so maintaining quality and consistency might be.
 Currently, \quoter{it's the feature developers who write tests}{R6} or, in other words, developers mostly write tests to cover their own code.
-\quoter{The problem is that XFTs are racing for product delivery}{R6} but, since many developers are not necessarily proficient in good test design, \quoter{it's easier to copy paste code. Tests are not always great. I would say it's something we need to work on.}{R6}.
+\quoter{The problem is that cross-functional teams (XFTs) are racing for product delivery}{R6} but, since many developers are not necessarily proficient in good test design, \quoter{it's easier to copy paste code. Tests are not always great. I would say it's something we need to work on.}{R6}.
 As the product itself grows in scope, \quoter{it makes sense that the tests increase at the same rate, but to me we are not increasing the test scope at fast as the product}{R7}, so there is still a feeling that the tests are seen as secondary compared to the product itself.
 
 
 \paragraph{Reducing test scope.} Many interviewees agree that this is a difficult challenge that is not currently well addressed.
 \quoter{Cleaning and updating old tests is most difficult}{R1}, but \quoter{who can decide if a test case should be removed?}{R5}.
-Even if refactoring or reducing the test suite is discussed, \quoter{it's cheaper to leave [the test] there and run it than spend money to have people looking at it}{R5}, especially in the nightly testing.
-On the more restrictive \quoter{SDC, if new tests are coming in, we have to shift out legacy tests}{R6}, so in this situation the tightening of test scope is essential.
-Although this perspective has changed over time: \quoter{in the beginning of 5G, we said `everything should be gating', but now we have too many test cases}{R6}.
+Even if refactoring or reducing the test suite is discussed, \quoter{it's cheaper to leave [the test] there and run it than spend money to have people looking at it}{R5}, especially in LIRT.
+On the more restrictive \quoter{SIRT, if new tests are coming in, we have to shift out legacy tests}{R6}, so in this situation the tightening of test scope is essential.
+Although this perspective has changed over time: \quoter{in the beginning of [the new version of the system], we said `everything should be gating', but now we have too many test cases}{R6}.
 Often, a test \quoter{might make sense when it's first written, but many developers go into the same same suite, so over time it might degenerate a bit}{R7}, which would call for refactoring if not outright removal.
 The specialists bring a complementary insight: \quoter{even if tests are obsolete in terms of fault detection, they might still be useful for root causing}{R8}, meaning that a test that doesn't find faults might help narrow down the causes why other tests are failing.
 
 \paragraph{Testing costs.}
 Testing costs is often discussed in the literature when it comes to the applicability of solutions, but it is not a major concern to most of the interviewees.
-The team uses cloud-based testing, and \quoter{the cloud infrastructure is completely Ericsson}{R4}, not outsourced to other companies.
+The team uses cloud-based testing, and \quoter{the cloud infrastructure is completely ours}{R4}, not outsourced to other companies.
 The functional testers \quoter{don't know [the cost]}{R1}, but it is \quoter{probably a lot}{R2}.
 R6 also says \quotes{I don't know how much kilowatts it's drawing}, but, according to R5, \quotes{I don't think it's more expensive than watching a youtube video}.
 It's understood by several team members that resources can be increased if required, and one manager goes on to ask \quoter{why not run everything more and faster, instead of selecting things? It might not be cheaper, but it seems like the company is more willing to pay for equipment than employees}{R5}.
 When asked specifically who would know this, the answer is \quoter{the area product owner}{R4}, who \quoter{handles the budget with inputs from us, according to how much we use and how much we'll need}{R4}.
 The specialists highlight that \quoter{earlier test loops are much cheaper}{R7}, so it is important to detect faults as early as possible.
 Furthermore, even if \quoter{electricity is so cheap}{R2}, \quoter{we have some hardware that is super expensive, it costs as much as house in Sweden}{R7}.
-For this reason, \quoter{we want to make sure the test cases that execute on that hardware are only the most important ones}{R7} and this type of load balancing is still being worked on within Ericsson's cloud infrastructure team.
+For this reason, \quoter{we want to make sure the test cases that execute on that hardware are only the most important ones}{R7} and this type of load balancing is still being worked on by the cloud infrastructure team.
 
 
 \subsection{Collaboration with Academia}
@@ -172,31 +171,31 @@ Firstly, they were asked if they keep themselves informed about recent research 
 Most respondents answered in the lines of no, \quoter{I don't find the time or I don't prioritize it}{R1}, \quoter{our level, we don't really have time}{R5}. 
 R2 occasionally reads books on the topic, although these are more practical in nature rather than research works.
 Time is the main issue, because \quoter{because the research world is huge and there's so much happening}{R7}.
-R5 thinks \quotes{it would be interesting to see how other big companies do it}, which alludes to initiatives such as the Google Journal Club \cite{googlejournal} that have seen success in some companies but does not appear to be a practice at Ericsson.
-\quoter{I suppose someone at Ericsson has this assignment somewhere}{R5} and, indeed, this someone is likely R8: \quotes{I read the literature and try to apply it}.
+R5 thinks \quotes{it would be interesting to see how other big companies do it}, which alludes to initiatives such as the Google Journal Club \cite{googlejournal} that have seen success in some companies but does not appear to be a practice in this case.
+\quoter{I suppose someone at the company has this assignment somewhere}{R5} and, indeed, this someone is likely R8: \quotes{I read the literature and try to apply it}.
 However, \quoter{academia is both ahead and behind [the state of practice]. It's ahead because it's looking into techniques that might be useful many years from now. It's behind because it doesn't keep up with the current challenges in the state of practice}{R8}.
 There is a perception that academic work is important, but ultimately disparate from the immediate needs of practitioners.
 
 A follow-up question asked if the team member were aware of any current tool or practice at the company that had origins in academic research.
 The general response to this was uncertain.
 Nobody could point to a specific and concrete example, but there are some possibilities, for example \quoter{before we used to run everything manually, then this scheduler was developed that can define when and what to run}{R5}, but \quoter{I don't know if that's from academia}{R5}.
-Furthermore, \quoter{over the years Ericsson has had much cooperation with research, so I would assume there is something}{R7}, but again no clear example was given.
+Furthermore, \quoter{over the years we have had much cooperation with research, so I would assume there is something}{R7}, but again no clear example was given.
 
 When asked if they still keep in touch with a friend or colleague in the academic world, it appears this is not common.
 \quoter{We always have old colleagues that are PhD, but unfortunately we don't hang out so much}{R5}, and \quoter{I think all my friends from college are now in industry}{R4}.
 
-Continuing on this line of thought, some respondents mention there is some collaborative projects that happen involving Ericsson and Link\"oping University.
-\quoter{At least in Linköping, we have been keeping a close relationship with the university}{R4}, although the main objective is not necessarily to develop new research or technology, but rather \quoter{to vacuum the competencies from the university towards us}{R4}.
+Continuing on this line of thought, some respondents mention there is some collaborative projects that happen \sugg{involving the company and a nearby university}.
+\quoter{At least in [this city], we have been keeping a close relationship with the university}{R4}, although the main objective is not necessarily to develop new research or technology, but rather \quoter{to vacuum the competencies from the university towards us}{R4}.
 This mostly occurs through co-sponsorship of Master degree students: \quoter{we announce some thesis work and try to keep them here}{R4}.
-R7, however, mentions volunteering \quotes{a study by Saab\footnote{Saab is a Swedish aeronautics manufacturer with a significant presence in Link\"oping.} [about] roles for testers, [...] I think [the researcher] is employed by both Saab and Link\"oping University}, indicating there is some cooperation happening between Ericsson, Saab and the local university.
-R1, R2, R3 and R6 provide a negative answer: \quoter{No, there hasn't [been collaboration] from what I know}{R6}.
+R7, however, mentions volunteering \quotes{a study \sugg{by another company [about] roles for testers, [...] I think [the researcher] is employed by both that company and the local university}}, indicating there is some cooperation happening \sugg{between the two companies and the local university}.
+R1, R2, R3 and R6 provide a negative answer: \quoter{no, there hasn't [been collaboration] from what I know}{R6}.
 Regarding specifically an experience similar to the present work, e.g. a visiting researcher collecting data and performing a study on the current practices of the company, \quoter{no, I think you're the first PhD I'm having contact with}{R7}.
 
 When asked what would motivate the team to incorporate a technique from academia into their workflow, the main factor is the ease of use and the resulting reduction of workload from the team: \quoter{how easy to implement is it? Does it remove manual work?}{R6}.
 However, regarding risks and challenges of doing so, there are several relevant points.
 A major one is the matter of security.
 It is recognized that \quoter{external tools can be security risks}{R8} especially because \quoter{we don't know if the researchers are rigorous with their implementation}{R8}; indeed, it appears that \quoter{something happened some years ago and, for security reasons, we don't want to incorporate open-source tools into the process without making sure what they are}{R5}.
-Due to this, \quoter{we have this FOSS process. If you want to use open-source you need to submit a ticket, then it needs to be scanned and approved}{R5}.
+Due to this, \quoter{we have this [free and open-source software] (FOSS) process. If you want to use open-source you need to submit a ticket, then it needs to be scanned and approved}{R5}.
 Furthermore, it is hardly the case that general open-source tools can be incorporated without bespoke modifications: \quoter{it usually doesn't fit}{R8}.
 For example, \quoter{researchers might assume a certain level of quality or standardization among test cases, but in reality test design is often bad}{R8}, which could explain in part the existing gap between academic experiments and real-world usage.
 In addition, \quoter{we have to figure out how to feed data to the tool}{R2}, which is not always trivial: \quoter{the algorithms are usually fine, but it's hard to provide the data that is asked for}{R7}.
@@ -207,7 +206,7 @@ Despite the above concerns, the team members expressed a drive to make changes t
 Rather, \quoter{the big problem is that there are unclear responsibilities}{R1}, so \quoter{It's not clear who we would need to convince to make changes to the process}{R1}.
 This opinion is corroborated by other team members: \quoter{I always see bureaucracy as a part of the difficulty of getting things done}{R5}; \quoter{I think the main challenge would be convincing people to spend time and money on it}{R6}; \quoter{the problem [...] is to find out who is going to pay for it}{R4}.
 Considering the scale the company, however, \quoter{I think it's good we have this organization, the company is really big so we need structure, but it can make it harder to make these smaller changes}{R4}, but it is clear that \quoter{programs are measured by how many features they are developing, especially in the customer end. You're measured more on feature throughput than product care}{R4}, so software quality activities such as testing and refactoring, which are ``invisible'' to the customer, are hard to prioritize.
-R7 mentions a dedicated internal group \quoter{who can work with anyone within Ericsson}{R7}.
+R7 mentions a dedicated internal group \quoter{who can work with anyone within the company}{R7}.
 Together, they performed a study to improve test case selection in their next-generation products, but it is \quoter{challenge to convince someone to do it}{R7}.
 \quoter{The project [with the internal group] was a theoretical experiment, but we did not try it in practice. There's a limited budget to how many improvements we can do in parallel and other things were prioritized}{R7}.
 

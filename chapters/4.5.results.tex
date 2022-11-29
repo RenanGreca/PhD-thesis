@@ -59,7 +59,7 @@ and all the approaches are different from (better than) \rnd (d).
 %\input{tables/effectsize}
 
 To understand the effect of choosing one technique over another on the effectiveness of the test suite, we measured the effect size using the Vargha and Delaney $\hat{A}_{12}$ measure~\citep{vargha2000critique}, which tells us the probability of an observation from one group being larger than an observation from the other group.
-The results are displayed in \autoref{tab:effectsize}. For interpreting the results, the $\hat{A}_{12}$ measure ranges from 0 to 1, and when the measure is exactly 0.5 the two techniques (in the column name) have equal performance. When $\hat{A}_{12}>0.5$, the first technique outperforms the second, and when $\hat{A}_{12}<0.5$, the second technique outperforms the first.
+The results are displayed in \Cref{tab:effectsize}. For interpreting the results, the $\hat{A}_{12}$ measure ranges from 0 to 1, and when the measure is exactly 0.5 the two techniques (in the column name) have equal performance. When $\hat{A}_{12}>0.5$, the first technique outperforms the second, and when $\hat{A}_{12}<0.5$, the second technique outperforms the first.
 Vargha and Delaney suggest that the effect size is \textit{small} if the measure is over 0.56, \textit{medium} if over 0.64, and \textit{large} if the measure is over 0.71. As an example, when comparing \fz against \rnd for the subject Chart, \fz outperforms \rnd with a \textit{large} effect ($\hat{A}_{12}=0.82$) on the testing effectiveness.  
 %
 We can see that \ek generally outperforms \fs, most of the time with a negligible or small effect, but there are cases where \fs outperforms \ek.
@@ -126,7 +126,7 @@ The results are grouped per budget
 (25\% to 100\%) 
 and each approach is represented by a violin plot.
 For each version of each subject 
-we counted how many times, out of the 30 repetitions (see~\autoref{subsec:metrics})
+we counted how many times, out of the 30 repetitions (see~\Cref{subsec:metrics})
 each approach would be able to reveal the failure under the different budget restrictions 
 (the number of observation in each violin plot is thus the same as the total number of versions, i.e., 541).
 The vertical axis varies from 0 to 30, respectively the minimum and maximum number of times an approach could reveal the failure across the 30 repetitions.
@@ -196,7 +196,7 @@ However, when we look from a per subject perspective and reward the approaches t
 \label{subsec:rq3}
 To compare the time efficiency of \ek, \fs, and \fz, 
 we isolated the individual steps of each approach and measured the average time each step took, across the different versions of each subject program. 
-In our measures, displayed in \autoref{tab:execution_time}, 
+In our measures, displayed in \Cref{tab:execution_time}, 
 the average build time (column~2) for each project was substantially longer than any cost added by \ek, \fs, or \fz.
 This is an important observation because \fs can run its preparation phase (column~3), i.e, computing hashes of added/modified test cases, in parallel with the building process as it requires only test code.
 \fz takes advantage of this aspect to minimize the time overhead. %by running \fs preparation in parallel with the building process.
@@ -207,7 +207,7 @@ This is an important observation because \fs can run its preparation phase (colu
 %\input{tables/efficiency-stats}
 
 Looking at the average execution times for \fs, \ek, and \fz 
-(the three rightmost columns in~\autoref{tab:execution_time}) 
+(the three rightmost columns in~\Cref{tab:execution_time}) 
 the two main things we can observe are: 
 \textit{i}) overall, \fs is the technique that incurs the least time overhead;
 and \textit{ii}) the overhead of \fz with respect to \ek running time is generally very small.
@@ -215,7 +215,7 @@ and \textit{ii}) the overhead of \fz with respect to \ek running time is general
 To confirm our observations we performed the non-parametric Kruskal-Wallis rank sum test, 
 and the result (\textit{p-value} $=$ 4.5e-05) confirmed that at least one of the approaches was different from the others with respect to the time efficiency.
 Provided that significant differences were detected, we proceeded with pairwise comparisons to determine which approaches were different
-and the results are displayed in \autoref{tab:efficiency_stats}.
+and the results are displayed in \Cref{tab:efficiency_stats}.
 Statistically significant differences were observed when comparing \fs with \ek and \fz, but not when comparing \fz with \ek.
 Finally, to understand if the observed differences in time efficiency are not only statistically significant but also meaningful to support practitioners in the decision of whether \fz should be adopted, we measured the effect size.
 The results can be interpreted in an analogous way of that explained in Section~\ref{subsec:rq1}.

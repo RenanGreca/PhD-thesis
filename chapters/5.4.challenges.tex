@@ -4,22 +4,22 @@
 \subsection{RQ1: Common Issues}
 \label{sec:ind_rq1}
 
-From the literature examined in \autoref{chap:literature_review}, it is possible to observe that test case prioritization is the regression testing technique most widely addressed in academic research.
-The conversations with the team at Ericsson, however, show that it is not a topic of active concern for the practitioners.
+From the literature examined in \Cref{chap:literature_review}, it is possible to observe that test case prioritization is the regression testing technique most widely addressed in academic research.
+The conversations with the team, however, show that it is not a topic of active concern for the practitioners.
 Indeed, when questioned about methods of determining the execution order of tests, respondents claim that, until recently, it was \quoter{just the order in which they were written}{R5}.
 Due to concerns with flaky tests and developers who were explicitly asking to run their tests before all others, shuffling (random prioritization) was introduced.
 This helps the identification of tests that are flaky due to interdependency — e.g. one test that presumes another has been executed previously — or due to improper cleanup — tests that affect the global state of the program and do not revert that change before concluding.
 However, it is a far simpler approach than what is studied in the literature and has an ultimately different goal: detecting flaws in the test suite itself rather than speeding up feedback time for faults detected in the SUT itself.
 
-Indeed, the detection of poor test case design appears to be a common problem to the test managers and specialists at Ericsson.
+Indeed, the detection of poor test case design appears to be a common problem to the test managers and specialists.
 Although they did not provide raw data to analyze this claim, their intuition indicates that 30\% to 50\% of test failures are caused by poorly implemented tests and do not lead to a true error in the product.
 It's well-accepted that most developers are not adequately educated or trained in software testing principles and learn by imitating previously-existing tests written by people who might be in different roles by that point.
 
 The practice of running shorter test suites during the day and the full range of tests at night is common at the company and, for that reason, test case selection can be a valuable asset.
 In the unit test level, ``configuration-based selection'' is used, which is similar to the file-based selection frequently discussed in the literature.
-However, for multi-component tests, it is manually decided what tests should be executed in SDC, following a few guidelines and procedures.
+However, for multi-component tests, it is manually decided what tests should be executed in SIRT, following a few guidelines and procedures.
 Each test in this level is certainly more complex than a unit test, and perhaps techniques for addressing each type of test need to be distinct.
-There is an internal tool at Ericsson used for selection, named RENSA, but the team interviewed for this study claim that attempts to integrate it into their workflow were unsuccessful.
+There is an internal tool used for selection, but the team interviewed for this study claim that attempts to integrate it into their workflow were unsuccessful.
 
 Since most software products are in constant evolution and growth (meaning new requirements and features), it is expected that the test suite will also grow accordingly.
 In the long term, this means thousands of test cases for a product, sometimes spread across multiple modules.
@@ -37,7 +37,7 @@ As it is, the suite already grows substantially over time, so adding machine-gen
 Regarding new tests, test managers are more concerned with their quality than quantity, so perhaps methods for aiding developers in manually writing good tests would be better accepted than simply offloading that task to an automated tool.
 
 \begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
-\textbf{Summary of RQ5.1}: The issue most frequently brought up by respondents has to do with test flakiness, which are very common in Ericsson's test suite; testers and managers have found ways of dealing with them, but it still makes it more difficult to detect true errors in the test suite.
+\textbf{Summary of RQ5.1}: The issue most frequently brought up by respondents has to do with test flakiness, which is very common in their regression test suite; testers and managers have found ways of dealing with them, but it still makes it more difficult to detect true errors in the test suite.
 More generally, the main challenge is detecting and improving poorly written tests, which is the leading cause of test flakiness.
 There is a manual process for deciding which tests should be executed at each new commit, while removing redundant tests is something that is talked about, but not usually done because it's cheaper to simply add more compute power to testing servers.
 \end{tcolorbox}
@@ -48,7 +48,7 @@ There is a manual process for deciding which tests should be executed at each ne
 The interviews make it possible to identify a few notable obstacles that prevent the usage of state-of-the-art research techniques in the corporate environment.
 
 From a technical perspective, the first challenge is that academic tools can barely ever be used as-is.
-As discussed in \autoref{sec:lit_rq3}, a lot of additional effort must be exerted in order to go from an algorithm to a replication package, to a functional prototype and, finally, to a commercially viable tool that can be used by developers.
+As discussed in \Cref{sec:lit_rq3}, a lot of additional effort must be exerted in order to go from an algorithm to a replication package, to a functional prototype and, finally, to a commercially viable tool that can be used by developers.
 Even if the tool does exist and is available as FOSS, it might be geared specifically to a certain programming language or require certain environment characteristics; if these don't match, the interested party would need to re-implement the algorithm for a new target.
 Those conditions being met, the testing tool must still go through extensive security screening, which adds to the time and cost needed to implement a technique.
 
@@ -78,28 +78,29 @@ Regardless, bureaucratic hurdles are more difficult to address than technicaliti
 \subsection{RQ3: Paths to Improve Collaboration}
 
 The interviews make it clear that, at least within the interacted team, there have not been many attempts of collaboration with academia, in the sense of bringing techniques from theory into practice and/or attempting experimentation in realistic software.
-This is not a general assessment of Ericsson, as even in the literature review (\autoref{chap:literature_review}) there is an example of a paper that was written in collaboration with the company \cite{najafi_improving_2019}.
+\sugg{This is not a general assessment of the company, as even in the literature review (\Cref{chap:literature_review}) there is an example of a paper that was written in collaboration with the company \cite{najafi_improving_2019}.}
+\todo{I assume we also have to remove this part, as I cite a paper that clearly mentions Ericsson as the industry partner.}
 Nevertheless, the conversations highlights the current desire for such collaboration and some avenues for improvement.
 
-The team is not completely isolated from academia, as Ericsson frequently funds Master's programs jointly with Link\"oping University, although the motivation for this is not necessarily scientific advancement nor development of novel techniques.
-Students in this program get the opportunity to interact more closely with the inner workings at Ericsson and acquire specialized knowledge before graduating, particularly in the field of telecommunications.
+The team is not completely isolated from academia, as the company frequently funds Master's programs jointly with \sugg{the local university}, although the motivation for this is not necessarily scientific advancement nor development of novel techniques.
+Students in this program get the opportunity to interact more closely with the inner workings of the team and acquire specialized knowledge before graduating.
 
 Less common are collaborations with PhD candidates, post-doctoral fellows or professors.
-Occasionally a research will invite an Ericsson employee to participate in a study, such as the aforementioned study with Saab, or even this present study.
-In such cases, there is usually some data provided by Ericsson or by an employee that are used by the researchers in some work meant for academic publication.
-The next step of this type of collaboration would be to bring the results of that study back into Ericsson and attempt to internal experimentation and potentially implementation of the technique.
+Occasionally a researcher will invite an employee to participate in a study, such as the aforementioned study with \sugg{a neighboring company}, or even this present study.
+In such cases, there is usually some data provided by the company or by one of its employee that are used by the researchers in some work meant for academic publication.
+The next step of this type of collaboration would be to bring the results of that study back into the company and attempt to internal experimentation and potentially implementation of the technique.
 As far as the interviewees are aware, this either has not happened, or happens very rarely.
 
 With few exceptions, practitioners admit that they do not have the time to keep up with Software Engineering research and no longer maintain contact with former colleagues who might now be professors.
 There is no simple solution to this problem, as following research trends is not only time-consuming; it can be mentally draining for someone preoccupied with other tasks and it is rarely obvious how the results of a paper can be beneficial for an individuals' workflow.
 
-Internally at Ericsson, there is a team whose responsibility is to interact with different parts of the company and update workflows with new techniques.
+Internally, there is a team whose responsibility is to interact with different parts of the company and update workflows with new techniques.
 This dynamic is similar to the ``ideal'' scenario of industry-academia relations, cutting down some major obstacles (the company maintains control over the developed tool, there is a budget allocated for this, etc.).
-However, even a tool proposed and experimented with this team did not see adoption by the team at Linköping, due to the limited benefits observed in the multi-component testing layer.
+However, even a tool proposed and experimented with this team did not see adoption by the team that was interviewed, due to the limited benefits observed in the multi-component testing layer.
 
 \begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
 \textbf{Summary of RQ5.3}: 
 There is interest and desire of collaboration among interviewed practitioners, but it is something they find difficult to take initiative upon.
 Most of their time is consumed performing day-to-day tasks and ensuring the delivered product is constantly improved, and there is little time or energy left to keep up with the quickly growing academic literature.
-Ericsson often funds Master's programs and there are examples of academic papers using data from the company, but it is difficult to find situations where research results directly impacted the current state of practice.
+They often fund Master's programs and there are examples of academic papers using data from the company, but it is difficult to find situations where research results directly impacted the current state of practice.
 \end{tcolorbox}

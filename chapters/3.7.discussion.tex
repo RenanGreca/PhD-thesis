@@ -3,15 +3,15 @@
 \subsection{RQ1: Common Approaches and Metrics in \rt research}
 \label{sec:lit_rq1}
 
-A summary of the main approaches used to tackle \rt challenges is presented in \autoref{table:algo_approaches}.
+A summary of the main approaches used to tackle \rt challenges is presented in \Cref{table:algo_approaches}.
 We observe that the approaches adopted by a technique may serve to two different purposes:
 one is regarding the source from where the information used as input for a technique is collected\footnote{This is also referred to as criteria in the literature~\citep{lou_survey_2018}.}; a second purpose refers to the actual algorithm used to address the problem to solve.
-Correspondingly, the main approaches used to tackle \rt challenges are presented in \autoref{fig:info_approaches} and in \autoref{fig:alg_approaches}, respectively.
+Correspondingly, the main approaches used to tackle \rt challenges are presented in \Cref{fig:info_approaches} and in \Cref{fig:alg_approaches}, respectively.
 Regarding information, change-based, coverage-based, history-based and cost-aware approaches are the most common; while machine learning-based, search-based, similarity-based and graph-based are the popular algorithmic approaches.
 
 %\input{tables/tab_approaches}
 
-The main metrics reported in the literature are shown in \autoref{table:other_metrics}, \autoref{fig:effectiveness_metrics} and \autoref{fig:efficiency_metrics}, grouped according to their main goal\footnote{In each figure, we omit \tsa due to space concerns, as only one paper~\citepalias{yoshida_fsx_2016} covers it.}.
+The main metrics reported in the literature are shown in \Cref{table:other_metrics}, \Cref{fig:effectiveness_metrics} and \Cref{fig:efficiency_metrics}, grouped according to their main goal\footnote{In each figure, we omit \tsa due to space concerns, as only one paper~\citepalias{yoshida_fsx_2016} covers it.}.
 The reported metrics primarily focus on effectiveness (how good a solution is at accomplishing its task) or efficiency (the time and cost of using the solution), but two metrics were identified that are neither --- namely, applicability/generality and diagnosability.
 
 APFD is the most widely accepted metric for assessing \tcp{} approaches.
@@ -65,8 +65,8 @@ From the author responses we received, it appears that many authors are satisfie
 
 %\input{tables/tab_relevance}
 
-To answer this research question, we look carefully at the applicability concerns extracted according to \autoref{table:extraction}.
-The full mapping of the papers with the properties they satisfy is available in \autoref{table:relevance}.
+To answer this research question, we look carefully at the applicability concerns extracted according to \Cref{table:extraction}.
+The full mapping of the papers with the properties they satisfy is available in \Cref{table:relevance}.
 It is worth observing that our conclusions here, as well as in the next section, are only relative to the set of primary studies that we retrieved; we cannot exclude the possibility that works that we did not select could eventually find application in practice.
 For instance, a paper with no obvious practical motivation could be the theoretical foundation for a tool later adopted by practitioners.
 
@@ -102,7 +102,7 @@ Notably, there appears to be a change in this trend: between 2016 and 2020, only
 In 2021 and 2022 (up until July), we found 8 papers satisfying this criteria.
 The likely explanation to this is that noteworthy Software Engineering conferences have given more value to easily-replicable research in recent years and this has caused authors to make it a priority.
 However, there are some cases where the code is made available with little to no documentation or explanation of how it works; on the bright side, there are also examples that stood out for having clear and detailed steps on how to use the code and replicate the experiments.
-Among the e-mail responses from the authors, we received the source code repository URL for four additional papers, confirming that at least 26 papers have material available online --- whenever possible, the relevant URLs can be found in our live repository (\autoref{sec:repository}).
+Among the e-mail responses from the authors, we received the source code repository URL for four additional papers, confirming that at least 26 papers have material available online --- whenever possible, the relevant URLs can be found in our live repository (\Cref{sec:repository}).
 
 Out of the investigated URLs, only \citetalias{hirzel_graph-walk-based_2016} and \citetalias{zhang_hybrid_2018} provide clear usage instructions for arbitrary software projects; they are available as plug-ins for the Eclipse IDE and the Maven build system, respectively.
 \citetalias{guo_decomposing_2019} also mentions the tool is available as an Eclipse plug-in, but we were unable to find a URL pointing to it.
@@ -111,7 +111,7 @@ It also happens frequently that tools developed in conjunction with an industria
 Authors of 14 papers said in their responses that the code or the tool could not be shared, since the resulting software is completely or partially proprietary or confidential.
 
 An issue we identified is regarding the programming languages of the SUTs targeted by the experiments.
-\autoref{fig:programming_languages} shows that there is a heavy bias towards Java, with 23 papers targeting software written in that language.
+\Cref{fig:programming_languages} shows that there is a heavy bias towards Java, with 23 papers targeting software written in that language.
 On most of the papers focused on a specific language, it is not clear if the same approach would be easy to adapt and would produce equivalent results on software developed using other widely used languages.
 However, 12 papers target systems written in multiple languages, or explicitly state that the approach is language-agnostic, which highly increases its applicability.
 Unfortunately, it was not possible to identify the target language of 21 papers; this creates a substantial challenge for both the replicability of the experiments and applicability of the technique.
@@ -147,8 +147,8 @@ Expressing concerns over \rea of \rt techniques is an important step towards awa
 The focus of this section is to discover if and how much evidence exists of techniques developed by the research community being adopted by real-world software development.
 As previously stated, there might be studies that have been put into practice, but escaped our review because they were not explicitly motivated by \rea; we hope that, in the future, our live repository solution will eventually find them and potentially widen the conclusions described here.
 
-\autoref{table:relevance} contains only data extracted from the papers themselves; since the author responses are anonymous, we cannot map them directly to the table.
-Thus,~\autoref{fig:relevance_count} displays the total number of papers that satisfy each of our applicability criteria, including updates from the author responses.
+\Cref{table:relevance} contains only data extracted from the papers themselves; since the author responses are anonymous, we cannot map them directly to the table.
+Thus,~\Cref{fig:relevance_count} displays the total number of papers that satisfy each of our applicability criteria, including updates from the author responses.
 In other words, we consider the author response if it updates the information retrieved from the paper; otherwise the data extracted from the paper remains.
 
 %\begin{figure}
@@ -159,8 +159,8 @@ In other words, we consider the author response if it updates the information re
 %\end{figure}
 
 
-Regarding the adoption of the proposed approaches, \autoref{table:relevance} shows that 16 out of the \numpapers selected papers explicitly state that the proposal is applied with a partner, or suggest that implementation was ongoing at the time of publication, out of which six are confirmed to still be in use by their authors, while four say it fell out of use (the remaining six did not respond, so we assume no change).
-Eight other authors claim their approach was implemented after publication, so the count in~\autoref{fig:relevance_count} is 20 (16-4+8).
+Regarding the adoption of the proposed approaches, \Cref{table:relevance} shows that 16 out of the \numpapers selected papers explicitly state that the proposal is applied with a partner, or suggest that implementation was ongoing at the time of publication, out of which six are confirmed to still be in use by their authors, while four say it fell out of use (the remaining six did not respond, so we assume no change).
+Eight other authors claim their approach was implemented after publication, so the count in~\Cref{fig:relevance_count} is 20 (16-4+8).
 
 We can observe that having a practitioner as a co-author helps to provide a direct line from the founding theory of the technique to its application in practice: 
 indeed, 14 of these 20 papers have at least one author from industry.
@@ -181,7 +181,7 @@ However, the details are not always known to them: ``\textit{We were told it was
 To the extent of the authors' knowledge, 12 papers were never put in practice, although some say there was a discussion to do so at some point.
 From author \#35: ``\textit{We discussed the possibility of conducting a research visit at one of the corporation branches to experiment with the technique} in vivo\textit{, but in the end it did not go through.}''
 
-Authors of ten papers (out of which four were tagged as implemented in~\autoref{table:relevance}) said that the tool saw usage but fell out of use after a few years; an additional three claimed some sort of attempt, but the current status is unknown.
+Authors of ten papers (out of which four were tagged as implemented in~\Cref{table:relevance}) said that the tool saw usage but fell out of use after a few years; an additional three claimed some sort of attempt, but the current status is unknown.
 What this means is that, even if a technique is incorporated into a software, a lot of work must still be done to ensure that the approach remains viable in a longer term.
 Some challenges mentioned by these authors include:
 
@@ -212,7 +212,7 @@ After all, although testing is a costly procedure, it is still much cheaper to d
 %  \label{fig:approaches_applicability}
 %\end{figure}
 
-\autoref{fig:approaches_applicability} shows the relationship between the applicability criteria and the approaches that have seen real-world usage.
+\Cref{fig:approaches_applicability} shows the relationship between the applicability criteria and the approaches that have seen real-world usage.
 The figure shows approaches with at least two papers put into practice\footnote{Constraint-based, graph-based, similarity-based, trace-based, manual classification, cost-aware and history-based approaches have one paper each implemented in practice.}.
 Unsurprisingly, the most common information-type and algorithm-type approaches are the ones that see the most real-world usage.
 Coverage-based approaches dominate the implementations of techniques, despite previous concerns regarding the cost of measuring coverage \cite{herzigkeynote}; although time-consuming, coverage measurements are easy to obtain in most programming languages.

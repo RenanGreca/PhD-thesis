@@ -2,7 +2,7 @@
 %	The Industry-Academia Knowledge Gap
 %----------------------------------------------------------------------------------------
 \chapter{The Industry-Academia Knowledge Gap}\label{chap:gap}
-\lhead{\emph{The Industry-Academia Knowledge Gap}} % Set the left side page header
+\lhead{\emph{\nameref{chap:gap}}}
 
 While this review indicates that \rea is a growing concern among \rt researchers, it's still only being addressed with any depth on a minority of secondary studies.
 It is clear that several authors believe \rea is a challenge worth addressing in research, but there is not a lot of available \rt literature focusing on the steps that need to be taken in order to improve academia-industry communication and shorten the technology transfer gap.
@@ -10,7 +10,7 @@ It is clear that several authors believe \rea is a challenge worth addressing in
 We conclude this work by highlighting some key challenges that we have identified, combining data found in the literature itself, in the authors' responses and in the practitioner survey.
 These are challenges that may have been addressed in certain circumstances but remain unsolved in a broad sense, as they are still present in several recent works.
 Along with each challenge, we make some suggestions that could be applied by Software Engineering researchers and/or Software Testing practitioners — these could be actionable steps for upcoming primary studies, or further avenues of investigation for secondary or meta studies.
-\autoref{table:challenges} provides the summary of the challenges we identified, indicating the primary source of our observation (i.e. the literature, the authors and/or the practitioners).
+\Cref{table:challenges} provides the summary of the challenges we identified, indicating the primary source of our observation (i.e. the literature, the authors and/or the practitioners).
 
 \begin{table}[]
 \scriptsize
@@ -110,7 +110,7 @@ Still, APFD has been in use for over 20 years and it cannot simply be dismissed:
 
 For the cases of \tcs and \tsr, there is less controversy on what are the most important metrics; reduction rate and fault detection loss appear to be the consensus among researchers, and there are fewer novel and single-use metrics.
 As an example,~\citetalias{mehta_data-driven_2021} interviewed practitioners at Microsoft before deciding on their \tcs metrics, obtaining three main targets: reduction of cost, reduction of time and the failure detection rate.
-We can observe in~\autoref{sec:rq1} that these concerns are reasonably addressed by \tcs techniques, although researchers still appear to prioritize reducing the selected set rather than ensuring all failures are detected.
+We can observe in~\Cref{sec:rq1} that these concerns are reasonably addressed by \tcs techniques, although researchers still appear to prioritize reducing the selected set rather than ensuring all failures are detected.
 
 The metrics of applicability and diagnosability \citepalias{correia_motsd_2019, zhou_beating_2020} are interesting propositions that consider other degrees of usefulness of a tool to developers.
 Their existence indicates that some researchers still believe there is room for improved metrics that, perhaps, better map the requirements of real-world software, although these are rarely found in the literature.
@@ -123,7 +123,7 @@ Indeed, managers allocating development funds will usually focus on the dollar s
 \paragraph{CH5: Converting research into usable tools}
 When techniques are designed in an academic context, they are normally developed as proof-of-concept works.
 That is, the purpose is to show that the technique works and provides significant results according to some metrics.
-However, this leads to two issues: either primary studies do not make their solution available for implementation, as we discussed in~\autoref{sec:rq2}, or their experiments do not thoroughly consider practical concerns such as efficiency or the data requirements of a proposed approach.
+However, this leads to two issues: either primary studies do not make their solution available for implementation, as we discussed in~\Cref{sec:rq2}, or their experiments do not thoroughly consider practical concerns such as efficiency or the data requirements of a proposed approach.
 Finally, what seems to matter the most is time and budget for developing a tool.
 Papers are usually written targeting a hard deadline and their prototypes often do not see further work past publication.
 It is inevitable that researchers will move on to new challenges, but their contribution would be amplified if the tool is, at the very least, open-source and well-documented so that other interested parties can continue the work in the future if desired.
@@ -149,7 +149,7 @@ This can be an opportunity for researchers to develop novel methods and to progr
 Several of the papers we reviewed don't clearly state key characteristics of their SUT, such as its programming language or its scale (either in lines of code or test cases).
 For practitioners and other researchers to consider a paper worthy of investigation, it is important to know for which kind of system a piece of research was designed.
 
-As mentioned in~\autoref{sec:rq2}, few \rt techniques are language-agnostic and many do not inform the target language at all.
+As mentioned in~\Cref{sec:rq2}, few \rt techniques are language-agnostic and many do not inform the target language at all.
 Similarly, the type of software (web, mobile, embedded, distributed, etc.) or its development paradigm are important factors to mention, seen in studies such as~\citetalias{zhong_testsage:_2019} for web services and~\citetalias{lima_multi-armed_2022} for software developed and delivered through continuous integration.
 Not every tool can be used in any type of software, and it is likely that specific types of software might require specific solutions, so it is important to state the particularities of certain subject programs.
 This is akin to the point of ``context factors'' brought up by~\citet{bin_ali_search_2019}, which helps to alleviate the issue by introducing a base taxonomy that can be used to categorize techniques.
@@ -181,7 +181,7 @@ Many researchers would be thrilled to receive a message inviting them for a join
 In general, there is some degree of skepticism from practitioners regarding automated solutions.
 For example, developers are concerned that a TCS solution might leave out an important test, or that TCP algorithms might always prioritize the same tests.
 Developers are opposed to outright removing tests flagged by TSR, but are willing to put these tests in less-frequent rotations.
-This calls back to a comment made by one of the responding authors in \autoref{sec:lit_rq2}: even if 99\% of faults are detected, the remaining 1\% of slips is unnerving to the people responsible for the tests.
+This calls back to a comment made by one of the responding authors in \Cref{sec:lit_rq2}: even if 99\% of faults are detected, the remaining 1\% of slips is unnerving to the people responsible for the tests.
 \todo{Continue here}
 
 \paragraph{Data availability}

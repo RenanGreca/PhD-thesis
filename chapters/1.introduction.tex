@@ -2,7 +2,7 @@
 %	Introduction
 %----------------------------------------------------------------------------------------
 \chapter{Introduction}\label{chap:intro}
-\lhead{\emph{Introduction}} % Set the left side page header to "Introduction"
+\lhead{\emph{\nameref{chap:intro}}} % Set the left side page header to "Introduction"
 
 Software has become an ubiquitous part of every-day life, be it in computers, smartphones, vehicles, or other devices.
 Well-functioning software can be a major asset for most people, helping to reduce operational costs, reduce time spent on tasks, and even save lives.
@@ -41,35 +41,35 @@ In addition, as a proof-of-concept approach, we introduce \textit{orchestration 
 
 The following paragraphs provide a summary of the remainder of this document.
 
-As a background, \autoref{chap:background} provides a detailed description of the challenges involved with regression testing and continuously evolving software systems.
+As a background, \Cref{chap:background} provides a detailed description of the challenges involved with regression testing and continuously evolving software systems.
 It also introduces the concept of test suite orchestration and the techniques that can be components of an overarching test strategy.
 Finally, it describes the four groups of techniques that are delineated as the scope for this thesis: test case prioritization (\tcp), test case selection (\tcs), test suite reduction (\tsr) and test suite amplification (\tsa).
 
-Then, \autoref{chap:literature_review} is a comprehensive systematic literature review covering advances in regression testing research between the years 2016 and 2022.
+Then, \Cref{chap:literature_review} is a comprehensive systematic literature review covering advances in regression testing research between the years 2016 and 2022.
 The focus is to identify papers that propose techniques that are either validated in practical experiments, or are promising candidates for real-world use.
 In this process, we have identified 79 papers covering the four aforementioned groups of regression testing techniques.
 To obtain an updated understanding of the research beyond what is included directly in the papers, we contacted the authors directly, asking them about the long-term impact of their research after publication.
 Furthermore, we also contacted a number of industry practitioners to better understand their relationship with the ongoing research in the field.
 
-A proof-of-concept test suite orchestration strategy is introduced in \autoref{chap:orchestration}, combining two previously existing techniques from literature and drawing conclusions regarding the effectiveness and efficiency of the combined approach versus the individual techniques.
+A proof-of-concept test suite orchestration strategy is introduced in \Cref{chap:orchestration}, combining two previously existing techniques from literature and drawing conclusions regarding the effectiveness and efficiency of the combined approach versus the individual techniques.
 This work is left open to extension with probable paths highlighted in the chapter.
 
-During a seven-week period, an investigation was conducted in partnership with Ericsson in Sweden; the results of which can be found in \autoref{chap:industry}.
+During a seven-week period, an investigation was conducted in partnership with a large technology company in Sweden; the results of which can be found in \Cref{chap:industry}.
 Th primary objective of this period was to understand how testing is done at the company and identify the testing issues that most commonly affect the practitioners.
 A series of interviews were conducted with team members involved with the testing process, from which it is possible to determine the positives of their current process, the points that could be improved with new techniques, and potential avenues for closer collaboration with academic work.
 Certain parts of the extracted information are under a non-disclosure agreement, thus here we present as much as possible without infringing this contract.
 
-Combining data and findings from the preceding chapters, \autoref{chap:gap} provides a list of ongoing challenges for the real-world relevance of software testing research.
-Some of these were brought up by authors; others emerged during the interviews at Ericsson; others still are based on our own observations of the information we collected and analyzed during the development of this work.
+Combining data and findings from the preceding chapters, \Cref{chap:gap} provides a list of ongoing challenges for the real-world relevance of software testing research.
+Some of these were brought up by authors; others emerged during the interviews at the industrial partner; others still are based on our own observations of the information we collected and analyzed during the development of this work.
 This chapter is designed to be a set of suggestions for researchers to keep in mind while developing their next work, as well as as potential research directions in their own right.
 
-To provide a long-term usefulness to this work, we introduce an online live repository of research in \autoref{chap:live}.
-This is based primarily on the findings of \autoref{chap:literature_review}, developed into an interactive website that will be updated for years to come.
+To provide a long-term usefulness to this work, we introduce an online live repository of research in \Cref{chap:live}.
+This is based primarily on the findings of \Cref{chap:literature_review}, developed into an interactive website that will be updated for years to come.
 The goal is to provide a destination to researchers in the field of regression testing to easily gather a bibliography of research that has proven applicability or potential for it.
 Practitioners interested in adopting new techniques on their projects can also look for studies that are related to the challenges they face, opening up an avenue for contact and collaboration.
 Authors of the cited papers and engaged readers are encouraged to contribute to the repository, either by adding additional details about the included papers or by suggesting additional papers that fit the topic and criteria.
 
-Finally, \autoref{chap:conclusion} concludes the work by first acknowledging the threats to validity of the preceding chapters and provides a summary and final thoughts on the results of this research.
+Finally, \Cref{chap:conclusion} concludes the work by first acknowledging the threats to validity of the preceding chapters and provides a summary and final thoughts on the results of this research.
 
 In summary, the contributions of this research are as follows:
 \begin{itemize}
@@ -91,6 +91,6 @@ In summary, the contributions of this research are as follows:
 %We hope that this research will aid both future researchers and practitioners in developing and applying software testing techniques, thus resulting in a general improvement of quality in software.
 
 %The remainder of this document is structured as follows.
-%First, \autoref{chap:background} introduces the concepts of regression testing and test orchestration.
-%Then, \autoref{chap:sota} reviews recent literature on the industrial applicability of software testing techniques, and summarizes some proposed techniques that show promising results for regression testing.
-%Finally, \autoref{chap:proposal} elaborates on the challenges we wish to tackle with this research, and provides an overview of how work will be conducted in the upcoming years.
+%First, \Cref{chap:background} introduces the concepts of regression testing and test orchestration.
+%Then, \Cref{chap:sota} reviews recent literature on the industrial applicability of software testing techniques, and summarizes some proposed techniques that show promising results for regression testing.
+%Finally, \Cref{chap:proposal} elaborates on the challenges we wish to tackle with this research, and provides an overview of how work will be conducted in the upcoming years.

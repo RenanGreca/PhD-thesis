@@ -257,15 +257,58 @@ Steven Levitt
 \addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
 
 \abstract % Add a gap in the Contents, for aesthetics
+\paragraph{Context:} 
 Software is an important part of modern life, and in most cases, it provides tremendous benefits to society.
 Unfortunately, software is highly susceptible to faults.
 Faults are often harmless, but even small errors can cause massive damage depending on the context.
 Thus, it is crucial for software developers to adopt testing techniques that can help locate faults and guarantee the functionality of both individual components and the system as a whole.
-Today, more and more software is being developed in a continuously-evolving fashion, in which it is desired that changes such as new features and corrections are delivered to end users as quickly as possible.
-However, this desire for velocity places an additional burden on software testing techniques, as running complete test suites can be a costly process in large-scale software.
-Furthermore, there is currently a disconnect between academia and industry on the subject of software testing techniques; while there is a broad field of research in this topic, few state-of-the-art techniques are actually put into practice by software developers.
-This thesis brings forth a discussion on the so-called \textit{industry-academia knowledge gap} when it comes to software regression testing, bringing a comprehensive literature review along with \textit{in loco} interviews with practitioners, with the objective of identifying the ongoing challenges that can be addressed in order to bridge that gap.
-As an initial step towards a solution, we propose \textit{orchestration strategies} for regression testing of continuously-evolving software; to do so, we perform experiments using combinations of certain regression testing techniques that have displayed potential for real-world use and draw conclusions on the advantages and drawbacks of adopting such strategies.
+Today, there is a trend towards \textit{continuously evolving software}, in which it is desired that changes such as new features and corrections are delivered to end users as quickly as possible.
+To ensure correct behavior upon release, development teams rely on \textit{regression testing} suites, which serve to validate previously-correct features and, when well-designed, avoid the propagation of faults to end users.
+However, the desire for velocity that comes with continuously evolving software places an additional burden on regression testing practices, as running complete test suites can be a costly process in large-scale software.
+This challenge has generated a need for novel regression testing techniques, a topic which now enjoys a robust literature within software engineering research.
+However, there is limited evidence of this research finding its way into practical usage by the software development community; in other words, there is a disconnect between academia and industry on the subject of software testing techniques.
+%While there is a broad field of research in this topic, few state-of-the-art techniques are actually put into practice by software developers.
+
+\paragraph{Objective:} 
+To improve applicability of regression testing research, we must identify what are the main causes of this apparent gap between software engineering academics and practitioners.
+This is a multifaceted goal, involving an investigation of the literature and of the state of practice.
+A related goal is to provide examples of \textit{test suite orchestration strategies} that draw from academic advancements and could provide benefits if implemented on real software.
+
+\paragraph{Method:}
+This thesis tackles the aforementioned challenge from multiple directions.
+It includes a comprehensive systematic literature review covering research published between 2016 and 2022, focusing on papers that bring techniques and discussions that are relevant to the applicability of regression testing research.
+Along with data extracted from the papers themselves, this discussion of the existing literature includes information received directly from authors through a questionnaire, as well as a survey performed with practitioners, seeking to validate some of the reported findings.
+
+Test suite orchestration strategies can be a step towards bridging the so-called \textit{industry-academia knowledge gap}.
+To that end we propose a combined approach for regression testing, including techniques extracted from the literature that have promising qualities.
+This approach is an initial experiment with full test suite orchestration and extended approaches are also discussed.
+
+To get a closer understanding of the state of regression testing in a practical sense, a series of interviews were conducted in collaboration with a large technology company in Sweden.
+During a seven-week process, we were able to interact with the team and learn the test practices performed on a daily basis and have some insight on the long-term test strategies for the company.
+The responses of the interviews are reported, edited for readability and confidentiality reasons, and these results are discussed within the larger context of the study.
+
+The results from the above components of the studies are then aggregated into two notable outputs.
+First, a live repository of literature is made available online, containing the current results of the literature review and with the opportunity of expansion as more research is performed in this topic.
+Then, we provide a list of the most notable challenges for the implementation of regression testing techniques in practice, that were identified during the development of this entire study.
+
+%This thesis brings forth a discussion on the so-called \textit{industry-academia knowledge gap} when it comes to software regression testing, bringing a comprehensive literature review along with \textit{in loco} interviews with practitioners, with the objective of identifying the ongoing challenges that can be addressed in order to bridge that gap.
+
+\paragraph{Results:}
+This thesis provides the following contributions:
+a comprehensive literature review of applicable regression testing research;
+additional context on the literature provided by the authors of cited papers;
+a preliminary test suite orchestration strategy combining robust techniques from the literature;
+interviews with practitioners at a major technology company that highlight the challenges faced daily by developers and testers;
+a live repository of papers to aggregate relevant literature in one online location;
+a list of challenges that can serve as guidelines for researchers or even as research directions in their own right.
+
+\paragraph{Conclusion:}
+There is still much work to be done by the software engineering research and development communities in order to completely close the gap that exists between them.
+To a great extent, the motivations of researchers and practitioners are not aligned — while in academia, proposing theoretically sound novel approaches is encouraged to obtain publications, while in industry there is a need for techniques that are proven to reduce effort and/or costs.
+This can only be solved by close collaboration between the two sides, yet a question of who is willing to fund these experiments remain.
+The data and discussions provided in this thesis show that, although difficult, this is not an impossible problem to solve and there are certain clear steps that can be taken by researchers and practitioners alike to begin addressing it.
+
+%As an initial step towards a solution, we propose \textit{orchestration strategies} for regression testing of continuously-evolving software; to do so, we perform experiments using combinations of certain regression testing techniques that have displayed potential for real-world use and draw conclusions on the advantages and drawbacks of adopting such strategies.
 
 %In this research proposal, we discuss the reasons and challenges behind this disconnection, and propose the development of new test orchestration strategies that aim to combine relevant software testing techniques into a complete solution that can be applied by practitioners.
 %In order to help bring academia and industry closer together, we also propose the usage of applicability metrics that will be used to measure results of software testing techniques and compare how well each of them can perform in an industrial setting. 
@@ -277,15 +320,18 @@ As an initial step towards a solution, we propose \textit{orchestration strategi
 
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 %
-\acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+\acknowledgements{\addtocontents{toc}{} % Add a gap in the Contents, for aesthetics
 %
 %The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
 
 I am incredibly grateful for the guidance and orientation provided by my advisors, professors Antonia Bertolino, Breno Miranda and Ludovico Iovino.
 I would also like to thank GSSI professors Luca Aceto and Michele Flammini, who have been supportive in times of need since my early days at the institute.
 
-Thanks to Milos Gligoric, who provided significant contributions to the discussions and results presented in \autoref{chap:orchestration}.
-I also thank Sigrid Eldh, Carene Österberg and Tommie Haag, from Ericsson, who gave me the opportunity of interacting with them and their team in Sweden and without whom there would be no \autoref{chap:industry} in this thesis.
+Thanks to Milos Gligoric, who provided significant contributions to the discussions and results presented in \Cref{chap:orchestration}.
+I also thank Sigrid Eldh, from M\"alardens Universitet, who arranged the collaboration that allows the discussion present in \Cref{chap:industry}.
+I am also grateful to the people at the company, who received me with grace and gave me the opportunity of interacting with their team, but who shall remain anonymous due to confidentiality concerns.
+If you are reading this, you know who you are.
+%Carene Österberg and Tommie Haag, from Ericsson, who gave me the opportunity of interacting with them and their team in Sweden and without whom there would be no \Cref{chap:industry} in this thesis.
 
 Thanks to my parents, Lizmari and Edison Greca, and my grandparents, Glacial and Aquiles Merlin, who gave me the foundational values and education that have guided me through life until this point.
 Additionally, I would like to remember my grandparents Berenice and Eros Greca, who I wish could be here to share their part in this achievement, and my uncles Felipe and Chico, who encouraged me to explore the world.
@@ -311,11 +357,11 @@ Even thousands of kilometers away, you are all special to me.
 \lhead{\emph{Contents}} % Set the left side page header to "Contents"
 \tableofcontents % Write out the Table of Contents
 
-%%\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
-%%\listoffigures % Write out the List of Figures
-%
-%%\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
-%%\listoftables % Write out the List of Tables
+\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+\listoffigures % Write out the List of Figures
+
+\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+\listoftables % Write out the List of Tables
 
 %%----------------------------------------------------------------------------------------
 %%	ABBREVIATIONS
@@ -330,11 +376,12 @@ Even thousands of kilometers away, you are all special to me.
 \textbf{FAD}: \textbf{F}unctional \textbf{A}rea \textbf{D}omain \\
 \textbf{FOSS}: \textbf{F}ree and \textbf{O}pen-\textbf{S}ource \textbf{S}oftware \\
 \textbf{IR\&A}: \textbf{I}ndustrial \textbf{R}elevance and \textbf{A}pplicability \\
+\textbf{LIRT}: \textbf{L}ong \textbf{I}nterval \textbf{R}egression \textbf{T}est(ing) \\
 \textbf{MCT}: \textbf{M}ulti-\textbf{C}omponent \textbf{T}est(ing) \\
 \textbf{RAN}: \textbf{R}adio \textbf{A}rea \textbf{N}etwork \\
 \textbf{RT}: \textbf{R}egression \textbf{T}esting \\
-\textbf{SBT}: \textbf{S}ource \textbf{B}aseline \textbf{T}est \\
-\textbf{SDC}: \textbf{S}ource \textbf{D}elivery \textbf{C}heck \\
+%\textbf{SBT}: \textbf{S}ource \textbf{B}aseline \textbf{T}est \\\
+\textbf{SIRT}: \textbf{S}hort \textbf{I}nterval \textbf{R}egression \textbf{T}est(ing) \\
 \textbf{SLR}: \textbf{S}ystematic \textbf{L}iterature \textbf{R}eview \\
 \textbf{SUT}: \textbf{S}ystem \textbf{U}nder \textbf{T}est \\
 \textbf{TCP}: \textbf{T}est \textbf{C}ase \textbf{P}rioritization \\
@@ -461,9 +508,8 @@ Even thousands of kilometers away, you are all special to me.
 %% Include the appendices of the thesis as separate files from the Appendices folder
 %% Uncomment the lines as you write the Appendices
 
-\lhead{\emph{Appendix A}} % Set the left side page header to "Appendix A"
+%\lhead{\emph{Appendix A}} % Set the left side page header to "Appendix A"
 \input{./appendices/a.tables}
-\lhead{\emph{Appendix B}} % Set the left side page header to "Appendix A"
 \input{./appendices/b.surveys}
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics

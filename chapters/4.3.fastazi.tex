@@ -80,15 +80,15 @@ Another possible approach to the idea is performing selection first and then pri
 The advantage of this approach is reducing the running time of the prioritization, which would focus on the tests impacted by the changes and thus more likely to fail.
 However, this also means that the selection and prioritization steps cannot be performed simultaneously (although it is still possible to parallelize the preparation steps).
 Intuitively, it is not clear which option should be more effective or efficient than the other.
-Indeed, our experiments show that the effectiveness and efficiency of the parallel and sequential approaches are statistically equivalent (according to the same analysis detailed in \autoref{sec:results}).
+Indeed, our experiments show that the effectiveness and efficiency of the parallel and sequential approaches are statistically equivalent (according to the same analysis detailed in \Cref{sec:results}).
 For lack of space, henceforth \fz results always refer to the sequential execution, while the results of the parallel combination are available in the replication package.
 
-As an example, \autoref{fig:fastazi} contains sample outputs from \ek, \fs and \fz\footnote{This example is based on results of the experiments on \texttt{Chart v26}. Actual test names are omitted for clarity.}.
+As an example, \Cref{fig:fastazi} contains sample outputs from \ek, \fs and \fz\footnote{This example is based on results of the experiments on \texttt{Chart v26}. Actual test names are omitted for clarity.}.
 Colored red, $t_{170}$ is the failing test within a test suite $T$ of 363 test cases.
 In $S$, the output of \ek, this test is found in the 78th position, because several tests were excluded during the selection, while in the output $P$ of \fs, it is moved up to the 17th position.
 Finally, the output of \fz, $O$, which is selected and prioritized, promoted the test to the 9th position.
 
-Algorithm \autoref{algo:fastazi} provides an abstract view of \ek and \fs\footnote{For a complete understanding of \ek and \fs, refer to~\cite{gligoricEk,miranda_fast}.}, and outlines how \fz works in practice.
+Algorithm \Cref{algo:fastazi} provides an abstract view of \ek and \fs\footnote{For a complete understanding of \ek and \fs, refer to~\cite{gligoricEk,miranda_fast}.}, and outlines how \fz works in practice.
 \ek requires tests to be compiled before performing selection, while \fs needs the hash signature of each test before prioritizing the suite.
 These two steps are independent and can be performed in parallel (they are both abstracted by the function GetHashesAndModified).
 After that, \ek can perform its selection normally, and \fs prioritizes the resulting list of tests.
@@ -112,7 +112,7 @@ After that, \ek can perform its selection normally, and \fs prioritizes the resu
 %On the other hand, utilizing information from tests that would ultimately be excluded from execution by \tcp could be detrimental.
 %For example, if two test cases, $t_1$ and $t_2$, are similar according to the measures used by \fs, but only $t_1$ is selected and detects the failures, there is a chance that $t_2$ will be prioritized highly and $t_1$ will be given a lower priority than other, less relevant, tests.
 %In this situation, \fzs ensures that the prioritization considers only tests that will actually be executed and avoids odd situations such as the one described.
-%The results of our experiments regarding effectiveness can be found in \autoref{subsec:rq1}.
+%The results of our experiments regarding effectiveness can be found in \Cref{subsec:rq1}.
 
 %Similarly, there is no obvious reason why \fzp should be more efficient than \fzs or the other way around.
 %Both of them add costs beyond simply using \ek or \fs, but in both cases these costs can be mitigated.
@@ -120,7 +120,7 @@ After that, \ek can perform its selection normally, and \fs prioritizes the resu
 %Meanwhile, \fzs has the advantage of reducing the prioritization time by using only the selected tests as input.
 %Furthermore, regarding \fs, the tool requires a preparation step that comes before the prioritization itself, and this step can be executed simultaneously with \tcs.
 %So the additional cost of \fzs is only the time to prioritize the selected tests.
-%The results of our efficiency analysis of the tools is found in \autoref{subsec:rq3}.
+%The results of our efficiency analysis of the tools is found in \Cref{subsec:rq3}.
 
 It is important to observe that, while we utilize \ek and \fs as representative implementations of \tcs and \tcp, the idea behind \fz could be attempted using different approaches.
 There are many proposed techniques that address \tcs and \tcp; combining different ones would inevitably result in changes to effectiveness and efficiency.
