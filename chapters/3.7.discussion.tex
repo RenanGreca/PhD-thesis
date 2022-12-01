@@ -1,6 +1,6 @@
 \section{Discussion}\label{sec:lit_discussion}
 
-\subsection{RQ1: Common Approaches and Metrics in \rt research}
+\subsection{\nameref{rq:lit1}: Common Approaches and Metrics in \rt research}
 \label{sec:lit_rq1}
 
 A summary of the main approaches used to tackle \rt challenges is presented in \Cref{table:algo_approaches}.
@@ -9,7 +9,7 @@ one is regarding the source from where the information used as input for a techn
 Correspondingly, the main approaches used to tackle \rt challenges are presented in \Cref{fig:info_approaches} and in \Cref{fig:alg_approaches}, respectively.
 Regarding information, change-based, coverage-based, history-based and cost-aware approaches are the most common; while machine learning-based, search-based, similarity-based and graph-based are the popular algorithmic approaches.
 
-%\input{tables/tab_approaches}
+\input{tables/tab_approaches}
 
 The main metrics reported in the literature are shown in \Cref{table:other_metrics}, \Cref{fig:effectiveness_metrics} and \Cref{fig:efficiency_metrics}, grouped according to their main goal\footnote{In each figure, we omit \tsa due to space concerns, as only one paper~\citepalias{yoshida_fsx_2016} covers it.}.
 The reported metrics primarily focus on effectiveness (how good a solution is at accomplishing its task) or efficiency (the time and cost of using the solution), but two metrics were identified that are neither --- namely, applicability/generality and diagnosability.
@@ -19,7 +19,7 @@ Because \tcs and \tsr both have the goal of running fewer tests than an original
 The set of accuracy/precision/recall appears to be the effectiveness metric that covers the most situations.
 For efficiency, the execution time of a technique is both widely used and is useful for any kind of solution.
 
-%\input{tables/tab_metrics}
+\input{tables/tab_metrics}
 
 In our questionnaire to the authors, we included a question focused on the choice of metrics.
 We asked authors who had successful or attempted attempts of implementing their technique whether the metrics described in the paper proved to be relevant in practice, or if additional measures were needed.
@@ -54,16 +54,16 @@ The answers do not make it clear if the metrics were omitted because the measure
 
 \begin{tcolorbox}%[size=fbox]
 %\small
-\textbf{Summary of RQ1.} The data reported in the figures show what are the most common approaches and metrics according to the objective of the \rt techniques. For example, we see that \tcp often relies on history-based and similarity-based approaches and uses APFD for evaluation, while \tcs is usually change-based with a focus on the number of selected tests.
+\textbf{Summary of \nameref{rq:lit1}} The data reported in the figures show what are the most common approaches and metrics according to the objective of the \rt techniques. For example, we see that \tcp often relies on history-based and similarity-based approaches and uses APFD for evaluation, while \tcs is usually change-based with a focus on the number of selected tests.
 We can also see that some overlap occurs and there are authors who choose unconventional but potentially promising combinations of techniques and metrics.
 From the author responses we received, it appears that many authors are satisfied with their selection of metrics but a few indicate that more were discovered in the process of implementing the tool with their industrial partner.
 \end{tcolorbox}
 
 
-\subsection{RQ2: Applicability Concerns in Regression Testing Research}
+\subsection{\nameref{rq:lit2}: Applicability Concerns in Regression Testing Research}
 \label{sec:lit_rq2}
 
-%\input{tables/tab_relevance}
+\input{tables/tab_relevance}
 
 To answer this research question, we look carefully at the applicability concerns extracted according to \Cref{table:extraction}.
 The full mapping of the papers with the properties they satisfy is available in \Cref{table:relevance}.
@@ -102,7 +102,7 @@ Notably, there appears to be a change in this trend: between 2016 and 2020, only
 In 2021 and 2022 (up until July), we found 8 papers satisfying this criteria.
 The likely explanation to this is that noteworthy Software Engineering conferences have given more value to easily-replicable research in recent years and this has caused authors to make it a priority.
 However, there are some cases where the code is made available with little to no documentation or explanation of how it works; on the bright side, there are also examples that stood out for having clear and detailed steps on how to use the code and replicate the experiments.
-Among the e-mail responses from the authors, we received the source code repository URL for four additional papers, confirming that at least 26 papers have material available online --- whenever possible, the relevant URLs can be found in our live repository (\Cref{sec:repository}).
+Among the e-mail responses from the authors, we received the source code repository URL for four additional papers, confirming that at least 26 papers have material available online --- whenever possible, the relevant URLs can be found in our live repository (\Cref{chap:live}).
 
 Out of the investigated URLs, only \citetalias{hirzel_graph-walk-based_2016} and \citetalias{zhang_hybrid_2018} provide clear usage instructions for arbitrary software projects; they are available as plug-ins for the Eclipse IDE and the Maven build system, respectively.
 \citetalias{guo_decomposing_2019} also mentions the tool is available as an Eclipse plug-in, but we were unable to find a URL pointing to it.
@@ -117,17 +117,17 @@ However, 12 papers target systems written in multiple languages, or explicitly s
 Unfortunately, it was not possible to identify the target language of 21 papers; this creates a substantial challenge for both the replicability of the experiments and applicability of the technique.
 
 
-%\begin{figure}
-%  \center
-%  \includegraphics[width=\linewidth]{programming_languages.png}
-%  \caption{Distribution of the targeted programming languages.}
-%  \label{fig:programming_languages}
-%\end{figure}
+\begin{figure}
+  \center
+  \includegraphics[width=\linewidth]{figures/programming_languages.png}
+  \caption{Distribution of the targeted programming languages.}
+  \label{fig:programming_languages}
+\end{figure}
 
 
 \begin{tcolorbox}%[size=fbox]%[boxsep=0mm,boxrule=0mm,size=minimal]
 %\small
-\textbf{Summary of RQ2.}
+\textbf{Summary of \nameref{rq:lit2}.}
 Our survey shows that a large number of papers exhibit \rea concerns in their motivations, and a smaller albeit still significant amount contains experiments at relevant scale. 
 Most of the times, the techniques that are implemented into a software workflow are also papers that have authors from an industrial background. %while transferal of approaches that stem purely from academia still remains a challenge.
 Unfortunately, few authors share their tools in a well-documented, open-source fashion, which hampers both future researchers, who wish to compare their solutions against the state-of-the-art, and practitioners, who might want to see how existing \rt tools can help their software.
@@ -138,7 +138,7 @@ Unfortunately, few authors share their tools in a well-documented, open-source f
 
 
 
-\subsection{RQ3: Evidences of Real-world Application of Regression Testing Techniques}
+\subsection{\nameref{rq:lit3}: Evidences of Real-world Application of Regression Testing Techniques}
 \label{sec:lit_rq3}
 
 Our study is motivated by the concern that there is potentially valuable technology being proposed in academia that does not always make its way into usage in industry.
@@ -151,12 +151,12 @@ As previously stated, there might be studies that have been put into practice, b
 Thus,~\Cref{fig:relevance_count} displays the total number of papers that satisfy each of our applicability criteria, including updates from the author responses.
 In other words, we consider the author response if it updates the information retrieved from the paper; otherwise the data extracted from the paper remains.
 
-%\begin{figure}
-%  \center
-%  \includegraphics[width=\linewidth]{relevance_count.png}
-%  \caption{Quantitative analysis of the satisfied criteria.}
-%  \label{fig:relevance_count}
-%\end{figure}
+\begin{figure}
+  \center
+  \includegraphics[width=\linewidth]{figures/relevance_count.png}
+  \caption{Quantitative analysis of the satisfied criteria.}
+  \label{fig:relevance_count}
+\end{figure}
 
 
 Regarding the adoption of the proposed approaches, \Cref{table:relevance} shows that 16 out of the \numpapers selected papers explicitly state that the proposal is applied with a partner, or suggest that implementation was ongoing at the time of publication, out of which six are confirmed to still be in use by their authors, while four say it fell out of use (the remaining six did not respond, so we assume no change).
@@ -205,12 +205,12 @@ The industrial partner is likely free to continue using the developed tool, but 
 Even if a \tcs technique detects 99\% of bugs by running a very small set of tests, practitioners will be skeptical of using as a replacement for TestAll strategy.
 After all, although testing is a costly procedure, it is still much cheaper to detect an error during testing than after the software has been shipped to customers.
 
-%\begin{figure}
-%  \center
-%  \includegraphics[width=\linewidth]{approaches_applicability.png}
-%  \caption{Mapping of approaches and techniques that have seen practical application on at least 2 papers.}
-%  \label{fig:approaches_applicability}
-%\end{figure}
+\begin{figure}
+  \center
+  \includegraphics[width=\linewidth]{figures/approaches_applicability.png}
+  \caption{Mapping of approaches and techniques that have seen practical application on at least 2 papers.}
+  \label{fig:approaches_applicability}
+\end{figure}
 
 \Cref{fig:approaches_applicability} shows the relationship between the applicability criteria and the approaches that have seen real-world usage.
 The figure shows approaches with at least two papers put into practice\footnote{Constraint-based, graph-based, similarity-based, trace-based, manual classification, cost-aware and history-based approaches have one paper each implemented in practice.}.
@@ -230,7 +230,7 @@ To provide some insight into the state of practice, we surveyed 23 practitioners
 
 \begin{tcolorbox}%[size=fbox]
 %\small
-\textbf{Summary of RQ3.} From the papers and the responses we received, we have evidence that 20 papers propose techniques that are still being used in practice.
+\textbf{Summary of \nameref{rq:lit3}.} From the papers and the responses we received, we have evidence that 20 papers propose techniques that are still being used in practice.
 It is a relatively small number, but it shows that \rt research can have concrete positive impact on real-world software development.
 Unfortunately, many of the techniques that are implemented fall out of use after some time, as an ongoing effort is needed to motivate their usage and keep the tool relevant and updated.
 There is a hint of evidence stemming from grey literature, although practitioners themselves, when surveyed, mostly claim to be unaware of \rt techniques originated in academia.

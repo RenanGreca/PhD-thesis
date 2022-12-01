@@ -9,7 +9,7 @@ Finally, we make available the relevant data needed to replicate this process, t
 \subsection{Planning and Design of the Review}
 
 To answer the questions above, we designed the following literature review process.
-For the purposes of this review, a ``regression testing technique'' addresses test case prioritization (\tcp), test case selection (\tcs), test suite reduction (\tsr), or test suite augmentation (\tsa).
+For the purposes of this review, a ``regression testing technique'' addresses test case prioritization (\tcp), test case selection (\tcs), test suite reduction (\tsr), or test suite amplification (\tsa).
 Only papers concerning one or more of these four challenges should be considered.
 Due to the scale of the available literature and our focused interest in recent developments, we only look for papers published between January/2016 and July/2022.
 We also only consider papers written in English.
@@ -62,6 +62,8 @@ Once the desired keywords were established, we built a query combining them.
 The query went through several iterations, in order to maximize the likelihood of finding all the papers that are relevant to our research, while also minimizing the number of papers in excess.
 The final query was structured as:
 
+%\small
+\begin{tcolorbox}
 \small
 \begin{verbatim}
 Title:(test OR testing) AND 
@@ -71,8 +73,9 @@ Abstract:(regression OR selection OR prioriti* OR augmentation OR
           amplification OR reduction OR minimi*) AND
 Abstract:(software)
 \end{verbatim}
+\end{tcolorbox}
 
-\normalsize
+%\normalsize
 
 
 \label{subsec:execution}
@@ -124,8 +127,8 @@ It had not been caught by either the query or the snowballing process, but we un
 
 Finally, our survey, as is presented in this study, contains the \numpapers papers listed in \Cref{table:selected}: 46 found by the query; 16 from backward snowballing; 16 from forward snowballing; and 1 author suggestion.
 The entire selection process is illustrated in~\Cref{fig:literature_review}.
-As is later discussed in \Cref{sec:repository}, this group of papers is just the initial contents of the live repository that is made available online.
-Over time, through updates to the review and submissions by authors, we expect this list to grow.
+%As is later discussed in \Cref{sec:repository}, this group of papers is just the initial contents of the live repository that is made available online.
+%Over time, through updates to the review and submissions by authors, we expect this list to grow.
 
 It is noteworthy that other studies, not included in this review, are also important for the advancement of software engineering research.
 During the execution of this review, we came across several papers that provide meaningful contributions to the theory or practice of regression testing research, but exist in an isolated context.
@@ -179,8 +182,8 @@ For industrial author(s), we check if the authors of the paper come from an acad
 ``Available tool'' is a URL pointing to an implementation of the technique, if it exists (regardless if it is source code, a plug-in, or a robust replication package).
 Finally, ``put into practice'' indicates whether the technique was actually incorporated into the development workflow of a software, to the extent of the information contained in the paper.
 
-Most of the data extracted according to the form can be found in this document under \Cref{table:selected} (bibliographical data); Figures \ref{fig:info_approaches} and \ref{fig:alg_approaches} (approaches); Figures \ref{fig:effectiveness_metrics} and \ref{fig:efficiency_metrics} (metrics); and Table \ref{table:relevance} (\rea relevance properties).
-Additional properties, such as abstracts, DOIs, details on the experiment subjects, and links to supplementary material, can be found in the live repository.
+Most of the data extracted according to the form can be found in this document under \Cref{table:selected} (bibliographical data); Figures \ref{fig:info_approaches} and \ref{fig:alg_approaches} (approaches); Figures \ref{fig:effectiveness_metrics} and \ref{fig:efficiency_metrics} (metrics); and~\Cref{table:relevance} (\rea relevance properties).
+Additional properties, such as abstracts, DOIs, details on the experiment subjects, and links to supplementary material, can be found in the replication package (\Cref{subsec:replicability}) and the live repository (\Cref{chap:live}).
 
 \input{tables/tab_extraction}
 
@@ -196,9 +199,9 @@ Conversely, there are also several papers that mention a practical implementatio
 \citetalias{celik_regression_2018}, 
 \citetalias{philip_fastlane:_2019}], but we were not able to find follow-up papers clarifying whether that actually happened.
 
-In order to provide a satisfactory answer to RQ3, we reached out to the authors of the papers via e-mail.
+In order to provide a satisfactory answer to \nameref{rq:lit3}, we reached out to the authors of the papers via e-mail.
 Our initial objective was to discover if techniques were ever put into practice and, if so, if they continue to be used to this day.
-We also realized that the authors could also provide fruitful insight into RQ1 and RQ2, so it ultimately became an important pillar of this work.
+We also realized that the authors could also provide fruitful insight into \nameref{rq:lit1} and \nameref{rq:lit2}, so it ultimately became an important pillar of this work.
 
 We were able to contact authors from most of the papers; in some cases we were not able to locate the author's e-mail address, or the address is no longer valid.
 The authors were given 12 days to respond and we received replies related to 51 out of the \numpapers papers --- in some cases, one author answered for several papers, in others several authors of the same paper provided answers.
@@ -208,16 +211,18 @@ The e-mail sent out to the authors had the following questions:
 
 \begin{tcolorbox}%[size=minimal]
 \small
-\begin{enumerate}
-	\item  Is there a functional version of your technique (tool, prototype, source code, etc.) available online? If so, please share with us the URL.
+%\begin{enumerate}
+\paragraph{1.}  Is there a functional version of your technique (tool, prototype, source code, etc.) available online? If so, please share with us the URL.
 
-	\item Was there an attempt to implement your technique in industrial or large open-source software? Is the technique currently in use with the software?
+\paragraph{2.} Was there an attempt to implement your technique in industrial or large open-source software? Is the technique currently in use with the software?
 
-	\item If the technique was put into practice, were the metrics used in the paper relevant for the technique’s applicability? If not, were there other metrics that proved to be useful?
-\end{enumerate}
+\paragraph{3.} If the technique was put into practice, were the metrics used in the paper relevant for the technique’s applicability? If not, were there other metrics that proved to be useful?
+%\end{enumerate}
 \end{tcolorbox}
 
 In addition, we also asked if the authors authorized their answers to be used in this study, if we could link them to their answers, and if they wish to be contacted about updates to this study.
+The full template of the e-mail is found in \Cref{sec:app_email}.
+
 All responding authors authorized the use of their answers, but several of them asked not to be linked directly to specific answers due to non-disclosure agreements with industrial partners; therefore, we use the received answers broadly, collecting quantitative and qualitative data from them without specifying which piece of information came from which author.
 Whenever a direct quote is significant, we transcribe it anonymously; for readability we use an arbitrary ID numbering.
 
@@ -238,19 +243,20 @@ Due to space concerns, we cannot include the full questionnaire here, but it is 
 The main points covered in it were:
 \begin{tcolorbox}%[size=minimal]
 \small
-\begin{enumerate}
-	\item What are the most common pain points when it comes to regression testing?
+%\begin{enumerate}
+\paragraph{1.} What are the most common pain points when it comes to regression testing?
 	
-	\item Do you know of, or have you ever used, a regression testing tool originating in academia?
+\paragraph{2.} Do you know of, or have you ever used, a regression testing tool originating in academia?
 
-	\subitem If so, how was the experience of using it?
+\paragraph{2.1} If so, how was the experience of using it?
 	
-	\item Do you stay informed on current advances in software engineering research? Are there attempts of collaboration between your company and academia?
+\paragraph{3.} Do you stay informed on current advances in software engineering research? Are there attempts of collaboration between your company and academia?
 	
-\end{enumerate}
+%\end{enumerate}
 \end{tcolorbox}
 
-We also asked their company, country and role, which we used to assess the diversity of respondents. This will not be published for privacy reasons.
+We also asked for their company, country and role, which we used to assess the diversity of respondents. This will not be published for privacy reasons.
+Again, the full transcript of the survey questions is available in \Cref{sec:app_prac_questionnaire}.
 
 \subsection{Replicability}
 \label{subsec:replicability}

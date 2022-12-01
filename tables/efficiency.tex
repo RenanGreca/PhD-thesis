@@ -1,0 +1,214 @@
+%\begin{table}
+%  \caption{Average execution time of each step.\vspace{-10pt}}
+%%  \scriptsize
+%  \begin{tabular}{|lrrrrrr|}
+%    \hline
+%    \textbf{Project} & Appr. & \tcs & Prep. & \tcp & Comb. & Total \\
+%    \hline
+%    \hline
+%    \multirow{2}*{Chart}
+%    	& P & 3.2244s & 1.1048s & 0.1121s & 0.0009s & 3.7759s \\
+%        & S & 3.2244s & 1.1048s & 0.0353s & N/A & 3.7905s \\
+%%    \hline
+%    \multirow{2}*{Cli}
+%    	& P & 0.1366s & 0.1645s & 0.0095s & 0.0004s & 0.2149s \\
+%        & S & 0.1366s & 0.1645s & 0.0096s & N/A & 0.2203s \\
+%%    \hline
+%    \multirow{2}*{Closure}
+%    	& P & 1.5708s & 1.4028s & 0.0826s & 0.0008s & 2.4102s \\
+%        & S & 1.5708s & 1.4028s & 0.0656s & N/A & 2.4318s \\
+%%    \hline
+%    \multirow{2}*{Codec}
+%    	& P & 0.1629s & 0.5514s & 0.0057s & 0.0004s & 0.6021s \\
+%        & S & 0.1629s & 0.5514s & 0.0029s & N/A & 0.6015s \\
+%    \hline
+%  \end{tabular}
+%  \label{fig:execution_time}
+%\end{table}
+%
+%
+%\begin{table}
+%  \caption{Average execution time of each step.\vspace{-10pt}}
+%%  \scriptsize
+%  \begin{tabular}{cp{10mm}p{10mm}p{10mm}p{10mm}p{10mm}p{10mm}}
+%    \hline
+%     & Project & \tcs & Prep. & \tcp & Comb. & Total \\
+%    \hline
+%    \hline
+%    \rotatebox[origin=c]{90}{\fzp} &
+%		\multicolumn{6}{c}{
+%		\begin{tabular}{p{10mm}p{10mm}p{10mm}p{10mm}p{10mm}p{10mm}}
+%			Chart & 3.2244s & 1.1048s & 0.1121s & 0.0009s & 3.7759s \\
+%			Cli & 0.1366s & 0.1645s & 0.0095s & 0.0004s & 0.2149s \\
+%			Closure & 1.5708s & 1.4028s & 0.0826s & 0.0008s & 2.4102s \\
+%			Codec & 0.1629s & 0.5514s & 0.0057s & 0.0004s & 0.6021s
+%		\end{tabular}
+%	}\\
+%	\hline
+%	
+%	\rotatebox[origin=c]{90}{\fzs} &
+%		\multicolumn{6}{c}{
+%		\begin{tabular}{p{10mm}p{10mm}p{10mm}p{10mm}p{10mm}p{10mm} }
+%			Chart & 3.2244s & 1.1048s & 0.0353s & N/A & 3.7905s \\
+%			Cli & 0.1366s & 0.1645s & 0.0096s & N/A & 0.2203s \\
+%			Closure & 1.5708s & 1.4028s & 0.0656s & N/A & 2.4318s \\
+%			Codec & 0.1629s & 0.5514s & 0.0029s & N/A & 0.6015s \\
+%		\end{tabular}
+%	}\\
+%	\hline
+%  \end{tabular}
+%  \label{fig:execution_time}
+%\end{table}
+%
+%\begin{table}
+%  \caption{Average execution time of each step for \fzp.\vspace{-10pt}}
+%%  \scriptsize
+%  \begin{tabular}{|rrrrrr|}
+%    \hline
+%    Project & \tcs & Prep. & \tcp & Comb. & Total \\
+%    \hline
+%    \hline
+%	Chart & 3.2244s & 1.1048s & 0.1121s & 0.0009s & 3.7759s \\
+%	Cli & 0.1366s & 0.1645s & 0.0095s & 0.0004s & 0.2149s \\
+%	Closure & 1.5708s & 1.4028s & 0.0826s & 0.0008s & 2.4102s \\
+%	Codec & 0.1629s & 0.5514s & 0.0057s & 0.0004s & 0.6021s \\
+%	\hline
+%  \end{tabular}
+%  \label{fig:execution_time}
+%\end{table}
+%
+%\begin{table}
+%  \caption{Average execution time of each step for \fzs.\vspace{-10pt}}
+%%  \scriptsize
+%  \begin{tabular}{|rrrrrr|}
+%    \hline
+%    Project & \tcs & Prep. & \tcp & Comb. & Total \\
+%    \hline
+%    \hline
+%	Chart & 3.2244s & 1.1048s & 0.0353s & N/A & 3.7905s \\
+%	Cli & 0.1366s & 0.1645s & 0.0096s & N/A & 0.2203s \\
+%	Closure & 1.5708s & 1.4028s & 0.0656s & N/A & 2.4318s \\
+%	Codec & 0.1629s & 0.5514s & 0.0029s & N/A & 0.6015s \\
+%	\hline
+%  \end{tabular}
+%  \label{fig:execution_time}
+%\end{table}
+
+% Build | Ekstazi | Prep. | FAST-P | FAST-S | Comb.
+
+%\begin{table}[!t]
+%  \caption{Average Execution Time of Each Step (in ms).}
+%  \begin{tabular}{rrrrrrr}
+%    \hline
+%    Project & \ek & Prep. & \fs-P & \fs-S & \fzp & \fzs \\
+%    \hline
+%    \hline
+%	Chart       & 3224 & 1105 & 0112 & 0035 & 3776 & 3791 \\
+%	Cli         & 0137 & 0165 & 0010 & 0010 & 0215 & 0220 \\
+%	Closure     & 1571 & 1403 & 0083 & 0066 & 2410 & 2432 \\
+%	Codec       & 0163 & 0551 & 0006 & 0003 & 0602 & 0602 \\
+%	Collections & 0237 & 1043 & 0029 & 0022 & 1073 & 1065 \\
+%	Compress    & 0309 & 0326 & 0010 & 0005 & 0482 & 0482 \\
+%	Gson        & 0297 & 0221 & 0020 & 0016 & 0415 & 0426 \\
+%	Jsoup       & 0222 & 0195 & 0003 & 0002 & 0282 & 0283 \\
+%	JxPath      & 0227 & 0067 & 0003 & 0003 & 0227 & 0229 \\
+%	Lang        & 0262 & 0621 & 0037 & 0025 & 0670 & 0698 \\
+%	Math        & 0747 & 1129 & 0265 & 0160 & 1575 & 1625 \\
+%	Time        & 0500 & 1439 & 0020 & 0015 & 1631 & 1638 \\
+%	\hline
+%  \end{tabular}
+%  \label{tab:execution_time}
+%\end{table}
+
+%\begin{table}[!t]
+%  \caption{Average Running Times (in ms).}
+%  \centering
+%   \tabcolsep=0.105cm
+%  \begin{tabular}{lrrrrr}
+%    \toprule
+%%    Project & \ek & Prep. & \fs-P & \fs-S & Comb. \\
+%%\toprule
+%\multicolumn{1}{l}{\multirow{2}{*}{Project}} &
+%  \multicolumn{1}{c}{\multirow{2}{*}{Build}} &
+%  \multicolumn{1}{c}{\ek} &
+%  \multicolumn{1}{c}{\fs} &
+%  \multicolumn{1}{c}{Prioritization} &
+%  \multicolumn{1}{c}{Prioritization} \\ %\cmidrule(l){2-7} 
+%\multicolumn{1}{c}{} &
+%  \multicolumn{1}{c}{} &
+%  \multicolumn{1}{c}{\textit{Selection}} &
+%  \multicolumn{1}{c}{(Prep.)} &
+%  \multicolumn{1}{c}{(Full suite)} &
+%  \multicolumn{1}{c}{(Sel. suite)} \\ %\cmidrule(r){1-1}
+%%\midrule
+%    \midrule
+%	Chart       & 4167 & 3224 & 1105 & 112 & 35 \\% & 0.6 \\
+%	Cli         & 2997 & 137 & 165 & 10 & 10 \\%& 0.2 \\
+%	Closure     & 6627 & 1571 & 1403 & 83 & 66 \\%& 0.5 \\
+%	Codec       & 4581 & 163 & 551 & 6 & 3 \\%& 0.1 \\
+%	Collections & 6627 & 237 & 1043 & 29 & 22 \\%& 0.3 \\
+%	Compress    & 4986 & 309 & 326 & 10 & 5 \\%& 0.2 \\
+%	Gson        & 4901 & 297 & 221 & 20 & 16 \\%& 0.2 \\
+%	Jsoup       & 6098 & 222 & 195 & 3 & 2 \\%& 0.1 \\
+%	JxPath      & 3643 & 227 & 67 & 3 & 3 \\%& 0.1 \\
+%	Lang        & 5032 & 262 & 621 & 37 & 25 \\%& 0.3 \\
+%	Math        & 6903 & 747 & 1129 & 265 & 160 \\%& 1.5 \\
+%	Time        & 11521 & 500 & 1439 & 20 & 15 \\%& 0.2 \\
+%	\bottomrule
+%  \end{tabular}
+%  \label{tab:execution_time}
+%\begin{flushleft}
+%%\footnotesize
+%%\textit{\fs (Prep.)} is the time to compute the minhash signatures.
+%%\textit{Hash} is the time \fs took to compute test case hashes.\anto{I think you need to update the table?}
+%%\textit{Full} is the prioritization time of the full test suite.
+%%\textit{Sel.} is the prioritization time of the selected test suite.
+%\end{flushleft}
+%\end{table}
+
+\begin{table}[!t]
+  \centering
+   \tabcolsep=0.105cm
+  \begin{tabular}{lrrrrr}
+    \toprule
+%    Project & \ek & Prep. & \fs-P & \fs-S & Comb. \\
+%\toprule
+\multicolumn{1}{l}{\multirow{2}{*}{Project}} &
+  \multicolumn{1}{c}{\multirow{2}{*}{Build}} &
+  \multicolumn{1}{c}{\fs} &
+  \multicolumn{1}{c}{\fs} &
+  \multicolumn{1}{c}{\ek} &
+  \multicolumn{1}{c}{\fz} \\ %\cmidrule(l){2-7} 
+\multicolumn{1}{c}{} &
+  \multicolumn{1}{c}{} &
+  \multicolumn{1}{c}{\small(setup)} &
+  \multicolumn{1}{c}{\small(\tcp)} &
+  \multicolumn{1}{c}{\small(\tcs)} &
+  \multicolumn{1}{c}{\small(\tcs + \tcp)} \\ %\cmidrule(r){1-1}
+%\midrule
+    \midrule
+	Chart       & 4167   & 1105 & 112 & 3224 & 3259 (35) \\% & 0.6 \\
+	Cli         & 2997   & 165  & 10  & 137  & 147 (10) \\%& 0.2 \\
+	Closure     & 6627   & 1403 & 83  & 1571 & 1637 (66) \\%& 0.5 \\
+	Codec       & 4581   & 551  & 6   & 163  & 166 (3) \\%& 0.1 \\
+	Collections & 6627   & 1043 & 29  & 237  & 259 (22) \\%& 0.3 \\
+	Compress    & 4986   & 326  & 10  & 309  & 314 (5) \\%& 0.2 \\
+	Gson        & 4901   & 221  & 20  & 297  & 313 (16) \\%& 0.2 \\
+	Jsoup       & 6098   & 195  & 3   & 222  & 224 (2) \\%& 0.1 \\
+	JxPath      & 3643   & 67   & 3   & 227  & 230 (3) \\%& 0.1 \\
+	Lang        & 5032   & 621  & 37  & 262  & 287 (25) \\%& 0.3 \\
+	Math        & 6903   & 1129 & 265 & 747  & 907 (160) \\%& 1.5 \\
+	Time        & 11521  & 1439 & 20  & 500  & 515 (15) \\%& 0.2 \\
+	\bottomrule
+  \end{tabular}
+  \label{tab:execution_time}
+\begin{flushleft}
+%\footnotesize
+%\textit{\fs (Prep.)} is the time to compute the minhash signatures.
+%\textit{Hash} is the time \fs took to compute test case hashes.\anto{I think you need to update the table?}
+%\textit{Full} is the prioritization time of the full test suite.
+%\textit{Sel.} is the prioritization time of the selected test suite.
+\end{flushleft}
+\caption{Average Running Times (in ms).}
+%\vspace{-3mm}
+\end{table}

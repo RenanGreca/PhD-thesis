@@ -1,22 +1,26 @@
 \section{Summary}\label{sec:orch_summary}
 
-Software regression testing is actively researched~\cite{rosero_15_2016,bin_ali_search_2019,YooHarman10RegressionTestingSurvey}, and many techniques have been proposed, including test case selection~\cite{kazmi_effective_2017} and prioritization~\cite{khatibsyarbini_test_2018}.
+%Software regression testing is actively researched~\cite{rosero_15_2016,bin_ali_search_2019,YooHarman10RegressionTestingSurvey}, and many techniques have been proposed, including test case selection~\cite{kazmi_effective_2017} and prioritization~\cite{khatibsyarbini_test_2018}.
 
-Both selection and prioritization techniques aim at detecting regression failures, but they follow different strategies. 
-In test case selection (\tcs), when a new software version is released, a subset of test cases is selected from the available test suite aiming at exercising all the latest code changes. 
-\tcs is proposed as an alternative to a \textit{retest-all} (i.e., running all tests at each version) strategy that is not sustainable in many practical cases.
-On the other hand, in test case prioritization (\tcp) the test suite is re-ordered, aiming at executing first those test cases that are more likely to fail. As, of course, we cannot know in advance which test cases discover which failures, different \tcp criteria have been proposed, such as code coverage. 
+%Both test case selection (\tcs) and test case prioritization (\tcp) techniques aim at detecting regression failures, but they follow different strategies. 
+%In \tcs, when a new software version is released, a subset of test cases is selected from the available test suite aiming at exercising all the latest code changes. 
+%\tcs is proposed as an alternative to a \textit{retest-all} (i.e., running all tests at each version) strategy that is not sustainable in many practical cases.
+%On the other hand, in \tcp the test suite is re-ordered, aiming at executing first those test cases that are more likely to fail. As, of course, we cannot know in advance which test cases discover which failures, different \tcp criteria have been proposed, such as code coverage. 
  
-Many \tcs and \tcp approaches have been proposed~\cite{soetens2016change,legunsen2016,henard2016,luo2018static}.
-Our research goal here is not that of inventing yet another approach, but rather to understand if and how \tcs and \tcp  should be used in combination, i.e.:
-when a new software version is released, is it more convenient to apply a \tcs approach or instead a \tcp one?
-Intuitively, a combination of both techniques would provide the most benefit, but what are the resulting challenges and drawbacks of this approach?
-Notwithstanding the vast literature on  regression testing, 
-such type of questions remain largely unanswered.
+%Many \tcs and \tcp approaches have been proposed~\cite{soetens2016change,legunsen2016,henard2016,luo2018static}.
+%Our research goal here is not that of inventing yet another approach, but rather to understand if and how \tcs and \tcp  should be used in combination, i.e.:
+%when a new software version is released, is it more convenient to apply a \tcs approach or instead a \tcp one?
+%Intuitively, a combination of both techniques would provide the most benefit, but what are the resulting challenges and drawbacks of this approach?
+%Notwithstanding the vast literature on  regression testing, 
+%such type of questions remain largely unanswered.
 
-To address such concerns, 
-we focus here on regression testing techniques that have been conceived for practical relevance and scalability. 
-Specifically, as a representative \tcs approach we adopt \ek~\cite{gligoricEk}  while for \tcp we use \fs~\cite{miranda_fast}: we selected these two approaches due to their cost-effectiveness and simplicity of application, as well as their availability; finally, also for convenience as the authors of this paper include authors of both tools.
+We understand \textit{test suite orchestration} as a series of steps that can be performed before the execution of a test suite, with the objective of improving the effectiveness and efficiency of the suite.
+This can have an impact in the moments that immediately follow the orchestration, as well as in the long-term evolution, health and usefulness of the suite, as it adapts to an SUT that is also continuously evolving.
+
+As a step towards the goal of fully automated orchestration of test suites that can be useful in real-world software, 
+we focus here on regression testing techniques extracted from the existing literature that have been conceived for practical relevance and scalability.
+Specifically, as a representative \tcs approach we adopt \ek~\cite{gligoricEk} while for \tcp we use \fs~\cite{miranda_fast}.
+The criteria used for selecting these tools were: their cost-effectiveness and simplicity of application; their availability as open-source programs; finally, also for convenience as authors of both tools were also involved with the development of the current study.
 
 Concerning \tcs, in an empirical study conducted in 2014~\cite{gligoric_empirical}, the authors observed that many techniques were not adopted in practice and developers mostly continued to perform manual selection of test cases.  
 Motivated by this study, Gligoric et al.~\cite{gligoricEk} proposed  \ek,  a lightweight \tcs technique that leverages file dependencies.
@@ -36,8 +40,8 @@ We make the following two observations:
 \end{itemize}
 
 By combining \ek and \fs, we  aim at developing 
-a \textit{practical} and \textit{effective} approach to regression testing that we call \fz.
-\fz is meant to be practical because it combines two scalable techniques, and effective because it overcomes the above shortcomings of each.
+a \textit{practical} and \textit{effective} approach to regression testing that we call \emph{\fz}.
+This is meant to be practical because it combines two scalable techniques, and effective because it overcomes the above shortcomings of each.
 In particular, this combined approach aims to decrease \textit{developer feedback time}, which is the time it takes for a developer to receive a test failure notification once testing begins.
 
 %On the one side, \fz could be understood as just a technique that integrates \ek and \fs. 
@@ -53,7 +57,7 @@ In particular, this combined approach aims to decrease \textit{developer feedbac
 Clearly \fz is one instance within a plethora of possible combinations of many existing \tcs and \tcp approaches, and further studies should be conducted to evaluate  different combinations.
 Indeed, following the case made by Harman~\cite{harman2011making},
 research in combining multiple criteria in the context of one regression technique is very active, e.g.,~\cite{epitropakis2015empirical,garousi2018multi}.
-Much less attention has been devoted so far to using multiple criteria while combining different regression techniques, which we call \textit{regression test orchestration}.
+Much less attention has been devoted so far to using multiple criteria while combining different regression techniques, which we see as an essential part of test suite orchestration.
 Di Nardo et al.~\cite{di2015coverage} applied and assessed minimization, selection and prioritization techniques on a single industrial case study, but only considering coverage-based criteria;  Silva et al.~\cite{silva2016hybrid} proposed to combine prioritization and selection based on function criticality (assessed manually); Najafi et al.~\cite{najafi2019improving} evaluated selection and prioritization based on test execution history on a large industrial system;
 Shi et al.~\cite{shi2015comparing} combined and evaluated test reduction (based on coverage) and selection (based on changes). 
 \fz is the first regression test orchestration approach that combines file-based \tcs with similarity-based \tcp.
@@ -61,6 +65,7 @@ Shi et al.~\cite{shi2015comparing} combined and evaluated test reduction (based 
 We compared \ek, \fs and their orchestration through \fz using a set of 12 projects (from the \dfj repository~\cite{just2014defects4j}).
 Our results shows that for most subjects, executing a change-aware selection of test cases (in random ordering) detects the first failure faster than executing the whole prioritized suite (based on similarity). However, we also observed that adding \fs ordering on top of \ek selection further improves effectiveness at negligible additional cost.
 
+To conclude this study and provide a direction for future evolution of test orchestration strategies, we provide a discussion on methods of incorporating other \tcs or \tcp techniques, along with potential combinations with \tsr and \tsa approaches.
 
 \noindent
 In summary, our contributions include:
@@ -79,6 +84,7 @@ In fact, using state-of-art scalable techniques as \fs over the selected test su
 For researchers, this paper signifies the importance of studying regression techniques as an orchestration rather than individually, and 
 opens up the floor for many potential experiments in which various \tcs techniques are compared against, or combined with, various \tcp techniques. 
 
-In the next section we provide a short summary of the \tcs and \tcp approaches that we compare and combine, while in Section~\ref{sec:fastazi} we present \fz. 
-The study methodology is described in Section~\ref{sec:eval} and the results are discussed in Section~\ref{sec:results}.
-In Section~\ref{sec:related} we overview related work, and in Section~\ref{sec:conclu} we draw brief conclusions. 
+In~\Cref{sec:orch_background} we provide a short summary of the \tcs and \tcp approaches that we compare and combine, while in~\Cref{sec:orch_fastazi} we present \fz. 
+The study methodology is described in~\Cref{sec:orch_experiments} and the results are discussed in~\Cref{sec:orch_results}.
+%In Section~\ref{sec:orch_} we overview related work, 
+Finally, in~\Cref{sec:orch_discussion} we draw brief conclusions derived from this study and discuss the possible next steps in the evolution of this work. 

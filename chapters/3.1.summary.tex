@@ -1,27 +1,28 @@
 \section{Summary}\label{sec:lit_summary}
 
-Regression testing (\rt) consists of rerunning the previously executed tests when the software under test (SUT) evolves to verify that no new failures, or regressions, have been introduced. 
-\rt is quite a prominent problem in industry that can draw a large part of the testing budget~\citep{Herzig2015,Labuschagne}. 
-The reason is that, as development proceeds, the test suite size tends to grow significantly, making soon the re-execution of all test cases (the \textit{retest all} strategy) impractical. Besides, with the growing adoption of short release cycles and Continuous Integration practices, the role of \rt becomes more and more central~\citep{shi_understanding_2019,memon2017taming}.
+%Regression testing (\rt) consists of rerunning the previously executed tests when the software under test (SUT) evolves to verify that no new failures, or regressions, have been introduced. 
+%\rt is quite a prominent problem in industry that can draw a large part of the testing budget~\citep{Herzig2015,Labuschagne}. 
+%The reason is that, as development proceeds, the test suite size tends to grow significantly, making soon the re-execution of all test cases (the \textit{retest all} strategy) impractical. Besides, with the growing adoption of short release cycles and Continuous Integration practices, the role of \rt becomes more and more central~\citep{shi_understanding_2019,memon2017taming}.
+%
+%As a consequence, \rt is a very active research topic.  Since the `80s~\citep{leung1989insights,yoo2012regression}, many approaches have been investigated for making \rt more effective and efficient, including different techniques: 
+%	\textit{test case prioritization} (\tcp)~\cite{khatibsyarbini_test_2018} determines an execution ordering that ideally gives precedence to the most effective test cases;
+%	\textit{test case selection} (\tcs)~\cite{kazmi_effective_2017} takes a sample of test cases for execution generally based on the recently introduced changes; 
+%	\textit{test suite reduction} (\tsr)~\cite{rehman_khan_systematic_2018}, also referred to as test suite minimization~\cite{yoo2012regression}, 
+%	aims at removing redundant test cases according to some criterion, for instance code or requirements coverage;
+%	and \textit{test suite augmentation} (\tsa)~\cite{SantelicesCAOH08} supports the creation of new test cases, if needed, for testing the changed program behaviour.
+%\todo{Should I keep these paragraph? It's redundant with chapter 2 but makes chapter 3 more readable in isolation.}
 
-As a consequence, \rt is a very active research topic.  Since the `80s~\citep{leung1989insights,yoo2012regression}, many approaches have been investigated for making \rt more effective and efficient, including different techniques: 
-	\textit{test case prioritization} (\tcp)~\cite{khatibsyarbini_test_2018} determines an execution ordering that ideally gives precedence to the most effective test cases;
-	\textit{test case selection} (\tcs)~\cite{kazmi_effective_2017} takes a sample of test cases for execution generally based on the recently introduced changes; 
-	\textit{test suite reduction} (\tsr)~\cite{rehman_khan_systematic_2018}, also referred to as test suite minimization~\cite{yoo2012regression}, 
-	aims at removing redundant test cases according to some criterion, for instance code or requirements coverage;
-	and \textit{test suite augmentation} (\tsa)~\cite{SantelicesCAOH08} supports the creation of new test cases, if needed, for testing the changed program behaviour.
+%Although regression testing (\rt) is an active research topic, the research community's efforts over the years to mitigate \rt cost and complexity do not seem to have produced the desired impact.
+%A 2010 study~\cite{engstrom2010qualitative} aiming at understanding \rt practice already highlighted several divergences between software testing research and practice,
+%notwithstanding in 2017~\citet{garousi2017worlds}  
+%still called them as ``\textit{worlds apart}''. 
+%Indeed, in a recent systematic review of the \rt literature aiming at identifying approaches with \textit{industrial relevance and applicability} (henceforth referred to as \rea),
+%\citet{bin_ali_search_2019} could  only select 38 primary studies out of an initial pool of 1068 collected works.
+%In other words, their study would imply that 
+%less than 4\% of the published works on \rt could be of interest to industry. 
 
-Unfortunately, the research community efforts over the years to mitigate \rt cost and complexity do not seem to have produced the desired impact.
-A 2010 study~\cite{engstrom2010qualitative} aiming at understanding \rt practice already highlighted several divergences between software testing research and practice,
-notwithstanding in 2017~\citet{garousi2017worlds}  
-still called them as ``\textit{worlds apart}''. 
-Indeed, in a recent systematic review of the \rt literature aiming at identifying approaches with \textit{industrial relevance and applicability} (henceforth referred to as \rea),
-\citet{bin_ali_search_2019} could  only select 38 primary studies out of an initial pool of 1068 collected works.
-In other words, their study would imply that 
-less than 4\% of the published works on \rt could be of interest to industry. 
-
-It is disappointing that so many solutions proposed by the research to improve \rt cost/effectiveness do not find their way into practice.
-In this study we provide a Systematic Literature Review (SLR) with the purpose of reviewing the \rea of \rt  approaches published in the latest  years, i.e., since 2016.
+%It is disappointing that so many solutions proposed by the research to improve \rt cost and/or effectiveness do not find their way into practice.
+This chapter provides a Systematic Literature Review (\slr) with the purpose of reviewing the \rea of \rt  approaches published in the latest  years, i.e., since 2016.
 For the sake of comprehensiveness, we characterize as having \rea not only those studies that report an evaluation on industrial applications (as was done by~\citet{bin_ali_search_2019}), but also approaches that are explicitly motivated by industrial problems, or by related concerns, such as costs, scalability, or impact on the development procedures. 
 Within this scope, we performed a systematic search over the five main digital libraries (ACM, IEEE, Springer, Scopus and Wiley) for RT studies mentioning industry or practice or applicability or scalability (or similar wordings) in their abstract, and completed this search with a snowballing cycle.
 We collected 1320 candidate papers published between 2016 and 2022 (780 via query, 540 via snowballing), and after applying a systematic selection process we identified a total of 78 primary studies that present \rea approaches.
@@ -32,44 +33,28 @@ In order to get a better assessment of the long-term impact of the papers after 
 We received responses from authors of 64\% of the papers, reporting both positive and negative outcomes, including some of the reasons why an approach was unsuccessful.
 Some of the authors also signaled additional papers for consideration of the review, out of which we selected only 1.
 
-Our review includes a total of \numpapers primary studies. 
+The review includes a total of \numpapers primary studies. 
 Based on a full reading of the selected papers and on the feedback received  by their authors, we discuss the main characteristics of \rea approaches, how they tackle applicability concerns, and whether they produced in impact in practice and why (or why not).
 We then also conducted a further survey among test practitioners to get their opinion in order to comment and possibly validate our conclusions.
 By applying a convenience sampling method we got answers from 23 practitioners who confirmed our findings and provided further useful insights in our study of investigating \rea of proposed \rt approaches.
 
-Finally, as the paper title indicates, this review is conceived
-as a \textit{live} systematic review\footnote{We notice that our concept of a ``live'' systematic review, while inspired by similar aims, should not be confused with the much more formalized approach for conducting \textit{living systematic reviews} recently adopted in medicine, as illustrated by \url{https://community.cochrane.org/review-production/production-resources/living-systematic-reviews}.}. 
-In our analysis of recent secondary studies, we noticed that a gap of one or even two years elapses between the covered period of literature and the year the review appears. 
-This is understandable because the authors  may need substantial time for analyzing the selected studies and then writing the article, and then several months will typically be taken for the peer reviewing process. 
-Moreover, even if this temporal gap is reduced to a minimum, as long as the investigated topic remains active, new primary studies will always appear, soon distancing any SLR from the status of literature.  
-If the purpose of a SLR is to provide an up-to-date summary of existing work on a topic, frequent updates are required to include newly appearing relevant studies.
-Also, it can happen that the original research questions and findings lose relevance, or are superseded by newer results.
-As previously questioned in other disciplines~\cite{Garneri3507}, Mendes et al.~\cite{MENDES2020110607} have recently investigated the issue of SLRs in SE becoming obsolete and of when and how they would  need to be updated. 
-Specifically, in line with~\cite{Garneri3507}, they conclude that SLRs should be updated based on two conditions: \textit{i)} new relevant methods, studies or information become available; or \textit{ii)} the adoption or inclusion of previous and new research cause an impact to the findings, conclusions or credibility of the original SLR.
-In consideration of these challenges, rather than providing a static repository of the studies found while conducting the review, together with the article we release an \textit{open and updatable repository}, which is an integral part of this review work.
- 
-The intent is to invite the community to contribute with 
-newly published works that are relevant in \rea approaches to \rt, or even with works published in the period we cover but that for some reason escaped our selection.
-This will allow us not only to keep track of newly published studies, 
-but also to recover papers with purely theoretical motivations that eventually provided benefits in practice.
-At periodic intervals (planned to be once per year), we will check new results for queries and suggestions from the community and decide how to update the collection of studies.
-
-In conclusion, this work provides the following contributions:
+This chapter provides the following contributions:
 \begin{itemize}
 	\item A systematic literature review of recent RT techniques  emphasizing \rea;
 	\item A survey among the authors of the selected primary studies that provides information about their impact;
-	\item A survey among practitioners to validate and complement our findings;
-	\item A live repository of primary studies in \rea of RT techniques, allowing for continuous and periodic updates of this SLR\footnote{Available at: \url{https://renangreca.github.io/literature-repository/}.}.
+	\item A survey among practitioners to validate and complement our findings.
+%	\item A live repository of primary studies in \rea of RT techniques, allowing for continuous and periodic updates of this SLR\footnote{Available at: \url{https://renangreca.github.io/literature-repository/}.}.
 \end{itemize}
 
-The paper is structured as follows: 
-in the next section we  overview related reviews, and
-in \Cref{sec:methodology} we describe the study methodology, including the three Research Questions (RQs) we formulate, the selection and data extraction process and the authors' survey.
-We then answer the RQs: 
-in \Cref{sec:rq1} we answer RQ1, by overviewing and classifying existing techniques;
-in \Cref{sec:rq2} we answer RQ2, which addresses \rea concerns; 
-in \Cref{sec:rq3} we answer RQ3, about the impact obtained by the collected studies.
-In \Cref{sec:threats} we discuss threats to the validity of the study, and
-in \Cref{sec:repository} we present the live repository.
-Finally, in \Cref{sec:conclusions}, we 
-conclude the paper with a list of challenges identified in the study, including some suggestions of how to handle them, which may serve as future research directions.
+The chapter is structured as follows: 
+in the next section we overview related secondary studies.
+The formulated Research Questions (RQs) are defined and described in \Cref{sec:lit_rqs}.
+In \Cref{sec:lit_methodology} we describe the study methodology, in particular the selection and data extraction process and the surveys with authors and practitioners.
+\Cref{sec:lit_discussion} then provides discussions and answers to the RQs: 
+in \Cref{sec:lit_rq1} we answer \nameref{rq:lit1}, by overviewing and classifying existing techniques;
+in \Cref{sec:lit_rq2} we answer \nameref{rq:lit2}, which addresses \rea concerns; 
+in \Cref{sec:lit_rq3} we answer \nameref{rq:lit2}, about the impact obtained by the collected studies.
+%In \Cref{sec:lit_rq1} we discuss threats to the validity of the study.
+%in \Cref{sec:repository} we present the live repository.
+%Finally, in \Cref{sec:conclusions}, we 
+%conclude the paper with a list of challenges identified in the study, including some suggestions of how to handle them, which may serve as future research directions.

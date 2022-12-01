@@ -7,7 +7,7 @@ The advent of the Internet made it possible to completely alter this paradigm.
 Now, these three phases still exist in commercial software, but happen much faster and can be repeated iteratively as needed.
 In other words, software companies can initially design and develop the ``minimum viable product'' to be delivered to customers online and, with the software already in use, updates can be develop to add new features, improve existing ones, or correct bugs that can be detected\footnote{This is not the same for all types of software; embedded systems cannot always rely on the ability of pushing patches; and video games, for example, generally deliver complete products on a given deadline to account for distribution and marketing schedules, but even they almost always have an extensive post-release update cycle.}.
 We denote software developed and released in this fashion as \textit{continuously evolving software}.
-It can also happen that programs that were originally designed according to the traditional release cycle are, at some point, adapted and converted to be continuously evolving (e.g. Microsoft Windows shifted from yearly ``service packs'' t weekly online updates).
+It can also happen that programs that were originally designed according to the traditional release cycle are, at some point, adapted and converted to be continuously evolving (e.g. Microsoft Windows shifted from yearly ``service packs'' to weekly online updates).
 
 The shift to evolving software, which correlates to the pivot to agile development practices in the mid-2000s, also caused a significant change to how software testing is viewed and addressed.
 Previously, it was common to have team members solely responsible for testing the developers' code, often times manually.
@@ -18,7 +18,8 @@ This process is often one of the costliest aspects of software development \cite
 It is defined in \cite{minhas_regression_2017} as ``an activity which makes sure that everything is working correctly after changes to the system.''
 That is, its primary objective is to assure that, after each change to the software, previously existing code continues to comply to specification (or simply to expectations, in case no formal specification exists).
 
-The term ``regression testing'' has its origins in pre-agile days but, as release schedules were centered around a hard deadline, it was an activity that was only performed near the end of the cycle, after the important features of the release had already been developed.
+The term \textit{regression testing} (\rt) has its origins in pre-agile days and, as a research topic, has been studied since the 1980s~\cite{leung1989insights,yoo2012regression}.
+At the time, release schedules were centered around a hard deadline, so \rt was an activity that was only performed near the end of the cycle, after the important features of the release had already been developed.
 At that point, testers would check if any of the new changes interfered with previous functionality of the software; in some places this was a manual process, in others semi-automated.
 Doing so earlier was not advantageous — if a bug is detected in the middle of development but new features are not yet complete, it is possible that another bug will be detected on another round of testing.
 Since the software could only be shipped once all features were done, intermediary regression testing provided little benefits.
@@ -26,7 +27,7 @@ Since the software could only be shipped once all features were done, intermedia
 Continuously evolving software shifted this dynamic.
 With smaller and more frequent release cycles, regression testing too became a more frequent activity.
 At the same time, the incredible feature speed demanded by customers and consumers means that it is not viable to postpone testing until right before release — if a bug is detected at that point, it might be too late to fix it before delivery.
-Thus, with the development of continuous integration/delivery (CI/CD) practices and tools, automated regression testing became commonplace, sometimes executed as frequently as new code changes were pushed into a repository.
+Thus, with the development of Continuous Integration/Delivery (CI/CD) practices and tools, automated regression testing became commonplace, sometimes executed as frequently as new code changes were pushed into a repository.
 
 Test automation mostly solves the problem in small projects, where it takes only a few seconds or maybe minutes to run a full test suite.
 Large-scale software demand additional attention because of two factors: the test suite is large and take a long time to execute, and code commits arrive at such a high frequency that there isn't enough time to run the test suite between each commit.

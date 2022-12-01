@@ -1,10 +1,12 @@
 %----------------------------------------------------------------------------------------
 %	The Industry-Academia Knowledge Gap
 %----------------------------------------------------------------------------------------
-\chapter{The Industry-Academia Knowledge Gap}\label{chap:gap}
+\chapter{Challenges Between Industry and Academia}\label{chap:gap}
 \lhead{\emph{\nameref{chap:gap}}}
 
-While this review indicates that \rea is a growing concern among \rt researchers, it's still only being addressed with any depth on a minority of secondary studies.
+\todo{Is there a better title for this?}
+
+While the review in \Cref{chap:literature_review} indicates that \rea is a growing concern among \rt researchers, it's still only being addressed with any depth on a minority of secondary studies.
 It is clear that several authors believe \rea is a challenge worth addressing in research, but there is not a lot of available \rt literature focusing on the steps that need to be taken in order to improve academia-industry communication and shorten the technology transfer gap.
 
 We conclude this work by highlighting some key challenges that we have identified, combining data found in the literature itself, in the authors' responses and in the practitioner survey.
@@ -13,28 +15,34 @@ Along with each challenge, we make some suggestions that could be applied by Sof
 \Cref{table:challenges} provides the summary of the challenges we identified, indicating the primary source of our observation (i.e. the literature, the authors and/or the practitioners).
 
 \begin{table}[]
+\centering
 \scriptsize
 \rowcolors{1}{}{gray!10}
-\setlength{\tabcolsep}{6pt}
-\begin{tabular}{lllll|lllll}
+%\setlength{\tabcolsep}{6pt}
+\begin{tabular}{llllll|llllll}
 \toprule
-\textbf{ID} & \textbf{Title} & \textbf{L}  & \textbf{A} & \textbf{P} &
-\textbf{ID} & \textbf{Title} & \textbf{L}  & \textbf{A} & \textbf{P}\\
+\textbf{ID} & \textbf{Title} & \textbf{L}  & \textbf{A} & \textbf{P} & \textbf{I} &
+\textbf{ID} & \textbf{Title} & \textbf{L}  & \textbf{A} & \textbf{P} & \textbf{I}\\
 \midrule
-CH1 & Alignment of motivations             &   				&  			     & \fullcirc      &
-CH5 & Converting research into usable tool &                & \fullcirc 	 & \fullcirc 	  \\
+CH1 & Alignment of motivations             &   				&  			     & \fullcirc      & \fullcirc &
+CH6 & Absence of TSR/TSA                   & \fullcirc 		&                & \fullcirc 	  & \fullcirc \\
 
-CH2 & Realistic experimentation            & \fullcirc 		&                &                &
-CH6 & Absence of TSR/TSA                   & \fullcirc 		&                & \fullcirc 	  \\
+CH2 & Realistic experimentation            & \fullcirc 		&                &                & &
+CH7 & Clarity of target                    & \fullcirc 		&                &        	      & \\
 
-CH3 & Scalability                          & \fullcirc 		&                &                &
-CH7 & Clarity of target                    & \fullcirc 		&                &        	      \\
+CH3 & Scalability                          & \fullcirc 		&                &                & &
+CH8 & Skepticism                           &                & 	 & 	  & \fullcirc \\
 
-CH4 & Relevance of metrics                 & \fullcirc 		& \fullcirc 	 &                &
-CH8 & Communication                        &                & \fullcirc 	 & \fullcirc 	  \\
+CH4 & Relevance of metrics                 & \fullcirc 		& \fullcirc 	 &                & &
+CH9 & Data availability                    &                & 	 & 	  & \fullcirc \\
+
+CH5 & Developing usable tools			   &            	& \fullcirc 	 & \fullcirc      & \fullcirc &
+CH10 & Communication                       &                & \fullcirc 	 & \fullcirc 	  & \fullcirc \\
 \bottomrule
 \end{tabular}\\
-\scriptsize Source(s): \textbf{L}: Literature; \textbf{A}: Author questionnaire; \textbf{P}: Practitioner survey.
+\begin{flushleft}
+\scriptsize Source(s): \textbf{L}: Literature; \textbf{A}: Author questionnaire; \textbf{P}: Practitioner survey; \textbf{I}: Industry partner.
+\end{flushleft}
 \caption{Summary of main challenges identified by this study.}
 \label{table:challenges}
 \end{table}
@@ -101,7 +109,7 @@ So selecting the size of the experiment subject is important both to highlight t
 
 % ===================
 \paragraph{CH4: Relevance of metrics}
-Section \ref{sec:rq1} shows that a wide variety of metrics has been used to evaluate the effectiveness of \rt techniques.
+\Cref{sec:lit_rq1} shows that a wide variety of metrics has been used to evaluate the effectiveness of \rt techniques.
 Some are used almost universally for a certain kind of challenge (e.g. APFD for \tcp), while others have nearly no presence beyond the paper that introduced them.
 
 The abundant use of APFD and its variants indicate that, at least among researchers, there is a consensus of its utility and importance when evaluating \tcp approaches, although the usage of specific variants might hamper that benefit.
@@ -149,7 +157,7 @@ This can be an opportunity for researchers to develop novel methods and to progr
 Several of the papers we reviewed don't clearly state key characteristics of their SUT, such as its programming language or its scale (either in lines of code or test cases).
 For practitioners and other researchers to consider a paper worthy of investigation, it is important to know for which kind of system a piece of research was designed.
 
-As mentioned in~\Cref{sec:rq2}, few \rt techniques are language-agnostic and many do not inform the target language at all.
+As mentioned in~\Cref{sec:lit_rq2}, few \rt techniques are language-agnostic and many do not inform the target language at all.
 Similarly, the type of software (web, mobile, embedded, distributed, etc.) or its development paradigm are important factors to mention, seen in studies such as~\citetalias{zhong_testsage:_2019} for web services and~\citetalias{lima_multi-armed_2022} for software developed and delivered through continuous integration.
 Not every tool can be used in any type of software, and it is likely that specific types of software might require specific solutions, so it is important to state the particularities of certain subject programs.
 This is akin to the point of ``context factors'' brought up by~\citet{bin_ali_search_2019}, which helps to alleviate the issue by introducing a base taxonomy that can be used to categorize techniques.
@@ -161,7 +169,17 @@ This information would be valuable for interested practitioners and also for res
 On top of that, some papers use the term ``test case'' to refer to test methods, while others use it when referring to test classes/files (which contain several test methods), so the granularity of the technique is not always clear, and this can impact both effectiveness and efficiency analysis.
 This challenge can be solved by having a paragraph dedicated to explicitly describing the properties and context factors of the experiment subjects.
 
-\paragraph{CH8: Communication}
+\paragraph{CH8: Skepticism}
+In general, there is some degree of skepticism from practitioners regarding automated solutions.
+For example, developers are concerned that a TCS solution might leave out an important test, or that TCP algorithms might always prioritize the same tests.
+Developers are opposed to outright removing tests flagged by TSR, but are willing to put these tests in less-frequent rotations.
+This calls back to a comment made by one of the responding authors in \Cref{sec:lit_rq2}: even if 99\% of faults are detected, the remaining 1\% of slips is unnerving to the people responsible for the tests.
+\todo{Continue here}
+
+\paragraph{CH9: Data availability}
+\todo{Talk about the lack of data}
+
+\paragraph{CH10: Communication}
 The main challenge, which connects most of the previous ones, is communication.
 Researchers and practitioners both lead busy lives, focusing on their day-to-day affairs, and ultimately communication between the two realms suffers.
 
@@ -176,13 +194,3 @@ This means that both sides have an opportunity to network and communicate beyond
 
 It can be a daunting idea to catch up to latest research trends, so larger companies could consider having employees dedicated to understanding the internal processes and challenges while searching for collaborations with academics.
 Many researchers would be thrilled to receive a message inviting them for a joint effort with palpable outcomes.
-
-\paragraph{Skepticism}
-In general, there is some degree of skepticism from practitioners regarding automated solutions.
-For example, developers are concerned that a TCS solution might leave out an important test, or that TCP algorithms might always prioritize the same tests.
-Developers are opposed to outright removing tests flagged by TSR, but are willing to put these tests in less-frequent rotations.
-This calls back to a comment made by one of the responding authors in \Cref{sec:lit_rq2}: even if 99\% of faults are detected, the remaining 1\% of slips is unnerving to the people responsible for the tests.
-\todo{Continue here}
-
-\paragraph{Data availability}
-\todo{Talk about the lack of data}

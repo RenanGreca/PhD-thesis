@@ -2,7 +2,7 @@
 \label{sec:ind_interviews}
 
 
-Information about how testing is performed at \sugg{the industrial partner} and regarding the challenges still faced at the company was gathered via a series of interviews.
+Information about how testing is performed at the industrial partner and regarding the challenges still faced at the company was gathered via a series of interviews.
 This was initially in the form of unstructured conversation, while the interviewer understood the central details.
 After the basics were covered, we performed a series of 30- to 60-minute sessions with 1 to 3 people at a time asking more focused questions.
 
@@ -72,18 +72,18 @@ It is unclear if the testing courses/workshops mentioned by R4 and R5 are the sa
 Regarding the current testing practices, we want to understand what are the day-to-day activities performed by the team.
 We would also like to know if there are any implementations of the regression testing techniques classically studied in research (selection, prioritization, reduction, amplification).
 
-The interviewed team members are mostly working on MCT and have all mentioned two key processes for this layer: \quoter{[one] for delivery, [another] for nightly runs}{R1}. \todo{There is a mention of nightly run in the quote, should we rephrase this?}
-\sugg{As previously discussed, we use the acronym SIRT to refer to a short execution of the test suite that happens whenever a developer pushes changes to be merged into the main branch of a module.}
+The interviewed team members are mostly working on MCT and have all mentioned two key processes for this layer: \quoter{[one] for delivery, [another] for less frequent runs}{R1}.
+As previously discussed, we use the acronym SIRT to refer to a short execution of the test suite that happens whenever a developer pushes changes to be merged into the main branch of a module.
 Due to time and resource constraints, \quoter{for [SIRT] there is selection, in nightly we run everything}{R1}.
 This is also called the ``gating loop'', since a failing test prevents the change from being merged.
 At the time of the interviews, \quoter{it's manually decided what goes in [SIRT]}{R6} and \quoter{the running time [...] for MCT is 15-20 mins}{R5}.
-\sugg{The LIRT is also known as ``assessment loop'', which includes all tests in the suite, and can take up to 10 hours.}
+The LIRT is also known as ``assessment loop'', which includes all tests in the suite, and can take up to 10 hours.
 As a general rule, the tests in SIRT are a subset of the LIRT suite.
 
 \paragraph{Selection.} In MCT, it is manually determined whether a test should be included in the SIRT. As an example, \quoter{yesterday, we got the question, `should we include this in gating?' I don't know, I just go by feeling. We have to see if the feature seems fundamental or important somehow}{R5}.
 Despite this practice, most of the interviewees are aware that there could be a better way of doing things: \quoter{I think there should be more strategy than just me thinking}{R5}.
 When this finding was reported to R8, who oversees testing all over the company and does not work with R1-7 on a daily basis, they mentioned that the company does have an internal tool for test selection and was surprised to find out this team did not use it.
-R4 explains: \quotes{we had attempts to integrate \sugg{[the test tool mentioned by R8]} but it did not work out so well. I think we never built a business case for [the new version of the system] and it ended up way in the backlog. In 2017 or 2018 we said `this is something we should add to our plan', but we did not do anything.} 
+R4 explains: \quotes{we had attempts to integrate [the test tool mentioned by R8] but it did not work out so well. I think we never built a business case for [the new version of the system] and it ended up way in the backlog. In 2017 or 2018 we said `this is something we should add to our plan', but we did not do anything.} 
 However, \quoter{it might be deployed in other parts of the company}{R7}.
 That said, R8 questioned the necessity of \tcs in a well-designed agile production: \quoter{why do you need to select? The agile principle says we should test everything}{R8}.
 
@@ -160,7 +160,7 @@ R6 also says \quotes{I don't know how much kilowatts it's drawing}, but, accordi
 It's understood by several team members that resources can be increased if required, and one manager goes on to ask \quoter{why not run everything more and faster, instead of selecting things? It might not be cheaper, but it seems like the company is more willing to pay for equipment than employees}{R5}.
 When asked specifically who would know this, the answer is \quoter{the area product owner}{R4}, who \quoter{handles the budget with inputs from us, according to how much we use and how much we'll need}{R4}.
 The specialists highlight that \quoter{earlier test loops are much cheaper}{R7}, so it is important to detect faults as early as possible.
-Furthermore, even if \quoter{electricity is so cheap}{R2}, \quoter{we have some hardware that is super expensive, it costs as much as house in Sweden}{R7}.
+Furthermore, even if \quoter{electricity is so cheap}{R2}, \quoter{we have some hardware that is super expensive, it costs as much as house}{R7}.
 For this reason, \quoter{we want to make sure the test cases that execute on that hardware are only the most important ones}{R7} and this type of load balancing is still being worked on by the cloud infrastructure team.
 
 
@@ -184,10 +184,10 @@ Furthermore, \quoter{over the years we have had much cooperation with research, 
 When asked if they still keep in touch with a friend or colleague in the academic world, it appears this is not common.
 \quoter{We always have old colleagues that are PhD, but unfortunately we don't hang out so much}{R5}, and \quoter{I think all my friends from college are now in industry}{R4}.
 
-Continuing on this line of thought, some respondents mention there is some collaborative projects that happen \sugg{involving the company and a nearby university}.
+Continuing on this line of thought, some respondents mention there is some collaborative projects that happen involving the company and a nearby university.
 \quoter{At least in [this city], we have been keeping a close relationship with the university}{R4}, although the main objective is not necessarily to develop new research or technology, but rather \quoter{to vacuum the competencies from the university towards us}{R4}.
 This mostly occurs through co-sponsorship of Master degree students: \quoter{we announce some thesis work and try to keep them here}{R4}.
-R7, however, mentions volunteering \quotes{a study \sugg{by another company [about] roles for testers, [...] I think [the researcher] is employed by both that company and the local university}}, indicating there is some cooperation happening \sugg{between the two companies and the local university}.
+R7, however, mentions volunteering \quotes{a study by another company [about] roles for testers, [...] I think [the researcher] is employed by both that company and the local university}, indicating there is some cooperation happening between the two companies and the local university.
 R1, R2, R3 and R6 provide a negative answer: \quoter{no, there hasn't [been collaboration] from what I know}{R6}.
 Regarding specifically an experience similar to the present work, e.g. a visiting researcher collecting data and performing a study on the current practices of the company, \quoter{no, I think you're the first PhD I'm having contact with}{R7}.
 

@@ -9,10 +9,10 @@
 %Most academic studies are focused on unit tests or lower-level integration tests.
 %
 
-Since the mid-2000s, \sugg{the company in question} has adopted agile development principles.
+Since the mid-2000s, the company in question has adopted agile development principles.
 This had a notable effect on testing practices, as previously there were distinct roles for developers and testers and now many developers are responsible for testing their own code, although the company also continues to employ a substantial number of dedicated systems testers.
 
-Currently, \sugg{their test design} is based on a multi-layer ``test strategy model'' that provides the hierarchy of tests for a given system, starting with unit tests, which should be the most atomic and numerous tests.
+Currently, their test design is based on a multi-layer ``test strategy model'' that provides the hierarchy of tests for a given system, starting with unit tests, which should be the most atomic and numerous tests.
 At each layer, the complexity of tests increases, as each test becomes responsible for covering a larger amount of source code, leading up to extensive end-to-end tests.
 % and leading to more complex tests with cover wider parts of the system.
 %At one end, there are unit tests, which should be the most atomic and numerous tests.
@@ -23,12 +23,12 @@ At each layer, the complexity of tests increases, as each test becomes responsib
 The discussions in this chapter refer mostly to multi-component testing (MCT), which is among the lower layers of the testing strategy model.
 Initially, developers run the MCT suite on their development machine as a mechanism to aid the writing of new code.
 At this point, new tests can also be written, or old ones can be updated, to account for changes in requirements.
-\sugg{During the day, multiple developers commit changes that should be merged into a component's main branch and, at that point, a test suite run is queued for execution on a testing server, running a limited number of tests to ensure critical features are functional.
+During the day, multiple developers commit changes that should be merged into a component's main branch and, at that point, a test suite run is queued for execution on a testing server, running a limited number of tests to ensure critical features are functional.
 For the purposes of this discussion, we shall name these executions, which are triggered after each change to the source code, Short Interval Regression Testing (SIRT).
 Finally, at certain longer intervals, another test execution is started, which runs all test cases and ensures none of the day's updates caused a system-breaking error.
-Here, we shall name this procedure, which happens at a fixed schedule, as Long Interval Regression Testing (LIRT).\footnote{\sugg{SIRT and LIRT are not terms used by the company, who asked to not disclose internal process names. These two acronyms are used here as a proxy, aiding legibility.}}}
+Here, we shall name this procedure, which happens at a fixed schedule, as Long Interval Regression Testing (LIRT)\footnote{SIRT and LIRT are not terms used by the company, who asked to not disclose internal process names. These two acronyms are used here as a proxy, aiding legibility.}.
 
-Generally speaking, although the unit tests are more numerous, the higher-level tests are responsible for a great part of the testing costs, as they involve multiple software components along with device/network simulators and, in some instances, actual physical hardware.
+Generally speaking, although the unit tests are more numerous, the higher-level tests are responsible for a great part of the testing costs, as they involve multiple software components along with hardware simulators and, in some instances, actual physical hardware.
 Additionally, when a failure is detected at higher levels, it is more challenging and time-consuming to identify the cause of the issue.
 In comparison, unit tests are often executed completely by a developer at their local computer and checked again while merging the code in continuous integration; as each test covers well-defined pieces of code, a failure in this level leads to a quicker understanding of what could be going wrong.
 
@@ -51,16 +51,15 @@ However, there is also a plan to incorporate this policy into the test strategie
 
 \subsection{Overview of the system}
 
-For this study, a period of seven weeks was spent at an office of the company in Sweden, in order to understand fundamental aspects of the testing procedures at the company.
+For this study, a period of seven weeks was spent at an office of the company in Europe, in order to understand fundamental aspects of the testing procedures at the company.
 It cannot be said that this is a comprehensive account, because the data is extracted from only one small part of the entire corporation, and the overall scope of the projects being conducted is too large for full comprehension in such a short time frame.
 
-\sugg{The investigated system is part of a software stack deployed to a delivered product.
-Currently, there are two versions of the software in active development/maintenance mode and in use by customers.}
-\todo{You asked to remove the whole paragraph, I tried to make it as non-descript as possible, see if this is sufficient.}
+The investigated system is part of a software stack deployed to a delivered product.
+Currently, there are two versions of the software in active development/maintenance mode and in use by customers.
 
-Furthermore, the team we interacted with is mainly concerned with MCT, mostly written in Erlang, which involves the integration of multiple software components in addition to hardware and infrastructure simulators.
-Reports indicate that \sugg{the two versions} have thousands of tests each.
-\todo{Mentioning Erlang and simulators is ok?}
+Furthermore, the team we interacted with is mainly concerned with MCT, which involves the integration of multiple software components in addition to hardware and infrastructure simulators.
+Based on reports from the team members, generally speaking the tests are written in a different programming language than that of the SUT.
+Reports indicate that the two versions have thousands of tests each.
 
 
 

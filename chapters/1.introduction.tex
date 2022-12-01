@@ -17,16 +17,25 @@ From an industry perspective, these bugs are costly — fixing software defects 
 
 As such, it is important for companies and communities developing software to utilize methods to mitigate the possibility that faulty software will reach production.
 Today, most commercial and open-source software products are accompanied by a \textit{test suite}, a series of automated tests that are used to provide a level of certainty that parts of a software, both in isolation and in conjunction, correctly perform the tasks to which they are assigned.
-One widely-adopted software testing technique is called \textit{regression testing}; its primary role is to execute the test suite with a certain frequency, in order to guarantee that recently introduced changes to the software do not affect previously-correct behavior.
+One widely-adopted software testing technique is called \textit{regression testing} (\rt); its primary role is to execute the test suite with a certain frequency, in order to guarantee that recently introduced changes to the software do not affect previously-correct behavior.
 
 However, in large-scale software development (that is, with multiple developers and a large codebase), it is usually unfeasible to execute every test after every change, either because changes are too frequent, or because there are too many tests, or both.
 This is aggravated by the fact that most software is now developed in a \textit{continuous} manner, meaning software that is developed in an iterative and cyclical process, resulting in a short turnaround time between the design of a requirement, the development of a feature, and the delivery of an update to customers.
 %in which it is desirable that recent changes are put in production as quickly as possible.
 
-To alleviate the issue of ever-growing regression testing suites, software developers and testers can design \textit{test orchestration} strategies, which will automatically aid the process of regression testing.
-These strategies can be used for various purposes, such as selecting and prioritizing the most relevant test cases, or generating new test cases based on recent changes to the codebase.
+%To alleviate the issue of ever-growing regression testing suites, software developers and testers can design \textit{test orchestration} strategies, which will automatically aid the process of regression testing.
+%These strategies can be used for various purposes, such as selecting and prioritizing the most relevant test cases, or generating new test cases based on recent changes to the codebase.
 
-A major challenge in software testing research is the difficulty of bringing theoretically-sound approaches into real-world use by developers.
+Although \rt is an active research topic, the research community's efforts over the years to mitigate \rt cost and complexity do not seem to have produced the desired impact.
+A 2010 study~\cite{engstrom2010qualitative} aiming at understanding \rt practice already highlighted several divergences between software testing research and practice,
+notwithstanding in 2017~\citet{garousi2017worlds}  
+still called them as ``\textit{worlds apart}''. 
+Indeed, in a recent systematic review of the \rt literature aiming at identifying approaches with \textit{industrial relevance and applicability} (henceforth referred to as \rea),
+\citet{bin_ali_search_2019} could  only select 38 primary studies out of an initial pool of 1068 collected works.
+In other words, their study would imply that 
+less than 4\% of the published works on \rt could be of interest to industry.
+
+This difficulty of bringing theoretically-sound approaches into real-world use by developers is a major challenge in software testing research.
 There are many reasons why this happens; for example, many academic works on the topic aim for highly-precise techniques that, when applied in practice, are too slow to be useful or unrealistically require resources that are not easily available.
 On the other hand, many practitioners already apply coarse-grained techniques that provide some reduction in costs, but that could do much better with further research and experiments, although companies are reluctant to spend time and money on improving a testing workflow instead of delivering new features.
 In other words, there is a potential mismatch in motivations of researchers and practitioners who work with software testing, causing the so-called \textit{industry-academia knowledge/technology transfer gap}.
@@ -37,7 +46,14 @@ In other words, there is a potential mismatch in motivations of researchers and 
 
 This thesis brings forth a discussion on this apparent gap, extracting information from a comprehensive literature review in combination with in person interviews at a major technology company.
 With this, we aim to expose ongoing challenges that prevent most software testing research from seeing real-world use and provide directions for future researchers to act upon.
-In addition, as a proof-of-concept approach, we introduce \textit{orchestration strategies} for regression testing, highlighting the use of techniques already existing in the literature which exhibit characteristics that make them promising for practical usage.
+In addition, as a proof-of-concept approach, we introduce \textit{orchestration strategies} for regression testing, with the objective of managing multiple \rt techniques, such as test case prioritization (\tcp), test case selection (\tcs), test suite reduction (\tsr) and test suite amplification(\tsa).
+%highlighting the use of techniques already existing in the literature which exhibit characteristics that make them promising for practical usage.
+
+Many approaches for \rt techniques have been proposed~\cite{soetens2016change,legunsen2016,henard2016,luo2018static}.
+Our research goal here is not that of inventing yet another approach, but rather to understand if and how \tcs, \tcp, \tsr and \tsa should be used in combination, i.e.:
+when a new software version is released, is it more convenient to apply a \tcs approach or instead a \tcp one?
+Intuitively, a combination of all techniques would provide the most benefit, but this could result in additional challenges and drawbacks.
+Notwithstanding the vast literature on regression testing, such type of questions remain largely unanswered.
 
 The following paragraphs provide a summary of the remainder of this document.
 
@@ -54,7 +70,7 @@ Furthermore, we also contacted a number of industry practitioners to better unde
 A proof-of-concept test suite orchestration strategy is introduced in \Cref{chap:orchestration}, combining two previously existing techniques from literature and drawing conclusions regarding the effectiveness and efficiency of the combined approach versus the individual techniques.
 This work is left open to extension with probable paths highlighted in the chapter.
 
-During a seven-week period, an investigation was conducted in partnership with a large technology company in Sweden; the results of which can be found in \Cref{chap:industry}.
+During a seven-week period, an investigation was conducted in partnership with a large technology company; the results of which can be found in \Cref{chap:industry}.
 Th primary objective of this period was to understand how testing is done at the company and identify the testing issues that most commonly affect the practitioners.
 A series of interviews were conducted with team members involved with the testing process, from which it is possible to determine the positives of their current process, the points that could be improved with new techniques, and potential avenues for closer collaboration with academic work.
 Certain parts of the extracted information are under a non-disclosure agreement, thus here we present as much as possible without infringing this contract.

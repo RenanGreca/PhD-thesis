@@ -52,17 +52,17 @@ One approach is to independently perform the prioritization and selection of the
 This approach has the advantage of allowing parallel execution of $S(T)$ and $P(T)$ and merging their outputs, instead of having one depend upon the other.
 To combine the outputs, it is sufficient to go through the prioritized list of tests and remove the ones that are not included in the selection.
 
-%\begin{figure}[t]
-%  \centering
-%    \includegraphics[width=0.8\linewidth]{figures/Fastazi}
-%    \begin{center}
-%  	\footnotesize
-%  	T: complete test suite; S: selection by \ek;\\ P: prioritization by \fs; O: orchestration by \fz. 
-%	\end{center}
-%
-%    \caption{Sample outputs of \ek, \fs and \fz}
-%    \label{fig:fastazi}
-%\end{figure}
+\begin{figure}[t]
+  \centering
+    \includegraphics[width=0.8\linewidth]{figures/Fastazi}
+    \begin{center}
+  	\footnotesize
+  	T: complete test suite; S: selection by \ek;\\ P: prioritization by \fs; O: orchestration by \fz. 
+	\end{center}
+
+    \caption{Sample outputs of \ek, \fs and \fz}
+    \label{fig:fastazi}
+\end{figure}
 
 
 %While it could be possible to execute $S(P(T))$ sequentially, there is no practical benefit to that; the selection does not depend on the test ordering, and performing the intersection of the two isolated techniques is much faster than waiting for the prioritization to happen and then performing the selection.
@@ -80,10 +80,10 @@ Another possible approach to the idea is performing selection first and then pri
 The advantage of this approach is reducing the running time of the prioritization, which would focus on the tests impacted by the changes and thus more likely to fail.
 However, this also means that the selection and prioritization steps cannot be performed simultaneously (although it is still possible to parallelize the preparation steps).
 Intuitively, it is not clear which option should be more effective or efficient than the other.
-Indeed, our experiments show that the effectiveness and efficiency of the parallel and sequential approaches are statistically equivalent (according to the same analysis detailed in \Cref{sec:results}).
+Indeed, our experiments show that the effectiveness and efficiency of the parallel and sequential approaches are statistically equivalent (according to the same analysis detailed in \Cref{sec:orch_results}).
 For lack of space, henceforth \fz results always refer to the sequential execution, while the results of the parallel combination are available in the replication package.
 
-As an example, \Cref{fig:fastazi} contains sample outputs from \ek, \fs and \fz\footnote{This example is based on results of the experiments on \texttt{Chart v26}. Actual test names are omitted for clarity.}.
+As an example, \Cref{fig:fastazi} contains sample outputs from \ek, \fs and \fz\footnote{This example is based on results of the experiments on \texttt{Chart v26}. Actual names of test cases are omitted for clarity.}.
 Colored red, $t_{170}$ is the failing test within a test suite $T$ of 363 test cases.
 In $S$, the output of \ek, this test is found in the 78th position, because several tests were excluded during the selection, while in the output $P$ of \fs, it is moved up to the 17th position.
 Finally, the output of \fz, $O$, which is selected and prioritized, promoted the test to the 9th position.

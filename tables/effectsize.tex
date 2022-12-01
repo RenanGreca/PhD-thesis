@@ -1,0 +1,106 @@
+%\begin{table}[!hbt]
+%\centering
+%\caption{TTFF and APFD for the different approaches}
+%\begin{tabular}{lrr|crrc}
+%\toprule
+%\multicolumn{1}{l}{\multirow{2}{*}{}} &
+%  \multicolumn{2}{c}{TTFF} &
+%  \multicolumn{2}{c}{APFD} \\ %\cmidrule(l){2-7} 
+%\multicolumn{1}{c}{} &
+%  \multicolumn{1}{c}{\textit{$\hat{A}_{12}$}} &
+%  \multicolumn{1}{c}{\textit{Qualitative}} &
+%  \multicolumn{1}{c}{\textit{$\hat{A}_{12}$}} &
+%  \multicolumn{1}{c}{\textit{Qualitative}} \\ %\cmidrule(r){1-1}
+%\midrule
+%\ek vs. \fs  & 0.56 & Negligible & 0.56 & Negligible \\
+%\fz vs. \ek  & 0.59 & Small 	 & 0.59 & Small \\
+%\fz vs. \fs  & 0.61 & Small 	 & 0.61 & Small \\
+%%Random         & 0.49 & 0.09 & (d) & 0.51 & 0.09 & (d) \\ 
+%\bottomrule
+%\end{tabular}
+%\label{tab:effectsize}
+%\begin{flushleft}
+%\footnotesize
+%%\scriptsize 
+%\textit{$\hat{A}_{12}$} is effect size value, \textit{Qualitative} is the description of the value. 
+%\end{flushleft}
+%\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+%\begin{table}[]
+%\caption{Effect size per subject}
+%\begin{tabular}{lllll}
+%\toprule
+%\multicolumn{1}{l}{\multirow{2}{*}{Subject}} &
+%  \multicolumn{1}{c}{\fz vs} &
+%  \multicolumn{1}{c}{\fz vs} &
+%  \multicolumn{1}{c}{\fz vs} &
+%  \multicolumn{1}{c}{\ek vs} \\ %\cmidrule(l){2-7} 
+%\multicolumn{1}{c}{} &
+%  \multicolumn{1}{c}{\rnd} &
+%  \multicolumn{1}{c}{\fs} &
+%  \multicolumn{1}{c}{\ek} &
+%  \multicolumn{1}{c}{\fs} \\ %\cmidrule(r){1-1}
+%%                 & \textbf{\fz vs\\ \rnd} & \textbf{\fz vs\\ \fs} & \textbf{\fz vs \ek} & \textbf{\ek vs \fs}    \\
+%\midrule
+%Chart            & \cellcolor[HTML]{A4C2F4}L    & \cellcolor[HTML]{A4C2F4}L  & \cellcolor[HTML]{FFE599}S     & \cellcolor[HTML]{A4C2F4}L   \\
+%Cli              & \cellcolor[HTML]{A4C2F4}L    & \cellcolor[HTML]{FFE599}S  & \cellcolor[HTML]{A4C2F4}L     & \cellcolor[HTML]{EA9999} \\
+%Closure & \cellcolor[HTML]{FFE599}S    & \cellcolor[HTML]{F9CB9C}N  & \cellcolor[HTML]{F9CB9C}N     & \cellcolor[HTML]{F9CB9C}N   \\
+%Codec            & \cellcolor[HTML]{A4C2F4}L    & \cellcolor[HTML]{B6D7A8}M  & \cellcolor[HTML]{B6D7A8}M     & \cellcolor[HTML]{F9CB9C}N   \\
+%Collections      & \cellcolor[HTML]{F9CB9C}N    & \cellcolor[HTML]{B6D7A8}M  & \cellcolor[HTML]{EA9999}   & \cellcolor[HTML]{FFE599}S   \\
+%Compress         & \cellcolor[HTML]{A4C2F4}L    & \cellcolor[HTML]{B6D7A8}M  & \cellcolor[HTML]{FFE599}S     & \cellcolor[HTML]{FFE599}S   \\
+%Gson             & \cellcolor[HTML]{B6D7A8}M    & \cellcolor[HTML]{FFE599}S  & \cellcolor[HTML]{FFE599}S     & \cellcolor[HTML]{EA9999} \\
+%Jsoup            & \cellcolor[HTML]{FFE599}S    & \cellcolor[HTML]{B6D7A8}M  & \cellcolor[HTML]{F9CB9C}N     & \cellcolor[HTML]{B6D7A8}M   \\
+%JxPath           & \cellcolor[HTML]{F9CB9C}N    & \cellcolor[HTML]{FFE599}S  & \cellcolor[HTML]{EA9999}   & \cellcolor[HTML]{FFE599}S   \\
+%Lang             & \cellcolor[HTML]{B6D7A8}M    & \cellcolor[HTML]{B6D7A8}M  & \cellcolor[HTML]{B6D7A8}M     & \cellcolor[HTML]{FFE599}S   \\
+%Math             & \cellcolor[HTML]{A4C2F4}L    & \cellcolor[HTML]{B6D7A8}M  & \cellcolor[HTML]{B6D7A8}M     & \cellcolor[HTML]{FFE599}S   \\
+%Time             & \cellcolor[HTML]{FFE599}S    & \cellcolor[HTML]{FFE599}S  & \cellcolor[HTML]{F9CB9C}N     & \cellcolor[HTML]{FFE599}S \\
+%\bottomrule 
+%\end{tabular}
+%\label{tab:effectsize}
+%\begin{flushleft}
+%\footnotesize
+%L, M, S and N indicate Large, Medium, Small and Negligible effect size, respectively. Empty cells indicate cases where the effect size was below 0.5. 
+%\end{flushleft}
+%\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{lllll}
+\toprule
+\multicolumn{1}{l}{\multirow{2}{*}{Subject}} &
+  \multicolumn{1}{c}{\fz vs} &
+  \multicolumn{1}{c}{\fz vs} &
+  \multicolumn{1}{c}{\fz vs} &
+  \multicolumn{1}{c}{\ek vs} \\ %\cmidrule(l){2-7} 
+\multicolumn{1}{c}{} &
+  \multicolumn{1}{c}{\rnd} &
+  \multicolumn{1}{c}{\fs} &
+  \multicolumn{1}{c}{\ek} &
+  \multicolumn{1}{c}{\fs} \\ %\cmidrule(r){1-1}
+\midrule
+Chart       & 0.82 (L)                     & 0.79 (L)                   & 0.57 (S)                      & 0.78 (L)                 \\
+Cli         & 0.85 (L)                     & 0.56 (S)                   & 0.81 (L)                      & 0.23 (L)                 \\
+Closure     & 0.62 (S)                     & 0.55 (N)                   & 0.56 (S)                      & 0.51 (N)                 \\
+Codec       & 0.88 (L)                     & 0.66 (M)                   & 0.66 (M)                      & 0.52 (N)                 \\
+Collections & 0.50 (N)                     & 0.66 (M)                   & 0.44 (N)                      & 0.63 (S)                 \\
+Compress    & 0.82 (L)                     & 0.65 (M)                   & 0.59 (S)                      & 0.58 (S)                 \\
+Gson        & 0.69 (M)                     & 0.58 (S)                   & 0.60 (S)                      & 0.47 (N)                 \\
+Jsoup       & 0.63 (S)                     & 0.64 (M)                   & 0.51 (N)                      & 0.66 (M)                 \\
+JxPath      & 0.50 (N)                     & 0.56 (S)                   & 0.44 (N)                      & 0.57 (S)                 \\
+Lang        & 0.66 (M)                     & 0.63 (S)                   & 0.65 (M)                      & 0.58 (S)                 \\
+Math        & 0.83 (L)                     & 0.66 (M)                   & 0.64 (M)                      & 0.57 (S)                 \\
+Time        & 0.60 (S)                     & 0.61 (S)                   & 0.52 (N)                      & 0.61 (S)                 \\
+
+\bottomrule 
+\end{tabular}
+\label{tab:effectsize}
+\begin{flushleft}
+\footnotesize
+L, M, S and N indicate large, medium, small and negligible effect size, respectively.
+\end{flushleft}
+\caption{Effect size per subject.}
+%\vspace{-3mm}
+\end{table}
