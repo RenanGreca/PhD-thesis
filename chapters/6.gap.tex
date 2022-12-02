@@ -34,7 +34,7 @@ CH3 & Scalability                          & \fullcirc 		&                &     
 CH8 & Skepticism                           &                & 	 & 	  & \fullcirc \\
 
 CH4 & Relevance of metrics                 & \fullcirc 		& \fullcirc 	 &                & &
-CH9 & Data availability                    &                & 	 & 	  & \fullcirc \\
+CH9 & Data quality/availability        &                & 	 & 	  & \fullcirc \\
 
 CH5 & Developing usable tools			   &            	& \fullcirc 	 & \fullcirc      & \fullcirc &
 CH10 & Communication                       &                & \fullcirc 	 & \fullcirc 	  & \fullcirc \\
@@ -50,18 +50,31 @@ CH10 & Communication                       &                & \fullcirc 	 & \ful
 % ===================
 
 \paragraph{CH1: Alignment of motivations}
-When asked what would convince them to implement and use an~\rt tool, eight practitioners gave responses that can be synthesized into ``\textit{it would make my work easier}''.
-So there exists a mismatch between academic motivations and industrial needs: research is concerned with discovering novel techniques that might provide marginal effectiveness gains over the state-of-the-art, while practitioners are mostly concerned with any solution that simplifies their workflow.
-In other words, even if a \tcs technique has the potential to greatly reduce the testing time of a suite, practitioners will weigh those benefits against the effort required to implement the technique and adapt/maintain it for their needs.
+When asked what would convince them to implement and use an~\rt tool, eight surveyed practitioners gave responses that can be synthesized into ``\textit{it would make my work easier}''.
+This general sentiment matches the responses received during interviews at our industrial partner.
+
+There exists a mismatch between academic motivations and industrial needs: research is concerned with discovering novel techniques that might provide marginal effectiveness gains over the state-of-the-art, while practitioners are mostly concerned with any solution that simplifies their workflow.
+In other words, even if an \rt technique has the potential to greatly reduce the testing time of a suite, practitioners will weigh those benefits against the effort required to implement the technique and adapt/maintain it for their needs.
 This is not to say that the current research motivations are ill-informed: it is the role of academia to push the boundaries of what is possible in theory first, and sometimes this theory takes many years to find relevance in practice.
+One interviewee from \Cref{chap:industry} gave an example of this: \quoter{mutation testing\footnote{Mutation testing refers to a set of techniques that introduce artificial errors in the \sut in order to validate the efficacy of a test suite \cite{somethingsomethingmutation}.} has been in the literature since the 1990s, and it is starting to see adoption in industry today}{R8}.
 
 If the researchers have the objective of implementing their approach, they must be certain that it is addressing the current needs of practitioners.
-An obvious way to achieve this, which is also confirmed by our study, is through partnerships between academic researchers and industrial practitioners (or even open-source communities).
-These collaborative works, by their own nature, tend to produce results suitable for practical applications and could serve as a guideline for other, purely academic, approaches.
+An obvious way to achieve this, which is also confirmed by our literature review, is by developing techniques through direct partnerships between academic researchers and industrial practitioners (or even open-source communities).
+In these cases, the practitioners bring realistic examples of the challenges they face and, as a result, these collaborative works tend to produce results suitable for practical applications and could serve as a guideline for other, purely academic, approaches.
 
 Naturally, not all research can be done with industrial partnerships, and in these cases there is difficulty in finding what exactly is relevant to current practitioners.
 One possible source of this information is grey literature: information produced by experts in a field, but without necessarily following academic guidelines, in the form of blog posts, videos, magazine articles, talks etc.
-Practitioners who produce grey literature can help inform researchers about the current state of practice, the main existing challenges in software development, and successful implementations of techniques (e.g. the aforementioned Netflix blog~\cite{netflixlerner}).
+Practitioners who produce grey literature can help inform researchers about the current state of practice, the main existing challenges in software development, and successful implementations of techniques (e.g. the aforementioned Netflix blog~\cite{netflixlerner} which details the process of bringing a technique from a paper into their workflow).
+
+Ultimately, the unavoidable reality is that academics and practitioners work towards different goals.
+Researchers are motivated and driven by publication; indeed, the point of research is to aggregate information into a body of knowledge that grows gradually over time.
+Historically, academia does not encourage researchers to continue working on a project after the related paper is published and ``see it through'' to an eventual application of a technique.
+In fact, the pursuit for novelty can diminish the perceived value of a researcher who is willing to perform experiments and do the additional work to implement a technique.
+
+This is in direct contrast with the desires of industry.
+Few companies are willing to commit time, money and human resources into developing novel techniques that may or may not provide value or savings in the long term.
+Rather, they would rather adopt practices with a proven and predictable outcome.
+%The space between novel and theoretically valid techniques and ones that ensure long-term value in practice is 
 
 % ===================
 
@@ -125,32 +138,41 @@ Their existence indicates that some researchers still believe there is room for 
 Furthermore, ease-of-use is an important point to consider and, as far as we could detect, there is no established method of measuring it.
 
 One practitioner stated: ``\textit{I don't think that academic tools are the best in a professional environment, I prefer commercial tools,}'' implying they believe academics are not measuring the results that matter most to them.
-Indeed, managers allocating development funds will usually focus on the dollar savings a technique can bring, regardless of its theoretical effectiveness in fault-finding (as mentioned by respondent author \#43).
+Indeed, managers allocating development funds will usually focus on the dollar savings a technique can bring, regardless of its theoretical effectiveness in fault-finding (as mentioned by respondent author \#43: \quotes{the cost associated with the 1\% bugs that were missed is too high}).
 
 % ===================
 \paragraph{CH5: Converting research into usable tools}
 When techniques are designed in an academic context, they are normally developed as proof-of-concept works.
 That is, the purpose is to show that the technique works and provides significant results according to some metrics.
-However, this leads to two issues: either primary studies do not make their solution available for implementation, as we discussed in~\Cref{sec:rq2}, or their experiments do not thoroughly consider practical concerns such as efficiency or the data requirements of a proposed approach.
+However, this leads to two issues: either primary studies do not make their solution available for implementation, as we discussed in~\Cref{sec:lit_rq2}, or their experiments do not thoroughly consider practical concerns such as efficiency or the data requirements of a proposed approach.
 Finally, what seems to matter the most is time and budget for developing a tool.
 Papers are usually written targeting a hard deadline and their prototypes often do not see further work past publication.
 It is inevitable that researchers will move on to new challenges, but their contribution would be amplified if the tool is, at the very least, open-source and well-documented so that other interested parties can continue the work in the future if desired.
 
 If an \rt technique is implemented as a prototype that is shown to work on a certain kind of software, it is much easier to get the attention from a practitioner and convert the solution into something used in practice.
-If feasible, an available prototype with solid documentation and usage instructions can be valuable both for study replicability and as a way to get developers interested in using it. 
+If feasible, an available prototype with solid documentation and usage instructions can be valuable both for study replicability and as a way to get developers interested in using it.
 That said, the responsibility of developing fully functional tools should not fall solely upon researchers.
 One practitioner stated that ``\textit{[\rt tools] need full security screening}'', and other said ``\textit{it requires an adaptation}''; these steps are not actionable by researchers in isolation.
 As industry stands to benefit from scientific advances, it should be in its best interest to promote and fund the collaborations needed to continue development of promising prototypes.
 
-\todo{Whose responsibility is it? A PhD student for example could work on this, but are there academic/publishing motivations for it?}
+This strongly relates to \textbf{CH1} regarding the motivations of academics and practitioners.
+Even if a researcher has the desire to see a technique through to its applicability, or even just to provide a robust source code for the implementation of an approach, there is little incentive from the academic side for doing so.
+Certain software engineering conferences have started to encourage or even require the inclusion of replication packages and source code of studies with an empirical component, which is a step in the right direction.
+
+%\todo{Whose responsibility is it? A PhD student for example could work on this, but are there academic/publishing motivations for it?}
 
 % ===================
 \paragraph{CH6: Absence of \tsr/\tsa}
 Out of \numpapers papers, only 8 are about \tsr and, surprisingly, only one covers \tsa 
  \citepalias{yoshida_fsx_2016}.
 60\% of the surveyed practitioners claim that ``creating or updating tests'' is a major challenge in real-world \rt, so the desire for \tsa exists and there appears to be ample room for experimenting with new approaches and metrics.
-47\% also mention the difficulty of refactoring and removing obsolete test cases as a pain point, which is something \tsr could remedy.
-This can be an opportunity for researchers to develop novel methods and to progress in directions that are in need of exploration.
+However, most practitioners interviewed at the industry partner claim that increasing test scope is not a major concern, as even the manually-written tests can be too many.
+
+On the other hand, they do mention the difficulty of refactoring and removing obsolete test cases as a frequent challenge, which aligns with 47\% of the surveyed practitioners.
+\tsr could prove valuable to testers who need to manage ever-growing test suites and hardly find the time to manually assess tests that are obsolete or in need of refactoring.
+In reality, this is often addressed by simply increasing the capacity of testing servers, but this is a costly and non-scalable solution.
+
+This assessment of \tsr and \tsa techniques indicate an opportunity for researchers to develop novel methods for these challenges and to progress in directions that are in need of improvement in software development workflows.
 
 % ===================
 \paragraph{CH7: Clarity of target}
@@ -169,16 +191,30 @@ This information would be valuable for interested practitioners and also for res
 On top of that, some papers use the term ``test case'' to refer to test methods, while others use it when referring to test classes/files (which contain several test methods), so the granularity of the technique is not always clear, and this can impact both effectiveness and efficiency analysis.
 This challenge can be solved by having a paragraph dedicated to explicitly describing the properties and context factors of the experiment subjects.
 
+% ===================
 \paragraph{CH8: Skepticism}
 In general, there is some degree of skepticism from practitioners regarding automated solutions.
-For example, developers are concerned that a TCS solution might leave out an important test, or that TCP algorithms might always prioritize the same tests.
-Developers are opposed to outright removing tests flagged by TSR, but are willing to put these tests in less-frequent rotations.
-This calls back to a comment made by one of the responding authors in \Cref{sec:lit_rq2}: even if 99\% of faults are detected, the remaining 1\% of slips is unnerving to the people responsible for the tests.
-\todo{Continue here}
+For example, some interviewees at the industrial partner expressed concerns that a \tcs solution might leave out an important test, or that \tcp algorithms might always prioritize the same tests.
+Their intuition is that performing selection (or even prioritization) manually allows for easier troubleshooting in case something goes wrong.
+As for what can go wrong, the fear is to detect a fault later on, only to find out the test to detect it already existed, but was not selected or prioritized by the automated tool.
 
-\paragraph{CH9: Data availability}
-\todo{Talk about the lack of data}
+This calls back to a comment made by one of the responding authors in \Cref{sec:lit_rq2}: even if 99\% of faults are detected at a fraction of the testing costs, the remaining 1\% of slips is unnerving to the people responsible for the tests.
+And even if a tool is shown to be safe, there is still a feeling that there \textit{might} be a slip that will only be revealed much later than it should have been.
 
+Regarding \tsr, most developers are also opposed to outright removing tests, but are willing to put these tests in less-frequent rotations, e.g. weekly instead of daily.
+Finally, for \tsa the practitioners are also doubtful that automatically generated or enhanced tests are as good as human-designed ones, but wouldn't be against to trying it if the need arises.
+
+% ===================
+\paragraph{CH9: Data quality and availability}
+Another point raised by the interviewed practitioners at the industrial partner is their own ability to provide the data required by an automated tool.
+History-based approaches, for example, are more effective when there are many test logs archived for analysis, but in reality these logs are only stored temporarily.
+
+Furthermore, even if the data exists it might not be of sufficient quality to, for example, serve as a training set for a machine learning model.
+This extends to the test code itself, as highlighted by one of the interviewees:
+\quoter{researchers might assume a certain level of quality or standardization among test cases, but in reality test design is often bad}{R8}.
+If the existing test cases are not standardized and high-quality, automated attempts to improve them are unlikely to yield the desired benefits.
+
+% ===================
 \paragraph{CH10: Communication}
 The main challenge, which connects most of the previous ones, is communication.
 Researchers and practitioners both lead busy lives, focusing on their day-to-day affairs, and ultimately communication between the two realms suffers.
@@ -188,9 +224,10 @@ Companies can start by having round-table discussions on recent research publica
 On the other side, universities can host lectures by practitioners in addition to other researchers.
 This can start small — find people in the same city, perhaps alumni of the university, who are working on something interesting and have a conversation.
 
-56\% of responding practitioners claimed they keep contact with a friend or colleague who is a researcher in Software Engineering.
+Out of the practitioners we surveyed for \Cref{chap:literature_review}, 56\% claimed they keep contact with a friend or colleague who is a researcher in Software Engineering.
 After all, most academics have interacted with people who are currently practitioners during their education process, and vice-versa.
 This means that both sides have an opportunity to network and communicate beyond their current professions, giving each other ideas of what is currently relevant in industrial software development and what is the latest state-of-the-art in academic research.
+Unfortunately, the practitioners interviewed for \Cref{chap:industry} have mostly lost contact with their academic colleagues and today struggle to keep up with the advancement of research.
 
-It can be a daunting idea to catch up to latest research trends, so larger companies could consider having employees dedicated to understanding the internal processes and challenges while searching for collaborations with academics.
+It can be a daunting idea to catch up to latest research trends, so larger companies could consider having employees dedicated to understanding the internal processes and challenges while searching for collaborations with academics, or at least promote internal reading club sessions.
 Many researchers would be thrilled to receive a message inviting them for a joint effort with palpable outcomes.

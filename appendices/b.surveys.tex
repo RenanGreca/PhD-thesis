@@ -9,15 +9,267 @@
 \section{E-mail Template Sent to Authors of Surveyed Papers}
 \label{sec:app_email}
 
+\begin{tcolorbox}
+\small
+Dear \{\{Name\}\},
+
+I am Renan Greca, a PhD student at the Gran Sasso Science Institute, under the supervision of Professors Antonia Bertolino and Breno Miranda. Currently, we are performing a systematic literature review on the topic of software regression testing, focusing on the real-world relevance and applicability of techniques proposed in academia.
+
+The following paper(s) of your authorship has(have) been selected for our study:
+
+\{\{Paper 1\}\}\\
+\{\{Paper 2\}\}\\
+\{\{Paper 3\}\}\\
+
+If possible, we would like some information about the outcome of your research after the publication of the paper(s). We have a few questions regarding your work:
+
+\textbf{1. Is there a functional version of your technique (tool, prototype, source code, etc.) available online? If so, please share with us the URL.}
+
+\textbf{2. Was there an attempt to implement your technique in industrial or large open-source software? Is the technique currently in use with the software?}
+
+\textbf{3. If the technique was put into practice, were the metrics used in the paper relevant for the technique’s applicability? If not, were there other metrics that proved to be useful?}
+
+Furthermore, please let us know whether we can link your comments directly to your work in our literature review or, if not, if we can mention these comments without referencing which author gave them.
+
+Finally, please inform us if you are interested and available for further contact related to the outcome of this research at a later date.
+
+We kindly ask you to provide answers by September 23, or to let us know by then if more time is needed.
+
+If you have received a similar email before, it is because we are updating our study and we have included another paper from your authorship, so please respond regarding these new paper(s).
+
+Best regards,
+
+Renan Greca (GSSI)\\
+Breno Miranda (UFPE)\\
+Antonia Bertolino (ISTI-CNR)\\
+\end{tcolorbox}
+
 \section{Questionnaire Sent to Practitioners During Literature Review}
 \label{sec:app_prac_questionnaire}
+
+\begin{table}[]
+\centering
+\small
+\rowcolors{1}{}{gray!10}
+%\setlength{\tabcolsep}{6pt}
+\begin{tabular}{p{0.05\linewidth}p{0.9\linewidth}}
+\toprule
+\textbf{Nº} & \textbf{Question} \\
+\midrule
+\textbf{1} & \textbf{Survey for software testing practitioners}
+
+We are researchers studying the state of collaboration between academic researchers and industrial practitioners, considering the topic of software regression testing. This survey has the goal of better understanding practitioners' perspective on past and ongoing usage of methods, techniques and tools initially developed in an academic context.
+
+Fill this form if you are directly or indirectly involved with software testing at the company you work for. If you have colleagues that also work with software testing, please share the form with them.
+
+Please submit your responses by {{deadline}}.
+
+By answering these questions, you provide consent to the authors to handle this data and use it for research purposes. The data will not be used for any other purposes.
+
+If you have questions or need clarifications, feel free to contact the authors:
+Antonia Bertolino (antonia.bertolino@isti.cnr.it)
+Breno Miranda (bafm@ufpe.br)
+Renan Greca (renan.greca@gssi.it) \\
+
+\textbf{1.1} & \textbf{Please tell us what are the most common pain points when it comes to running regression testing suites.}
+
+\textit{Multiple choices can be selected.}
+
+a) Detecting failures
+
+b) Flaky (unreliable) tests 
+
+c) Running time of the test suite
+
+d) Creating new tests or updating existing ones
+
+e) Cleaning up obsolete tests 
+
+Other... \\
+
+\textbf{1.2} & \textbf{Do you know of, or have you used, any tool for improving regression testing with roots in academic research?}
+
+By regression testing, we mean running and re-running tests that cover previously-existing functionality. Examples of techniques that can help are test case selection, test case prioritization, test suite augmentation or test suite reduction.
+
+\textit{A single choice can be selected.}
+
+a) I have used one or more tools. (go to Section 2)
+
+b) I know about one or more, but never used them. (go to Section 3)
+
+c) I don't know about these tools. (go to Section 4) \\
+\bottomrule
+\end{tabular}\\
+\caption{Questionnaire for practitioners, Section 1.}
+\label{table:interview_questions}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\small
+\rowcolors{1}{}{gray!10}
+%\setlength{\tabcolsep}{6pt}
+\begin{tabular}{p{0.05\linewidth}p{0.9\linewidth}}
+\toprule
+\textbf{Nº} & \textbf{Question} \\
+\midrule
+\textbf{2} & \textbf{About the tools you have used.} 
+
+In the previous page, you answered that you have used tools to improve regression testing. Please tell us about them.	\\
+
+\textbf{2.1} & \textbf{Which tools have you used?}
+
+\textit{Full body answer.}\\
+
+\textbf{2.2} & \textbf{Please mark how much you agree with the following statements.}
+
+If you have used multiple tools, you may offer general sentiments about them collectively.
+
+\textit{Possible values: Strongly disagree, Disagree, Neutral, Agree, Strongly agree.}
+
+You had a positive experience using the tool.
+
+The tool was easy to learn and use.
+
+The tool satisfied what you were looking for.
+
+The tool was designed targeting your company.
+
+The tool is currently still in use by you or your colleagues. \\
+
+\textbf{2.3} & \textbf{Feel free to share further thoughts about your experience with the tool(s).}
+
+\textit{Full body answer.}\\
+\bottomrule
+\end{tabular}\\
+\caption{Questionnaire for practitioners, Section 2.}
+\label{table:interview_questions}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\small
+\rowcolors{1}{}{gray!10}
+%\setlength{\tabcolsep}{6pt}
+\begin{tabular}{p{0.05\linewidth}p{0.9\linewidth}}
+\toprule
+\textbf{Nº} & \textbf{Question} \\
+\midrule
+\textbf{3} & \textbf{About the tools you know.}
+
+In the previous page, you answered that you know about tools to improve regression testing. Please tell us which ones.	\\
+
+\textbf{3.1} & \textbf{Which tools do you know about?}
+
+\textit{Full body answer.}\\
+\bottomrule
+\end{tabular}\\
+\caption{Questionnaire for practitioners, Section 3.}
+\label{table:interview_questions}
+\end{table}
+
+\begin{table}[]
+\centering
+\small
+\rowcolors{1}{}{gray!10}
+%\setlength{\tabcolsep}{6pt}
+\begin{tabular}{p{0.05\linewidth}p{0.9\linewidth}}
+\toprule
+\textbf{Nº} & \textbf{Question} \\
+\midrule
+\textbf{4} & \textbf{Collaboration with academia.}
+
+This page focuses on the possibilities of collaboration between practitioners and academics.\\
+
+\textbf{4.1} & \textbf{Please mark how much you agree with the following statements.}
+
+\textit{Possible values: Strongly disagree, Disagree, Neutral, Agree, Strongly agree.}
+
+You stay informed about recent research in Software Engineering.
+
+A piece of Software Engineering research has directly improved your workflow.
+
+You keep contact with a friend or colleague doing research in Software Engineering.
+
+There have been attempts of collaboration between members of your company and academia.
+
+Your company provide open datasets or open-source software that could be used as research subjects.\\
+
+\textbf{4.2} & \textbf{If you haven't already, what would convince you to try using a technique proposed in academia in your workflow? After trying it, what should it satisfy to become a permanent part of your process?}
+
+\textit{Full body answer.}\\
+
+\textbf{4.3} & \textbf{If you have materials to share, such as results of previous collaborations or open-source data provided by your company, please put links below.}
+
+\textit{Full body answer.}\\
+
+\textbf{4.4} & \textbf{Feel free to share any other comment you might have regarding industry-academia collaboration for regression testing.}
+
+\textit{Full body answer.}\\
+
+\bottomrule
+\end{tabular}\\
+\caption{Questionnaire for practitioners, Section 4.}
+\label{table:interview_questions}
+\end{table}
+
+\begin{table}[]
+\centering
+\small
+\rowcolors{1}{}{gray!10}
+%\setlength{\tabcolsep}{6pt}
+\begin{tabular}{p{0.05\linewidth}p{0.9\linewidth}}
+\toprule
+\textbf{Nº} & \textbf{Question} \\
+\midrule
+\textbf{5} & \textbf{Demographics}
+
+This final section is optional, but would help improve the quality of our results.\\
+
+\textbf{5.1} & \textbf{Company}
+
+The company for which you work.
+
+\textit{Full body answer.} \\
+
+\textbf{5.2} & \textbf{Country}
+
+The country where you work.
+
+\textit{A single choice can be selected, from a list of countries.} \\
+
+\textbf{5.3} & \textbf{Role}
+
+What title best describes your role at the company?
+
+a) Software Engineer
+
+b) Software Tester
+
+c) Product Manager
+
+d) Test Manager
+
+Other... \\
+
+& \textbf{Thank you for your time!} \\
+
+\bottomrule
+\end{tabular}\\
+\caption{Questionnaire for practitioners, Section 5.}
+\label{table:interview_questions}
+\end{table}
+
+\clearpage
 
 \section{Questions for Practitioners at the Industrial Partner}
 \label{sec:app_ind_questions}
 
 \begin{table}[]
 \centering
-%\scriptsize
+\small
 \rowcolors{1}{}{gray!10}
 %\setlength{\tabcolsep}{6pt}
 \begin{tabular}{p{0.05\linewidth}p{0.9\linewidth}}
