@@ -6,7 +6,9 @@
 
 \graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
 
-\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+%\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+\usepackage[natbib=true]{biblatex}
+
 \hypersetup{urlcolor=black, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
 
@@ -50,7 +52,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage[noend]{algpseudocode}
-\usepackage[resetlabels,labeled]{multibib}
+%\usepackage[resetlabels,labeled]{multibib}
 \usepackage{multirow}
 %\usepackage{bibentry}
 %\nobibliography*
@@ -141,10 +143,19 @@
 
   
 % Defining bibliographies
-\newcites{P}{Papers produced during the development of this thesis}
+%\newcites{P}{Papers produced during the development of this thesis}
 %\newcites{C}{Conferences related to this thesis}
-\newcites{S}{Papers identified in the Systematic Literature Review}
+%\newcites{S}{Papers identified in the Systematic Literature Review}
 %\newcites{Bibliography}{Bibliography}
+
+\defbibheading{P}{}
+\defbibheading{S}{Papers identified in the Systematic Literature Review}
+\defbibheading{R}{Bibliography}
+
+\addbibresource[label=P]{production.bib}
+\addbibresource[label=S]{slr.bib}
+\bibliography{bibliography.bib, secondaries.bib}
+
 
 \input{tables/numpapers}
 \input{tables/csv_aliases}  
@@ -338,7 +349,7 @@ a list of challenges that can serve as guidelines for researchers or even as res
 
 \paragraph{Conclusion:}
 There is still much work to be done by the software engineering research and development communities in order to completely close the gap that exists between them.
-To a great extent, the motivations of researchers and practitioners are not aligned — while in academia, proposing theoretically sound novel approaches is encouraged to obtain publications, in industry there is a need for techniques that are proven to reduce effort and/or costs.
+To a great extent, the motivations of researchers and practitioners are not aligned --- while in academia, proposing theoretically sound novel approaches is encouraged to obtain publications, in industry there is a need for techniques that are proven to reduce effort and/or costs.
 This can only be solved by close collaboration between the two sides, yet a question of who is willing to fund these experiments remain.
 The data and discussions provided in this thesis show that, although difficult, this is not an impossible problem to solve and there are certain clear steps that can be taken by researchers and practitioners alike to begin addressing it.
 
@@ -574,16 +585,27 @@ Even thousands of kilometers away, you are all special to me.
 
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
 
-\bibliographystyleP{unsrtnat}
-\bibliographyP{production.bib}
+%\bibliographystyleP{unsrtnat}
+%\bibliographyP{production.bib}
 
 %\bibliographystyleS{unsrtnat}
 %\bibliographyS{slr.bib}
 
 %\input{bibliographies/nociteS.tex}
 
-\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-\bibliography{secondaries.bib,bibliography.bib,production.bib,slr.bib} % This contains only the 
+%\begin{refsection}[S]
+%    \printbibliography[heading=S]
+%\end{refsection}
+
+%\begin{refsection}[S]
+%	\newrefcontext[labelprefix=S]
+%%	\nocite{*}
+%    \printbibliography[heading=S]
+%\end{refsection}
+
+\printbibliography
+%\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+%\bibliography{secondaries.bib,bibliography.bib,production.bib,slr.bib} % This contains only the 
 %\bibliography{}
 
 \end{document}

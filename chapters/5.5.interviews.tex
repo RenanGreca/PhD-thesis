@@ -116,7 +116,7 @@ There is a back-and-forth discussion between two sides of the team: one wants th
 Once a fault slips and it is detected at a later testing phase or in the field, there is \quoter{a systematic way of processing trouble reports (TRs) and we can identify where it is needed to add tests}{R5}.
 Regarding that, R8 brings an analogy: \quotes{if you only take care of the shootings, you do not solve crime}, implying that the above is not an effective strategy for delivering a fault-free product.
 
-\paragraph{Flaky tests.} Although techniques for addressing flaky tests falls beyond the scope of this thesis, it was a topic brought up frequently during the discussions — \quoter{that's the worst, we have a lot of those}{R5} — it is strongly related to the above point regarding fault detection.
+\paragraph{Flaky tests.} Although techniques for addressing flaky tests falls beyond the scope of this thesis, it was a topic brought up frequently during the discussions --- \quoter{that's the worst, we have a lot of those}{R5} --- it is strongly related to the above point regarding fault detection.
 \quoter{The tests are run distributed in several computers connected to a network, so when the load gets really high, running thousands of tests at night, we can get different behavior compared to running the tests manually}{R2}.
 To account for this, \quoter{we started shuffling the order of the tests}{R3}, although sometimes the developer who wrote the test case admits \quoter{'I don't know why it fails if it comes later in the suite'}{R3}.
 There is an agreement that \quoter{creating stable [non-flaky] tests is cumbersome}{R1} and, \quoter{if it's due to the code, it's usually timing issues}{R2}.
@@ -230,7 +230,7 @@ Ideally, this should ensure only critical tests are executed in the most costly 
 
 $$ C = \frac{MC_1 \times STP_1 + MC_2 \times STP_2 + ... + MC_n \times STP_n}{faults\ detected} $$
 
-The obvious flaw with this metric is that it might disfavor products with a low number of faults — as fewer faults are detected, the cost per fault ratio will greatly increase.
+The obvious flaw with this metric is that it might disfavor products with a low number of faults --- as fewer faults are detected, the cost per fault ratio will greatly increase.
 
 \paragraph{Reliability (R).}
 This metric targets specifically flaky tests, providing a value to their reliability.

@@ -93,15 +93,15 @@ and the results of the effect size analysis were the same as the ones observed f
 
 
 \begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
-\textbf{Summary of RQ1}: While statistically significant differences were observed for the comparison between \ek and \fs, a further investigation of the effect size revealed that the effect of choosing \ek over \fs is either small or negligible in almost all the cases.
+\textbf{Summary of \nameref{rq:orch1}.} While statistically significant differences were observed for the comparison between \ek and \fs, a further investigation of the effect size revealed that the effect of choosing \ek over \fs is either small or negligible in almost all the cases.
 \fz, on the other hand, outperformed \ek and \fs with a non-negligible effect in the vast majority of the cases, suggesting that adopting \fz can help improving the testing effectiveness.
 \end{tcolorbox}
 
 
-\subsection{RQ2: Effectiveness under a limited budget}
+\subsection{\nameref{rq:orch2}: Effectiveness Under a Limited Budget}
 \label{subsec:rq2}
 
-To answer RQ2, we proceeded with a detailed analysis of the impact of limiting the number of test cases with respect to those that would be run by \ek. 
+To answer \nameref{rq:orch2}, we proceeded with a detailed analysis of the impact of limiting the number of test cases with respect to those that would be run by \ek. 
 We investigated the impact on the failure detection capability of all the approaches 
 when the testing budget is gradually reduced from 100\% (no budget restrictions) 
 %to 10\% of the test suite selected by \ek, at steps of 10\%.
@@ -131,7 +131,7 @@ each approach would be able to reveal the failure under the different budget res
 (the number of observation in each violin plot is thus the same as the total number of versions, i.e., 541).
 The vertical axis varies from 0 to 30, respectively the minimum and maximum number of times an approach could reveal the failure across the 30 repetitions.
 Notice that for this RQ it is not a concern whether the failure is revealed by the first or the last test case, 
-as this was already answered by RQ1; the  concern here is whether the failure is revealed.
+as this was already answered by \nameref{rq:orch1}; the  concern here is whether the failure is revealed.
 
 We can draw several observations from~\Cref{fig:perbudget}:
 \textit{i}) the median number of times the random approach can reveal the failure decreases almost uniformly as the budget becomes  stricter;
@@ -182,7 +182,7 @@ For the particular cases of \texttt{Collections} and \texttt{Lang}, \ekr cannot 
 \fz was able to consistently reveal some failures across the 30 repetitions for all the budgets, including the more restrictive budget of 10\%.
 
 \begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
-\textbf{Summary of RQ2}: 
+\textbf{Summary of \nameref{rq:orch2}}: 
 Without controlling for the differences across subjects, 
 \fz exposes the best failure detection capability even under restricted budgets, 
 except for under 25\% reductions in which \ekr and even random appear to show better median values.
@@ -192,7 +192,7 @@ However, when we look from a per subject perspective and reward the approaches t
 
 
 
-\subsection{RQ3: Efficiency comparison}
+\subsection{\nameref{rq:orch3}: Efficiency Comparison}
 \label{subsec:rq3}
 To compare the time efficiency of \ek, \fs, and \fz, 
 we isolated the individual steps of each approach and measured the average time each step took, across the different versions of each subject program. 
@@ -225,6 +225,6 @@ On the other hand, the effect size for the comparison between \fz and \ek was $\
 It is important to notice that such results concern the overhead time required by the studied techniques, which are anyhow one or two orders of magnitude shorter than the time required for actually running the whole test suites.
 
 \begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
-\textbf{Summary of RQ3}: When considering the three approaches in isolation, \fs is the most efficient one and the difference with respect to the time overhead incurred by the other approaches is \textit{large}.
+\textbf{Summary of \nameref{rq:orch3}}: When considering the three approaches in isolation, \fs is the most efficient one and the difference with respect to the time overhead incurred by the other approaches is \textit{large}.
 The additional time overhead incurred by \fz for prioritizing the test cases selected by \ek is not statistically significant and the effect size is negligible.
 \end{tcolorbox}

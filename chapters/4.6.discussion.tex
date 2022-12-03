@@ -24,4 +24,67 @@ In addition to that, we would also like to try orchestrating other \tcs and \tcp
 
 \subsection{Future directions for test suite orchestration}
 
-\todo{Discuss possible ways of combining other \tcs and \tcp techniques along with \tsr and \tsa}
+As previously discussed, the experiments we performed with \fz is a starting point for test suite orchestration.
+This work paves the way to exploring a full range of potential strategies of combining differing criteria for selection and prioritization. 
+It can be worthwhile to also expand the study to the orchestration of techniques along other dimensions of regression testing, e.g., also test suite reduction (\tsr) or test suite amplification (\tsa).
+
+When combining multiple techniques into a cohesive orchestration strategy, the first and perhaps most important aspect to consider is the sequence of operations.
+We see in \Cref{sec:orch_fastazi} that there are two ways of using \tcs and \tcp together: we can either select a set of test cases and the prioritize these, or prioritize the entire test suite and run the selected tests in that given order.
+Including more techniques in the orchestration inevitably leads to more possible sequences.
+
+For example, if we add \tsr to the orchestration, the operation could be performed before or after the selection and prioritization.
+By using it before, we already restrict the number of test cases the other techniques must deal with; doing it afterwards, the results of the reduction will only be used in the next execution of the test suite.
+
+The combination becomes more interesting when adding \tsa to the strategy.
+\tsa could be the first technique to run, updating or adding test cases that will then serve as input for selection, prioritization and reduction.
+Or, it could be placed in between selection and prioritization, modifying the suite only according to the results of the selection.
+This could be desired if the \tsa process is costly and running it with fewer targets greatly reduces the time it consumes.
+
+Continuing this line of thought, \Cref{fig:orchestration} shows an example of a fully orchestrated test suite execution.
+In it, we consider three subsequent versions of the \sut (\textbf{v\textsubscript{i-1}}, \textbf{v\textsubscript{i}}, \textbf{v\textsubscript{i+1}}).
+The chevron boxes represent some process being applied to the tests, while the cut rectangles represent variations of the test suite (e.g., a list of test cases).
+
+The target of the orchestration is \textbf{T}, which is the test suite corresponding to version \textbf{v\textsubscript{i}} of the \sut.
+The first technique to be applied is \tcs, generating a subset of tests \textbf{S}.
+Additionally, from previous test execution logs, historical data, such as test that have recently failed, can be extracted, forming the set \textbf{H}.
+
+This subset is then used as input for \tsa techniques, in this example displayed separately as augmentation and amplification.
+The results are one set of \textit{newly generated} tests \textbf{G} and one set \textbf{A} containing the amplified versions of the tests in \textbf{S}.
+At this point, information from \textbf{H}, \textbf{G} and \textbf{A} is merged into a list of tests \textbf{M}.
+
+\textbf{M} is then used as input for three different techniques.
+On one side, \tsr is used, using information from \textbf{M} and \textbf{T} to eliminate excessive redundancies in the suite and produces a tighter suite \textbf{R} that can be used as a starting point for the next cycle of orchestration (when it is time for version \textbf{v\textsubscript{i+1}} of the \sut to be tested).
+On the other, \tcp prioritizes the test cases to \textbf{P} and a test flakiness detection technique provides a list \textbf{F} of potentially unreliable tests, which should be handled differently during execution.
+
+Finally, the orchestrated test suite \textbf{O} is produced, which can be used to test the \sut version \textbf{v\textsubscript{i}}.
+
+
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/Orchestration.pdf}
+  \begin{flushleft}
+	\footnotesize Legend: 
+	\textbf{v\textsubscript{i-1}}, \textbf{v\textsubscript{i}}, \textbf{v\textsubscript{i+1}}: previous, current and next version of the \sut; 
+	\textbf{H}: output of history-based criteria;
+	\textbf{T}: the test suite as of version \textbf{v\textsubscript{i}};
+	\textbf{S}: the output of \tcs;
+	\textbf{G}, \textbf{A}: the outputs of test suite augmentation and amplification, respectively;
+	\textbf{M}: a \textit{selected and enhanced} test suite combining the outputs of the previous steps;
+	\textbf{R}: the output of \tsr;
+	\textbf{P}: the output of \tcp;
+	\textbf{F}: the output of a flaky test detection technique;
+	\textbf{O}: the \textit{orchestrated test suite} that should be executed for \textbf{v\textsubscript{i}}.
+  \end{flushleft}
+  \caption{Diagram showing an example of a fully orchestrated approach to the test suite execution and evolution.}
+  \label{fig:orchestration}
+\end{figure*}
+
+It is worthy of reiteration that this is simply an example, built upon the goals of each \rt technique and considering how they can be used to each others' advantages.
+Validating such a model requires extensive experimentation, which unfortunately poses a technical challenge, as not every technique has an available and easily usable implementation.
+Even when the tools exist, the way each one handles inputs and outputs can be incompatible, so some alteration is needed.
+
+Some questions remain unanswered regarding a fully orchestrated strategy.
+The possibility of executing all \rt techniques at each new version of the \sut largely depends on the intervals between versions; if new versions are committed frequently, there might not be enough time to execute the full process.
+In such cases, an additional point to consider is which techniques are important for frequent execution, and which ones can become part of a nightly testing cycle.
+
+%\todo{Discuss possible ways of combining other \tcs and \tcp techniques along with \tsr and \tsa}

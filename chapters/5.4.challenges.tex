@@ -1,14 +1,14 @@
 \section{Observations}
 \label{sec:ind_observations}
 
-\subsection{RQ\ref{chap:industry}.1: Common Issues}
+\subsection{\nameref{rq:ind1}: Common Issues}
 \label{sec:ind_rq1}
 
 From the literature examined in \Cref{chap:literature_review}, it is possible to observe that test case prioritization is the regression testing technique most widely addressed in academic research.
 The conversations with the team, however, show that it is not a topic of active concern for the practitioners.
 Indeed, when questioned about methods of determining the execution order of tests, respondents claim that, until recently, it was \quoter{just the order in which they were written}{R5}.
 Due to concerns with flaky tests and developers who were explicitly asking to run their tests before all others, shuffling (random prioritization) was introduced.
-This helps the identification of tests that are flaky due to interdependency — e.g. one test that presumes another has been executed previously — or due to improper cleanup — tests that affect the global state of the program and do not revert that change before concluding.
+This helps the identification of tests that are flaky due to interdependency --- e.g. one test that presumes another has been executed previously --- or due to improper cleanup --- tests that affect the global state of the program and do not revert that change before concluding.
 However, it is a far simpler approach than what is studied in the literature and has an ultimately different goal: detecting flaws in the test suite itself rather than speeding up feedback time for faults detected in the SUT itself.
 
 Indeed, the detection of poor test case design appears to be a common problem to the test managers and specialists.
@@ -28,7 +28,7 @@ Then, as these complex features are introduced, more specialized tests must also
 Many of these specialized tests must also cover basic functionality by definition, even if indirectly through the higher-order features that depend on core elements\footnote{This is not always true for unit tests, which attempt to isolate functionality as much as possible for testing, but is common in component and multi-component testing.}.
 Thus, in reality, a lot of older tests are made obsolete, at least in purely fault-finding terms.
 Detecting which tests are redundant is a challenge that was mentioned by several of the interviewees, as currently this would need to be performed manually and the time/budget restrictions do not allow this.
-An automated solution could be helpful, although it is not desirable to completely delete test cases — when a fault is detected, tests that cover similar parts of code can be analyzed together to help identify the cause of the issue.
+An automated solution could be helpful, although it is not desirable to completely delete test cases --- when a fault is detected, tests that cover similar parts of code can be analyzed together to help identify the cause of the issue.
 Thus, there are tests that do not need to be executed daily but could be added to a weekend-only testing schedule, for example.
 That said, despite acknowledging the challenge of reducing the size of a test suite, it is much easier to simply add resources to the testing server than to spend human time and effort into analyzing tests or even implementing an automated solution.
 
@@ -37,12 +37,12 @@ As it is, the suite already grows substantially over time, so adding machine-gen
 Regarding new tests, test managers are more concerned with their quality than quantity, so perhaps methods for aiding developers in manually writing good tests would be better accepted than simply offloading that task to an automated tool.
 
 \begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
-\textbf{Summary of RQ\ref{chap:industry}.1}: The issue most frequently brought up by respondents has to do with test flakiness, which is very common in their regression test suite; testers and managers have found ways of dealing with them, but it still makes it more difficult to detect true errors in the test suite.
+\textbf{Summary of \nameref{rq:ind1}.} The issue most frequently brought up by respondents has to do with test flakiness, which is very common in their regression test suite; testers and managers have found ways of dealing with them, but it still makes it more difficult to detect true errors in the test suite.
 More generally, the main challenge is detecting and improving poorly written tests, which is the leading cause of test flakiness.
 There is a manual process for deciding which tests should be executed at each new commit, while removing redundant tests is something that is talked about, but not usually done because it's cheaper to simply add more compute power to testing servers.
 \end{tcolorbox}
 
-\subsection{RQ\ref{chap:industry}.2: Challenges of Incorporation}
+\subsection{\nameref{rq:ind2}: Challenges of Incorporation}
 \label{sec:ind_rq2}
 
 The interviews make it possible to identify a few notable obstacles that prevent the usage of state-of-the-art research techniques in the corporate environment.
@@ -68,14 +68,14 @@ An argument to managers would need to include time and cost estimates, including
 To avoid slowdown, an alternative would be to hire people dedicated specifically to experiment with new techniques and identifying avenues of improvement; however, hiring employees is an expensive process by itself and, given the choice, managers would prefer buying new computers to run more tests before hiring an employee to optimize the existing ones.
 
 \begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
-\textbf{Summary of RQ\ref{chap:industry}.2}: 
+\textbf{Summary of \nameref{rq:ind2}.}: 
 Practitioners describe several technical challenges involved with the implementation of new techniques into their workflow.
 Notably, adapting algorithms to their environment, screening for security risks and collecting appropriate data for input are frequently cited.
 Regardless, bureaucratic hurdles are more difficult to address than technicalities and, in order to convince managers to invest time and money into the effort, there needs to be robust evidence that a technique will provide meaningful benefits.
 \end{tcolorbox}
 
 
-\subsection{RQ\ref{chap:industry}.3: Paths to Improve Collaboration}
+\subsection{\nameref{rq:ind3}: Paths to Improve Collaboration}
 
 The interviews make it clear that, at least within the interacted team, there have not been many attempts of collaboration with academia, in the sense of bringing techniques from theory into practice and/or attempting experimentation in realistic software.
 It should be noted that this is not a general assessment of the company, which may have other examples of collaboration with academia, but only of the team that interacted with this study.
@@ -98,7 +98,7 @@ This dynamic is similar to the ``ideal'' scenario of industry-academia relations
 However, even a tool proposed and experimented with this team did not see adoption by the team that was interviewed, due to the limited benefits observed in the multi-component testing layer.
 
 \begin{tcolorbox}%[boxsep=0mm,boxrule=0mm,size=minimal]
-\textbf{Summary of RQ\ref{chap:industry}.3}: 
+\textbf{Summary of \nameref{rq:ind3}.}: 
 There is interest and desire of collaboration among interviewed practitioners, but it is something they find difficult to take initiative upon.
 Most of their time is consumed performing day-to-day tasks and ensuring the delivered product is constantly improved, and there is little time or energy left to keep up with the quickly growing academic literature.
 They often fund Master's programs and there are examples of academic papers using data from the company, but it is difficult to find situations where research results directly impacted the current state of practice.

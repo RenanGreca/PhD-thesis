@@ -4,7 +4,45 @@
 \chapter{Conclusion}\label{chap:conclusion}
 \lhead{\emph{\nameref{chap:conclusion}}}
 
+This thesis provides data, insight and discussions centered around test suite orchestration.
+Based on an investigation of the literature, a proof-of-concept implementation of orchestration, and \textit{in loco} interviews with software testing practitioners,
+the result is a thorough investigation on the potential benefits of orchestration as well as the challenges that are currently faced by researchers and practitioners who wish to implement these techniques on real-world software.
+
+In \Cref{chap:literature_review}, we provide a comprehensive literature review of academic papers with proven or apparent potential for real-world software usage.
+We have shown that applicability is a growing concern in research but, when it comes to actually applying the techniques with an industrial partner, many challenges arise and very few approaches feature lasting longevity.
+
+\Cref{chap:orchestration} shows an example of how test suite orchestration can be used to enhance software testing procedures, incorporating change-based \tcs and similarity-based \tcp  approaches as an initial step towards the goal of full orchestration.
+Analysis is performed on the approach, which exhibits promise both in terms of effectiveness and of efficiency.
+The challenge of full orchestration is left open, with a descriptive example of how multiple \rt could be combined.
+
+First-hand accounts of the state of software testing in practice are quoted and discussed in \Cref{chap:industry}.
+Thanks to the opportunity of collaborating with an industrial partner, we were able to understand the processes and challenges that exist today in software testing.
+Reports indicate that testing is far from being a solved problem, showing there is ample opportunity for new techniques to improve workflows and reduce costs in the industry.
+
+The results of \Cref{chap:literature_review}, \Cref{chap:orchestration} and \Cref{chap:industry} are used to form a list of essential challenges in \Cref{chap:gap} that researchers should consider and address if their goal is to provide techniques that are usable by practitioners.
+
+To add longevity to the relevance of this work, \Cref{chap:live} describes the process of converting the literature review from \Cref{chap:literature_review} into a \textit{live} systematic literature review.
+This repository of studies is available online and provides a starting point and bibliography for researchers to wish to pursue this research direction.
+
+Ultimately, many of the challenges we investigate are as of yet unresolved, remaining a fertile direction for future research.
+It is clear that software engineering academics and practitioners have distinct goals when it comes to the work they do to improve the quality and efficiency of testing, but there is also plenty of evidence indicating that it is possible to align these motivations and produce even better techniques as a result.
+
+The closing message of this thesis is one of community and collaboration: in order to ensure that software testing research leads to tangible improvements to the lives of developers and users of computer software, it is essential that academia and industry form a tighter bond to explore each other's advantages and cover their weaknesses.
+It is our sincere belief that such collaboration is possible and will at some point be achieved.
+We hope that the conclusion and publication of this study will help this happen sooner rather than later.
+
+This chapter contains two additional sections: \Cref{sec:threats} lists the threats to the validity of relevant parts of this study, and \Cref{sec:publications} briefly discusses the papers that were submitted and/or published during the development of this PhD thesis.
+
+%There is still much work to be done by the software engineering research and development communities in order to completely close the gap that exists between them.
+%To a great extent, the motivations of researchers and practitioners are not aligned --- while in academia, proposing theoretically sound novel approaches is encouraged to obtain publications, in industry there is a need for techniques that are proven to reduce effort and/or costs.
+%This can only be solved by close collaboration between the two sides, yet a question of who is willing to fund these experiments remain.
+%The data and discussions provided in this thesis show that, although difficult, this is not an impossible problem to solve and there are certain clear steps that can be taken by researchers and practitioners alike to begin addressing it.
+
 \section{Threats to Validity}\label{sec:threats}
+
+There are certain threats to the validity of Chapters \ref{chap:literature_review}, \ref{chap:orchestration}, \ref{chap:industry} and \ref{chap:gap}.
+To the extent of possibility, we have worked to mitigate those threats and produce a robust, accurate, consistent and replicable study.
+Nonetheless, the threats we have identified are listed and discussed as follows.
 
 \subsection{Threats to \Cref{chap:literature_review} }
 
@@ -100,16 +138,26 @@ It is not meant to be a comprehensive and end-all checklist of challenges to sol
 That said, we believe that most researchers performing a similar study would agree upon the majority of the listed challenges.
 To the extent of our knowledge, these challenges are real and in need of further study, but there is no guarantee that addressing each one of them will solve all the problems with software engineering research.
 
-%\section{Contributions}
+\section{Publications}\label{sec:publications}
+
+During the development of this thesis, the following papers were accepted for publication at software engineering conferences or journals.
+
+
+\begin{refsection}[P]
+	\newrefcontext[labelprefix=P]
+	\nocite{*}
+    \printbibliography[heading=P]
+\end{refsection}
+
 
 %The following papers produced and published during performed during this thesis.
 
-\nociteP{rossi2020defensive_p}
+%\nociteP{rossi2020defensive_p}
 
-\nociteP{greca_comparing_2022_p}
+%\nociteP{greca_comparing_2022_p}
 
 %\bibentry{greca_comparing_2022}
 %
-\nociteP{greca_live_2022_p}
+%\nociteP{greca_live_2022_p}
 
-\section{Conclusion}
+%\section{Conclusion}

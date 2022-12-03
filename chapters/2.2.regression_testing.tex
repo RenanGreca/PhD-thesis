@@ -21,12 +21,12 @@ That is, its primary objective is to assure that, after each change to the softw
 The term \textit{regression testing} (\rt) has its origins in pre-agile days and, as a research topic, has been studied since the 1980s~\cite{leung1989insights,yoo2012regression}.
 At the time, release schedules were centered around a hard deadline, so \rt was an activity that was only performed near the end of the cycle, after the important features of the release had already been developed.
 At that point, testers would check if any of the new changes interfered with previous functionality of the software; in some places this was a manual process, in others semi-automated.
-Doing so earlier was not advantageous — if a bug is detected in the middle of development but new features are not yet complete, it is possible that another bug will be detected on another round of testing.
+Doing so earlier was not advantageous --- if a bug is detected in the middle of development but new features are not yet complete, it is possible that another bug will be detected on another round of testing.
 Since the software could only be shipped once all features were done, intermediary regression testing provided little benefits.
 
 Continuously evolving software shifted this dynamic.
 With smaller and more frequent release cycles, regression testing too became a more frequent activity.
-At the same time, the incredible feature speed demanded by customers and consumers means that it is not viable to postpone testing until right before release — if a bug is detected at that point, it might be too late to fix it before delivery.
+At the same time, the incredible feature speed demanded by customers and consumers means that it is not viable to postpone testing until right before release --- if a bug is detected at that point, it might be too late to fix it before delivery.
 Thus, with the development of Continuous Integration/Delivery (CI/CD) practices and tools, automated regression testing became commonplace, sometimes executed as frequently as new code changes were pushed into a repository.
 
 Test automation mostly solves the problem in small projects, where it takes only a few seconds or maybe minutes to run a full test suite.
@@ -38,7 +38,7 @@ In reality, this is difficult to achieve and maintain, as test suites tend to in
 The straightforward solution is to increase the computational power of testing servers, so testing time reduces by brute force, although obviously this incurs additional costs.
 
 The concept of software size and scale is fundamental for the motivation of this research.
-There are multiple ways of measuring software scale — it could refer to a large number of lines of code (LOC); it can also mean high-complexity algorithms that run for a long time, or software that needs to serve multiple users simultaneously.
+There are multiple ways of measuring software scale --- it could refer to a large number of lines of code (LOC); it can also mean high-complexity algorithms that run for a long time, or software that needs to serve multiple users simultaneously.
 For this research, we are considered primarily with the number of test cases that the program needs to be reliable.
 Thus, other aspects of software scalability go beyond the scope of this thesis and, here, the term ``scalability'' itself refers primarily to the ability of managing an ever-growing number of test cases.
 
@@ -46,6 +46,6 @@ That said, in this work, we are interested in ``industrial-scale evolving softwa
 Understand ``industrial-scale'' as a general term for large-scale software in the real world.
 In practice, it can mean several different kinds of software, such as software developed as the primary product of a corporation (in the technology industry), software that provides essential features to other products (such as in the automotive or telecommunication industries), or open-source software that is developed by a community instead of a team within a company.
 
-It is also noteworthy that software can exist in a multitude of contexts — e.g. embedded software, distributed systems, web or mobile applications, cloud-based solutions, and so forth.
+It is also noteworthy that software can exist in a multitude of contexts --- e.g. embedded software, distributed systems, web or mobile applications, cloud-based solutions, and so forth.
 Each context is associated with unique challenges that inevitably alter how they are designed.
 For the most part, this thesis explores testing strategies that can be generalized into most contexts, as long as the software is continuously evolving in nature, although the ultimate implementation of these strategies might require adjustments.
