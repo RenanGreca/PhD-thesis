@@ -23,3 +23,528 @@
 	title = {``Effectiveness'' vs. ``Efficacy'' vs. ``Efficiency'': When To Use Each Word For The Best Results},
 	url = {https://www.dictionary.com/e/effectiveness-vs-efficacy-vs-efficiency-when-to-use-each-word-for-the-best-results/},
 	bdsk-url-1 = {https://www.dictionary.com/e/effectiveness-vs-efficacy-vs-efficiency-when-to-use-each-word-for-the-best-results/}}
+
+@ARTICLE{IEEE1044-2009,
+  author={},
+  journal={IEEE Std 1044-2009 (Revision of IEEE Std 1044-1993)}, 
+  title={IEEE Standard Classification for Software Anomalies}, 
+  year={2010},
+  volume={},
+  number={},
+  pages={1-23},
+  doi={10.1109/IEEESTD.2010.5399061}
+}
+
+@inproceedings{gligoricEk,
+author = {Gligoric, Milos and Eloussi, Lamyaa and Marinov, Darko},
+title = {Practical Regression Test Selection with Dynamic File Dependencies},
+year = {2015},
+isbn = {9781450336208},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2771783.2771784},
+doi = {10.1145/2771783.2771784},
+abstract = { Regression testing is important but can be time-intensive. One approach to speed it up is regression test selection (RTS), which runs only a subset of tests. RTS was proposed over three decades ago but has not been widely adopted in practice. Meanwhile, testing frameworks, such as JUnit, are widely adopted and well integrated with many popular build systems. Hence, integrating RTS in a testing framework already used by many projects would increase the likelihood that RTS is adopted. We propose a new, lightweight RTS technique, called Ekstazi, that can integrate well with testing frameworks. Ekstazi tracks dynamic dependencies of tests on files, and unlike most prior RTS techniques, Ekstazi requires no integration with version-control systems. We implemented Ekstazi for Java and JUnit, and evaluated it on 615 revisions of 32 open-source projects (totaling almost 5M LOC) with shorter- and longer-running test suites. The results show that Ekstazi reduced the end-to-end testing time 32\% on average, and 54\% for longer-running test suites, compared to executing all tests. Ekstazi also has lower end-to-end time than the existing techniques, despite the fact that it selects more tests. Ekstazi has been adopted by several popular open source projects, including Apache Camel, Apache Commons Math, and Apache CXF. },
+booktitle = {Proceedings of the 2015 International Symposium on Software Testing and Analysis},
+pages = {211–222},
+numpages = {12},
+keywords = {Regression test selection, file dependencies},
+location = {Baltimore, MD, USA},
+series = {ISSTA 2015}
+}
+
+@inproceedings{gligoric_empirical,
+author = {Gligoric, Milos and Negara, Stas and Legunsen, Owolabi and Marinov, Darko},
+title = {An Empirical Evaluation and Comparison of Manual and Automated Test Selection},
+year = {2014},
+isbn = {9781450330138},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2642937.2643019},
+doi = {10.1145/2642937.2643019},
+abstract = {Regression test selection speeds up regression testing by re-running only the tests that can be affected by the most recent code changes. Much progress has been made on research in automated test selection over the last three decades, but it has not translated into practical tools that are widely adopted. Therefore, developers either re-run all tests after each change or perform manual test selection. Re-running all tests is expensive, while manual test selection is tedious and error-prone. Despite such a big trade-off, no study assessed how developers perform manual test selection and compared it to automated test selection.This paper reports on our study of manual test selection in practice and our comparison of manual and automated test selection. We are the first to conduct a study that (1) analyzes data from manual test selection, collected in real time from 14 developers during a three-month study and (2) compares manual test selection with an automated state-of-the-research test-selection tool for 450 test sessions.Almost all developers in our study performed manual test selection, and they did so in mostly ad-hoc ways. Comparing manual and automated test selection, we found the two approaches to select different tests in each and every one of the 450 test sessions investigated. Manual selection chose more tests than automated selection 73\% of the time (potentially wasting time) and chose fewer tests 27\% of the time (potentially missing bugs). These results show the need for better automated test-selection techniques that integrate well with developers' programming environments.},
+booktitle = {Proceedings of the 29th ACM/IEEE International Conference on Automated Software Engineering},
+pages = {361–372},
+numpages = {12},
+keywords = {regression testing, test selection, software quality},
+location = {Vasteras, Sweden},
+series = {ASE '14}
+}
+	
+@article{cohen1960coefficient,
+	author = {Cohen, Jacob},
+	journal = {Educational and psychological measurement},
+	number = {1},
+	pages = {37--46},
+	publisher = {Sage Publications Sage CA: Thousand Oaks, CA},
+	title = {A coefficient of agreement for nominal scales},
+	volume = {20},
+	year = {1960}}
+
+@misc{netflixlerner,
+	author = {Kirdey, Stanislav and Cureton, Kevin and Rick, Scott and Ramanathan, Sankar and Shukla, Mrinal},
+	howpublished = {\url{https://netflixtechblog.com/lerner-using-rl-agents-for-test-case-scheduling-3e0686211198}},
+	note = {Accessed on 06/09/2022.},
+	title = {Lerner --- using RL agents for test case scheduling},
+	urldate = {2022-09-06},
+	year = {2019}}
+
+@misc{herzigkeynote,
+	author = {Herzig,Kim},
+	howpublished = {\url{https://www.slideshare.net/kim.herzig/keynote-ast-2016}},
+	note = {Accessed on 06/09/2022.},
+	title = {Let's assume we had to pay for testing},
+	urldate = {2022-10-06},
+	year = {2016}
+}
+ 
+@inproceedings{rothermel_improving_2018,
+	address = {Lake Buena Vista, FL, USA},
+	title = {Improving regression testing in continuous integration development environments (keynote)},
+	isbn = {978-1-4503-6053-1},
+	url = {http://dl.acm.org/citation.cfm?doid=3278186.3281454},
+	doi = {10.1145/3278186.3281454},
+	abstract = {In continuous integration development environments, software engineers frequently integrate new or changed code with the mainline codebase. Merged code is then regression tested to help ensure that the codebase remains stable and that continuing engineering efforts can be performed more reliably. Continuous integration is advantageous because it can reduce the amount of code rework that is needed in later phases of development, and speed up overall development time. From a testing standpoint, however, continuous integration raises several challenges.},
+	language = {en},
+	urldate = {2019-08-26},
+	booktitle = {Proceedings of the 9th {ACM} {SIGSOFT} {International} {Workshop} on {Automating} {TEST} {Case} {Design}, {Selection}, and {Evaluation}  - {A}-{TEST} 2018},
+	publisher = {ACM Press},
+	author = {Rothermel, Gregg},
+	year = {2018},
+	keywords = {\_tablet},
+	pages = {1--1},
+	file = {Rothermel_2018_Improving regression testing in continuous integration development environments.pdf:/Users/renangreca/Zotero/storage/8SGCPBWG/Rothermel_2018_Improving regression testing in continuous integration development environments.pdf:application/pdf}
+}
+
+@inproceedings{minhas_regression_2017,
+	address = {Nanjing},
+	title = {Regression {Testing} {Goals} - {View} of {Practitioners} and {Researchers}},
+	isbn = {978-1-5386-2649-8},
+	url = {http://ieeexplore.ieee.org/document/8312521/},
+	doi = {10.1109/APSECW.2017.23},
+	abstract = {Objective: The study aims at exploring the views of academics and practitioners about the goals of regression testing. The purpose is to investigate the commonalities and differences in their viewpoints and deﬁning some common goals for the success of regression testing.
+Method: We conducted a focus group study, with 7 testing experts from industry and academia. 4 testing practitioners from 2 companies and 3 researchers from 2 universities participated in the study. We followed GQM approach, to elicit the regression testing goals, information needs, and measures.
+Results: 43 regression testing goals were identiﬁed by the participants, which were reduced to 10 on the basis of similarity among the identiﬁed goals. Later during the priority assignment process, 5 goals were discarded, because the priority assigned to these goals was very low. Participants identiﬁed 47 information needs/questions required to evaluate the success of regression testing with reference to goal G5 (conﬁdence). Which were then reduced to 10 on the basis of similarity. Finally, we identiﬁed measures to gauge those information needs/questions, which were corresponding to the goal (G5).
+Conclusions: We observed that participation level of practitioners and researchers during the elicitation of goals and questions was same. We found a certain level of agreement between the participants regarding the regression testing deﬁnitions and goals. But there was some level of disagreement regarding the priorities of the goals. We also identiﬁed the need to implement a regression testing evaluation framework in the participating companies.},
+	language = {en},
+	urldate = {2019-09-02},
+	booktitle = {2017 24th {Asia}-{Pacific} {Software} {Engineering} {Conference} {Workshops} ({APSECW})},
+	publisher = {IEEE},
+	author = {Minhas, Nasir Mehmood and Petersen, Kai and Ali, Nauman Bin and Wnuk, Krzysztof},
+	month = dec,
+	year = {2017},
+	keywords = {\_tablet},
+	pages = {25--31},
+	file = {Minhas et al_2017_Requandogression Testing Goals - View of Practitioners and Researchers.pdf:/Users/renangreca/Zotero/storage/3IUFBLF5/Minhas et al_2017_Regression Testing Goals - View of Practitioners and Researchers.pdf:application/pdf}
+}
+
+@inproceedings{leung1989insights,
+	author = {Leung, Hareton KN and White, Lee},
+	booktitle = {Proceedings. Conference on Software Maintenance-1989},
+	organization = {IEEE},
+	pages = {60--69},
+	title = {Insights into regression testing (software testing)},
+	year = {1989}
+}
+
+
+@inproceedings{memon_taming_2017,
+	address = {Buenos Aires},
+	title = {Taming {Google}-scale continuous testing},
+	isbn = {978-1-5386-2717-4},
+	url = {http://ieeexplore.ieee.org/document/7965447/},
+	doi = {10.1109/ICSE-SEIP.2017.16},
+	abstract = {Growth in Google’s code size and feature churn rate has seen increased reliance on continuous integration (CI) and testing to maintain quality. Even with enormous resources dedicated to testing, we are unable to regression test each code change individually, resulting in increased lag time between code check-ins and test result feedback to developers. We report results of a project that aims to reduce this time by: (1) controlling test workload without compromising quality, and (2) distilling test results data to inform developers, while they write code, of the impact of their latest changes on quality. We model, empirically understand, and leverage the correlations that exist between our code, test cases, developers, programming languages, and codechange and test-execution frequencies, to improve our CI and development processes. Our ﬁndings show: very few of our tests ever fail, but those that do are generally “closer” to the code they test; certain frequently modiﬁed code and certain users/tools cause more breakages; and code recently modiﬁed by multiple developers (more than 3) breaks more often.},
+	language = {en},
+	urldate = {2019-09-09},
+	booktitle = {2017 {IEEE}/{ACM} 39th {International} {Conference} on {Software} {Engineering}: {Software} {Engineering} in {Practice} {Track} ({ICSE}-{SEIP})},
+	publisher = {IEEE},
+	author = {Memon, Atif and {Zebao Gao} and {Bao Nguyen} and Dhanda, Sanjeev and Nickell, Eric and Siemborski, Rob and Micco, John},
+	month = may,
+	year = {2017},
+	keywords = {\_tablet},
+	pages = {233--242},
+	file = {Memon et al_2017_Taming Google-scale continuous testing.pdf:/Users/renangreca/Zotero/storage/29FXKU2T/Memon et al_2017_Taming Google-scale continuous testing.pdf:application/pdf}
+}
+
+@article{levin_latest_2019,
+	title = {Latest 737 {Max} {Fault} {That} {Alarmed} {Test} {Pilots} {Rooted} in {Software}},
+	url = {https://www.bloomberg.com/news/articles/2019-07-27/latest-737-max-fault-that-alarmed-test-pilots-rooted-in-software},
+	abstract = {As U.S. government test pilots ran through dozens of flight scenarios on the Boeing Co. 737 Max in recent weeks, a potential failure got their attention.},
+	language = {en},
+	urldate = {2019-09-11},
+	journal = {Bloomberg.com},
+	author = {Levin, Alan},
+	month = jul,
+	year = {2019},
+	keywords = {Airlines, BOEING CO/THE, business, Congress, Dennis A Muilenburg, Earnings, Ethiopia, Federal Aviation Administration, Hardware, Indonesia, Software, technology},
+	file = {Snapshot:/Users/renangreca/Zotero/storage/CVXMNJQG/latest-737-max-fault-that-alarmed-test-pilots-rooted-in-software.html:text/html}
+}
+
+@inproceedings{engstrom2010qualitative,
+	author = {Engstr{\"o}m, Emelie and Runeson, Per},
+	booktitle = {International Conference on Product Focused Software Process Improvement},
+	organization = {Springer},
+	pages = {3--16},
+	title = {A qualitative survey of regression testing practices},
+	year = {2010}}
+
+@article{garousi2017worlds,
+	author = {Garousi, Vahid and Felderer, Michael},
+	journal = {IEEE Software},
+	number = {5},
+	pages = {38--45},
+	publisher = {IEEE},
+	title = {Worlds apart: industrial and academic focus areas in software testing},
+	volume = {34},
+	year = {2017}}
+	
+
+@inproceedings{RothermelHarrold94FrameworkForEvaluationRTS,
+  author = {Rothermel, Gregg and Harrold, Mary Jean},
+  title = {A Framework for Evaluating Regression Test Selection Techniques},
+  booktitle = {International Conference on Software Engineering},
+  pages = {201--210},
+  year = {1994},
+  LONGpublisher = {IEEE Computer Society Press}
+}
+
+
+@article{kitchenham2004procedures,
+	author = {Kitchenham, Barbara},
+	journal = {Keele, UK, Keele University},
+	number = {2004},
+	pages = {1--26},
+	title = {Procedures for performing systematic reviews},
+	volume = {33},
+	year = {2004}}
+
+
+@article{felderer2015systematic,
+	author = {Felderer, Michael and Fourneret, Elizabeta},
+	journal = {International Journal on Software Tools for Technology Transfer},
+	number = {3},
+	pages = {305--319},
+	publisher = {Springer},
+	title = {A systematic classification of security regression testing approaches},
+	volume = {17},
+	year = {2015}}
+	
+@article{engstrom2010systematic,
+	author = {Engstr{\"o}m, Emelie and Runeson, Per and Skoglund, Mats},
+	journal = {Information and Software Technology},
+	number = {1},
+	pages = {14--30},
+	publisher = {Elsevier},
+	title = {A systematic review on regression test selection techniques},
+	volume = {52},
+	year = {2010}}
+	
+@article{zarrad2015systematic,
+	author = {Zarrad, Anis},
+	journal = {J. Softw.},
+	number = {8},
+	pages = {971--990},
+	title = {A Systematic Review on Regression Testing for Web-Based Applications.},
+	volume = {10},
+	year = {2015}}
+	
+@inproceedings{harrold2008retesting,
+	author = {Harrold, Mary Jean and Orso, Alessandro},
+	booktitle = {2008 Frontiers of Software Maintenance},
+	organization = {IEEE},
+	pages = {99--108},
+	title = {Retesting software during development and maintenance},
+	year = {2008}}
+	
+@inproceedings{catal2012application,
+	author = {Catal, Cagatay},
+	booktitle = {Proceedings of the 2nd international workshop on evidential assessment of software technologies},
+	pages = {9--14},
+	title = {On the application of genetic algorithms for test case prioritization: a systematic literature review},
+	year = {2012}}
+	
+@article{qiu2014regression,
+	author = {Qiu, Dong and Li, Bixin and Ji, Shunhui and Leung, Hareton},
+	journal = {ACM Computing Surveys (CSUR)},
+	number = {2},
+	pages = {1--46},
+	publisher = {ACM New York, NY, USA},
+	title = {Regression testing of web service: a systematic mapping study},
+	volume = {47},
+	year = {2014}}
+
+@article{catal2013test,
+	author = {Catal, Cagatay and Mishra, Deepti},
+	journal = {Software Quality Journal},
+	number = {3},
+	pages = {445--478},
+	publisher = {Springer},
+	title = {Test case prioritization: a systematic mapping study},
+	volume = {21},
+	year = {2013}}
+
+@article{singh2012systematic,
+	author = {Singh, Yogesh and Kaur, Arvinder and Suri, Bharti and Singhal, Shweta},
+	journal = {Informatica},
+	number = {4},
+	title = {Systematic literature review on regression test prioritization techniques},
+	volume = {36},
+	year = {2012}}
+	
+	@article{do2014strategies,
+	author = {do Carmo Machado, Ivan and McGregor, John D and Cavalcanti, Yguarat{\~a} Cerqueira and De Almeida, Eduardo Santana},
+	journal = {Information and Software Technology},
+	number = {10},
+	pages = {1183--1199},
+	publisher = {Elsevier},
+	title = {On strategies for testing software product lines: A systematic literature review},
+	volume = {56},
+	year = {2014}}
+
+@incollection{FELDERER20161,
+	abstract = {Identifying vulnerabilities and ensuring security functionality by security testing is a widely applied measure to evaluate and improve the security of software. Due to the openness of modern software-based systems, applying appropriate security testing techniques is of growing importance and essential to perform effective and efficient security testing. Therefore, an overview of actual security testing techniques is of high value both for researchers to evaluate and refine the techniques and for practitioners to apply and disseminate them. This chapter fulfills this need and provides an overview of recent security testing techniques. For this purpose, it first summarize the required background of testing and security engineering. Then, basics and recent developments of security testing techniques applied during the secure software development life cycle, ie, model-based security testing, code-based testing and static analysis, penetration testing and dynamic analysis, as well as security regression testing are discussed. Finally, the security testing techniques are illustrated by adopting them for an example three-tiered web-based business application.},
+	author = {Michael Felderer and Matthias B{\"u}chler and Martin Johns and Achim D. Brucker and Ruth Breu and Alexander Pretschner},
+	doi = {https://doi.org/10.1016/bs.adcom.2015.11.003},
+	editor = {Atif Memon},
+	issn = {0065-2458},
+	keywords = {Security testing, Security testing techniques, Model-based security testing, White-box security testing, Black-box security testing, Penetration testing, Security regression testing, Security engineering, Software testing, Survey},
+	pages = {1-51},
+	publisher = {Elsevier},
+	series = {Advances in Computers},
+	title = {Chapter One - Security Testing: A Survey},
+	url = {https://www.sciencedirect.com/science/article/pii/S0065245815000649},
+	volume = {101},
+	year = {2016},
+	bdsk-url-1 = {https://www.sciencedirect.com/science/article/pii/S0065245815000649},
+	bdsk-url-2 = {https://doi.org/10.1016/bs.adcom.2015.11.003}}
+
+
+
+
+
+
+
+
+
+@inproceedings{just2014defects4j,
+  title={Defects4J: A database of existing faults to enable controlled testing studies for Java programs},
+  author={Just, Ren{\'e} and Jalali, Darioush and Ernst, Michael D},
+  booktitle={Proceedings of the 2014 International Symposium on Software Testing and Analysis},
+  pages={437--440},
+  year={2014}
+}
+
+@inproceedings{cibulski2011regression,
+  title={Regression test selection techniques for test-driven development},
+  author={Cibulski, Hagai and Yehudai, Amiram},
+  booktitle={2011 IEEE Fourth International Conference on Software Testing, Verification and Validation Workshops},
+  pages={115--124},
+  year={2011},
+  organization={IEEE}
+}
+
+
+@inproceedings{elbaum2014techniques,
+  title={Techniques for improving regression testing in continuous integration development environments},
+  author={Elbaum, Sebastian and Rothermel, Gregg and Penix, John},
+  booktitle={Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+  pages={235--245},
+  year={2014}
+}
+
+@inproceedings{yoo2011faster,
+  title={Faster fault finding at Google using multi objective regression test optimisation},
+  author={Yoo, Shin and Nilsson, Robert and Harman, Mark},
+  booktitle={8th European Software Engineering Conference and the ACM SIGSOFT Symposium on the Foundations of Software Engineering (ESEC/FSE’11), Szeged, Hungary},
+  year={2011}
+}
+
+@article{vargha2000critique,
+  title={A critique and improvement of the CL common language effect size statistics of McGraw and Wong},
+  author={Vargha, Andr{\'a}s and Delaney, Harold D},
+  journal={Journal of Educational and Behavioral Statistics},
+  volume={25},
+  number={2},
+  pages={101--132},
+  year={2000},
+  publisher={Sage Publications Sage CA: Los Angeles, CA}
+}
+
+@misc{googlejournal,
+	author = {Nguyen, Bao N. and Henderson, Tim and Micco, John and Dhanda, Sanjeev},
+	howpublished = {\url{https://sites.google.com/site/gjournalclub/}},
+	note = {Accessed on 18/03/2021.},
+	title = {Google Journal Club},
+	urldate = {2021-03-18},
+	year = {2016}}
+	
+	
+@article{jia2010analysis,
+  title={An analysis and survey of the development of mutation testing},
+  author={Jia, Yue and Harman, Mark},
+  journal={IEEE transactions on software engineering},
+  volume={37},
+  number={5},
+  pages={649--678},
+  year={2010},
+  publisher={IEEE}
+}
+
+
+@inproceedings{hutchins1994experiments,
+	author = {Hutchins, Monica and Foster, Herb and Goradia, Tarak and Ostrand, Thomas},
+	booktitle = {Proceedings of 16th International conference on Software engineering},
+	organization = {IEEE},
+	pages = {191--200},
+	title = {Experiments on the effectiveness of dataflow-and control-flow-based test adequacy criteria},
+	year = {1994}}
+
+
+@article{do2005supporting,
+	author = {Do, Hyunsook and Elbaum, Sebastian and Rothermel, Gregg},
+	journal = {Empirical Software Engineering},
+	number = {4},
+	pages = {405--435},
+	publisher = {Springer},
+	title = {Supporting controlled experimentation with testing techniques: An infrastructure and its potential impact},
+	volume = {10},
+	year = {2005}}
+	
+@misc{googledataset,
+	author = {Elbaum, Sebastian and Mclaughlin, Andrew and Penix, John},
+	howpublished = {\url{https://code.google.com/p/google-shared-dataset-of-test-suite-results}},
+	note = {Accessed on 11/10/2022.},
+	title = {The Google Dataset of Testing Results},
+	urldate = {2022-10-11},
+	year = {2014}}
+	
+@article{Garneri3507,
+	author = {Garner, Paul and Hopewell, Sally and Chandler, Jackie and MacLehose, Harriet and Akl, Elie A and Beyene, Joseph and Chang, Stephanie and Churchill, Rachel and Dearness, Karin and Guyatt, Gordon and Lefebvre, Carol and Liles, Beth and Marshall, Rachel and Mart{\'i}nez Garc{\'i}a, Laura and Mavergames, Chris and Nasser, Mona and Qaseem, Amir and Sampson, Margaret and Soares-Weiser, Karla and Takwoingi, Yemisi and Thabane, Lehana and Trivella, Marialena and Tugwell, Peter and Welsh, Emma and Wilson, Ed C and Sch{\"u}nemann, Holger J},
+	doi = {10.1136/bmj.i3507},
+	elocation-id = {i3507},
+	journal = {BMJ},
+	publisher = {BMJ Publishing Group Ltd},
+	title = {When and how to update systematic reviews: consensus and checklist},
+	url = {https://www.bmj.com/content/354/bmj.i3507},
+	volume = {354},
+	year = {2016},
+	bdsk-url-1 = {https://www.bmj.com/content/354/bmj.i3507},
+	bdsk-url-2 = {https://doi.org/10.1136/bmj.i3507}}
+
+@article{MENDES2020110607,
+	abstract = {[Context] Systematic Literature Reviews (SLRs) have been adopted by the Software Engineering (SE) community for approximately 15 years to provide meaningful summaries of evidence on several topics. Many of these SLRs are now potentially outdated, and there are no systematic proposals on when to update SLRs in SE. [Objective] The goal of this paper is to provide recommendations on when to update SLRs in SE. [Method] We evaluated, using a three-step approach, a third-party decision framework (3PDF) employed in other fields, to decide whether SLRs need updating. First, we conducted a literature review of SLR updates in SE and contacted the authors to obtain their feedback relating to the usefulness of the 3PDF within the context of SLR updates in SE. Second, we used these authors' feedback to see whether the framework needed any adaptation; none was suggested. Third, we applied the 3PDF to the SLR updates identified in our literature review. [Results] The 3PDF showed that 14 of the 20 SLRs did not need updating. This supports the use of a decision support mechanism (such as the 3PDF) to help the SE community decide when to update SLRs. [Conclusions] We put forward that the 3PDF should be adopted by the SE community to keep relevant evidence up to date and to avoid wasting effort with unnecessary updates.},
+	author = {Emilia Mendes and Claes Wohlin and Katia Felizardo and Marcos Kalinowski},
+	doi = {https://doi.org/10.1016/j.jss.2020.110607},
+	issn = {0164-1212},
+	journal = {Journal of Systems and Software},
+	keywords = {Systematic literature review update, Systematic literature reviews, Software engineering},
+	pages = {110607},
+	title = {When to update systematic literature reviews in software engineering},
+	url = {https://www.sciencedirect.com/science/article/pii/S0164121220300856},
+	volume = {167},
+	year = {2020},
+	bdsk-url-1 = {https://www.sciencedirect.com/science/article/pii/S0164121220300856},
+	bdsk-url-2 = {https://doi.org/10.1016/j.jss.2020.110607}}
+
+
+@inproceedings{luo2014empirical,
+  title={An empirical analysis of flaky tests},
+  author={Luo, Qingzhou and Hariri, Farah and Eloussi, Lamyaa and Marinov, Darko},
+  booktitle={Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+  pages={643--653},
+  year={2014}
+}
+
+@inproceedings{harman2018start,
+  title={From start-ups to scale-ups: Opportunities and open problems for static and dynamic program analysis},
+  author={Harman, Mark and O'Hearn, Peter},
+  booktitle={Proceedings of the 18th International Working Conference on Source Code Analysis and Manipulation (SCAM 18)},
+  pages={1--23},
+  year={2018},
+  organization={IEEE}
+}
+
+
+@book{Leskovec:2014,
+  author={Leskovec, Jure and Rajaraman, Anand and Ullman, Jeffrey D.},
+  title={Mining of Massive Datasets},
+  year={2014},
+  isbn = {1107077230, 9781107077232},
+  publisher={Cambridge University Press},
+  address = {New York, NY, USA}
+}
+
+@inproceedings{knauss2015supporting,
+  title={Supporting continuous integration by code-churn based test selection},
+  author={Knauss, Eric and Staron, Miroslaw and Meding, Wilhelm and S{\"o}der, Ola and Nilsson, Agneta and Castell, Magnus},
+  booktitle={2015 IEEE/ACM 2nd International Workshop on Rapid Continuous Software Engineering},
+  pages={19--25},
+  year={2015},
+  organization={IEEE}
+}
+
+@inproceedings{elbaum2014techniques,
+  title={Techniques for improving regression testing in continuous integration development environments},
+  author={Elbaum, Sebastian and Rothermel, Gregg and Penix, John},
+  booktitle={Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+  pages={235--245},
+  year={2014}
+}
+
+@inproceedings{harman2011making,
+  title={Making the case for MORTO: Multi objective regression test optimization},
+  author={Harman, Mark},
+  booktitle={2011 IEEE Fourth International Conference on Software Testing, Verification and Validation Workshops},
+  pages={111--114},
+  year={2011},
+  organization={IEEE}
+}
+
+@inproceedings{epitropakis2015empirical,
+  title={Empirical evaluation of pareto efficient multi-objective regression test case prioritisation},
+  author={Epitropakis, Michael G and Yoo, Shin and Harman, Mark and Burke, Edmund K},
+  booktitle={Proceedings of the 2015 International Symposium on Software Testing and Analysis},
+  pages={234--245},
+  year={2015}
+}
+
+@article{garousi2018multi,
+  title={Multi-objective regression test selection in practice: An empirical study in the defense software industry},
+  author={Garousi, Vahid and {\"O}zkan, Ramazan and Betin-Can, Aysu},
+  journal={Information and Software Technology},
+  volume={103},
+  pages={40--54},
+  year={2018},
+  publisher={Elsevier}
+}
+
+
+@article{di2015coverage,
+  title={Coverage-based regression test case selection, minimization and prioritization: A case study on an industrial system},
+  author={Di Nardo, Daniel and Alshahwan, Nadia and Briand, Lionel and Labiche, Yvan},
+  journal={Software Testing, Verification and Reliability},
+  volume={25},
+  number={4},
+  pages={371--396},
+  year={2015},
+  publisher={Wiley Online Library}
+}
+
+@inproceedings{silva2016hybrid,
+  title={A hybrid approach for test case prioritization and selection},
+  author={Silva, Dennis and Rabelo, Ricardo and Campanha, Matheus and Neto, Pedro Santos and Oliveira, Pedro Almir and Britto, Ricardo},
+  booktitle={2016 IEEE Congress on Evolutionary Computation (CEC)},
+  pages={4508--4515},
+  year={2016},
+  organization={IEEE}
+}
+
+@inproceedings{shi2015comparing,
+  title={Comparing and combining test-suite reduction and regression test selection},
+  author={Shi, August and Yung, Tifany and Gyori, Alex and Marinov, Darko},
+  booktitle={Proceedings of the 2015 10th joint meeting on foundations of software engineering},
+  pages={237--247},
+  year={2015}
+}
+

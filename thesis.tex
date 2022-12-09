@@ -7,7 +7,7 @@
 \graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
 
 %\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
-\usepackage[natbib=true]{biblatex}
+\usepackage[natbib=true, maxbibnames=99, maxcitenames=2, giveninits=true]{biblatex}
 
 \hypersetup{urlcolor=black, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
@@ -52,6 +52,8 @@
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage[noend]{algpseudocode}
+%\usepackage[english]{babel}
+\usepackage{hyphenat}
 %\usepackage[resetlabels,labeled]{multibib}
 \usepackage{multirow}
 %\usepackage{bibentry}
@@ -69,7 +71,7 @@
 %                        {   9pt}  % foot height
 %                        { 0.3in}  % foot sep
 
-
+%\hyphenation{non-de-ter-mi-nis-ti-cal-ly}
 
 \newcommand{\ugh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
 \newcommand{\ins}[1]{\textcolor{blue}{\uline{#1}}} % please insert
@@ -430,7 +432,7 @@ Even thousands of kilometers away, you are all special to me.
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
 \textbf{APFD}: \textbf{A}verage \textbf{P}ercentage of \textbf{F}aults \textbf{D}etected\\
-\textbf{CI/CD}: \textbf{C}ontinuous \textbf{I}ntegration/\textbf{D}elivery \\
+\textbf{CI/CD}: \textbf{C}ontinuous \textbf{I}ntegration/\textbf{C}ontinuous \textbf{D}elivery (or \textbf{D}eployment) \\
 \textbf{FAD}: \textbf{F}unctional \textbf{A}rea \textbf{D}omain \\
 \textbf{FOSS}: \textbf{F}ree and \textbf{O}pen-\textbf{S}ource \textbf{S}oftware \\
 \textbf{IR\&A}: \textbf{I}ndustrial \textbf{R}elevance and \textbf{A}pplicability \\

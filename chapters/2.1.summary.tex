@@ -3,10 +3,12 @@
 First of all, it is important to clarify the definitions of two sets of terms that are related, but offer distinct nuance to the discussion of software testing techniques.
 
 \paragraph{Failure, fault and error: } these terms are widely used throughout this thesis.
-While they may seem interchangeable, there are key distinctions that must be highlighted.
-A \textit{failure} is simply a test that fails instead of passing --- without further investigation, the cause of the failure is unknown.
-A \textit{fault} occurs when the SUT provides an unexpected output and, if the test suite is well-designed, a failure is triggered.
-Finally, an \textit{error} is the underlying cause of a fault, such as logic or semantics errors in the code, or an ambiguity or misinterpretation of the system requirements.
+While they may seem interchangeable, there are key distinctions that must be highlighted, as defined by the IEEE standard 1044-2009~\cite{IEEE1044-2009}.
+A \textit{failure} occurs when a system produces an incorrect or unexpected outcome, leading to a failing test case --- without further investigation, the cause of the failure might be unknown.
+A \textit{fault} is a specific part of the software that is incorrect; e.g. a logical or semantical issue in the source code that, when executed, will produce a failure.
+%occurs when the SUT provides an unexpected output and, if the test suite is well-designed, a failure is triggered.
+Finally, an \textit{error} is the human action that leads to a fault, such as having written incorrect code, or misinterpreted the system requirements.
+Terms like \textit{anomaly}, \textit{defect} or \textit{bug} can be used when referring generally to unexpected software behavior.
 
 \paragraph{Efficacy, effectiveness and efficiency: } these ``three Es'' are commonly used words when describing the results of a technique or experiment.
 Here, we follow dictionary definitions closely \cite{dictionary_eff}.

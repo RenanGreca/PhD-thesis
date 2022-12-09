@@ -4,7 +4,7 @@
 \chapter{Conclusion}\label{chap:conclusion}
 \lhead{\emph{\nameref{chap:conclusion}}}
 
-This thesis provides data, insight and discussions centered around test suite orchestration.
+This thesis provides data, insight and discussions centered around regression testing challenges and the overall goal of test suite orchestration.
 Based on an investigation of the literature, a proof-of-concept implementation of orchestration, and \textit{in loco} interviews with software testing practitioners,
 the result is a thorough investigation on the potential benefits of orchestration as well as the challenges that are currently faced by researchers and practitioners who wish to implement these techniques on real-world software.
 
@@ -85,7 +85,7 @@ The fact that we use \dfj means that we were running experiments on
 project versions that are potentially very far apart (e.g., years).
 In this setup, \ek might select a very large number of tests, because
 it was designed for small code changes between two
-consecutive commits~\cite{gligoricEk, VasicETAL17EkstaziSharp}.  However, 
+consecutive commits~\cite{gligoricEk, vasic_file-level_2017}.  However, 
 \ek ended up performing well
 even in our setup.
 
@@ -140,13 +140,23 @@ To the extent of our knowledge, these challenges are real and in need of further
 
 \section{Publications}\label{sec:publications}
 
-During the development of this thesis, the following papers were accepted for publication at software engineering conferences or journals.
-
-
 \begin{refsection}[P]
-	\newrefcontext[labelprefix=P]
+During the development of this thesis, the following papers were accepted for publication at software engineering conferences or journals.
+We note that \cite{rossi2020defensive_p} is not related to the topic of this thesis, but was a collaborative effort with other colleagues.
+\cite{greca_comparing_2022_p} is mostly related to the work seen in \Cref{chap:orchestration}, while \cite{greca_live_2022_p} is the journal version of our systematic literature review, and relates to Chapters \ref{chap:literature_review}, \ref{chap:gap} and \ref{chap:live} of this thesis.
+
+	\newrefcontext[labelprefix=P, sorting=ynt]
 	\nocite{*}
     \printbibliography[heading=P]
+
+We are preparing three additional papers for submission based on different parts of this work.
+
+\begin{enumerate}
+	\item One short paper containing a formal definition of test suite orchestration including examples and ongoing challenges;
+	\item One industry-track paper containing the interviews and observations from \Cref{chap:industry} and comparisons with the state of practice in other software companies; and
+	\item One extension of the work from \Cref{chap:orchestration} including additional components in the orchestration.
+\end{enumerate}
+   
 \end{refsection}
 
 

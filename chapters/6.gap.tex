@@ -56,7 +56,7 @@ This general sentiment matches the responses received during interviews at our i
 There exists a mismatch between academic motivations and industrial needs: research is concerned with discovering novel techniques that might provide marginal effectiveness gains over the state-of-the-art, while practitioners are mostly concerned with any solution that simplifies their workflow.
 In other words, even if an \rt technique has the potential to greatly reduce the testing time of a suite, practitioners will weigh those benefits against the effort required to implement the technique and adapt/maintain it for their needs.
 This is not to say that the current research motivations are ill-informed: it is the role of academia to push the boundaries of what is possible in theory first, and sometimes this theory takes many years to find relevance in practice.
-One interviewee from \Cref{chap:industry} gave an example of this: \quoter{mutation testing\footnote{Mutation testing refers to a set of techniques that introduce artificial errors in the \sut in order to validate the efficacy of a test suite \cite{somethingsomethingmutation}.} has been in the literature since the 1990s, and it is starting to see adoption in industry today}{R8}.
+One interviewee from \Cref{chap:industry} gave an example of this: \quoter{mutation testing\footnote{Mutation testing refers to a set of techniques that introduce artificial errors in the \sut in order to validate the efficacy of a test suite \cite{jia2010analysis}.} has been in the literature since the 1990s, and it is starting to see adoption in industry today}{R8}.
 
 If the researchers have the objective of implementing their approach, they must be certain that it is addressing the current needs of practitioners.
 An obvious way to achieve this, which is also confirmed by our literature review, is by developing techniques through direct partnerships between academic researchers and industrial practitioners (or even open-source communities).
@@ -131,7 +131,7 @@ Still, APFD has been in use for over 20 years and it cannot simply be dismissed:
 
 For the cases of \tcs and \tsr, there is less controversy on what are the most important metrics; reduction rate and fault detection loss appear to be the consensus among researchers, and there are fewer novel and single-use metrics.
 As an example,~\citetalias{mehta_data-driven_2021} interviewed practitioners at Microsoft before deciding on their \tcs metrics, obtaining three main targets: reduction of cost, reduction of time and the failure detection rate.
-We can observe in~\Cref{sec:rq1} that these concerns are reasonably addressed by \tcs techniques, although researchers still appear to prioritize reducing the selected set rather than ensuring all failures are detected.
+We can observe in~\Cref{sec:lit_rq1} that these concerns are reasonably addressed by \tcs techniques, although researchers still appear to prioritize reducing the selected set rather than ensuring all failures are detected.
 
 The metrics of applicability and diagnosability \citepalias{correia_motsd_2019, zhou_beating_2020} are interesting propositions that consider other degrees of usefulness of a tool to developers.
 Their existence indicates that some researchers still believe there is room for improved metrics that, perhaps, better map the requirements of real-world software, although these are rarely found in the literature.

@@ -19,14 +19,14 @@ This can have an impact in the moments that immediately follow the orchestration
 
 As a step towards the goal of fully automated orchestration of test suites that can be useful in real-world software, 
 we focus here on regression testing techniques extracted from the existing literature that have been conceived for practical relevance and scalability.
-Specifically, as a representative \tcs approach we adopt \ek~\cite{gligoricEk} while for \tcp we use \fs~\cite{miranda_fast}.
+Specifically, as a representative \tcs approach we adopt \ek~\cite{gligoricEk} while for \tcp we use \fs~\cite{miranda_fast_2018}.
 The criteria used for selecting these tools were: their cost-effectiveness and simplicity of application; their availability as open-source programs; finally, also for convenience as authors of both tools were also involved with the development of the current study.
 
 Concerning \tcs, in an empirical study conducted in 2014~\cite{gligoric_empirical}, the authors observed that many techniques were not adopted in practice and developers mostly continued to perform manual selection of test cases.  
-Motivated by this study, Gligoric et al.~\cite{gligoricEk} proposed  \ek,  a lightweight \tcs technique that leverages file dependencies.
-Besides the original paper on \ek, several follow-up studies showed the benefit of file-based selection over other approaches~\cite{legunsen2016, Zhang18HybridRTS}.
+Motivated by this study,~\citet{gligoricEk} proposed  \ek,  a lightweight \tcs technique that leverages file dependencies.
+Besides the original paper on \ek, several follow-up studies showed the benefit of file-based selection over other approaches~\cite{legunsen2016, zhang_hybrid_2018}.
 
-Concerning \tcp, in a recent  study Miranda et al.~\cite{miranda_fast} showed that many existing techniques do not scale-up to large test suites.
+Concerning \tcp, in a recent study~\citet{miranda_fast_2018} showed that many existing techniques do not scale-up to large test suites.
 They hence proposed the \fs approach that applies Locality-Sensitive Hashing (LSH) techniques~\cite{Leskovec:2014} for similarity-based prioritization.
 In the original work, the authors assess \fs against several competing \tcp techniques, showing that it gives comparable effectiveness but with higher efficiency.
 
@@ -55,10 +55,10 @@ In particular, this combined approach aims to decrease \textit{developer feedbac
 %To the best of our knowledge, \textit{\fz is the first regression test orchestration approach that combines file-based selection with similarity-based  prioritization.}
 
 Clearly \fz is one instance within a plethora of possible combinations of many existing \tcs and \tcp approaches, and further studies should be conducted to evaluate  different combinations.
-Indeed, following the case made by Harman~\cite{harman2011making},
+Indeed, following the case made by~\citet{harman2011making},
 research in combining multiple criteria in the context of one regression technique is very active, e.g.,~\cite{epitropakis2015empirical,garousi2018multi}.
 Much less attention has been devoted so far to using multiple criteria while combining different regression techniques, which we see as an essential part of test suite orchestration.
-Di Nardo et al.~\cite{di2015coverage} applied and assessed minimization, selection and prioritization techniques on a single industrial case study, but only considering coverage-based criteria;  Silva et al.~\cite{silva2016hybrid} proposed to combine prioritization and selection based on function criticality (assessed manually); Najafi et al.~\cite{najafi2019improving} evaluated selection and prioritization based on test execution history on a large industrial system;
+Di Nardo et al.~\cite{di2015coverage} applied and assessed minimization, selection and prioritization techniques on a single industrial case study, but only considering coverage-based criteria;  Silva et al.~\cite{silva2016hybrid} proposed to combine prioritization and selection based on function criticality (assessed manually); Najafi et al.~\cite{najafi_improving_2019} evaluated selection and prioritization based on test execution history on a large industrial system;
 Shi et al.~\cite{shi2015comparing} combined and evaluated test reduction (based on coverage) and selection (based on changes). 
 \fz is the first regression test orchestration approach that combines file-based \tcs with similarity-based \tcp.
 

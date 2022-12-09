@@ -35,7 +35,7 @@ For this, we use the GNU \texttt{time} utility (user+sys CPU time) to measure ea
 
 The goal of the experiment is to compare four possible arrangements of the test suite: 
 the tests selected by \ek; the test suite prioritized by \fs; the orchestration of both with \fz; and a random ordering of the test suite to provide a base case.
-Considering that both \ek and \fs have been previously compared to several competing \tcs and \tcp approaches~\cite{legunsen2016, Zhang18HybridRTS,miranda_fast}, we deemed it not necessary to add further alternatives in a direct comparison between the two tools.
+Considering that both \ek and \fs have been previously compared to several competing \tcs and \tcp approaches~\cite{legunsen2016, zhang_hybrid_2018, miranda_fast_2018}, we deemed it not necessary to add further alternatives in a direct comparison between the two tools.
 
 We utilize as subjects 12 projects available as part of the \dfj repository~\cite{just2014defects4j} that contains multiple versions of Java-based open-source software projects of different sizes.
 Each version is comprised of one commit containing a bug, the commit that fixed the bug, and metadata such as the files related to the bug, and which tests would detect it.

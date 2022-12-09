@@ -27,10 +27,10 @@ Since the software could only be shipped once all features were done, intermedia
 Continuously evolving software shifted this dynamic.
 With smaller and more frequent release cycles, regression testing too became a more frequent activity.
 At the same time, the incredible feature speed demanded by customers and consumers means that it is not viable to postpone testing until right before release --- if a bug is detected at that point, it might be too late to fix it before delivery.
-Thus, with the development of Continuous Integration/Delivery (CI/CD) practices and tools, automated regression testing became commonplace, sometimes executed as frequently as new code changes were pushed into a repository.
+Thus, with the development of Continuous Integration/Continuous Delivery (CI/CD) practices and tools, automated regression testing became commonplace, sometimes executed as frequently as new code changes were pushed into a repository.
 
 Test automation mostly solves the problem in small projects, where it takes only a few seconds or maybe minutes to run a full test suite.
-Large-scale software demand additional attention because of two factors: the test suite is large and take a long time to execute, and code commits arrive at such a high frequency that there isn't enough time to run the test suite between each commit.
+Large-scale software demand additional attention because of two factors: the test suite is large and takes a long time to execute, and code commits arrive at such a high frequency that there isn't enough time to run the test suite between each commit.
 Often, a combination of both factors become a major challenge in large-scale software development \cite{memon_taming_2017}.
 
 In order to maintain the health of the testing process and the availability of testing equipment, the execution time of a suite should be less than the average time between commits pushed by developers.

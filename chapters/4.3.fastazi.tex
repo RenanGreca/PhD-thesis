@@ -18,12 +18,12 @@ a prioritized test suite could mitigate the drawbacks of over-selecting test cas
 
 \subsection{\fs}\label{sec:orch_fast}
 
-\fs~\cite{miranda_fast} utilizes test source code as input for a \emph{similarity-based algorithm} to prioritize the tests.
+\fs~\cite{miranda_fast_2018} utilizes test source code as input for a \emph{similarity-based algorithm} to prioritize the tests.
 Inspired by big data techniques, string representations of test cases are transformed using minhashing signatures, which are then ordered according to their similarity.
 The benefits of \fs are low overhead and scalability, which make it usable for large software projects.
 We chose it because of its low running times and relatively simple implementation.
 
-\fs authors~\cite{miranda_fast} examined several possible variations of it
+\fs authors~\cite{miranda_fast_2018} examined several possible variations of it
 that trade off efficiency for accuracy when choosing the next test(s).
 These are all stochastic by nature;
 as the authors point out, if two test cases are ranked equally, the tie is solved randomly.
@@ -39,7 +39,7 @@ Therefore, in this paper  we consider the \fs-pw variant, and in the following w
 Many researchers have shown that \tcs and \tcp  provide substantial benefits 
 to regression testing~\cite{bin_ali_search_2019, kazmi_effective_2017, khatibsyarbini_test_2018, RothermelHarrold94FrameworkForEvaluationRTS}:
 a good selection decreases the overall testing time, while a good prioritization allows for detecting failures faster.
-However the two concepts are not mutually exclusive, and an orchestration of both may provide even further improvements, e.g.,~\cite{spieker2017reinforcement,elbaum2014techniques}.
+However the two concepts are not mutually exclusive, and an orchestration of both may provide even further improvements, e.g.,~\cite{spieker_reinforcement_2017,elbaum2014techniques}.
 
 If a test suite is selected \textit{and} prioritized, both testing time and feedback time can be decreased.
 Recall that \tcs can be defined as a function $S(T)$ that produces a subset of tests and \tcp as a function $P(T)$ that outputs a permutation of $T$.
@@ -88,7 +88,7 @@ Colored red, $t_{170}$ is the failing test within a test suite $T$ of 363 test c
 In $S$, the output of \ek, this test is found in the 78th position, because several tests were excluded during the selection, while in the output $P$ of \fs, it is moved up to the 17th position.
 Finally, the output of \fz, $O$, which is selected and prioritized, promoted the test to the 9th position.
 
-Algorithm \Cref{algo:fastazi} provides an abstract view of \ek and \fs\footnote{For a complete understanding of \ek and \fs, refer to~\cite{gligoricEk,miranda_fast}.}, and outlines how \fz works in practice.
+\Cref{algo:fastazi} provides an abstract view of \ek and \fs\footnote{For a complete understanding of \ek and \fs, refer to~\cite{gligoricEk,miranda_fast_2018}.}, and outlines how \fz works in practice.
 \ek requires tests to be compiled before performing selection, while \fs needs the hash signature of each test before prioritizing the suite.
 These two steps are independent and can be performed in parallel (they are both abstracted by the function GetHashesAndModified).
 After that, \ek can perform its selection normally, and \fs prioritizes the resulting list of tests.
