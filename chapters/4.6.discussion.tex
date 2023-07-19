@@ -22,7 +22,26 @@ In addition to that, we would also like to try orchestrating other \tcs and \tcp
 %It can be worthwhile to also expand the study to the orchestration of techniques along other dimensions of regression testing, e.g., also test reduction or test amplification.
 %Overall, we consider that for maximized efficacy under restricted budgets the problem of regression testing should be addressed in a holistic strategy that we called regression test orchestration. 
 
-\subsection{Future directions for test suite orchestration}
+\subsection{Existing Examples of Test Suite Orchestration}
+
+Although the nomenclature of Test Suite Orchestration is recent, the concept behind it is not entirely new.
+The reader might have observed that the literature review in \Cref{chap:literature_review} contains some examples of papers that address some combination of \tcp, \tcs, and \tsr --- thus wondering if these are previous examples of orchestration in the literature.
+This is true in certain cases, although not always.
+
+Particularly, orchestration refers to strategies combining different approaches to certain aspects of \rt.
+Conversely, most of the papers in the review covering more than one \rt challenges (in most cases, \tcp and \tcs) do so by applying a common algorithm to both problems.
+Thus, they do not strictly fall under the definition of Test Suite Orchestration, although they could still be considered as a component of an orchestration strategy along with other approaches.
+
+Aside from our own publication introducing \fz \cite{greca_comparing_2022}, a notable example of test suite orchestration is from \citet{shi2015comparing}, which is not discussed in \Cref{chap:literature_review} due to its publication date of 2015, who compare empirically \tsr and \tcs.
+The authors observe that both techniques aim at running only a subset of the test suite, thus asking which one is better considering the size of the reduced test suite, and the loss in terms of detection capability of change-related faults.
+For \tcs their study adopts the \ek tool above mentioned, whereas for \tsr they remove redundant test cases using a greedy heuristic based on statement coverage.
+From the comparison they conclude that \tcs on average returns a smaller test suite size, with no loss in change-related faults detection for safe \tcs techniques.
+In comparison, \tsr can miss a small percentage of change-related faults. They also evaluate a combination of the two techniques, specifically ``selection of reduction'' in which \tcs is applied on the reduced suite obtained by \tsr: this can further reduce the number of tests yielding the same loss in fault detection observed for \tsr alone.
+
+We were unable to detect further examples of publications fitting the mold of Test Suite Orchestration.
+This signifies that addressing more than one challenge with the same technique is an existing — even if infrequent — concern among researchers, but combining distinct approaches together is not.
+
+\subsection{Future Directions for Test Suite Orchestration}
 
 As previously discussed, the experiments we performed with \fz is a starting point for test suite orchestration.
 This work paves the way to exploring a full range of potential strategies of combining differing criteria for selection and prioritization. 
@@ -61,7 +80,7 @@ Finally, the orchestrated test suite \textbf{O} is produced, which can be used t
 
 \begin{figure*}[h]
   \centering
-  \includegraphics[width=\linewidth]{figures/Orchestration.pdf}
+  \includegraphics[width=\linewidth]{figures/Orchestration-Compact.pdf}
   \begin{flushleft}
 	\footnotesize Legend: 
 	\textbf{v\textsubscript{i-1}}, \textbf{v\textsubscript{i}}, \textbf{v\textsubscript{i+1}}: previous, current and next version of the \sut; 

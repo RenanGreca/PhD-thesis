@@ -18,7 +18,6 @@ From an industry perspective, these bugs are costly --- fixing software defects 
 As such, it is important for companies and communities developing software to utilize methods to mitigate the possibility that faulty software will reach production.
 Today, most commercial and open-source software products are accompanied by a \textit{test suite}, a series of automated tests that are used to provide a level of certainty that parts of a software, both in isolation and in conjunction, correctly perform the tasks to which they are assigned.
 One widely-adopted software testing technique is called \textit{regression testing} (\rt); its primary role is to execute the test suite with a certain frequency, in order to guarantee that recently introduced changes to the software do not affect previously-correct behavior.
-
 However, in large-scale software development (that is, with multiple developers and a large codebase), it is usually unfeasible to execute every test after every change, either because changes are too frequent, or because there are too many tests, or both.
 This is aggravated by the fact that most software is now developed in a \textit{continuous} manner, meaning software that is developed in an iterative and cyclical process, resulting in a short turnaround time between the design of a requirement, the development of a feature, and the delivery of an update to customers.
 %in which it is desirable that recent changes are put in production as quickly as possible.
@@ -92,9 +91,9 @@ It also acknowledges the threats to validity of the preceding chapters and, fina
 
 In summary, the contributions of this research are as follows:
 \begin{itemize}
-	\item A comprehensive literature review highlighting research with a high degree of applicability between the years 2016-2022.
+	\item A comprehensive literature review highlighting research with a high degree of applicability between the years 2016-2022 \cite{greca_live_2022}.
 	\item Follow-up information from the authors of the cited papers, detailing their long-term impact and the challenges that prevent implementation of a technique.
-	\item A proof-of-concept for test suite orchestration, combining existing robust research and drawing paths for future expansion.
+	\item A proof-of-concept for test suite orchestration, combining existing robust research and drawing paths for future expansion \cite{greca_comparing_2022}.
 	\item A series of interviews with practitioners at a major technology company, presenting an overview of how testing is performed there and what are the issues faced by the team that could be alleviated by software testing research.
 	\item A list of challenges gathered from the preceding work, which can help future researchers address barriers to applicability and should help research turn into practice.
 	\item A live repository of papers extracted from the literature review, which will serve as a starting point for researchers and practitioners seeking to develop new and practical regression testing techniques. 

@@ -31,112 +31,20 @@ The closing message of this thesis is one of community and collaboration: in ord
 It is our sincere belief that such collaboration is possible and will at some point be achieved.
 We hope that the conclusion and publication of this study will help this happen sooner rather than later.
 
-This chapter contains two additional sections: \Cref{sec:threats} lists the threats to the validity of relevant parts of this study, and \Cref{sec:publications} briefly discusses the papers that were submitted and/or published during the development of this PhD thesis.
+This chapter contains one additional section,
+%: \Cref{sec:threats} lists the threats to the validity of relevant parts of this study, and \Cref{sec:publications} briefly 
+discussing the papers that were submitted and/or published during the development of this PhD thesis.
 
 %There is still much work to be done by the software engineering research and development communities in order to completely close the gap that exists between them.
 %To a great extent, the motivations of researchers and practitioners are not aligned --- while in academia, proposing theoretically sound novel approaches is encouraged to obtain publications, in industry there is a need for techniques that are proven to reduce effort and/or costs.
 %This can only be solved by close collaboration between the two sides, yet a question of who is willing to fund these experiments remain.
 %The data and discussions provided in this thesis show that, although difficult, this is not an impossible problem to solve and there are certain clear steps that can be taken by researchers and practitioners alike to begin addressing it.
 
-\section{Threats to Validity}\label{sec:threats}
-
-There are certain threats to the validity of Chapters \ref{chap:literature_review}, \ref{chap:orchestration}, \ref{chap:industry} and \ref{chap:gap}.
-To the extent of possibility, we have worked to mitigate those threats and produce a robust, accurate, consistent and replicable study.
-Nonetheless, the threats we have identified are listed and discussed as follows.
-
-\subsection{Threats to \Cref{chap:literature_review} }
-
-\paragraph{Construct validity} Despite our efforts to comprehensively find all primary studies that meet our selection criteria, we might have missed some.
-To mitigate this threat, we performed a systematic search over five broad digital libraries and complemented the search with a snowballing cycle and a check with authors of all found studies, who in fact suggested a few additional entries.
-
-As usual for this kind of study, our selection of papers was performed through queries, followed by manual filtering.
-To diminish potential bias of the latter step, the filtering process was systematically reviewed and agreed upon among all the three authors.
-
-\paragraph{Internal validity} The internal validity of this study is strongly dependent on the three research questions that guided all our analysis as well as the data extraction form we  built.
-We took great care in ensuring that they properly reflect our objectives, although it is unavoidable that, by formulating  different questions or using other data extraction forms, we could have obtained other results.
-We might also have overlooked or misinterpreted some important information or arguments in the primary studies, beyond our best efforts and accuracy in the full reading of all selected papers.
-To mitigate such threats we provide all extracted data in traceable format, highlighting the main points we extracted from each primary study.
-Furthermore, the responses we received directly from authors often provide additional context that reduce the risk of misinterpretation.
-That said, we cannot make the full responses available due to non-disclosure requests from some authors.
-
-\paragraph{Conclusion validity}
-The conclusions we drew in terms of  the information  we summarize from the primary studies, the detected challenges we discuss in the above section and the recommendations we formulate in the conclusions might have been influenced by our background, and other authors might have reached different conclusions.
-Such potential bias is unavoidable in this type of study, however we tried to mitigate it by aiming at full consensus of all authors behind each conclusion.
-Furthermore, by documenting in detail the data extraction process, we ensure a fully transparent study that can be verified and replicated.
-The survey sent to practitioners helps to validate our conclusions.
-Although the sample of 23 responses is very small, it shows a degree of alignment among people working in six different countries.
-A convenience sample was used to distribute the survey; thus, the practitioners we reached are more likely to have some contact with ongoing research.
-To avoid excessive bias in that direction, we did not contact members of industry who are known to regularly publish in Software Engineering events.
-
-\paragraph{External validity}
-We do not make any claim of validity of our conclusions beyond the \numpapers papers analyzed.
-As more primary studies are published, they should be read and analyzed on their own, and our conclusions should be revised accordingly. In consideration of this threat, in the aim of ensuring validity even in future, we are committed to keep the live repository up-to-date, taking into account the community inputs.
-Moreover, we believe that the framework we developed consisting of the three research questions, the data extraction form and the structured tables for summarizing the approaches and the metrics could be still applicable also by other external authors.
-
-\subsection{Threats to \Cref{chap:orchestration} }
-
-We evaluated \fz using faults available in \dfj.  Our results and
-conclusions could be different had we used another bug repository.
-However, \dfj is among the most popular bug repositories and is
-heavily used in research on regression testing.  Additionally, it
-includes real faults, which strengthens our findings.
-
-The fact that we use \dfj means that we were running experiments on
-project versions that are potentially very far apart (e.g., years).
-In this setup, \ek might select a very large number of tests, because
-it was designed for small code changes between two
-consecutive commits~\cite{gligoricEk, vasic_file-level_2017}.  However, 
-\ek ended up performing well
-even in our setup.
-
-We defined the testing budget as the number of tests that one can run
-at each project version, which does not take into account the
-differences in individual test execution time.  As we focus on unit
-tests, we do not expect that there would be substantial differences in
-execution time across tests.
-
-To measure effectiveness, we used \ttff and \apfd. As known the \dfj subjects contain only one fault per version and hence the two measures behave similarly. 
-To mitigate this issue, we need to perform more studies on subjects containing multiple faults, for which the \apfd measure becomes more valuable. 
-
-In our experiments we assume that test execution is deterministic,
-which we know  does not always hold in practice, i.e.,
-tests are flaky~\cite{luo2014empirical,harman2018start}.
-We have not observed any flaky behavior in our
-experiments: only the expected set of tests was failing in each run.
-
-\subsection{Threats to \Cref{chap:industry} }
-
-\paragraph{Construct validity}
-The observations in \Cref{chap:industry} were only possible due to a collaboration with an European technology company, facilitated by a person who is in frequent contact with both the company and the academic world.
-It is important to note that the findings relate to an experience of only seven weeks at only one office of the company.
-We did our best efforts to understand the internal testing strategies and workflows, but the overall complexity of the processes is too high to be completely comprehended in a short timeframe.
-
-\paragraph{Internal validity} 
-The interviews that were conducted for this chapter were based on the research questions presented here.
-These research questions were designed to reflect our goals when designing that part of the research, and inevitably narrow the possible findings and guide the general outcome of the study.
-The quotes included in this chapter are transcribed from verbal interviews with practitioners and edited by the author for legibility, clarity and cohesiveness with the text.
-It is possible that a response was misinterpreted by the interviewer or that the meaning of a quote is not fully clear to a reader.
-We took great care of transcribing the interviews as accurately as possible, and of ensuring that their meaning was not altered by cherry-picking quotes or adjusting their wording.
-Mitigating this risk, the chapter has been read and approved by two people from the industrial partner, ensuring their point of view is correctly expressed.
-Due to a non-disclosure agreement with the industrial partner, we cannot provide the full unedited transcripts of the interviews.
-
-\paragraph{Conclusion validity}
-The conclusions drawn from the interviews are a result of our own interpretation of the situation, based on the observed data, on discussions with members of the company, and related information extracted from the software engineering literature.
-Inevitably these conclusions are influenced by the background of the researchers who, to the degree of possibility, allowed the newfound information to shape the conclusions, not the opposite.
-Unfortunately, this study is not easily replicable, as core components of it are left undisclosed due to confidentiality concerns by the industrial partner. 
-
-\paragraph{External validity}
-These observations relate to one team at one office at a large company.
-The conclusions we draw relate solely to that team and might not generalize to the practices observed in the rest of the company.
-Furthermore, we make no claims that these findings generalize to software industry as a whole.
-This threat can only be mitigated if more companies are willing to allow researchers to interview their employees and understand their testing processes and challenges.
-
-\subsection{Threats to \Cref{chap:gap} }
-
-The list of challenges assembled in \Cref{chap:gap} is based on our own observations of the current state of industry-academia relations from a multitude of sources: the literature, communications with other authors, feedback from practitioners and our own experiences developing techniques.
-It is not meant to be a comprehensive and end-all checklist of challenges to solve, as other researchers following different sources would likely come to a divergent set of conclusions.
-That said, we believe that most researchers performing a similar study would agree upon the majority of the listed challenges.
-To the extent of our knowledge, these challenges are real and in need of further study, but there is no guarantee that addressing each one of them will solve all the problems with software engineering research.
+%\section{Threats to Validity}\label{sec:threats}
+%
+%There are certain threats to the validity of Chapters \ref{chap:literature_review}, \ref{chap:orchestration}, \ref{chap:industry} and \ref{chap:gap}.
+%To the extent of possibility, we have worked to mitigate those threats and produce a robust, accurate, consistent and replicable study.
+%Nonetheless, the threats we have identified are listed and discussed as follows.
 
 \section{Publications}\label{sec:publications}
 
@@ -144,15 +52,15 @@ To the extent of our knowledge, these challenges are real and in need of further
 During the development of this thesis, the following papers were accepted for publication at software engineering conferences or journals.
 We note that \cite{rossi2020defensive_p} is not related to the topic of this thesis, but was a collaborative effort with other colleagues.
 \cite{greca_comparing_2022_p} is mostly related to the work seen in \Cref{chap:orchestration}, while \cite{greca_live_2022_p} is the journal version of our systematic literature review, and relates to Chapters \ref{chap:literature_review}, \ref{chap:gap} and \ref{chap:live} of this thesis.
+\cite{greca_orchestration_2023_p} is a short paper containing a formal definition of test suite orchestration including examples and ongoing challenges.
 
-	\newrefcontext[labelprefix=P, sorting=ynt]
+	\newrefcontext[labelprefix=P]
 	\nocite{*}
     \printbibliography[heading=P]
 
-We are preparing three additional papers for submission based on different parts of this work.
+We are preparing two additional papers for submission based on different parts of this work.
 
 \begin{enumerate}
-	\item One short paper containing a formal definition of test suite orchestration including examples and ongoing challenges;
 	\item One industry-track paper containing the interviews and observations from \Cref{chap:industry} and comparisons with the state of practice in other software companies; and
 	\item One extension of the work from \Cref{chap:orchestration} including additional components in the orchestration.
 \end{enumerate}

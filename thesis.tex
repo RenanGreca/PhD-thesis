@@ -7,7 +7,7 @@
 \graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
 
 %\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
-\usepackage[natbib=true, maxbibnames=99, maxcitenames=2, giveninits=true]{biblatex}
+\usepackage[natbib=true, maxbibnames=99, maxcitenames=2, giveninits=true, sorting=none]{biblatex}
 
 \hypersetup{urlcolor=black, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
@@ -118,6 +118,15 @@
 \newcommand{\breno}[1]{[[\textbf{Breno:}~{\color{teal}#1}]]}
 \newcommand{\renan}[1]{[[\textbf{Renan:}~{\color{brown}#1}]]}
 
+
+\definecolor{bronze}{HTML}{666211}
+\definecolor{cyprus}{HTML}{006666}
+\definecolor{derby}{HTML}{664422}
+\definecolor{diesel}{HTML}{660122}
+\definecolor{verdun}{HTML}{366600}
+\definecolor{midnight}{HTML}{002766}
+\definecolor{bossanova}{HTML}{642B66}
+
 % Circles
 \usepackage{tikz}
 \newcommand*\emptycirc[1][1ex]{%
@@ -220,7 +229,7 @@
 %\href{http://www.jamessmith.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
 \bigskip \supname \\
 \href{mailto:antonia.bertolino@isti.cnr.it}{antonia.bertolino@isti.cnr.it} \\
-Prof. Breno \textsc{Miranda}
+Prof. Breno \textsc{Miranda}\\
 \href{mailto:bafm@cin.ufpe.br}{bafm@cin.ufpe.br} \\
 \bigskip \bigskip
 \emph{Internal advisor:} \\
@@ -605,6 +614,7 @@ Even thousands of kilometers away, you are all special to me.
 %    \printbibliography[heading=S]
 %\end{refsection}
 
+\newrefcontext[sorting=nyt]
 \printbibliography
 %\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 %\bibliography{secondaries.bib,bibliography.bib,production.bib,slr.bib} % This contains only the 

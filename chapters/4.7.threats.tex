@@ -1,0 +1,31 @@
+\section{Threats to Validity}
+\label{sec:orch_threats}
+
+We evaluated \fz using faults available in \dfj.  Our results and
+conclusions could be different had we used another bug repository.
+However, \dfj is among the most popular bug repositories and is
+heavily used in research on regression testing.  Additionally, it
+includes real faults, which strengthens our findings.
+
+The fact that we use \dfj means that we were running experiments on
+project versions that are potentially very far apart (e.g., years).
+In this setup, \ek might select a very large number of tests, because
+it was designed for small code changes between two
+consecutive commits~\cite{gligoricEk, vasic_file-level_2017}.  However, 
+\ek ended up performing well
+even in our setup.
+
+We defined the testing budget as the number of tests that one can run
+at each project version, which does not take into account the
+differences in individual test execution time.  As we focus on unit
+tests, we do not expect that there would be substantial differences in
+execution time across tests.
+
+To measure effectiveness, we used \ttff and \apfd. As known the \dfj subjects contain only one fault per version and hence the two measures behave similarly. 
+To mitigate this issue, we need to perform more studies on subjects containing multiple faults, for which the \apfd measure becomes more valuable. 
+
+In our experiments we assume that test execution is deterministic,
+which we know  does not always hold in practice, i.e.,
+tests are flaky~\cite{luo2014empirical,harman2018start}.
+We have not observed any flaky behavior in our
+experiments: only the expected set of tests was failing in each run.

@@ -41,8 +41,9 @@ to regression testing~\cite{bin_ali_search_2019, kazmi_effective_2017, khatibsya
 a good selection decreases the overall testing time, while a good prioritization allows for detecting failures faster.
 However the two concepts are not mutually exclusive, and an orchestration of both may provide even further improvements, e.g.,~\cite{spieker_reinforcement_2017,elbaum2014techniques}.
 
-If a test suite is selected \textit{and} prioritized, both testing time and feedback time can be decreased.
-Recall that \tcs can be defined as a function $S(T)$ that produces a subset of tests and \tcp as a function $P(T)$ that outputs a permutation of $T$.
+If a test suite $T$ is selected \textit{and} prioritized, both testing time and feedback time can be decreased.
+Recall that, as seen in \Cref{sec:tcp}, \tcp can be defined as a function $P(T)$ that outputs a permutation of $T$ for a given \sut.
+Furthermore, as detailed in \Cref{sec:tcs}, \tcs can be seen as a function $S(T)$ that produces a subset of $T$ considering the differences between versions of an \sut \footnote{For simplicity of notation, in this section we omit the \sut and its subsequent versions as parameters to the $S$ and $P$ functions as, for the purposes of experimentation, they can be thought of as information inextricably linked to the test suite $T$.}.
 Then, the goal of an approach that orchestrates \tcs and \tcp is to generate another function, $O(T)$, 
 whose output is smaller than $T$ and ordered to speed up failures detection.
 When discussing possible ways of orchestrating \tcs and \tcp, two approaches stand out.

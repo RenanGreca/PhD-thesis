@@ -49,7 +49,10 @@ CH10 & Communication                       &                & \fullcirc 	 & \ful
 
 % ===================
 
-\paragraph{CH1: Alignment of motivations}
+\section{List of Challenges}
+\label{sec:gap_challenges}
+
+\subsection{CH1: Alignment of Motivations}
 When asked what would convince them to implement and use an~\rt tool, eight surveyed practitioners gave responses that can be synthesized into ``\textit{it would make my work easier}''.
 This general sentiment matches the responses received during interviews at our industrial partner.
 
@@ -78,7 +81,7 @@ Rather, they would rather adopt practices with a proven and predictable outcome.
 
 % ===================
 
-\paragraph{CH2: Realistic experimentation}
+\subsection{CH2: Realistic Experimentation}
 It is clearly not possible for every research paper to feature practitioner co-authors or to rely on an industrial partnership for experimentations.
 Selecting the right subject for experiments is a decisive point when writing a paper about a technique.
 Older studies on \rt would often rely on the ``Siemens programs''~\cite{hutchins1994experiments}, which is believed to have caused an overfitting of results to a particular kind of software~\cite{do_recent_2016}.
@@ -111,7 +114,7 @@ At the very least, this would help researchers choose subjects with similar char
 
 % ===================
 
-\paragraph{CH3: Scalability}
+\subsection{CH3: Scalability}
 \rt techniques provide the most savings when applied to large-scale software projects, which can have multiple thousands of test cases.
 Therefore, it is important that techniques are designed to scale up to any size of test suite, but few papers tackle this issue directly.
 The trouble is that scalability is very hard to measure unless multiple subjects of different sizes are used.
@@ -121,7 +124,7 @@ So selecting the size of the experiment subject is important both to highlight t
 
 
 % ===================
-\paragraph{CH4: Relevance of metrics}
+\subsection{CH4: Relevance of Metrics}
 \Cref{sec:lit_rq1} shows that a wide variety of metrics has been used to evaluate the effectiveness of \rt techniques.
 Some are used almost universally for a certain kind of challenge (e.g. APFD for \tcp), while others have nearly no presence beyond the paper that introduced them.
 
@@ -141,7 +144,7 @@ One practitioner stated: ``\textit{I don't think that academic tools are the bes
 Indeed, managers allocating development funds will usually focus on the dollar savings a technique can bring, regardless of its theoretical effectiveness in fault-finding (as mentioned by respondent author \#43: \quotes{the cost associated with the 1\% bugs that were missed is too high}).
 
 % ===================
-\paragraph{CH5: Converting research into usable tools}
+\subsection{CH5: Converting Research into Usable Tools}
 When techniques are designed in an academic context, they are normally developed as proof-of-concept works.
 That is, the purpose is to show that the technique works and provides significant results according to some metrics.
 However, this leads to two issues: either primary studies do not make their solution available for implementation, as we discussed in~\Cref{sec:lit_rq2}, or their experiments do not thoroughly consider practical concerns such as efficiency or the data requirements of a proposed approach.
@@ -162,7 +165,7 @@ Certain software engineering conferences have started to encourage or even requi
 %\todo{Whose responsibility is it? A PhD student for example could work on this, but are there academic/publishing motivations for it?}
 
 % ===================
-\paragraph{CH6: Absence of \tsr/\tsa}
+\subsection{CH6: Absence of \tsr/\tsa}
 Out of \numpapers papers, only 8 are about \tsr and, surprisingly, only one covers \tsa 
  \citepalias{yoshida_fsx_2016}.
 60\% of the surveyed practitioners claim that ``creating or updating tests'' is a major challenge in real-world \rt, so the desire for \tsa exists and there appears to be ample room for experimenting with new approaches and metrics.
@@ -175,7 +178,7 @@ In reality, this is often addressed by simply increasing the capacity of testing
 This assessment of \tsr and \tsa techniques indicate an opportunity for researchers to develop novel methods for these challenges and to progress in directions that are in need of improvement in software development workflows.
 
 % ===================
-\paragraph{CH7: Clarity of target}
+\subsection{CH7: Clarity of Target}
 Several of the papers we reviewed don't clearly state key characteristics of their SUT, such as its programming language or its scale (either in lines of code or test cases).
 For practitioners and other researchers to consider a paper worthy of investigation, it is important to know for which kind of system a piece of research was designed.
 
@@ -192,7 +195,7 @@ On top of that, some papers use the term ``test case'' to refer to test methods,
 This challenge can be solved by having a paragraph dedicated to explicitly describing the properties and context factors of the experiment subjects.
 
 % ===================
-\paragraph{CH8: Skepticism}
+\subsection{CH8: Skepticism}
 In general, there is some degree of skepticism from practitioners regarding automated solutions.
 For example, some interviewees at the industrial partner expressed concerns that a \tcs solution might leave out an important test, or that \tcp algorithms might always prioritize the same tests.
 Their intuition is that performing selection (or even prioritization) manually allows for easier troubleshooting in case something goes wrong.
@@ -205,7 +208,7 @@ Regarding \tsr, most developers are also opposed to outright removing tests, but
 Finally, for \tsa the practitioners are also doubtful that automatically generated or enhanced tests are as good as human-designed ones, but wouldn't be against to trying it if the need arises.
 
 % ===================
-\paragraph{CH9: Data quality and availability}
+\subsection{CH9: Data Quality and Availability}
 Another point raised by the interviewed practitioners at the industrial partner is their own ability to provide the data required by an automated tool.
 History-based approaches, for example, are more effective when there are many test logs archived for analysis, but in reality these logs are only stored temporarily.
 
@@ -215,7 +218,7 @@ This extends to the test code itself, as highlighted by one of the interviewees:
 If the existing test cases are not standardized and high-quality, automated attempts to improve them are unlikely to yield the desired benefits.
 
 % ===================
-\paragraph{CH10: Communication}
+\subsection{CH10: Communication}
 The main challenge, which connects most of the previous ones, is communication.
 Researchers and practitioners both lead busy lives, focusing on their day-to-day affairs, and ultimately communication between the two realms suffers.
 
@@ -231,3 +234,11 @@ Unfortunately, the practitioners interviewed for \Cref{chap:industry} have mostl
 
 It can be a daunting idea to catch up to latest research trends, so larger companies could consider having employees dedicated to understanding the internal processes and challenges while searching for collaborations with academics, or at least promote internal reading club sessions.
 Many researchers would be thrilled to receive a message inviting them for a joint effort with palpable outcomes.
+
+\section{Threats to Validity}
+\label{sec:gap_threats}
+
+The list of challenges assembled in \Cref{chap:gap} is based on our own observations of the current state of industry-academia relations from a multitude of sources: the literature, communications with other authors, feedback from practitioners and our own experiences developing techniques.
+It is not meant to be a comprehensive and end-all checklist of challenges to solve, as other researchers following different sources would likely come to a divergent set of conclusions.
+That said, we believe that most researchers performing a similar study would agree upon the majority of the listed challenges.
+To the extent of our knowledge, these challenges are real and in need of further study, but there is no guarantee that addressing each one of them will solve all the problems with software engineering research.

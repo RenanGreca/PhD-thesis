@@ -2,19 +2,22 @@
 \label{sec:regression}
 
 In the early stages of commercial software development, computer programs were designed, produced and distributed mostly like physical retail goods.
-That is, there was an initial planning and design phase, followed by an extensive development period and, on a certain deadline, the software was shipped embedded with hardware, or pressed onto floppy disks or CDs to be made available in shelves.
+That is, there was an initial planning and design phase, followed by an extensive development period and, on a certain deadline, the software would be shipped embedded with hardware, or pressed onto disquettes or CDs that could be mailed to customers or made available in store shelves.
 The advent of the Internet made it possible to completely alter this paradigm.
 Now, these three phases still exist in commercial software, but happen much faster and can be repeated iteratively as needed.
-In other words, software companies can initially design and develop the ``minimum viable product'' to be delivered to customers online and, with the software already in use, updates can be develop to add new features, improve existing ones, or correct bugs that can be detected\footnote{This is not the same for all types of software; embedded systems cannot always rely on the ability of pushing patches; and video games, for example, generally deliver complete products on a given deadline to account for distribution and marketing schedules, but even they almost always have an extensive post-release update cycle.}.
-We denote software developed and released in this fashion as \textit{continuously evolving software}.
+In other words, software companies can initially design and develop the ``minimum viable product'' to be delivered to customers online and, with the software already in use, updates can be develop to add new features, improve existing ones, or correct bugs that can be detected\footnote{This is not the same for all types of software; for example, embedded systems cannot always rely on the ability of online updates; meanwhile video games generally deliver complete products on a given deadline to account for distribution and marketing schedules, often followed by an extensive post-release update cycle which resembles the evolving software paradigm.}.
+ 
+We denote software developed and released as ever-evolving products as \textit{continuously evolving software}.
+The concept of evolving software was introduced in the 1970s by \citet{Lehman1980}, although it was in the 1990s that the term and paradigm gained widespread use, due to the accelerated delivery methods becoming available \cite{Mens2008}.
 It can also happen that programs that were originally designed according to the traditional release cycle are, at some point, adapted and converted to be continuously evolving (e.g. Microsoft Windows shifted from yearly ``service packs'' to weekly online updates).
 
 The shift to evolving software, which correlates to the pivot to agile development practices in the mid-2000s, also caused a significant change to how software testing is viewed and addressed.
-Previously, it was common to have team members solely responsible for testing the developers' code, often times manually.
-Nowadays, it is common practice for developers to write and test their own code, and have an active role in the maintenance of the regression testing suite.
+Previously, it was common to see testing as its own stage of development; certain teams had members solely responsible for testing the source code, which was usually a manual process.
+Nowadays, it is common practice for developers to write and test their own code, and have an active role in the maintenance of the regression testing suite, a practice encouraged by the agile method \cite{planview_agile_testing}.
+This has the advantage of speeding up the testing process, although as a drawback it can cause testing to be seen as a ``second-class citizen'' by developers, who would rather create new features than test existing ones.
 
 \textit{Regression testing} is the part of software testing concerned with testing previously existing components of a system to guarantee that recent changes in the codebase did not affect the originally specified functionality of components.
-This process is often one of the costliest aspects of software development \cite{rothermel_improving_2018}, as it should ideally be performed every time a code change is committed, and involves much repetition of previously performed tests.
+This process is one of the costliest aspects of software development \cite{rothermel_improving_2018}, as it should ideally be performed every time a code change is committed, and involves much repetition of previously performed tests.
 It is defined in \cite{minhas_regression_2017} as ``an activity which makes sure that everything is working correctly after changes to the system.''
 That is, its primary objective is to assure that, after each change to the software, previously existing code continues to comply to specification (or simply to expectations, in case no formal specification exists).
 
@@ -27,14 +30,14 @@ Since the software could only be shipped once all features were done, intermedia
 Continuously evolving software shifted this dynamic.
 With smaller and more frequent release cycles, regression testing too became a more frequent activity.
 At the same time, the incredible feature speed demanded by customers and consumers means that it is not viable to postpone testing until right before release --- if a bug is detected at that point, it might be too late to fix it before delivery.
-Thus, with the development of Continuous Integration/Continuous Delivery (CI/CD) practices and tools, automated regression testing became commonplace, sometimes executed as frequently as new code changes were pushed into a repository.
+Thus, with the development of Continuous Integration/Continuous Delivery (CI/CD) practices and tools, automated regression testing became commonplace, sometimes executed as frequently as new code changes are pushed into a repository.
 
 Test automation mostly solves the problem in small projects, where it takes only a few seconds or maybe minutes to run a full test suite.
-Large-scale software demand additional attention because of two factors: the test suite is large and takes a long time to execute, and code commits arrive at such a high frequency that there isn't enough time to run the test suite between each commit.
+Large-scale software demand additional attention because of two factors: the test suite is large and takes a long time to execute, and code commits arrive at such a high frequency that there is not enough time to run the test suite between each commit.
 Often, a combination of both factors become a major challenge in large-scale software development \cite{memon_taming_2017}.
 
 In order to maintain the health of the testing process and the availability of testing equipment, the execution time of a suite should be less than the average time between commits pushed by developers.
-In reality, this is difficult to achieve and maintain, as test suites tend to increase in scale (according to the necessities of an ever-evolving software) and commit frequency remains stable or can even decrease if new developers are added to the team.
+In reality, this is difficult to achieve and maintain, as test suites tend to increase in scale (according to the necessities of an ever-growing software) and commit frequency remains stable or can even increase if new developers are added to the team.
 The straightforward solution is to increase the computational power of testing servers, so testing time reduces by brute force, although obviously this incurs additional costs.
 
 The concept of software size and scale is fundamental for the motivation of this research.
